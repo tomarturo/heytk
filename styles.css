@@ -32,7 +32,6 @@ p {
 body {
     color: #fff;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    overflow: hidden;
     position: relative;
     margin: 0;
 }
@@ -44,6 +43,7 @@ main {
     max-width: 1240px;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
 }
 
 /* END SITE STYLES + STRUCTURE */
@@ -54,11 +54,9 @@ main {
     box-sizing: border-box;
     margin-left: auto;
     width: 70%;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    overflow: scroll;
     padding: 48px;
 }
 
@@ -87,7 +85,7 @@ main {
     position: relative;
 }
 
-.project-card {
+/* .front-card {
     height: 15vh;
     background-color: rgb(23, 23, 24);
     backdrop-filter: blur(10px);
@@ -97,9 +95,9 @@ main {
     padding: 24px 32px;
     border-radius: 16px;
     position: relative;
-}
+} */
 
-.test-card {
+.front-card {
     height: 15vh;
     background-color: rgb(23, 23, 24);
     backdrop-filter: blur(10px);
@@ -114,7 +112,7 @@ main {
     /* transform: rotateX(-40deg); */
 }
 
-.test-accordion-1 {
+.accordion-1 {
     height: 15vh;
     width: 100%;
     background-color: rgba(0, 183, 85, 0.855);
@@ -128,7 +126,7 @@ main {
     
 }
 
-.test-accordion-2 {
+.accordion-2 {
     height: 15vh;
     width: 100%;
     background-color: rgba(183, 6, 0, 0.855);
@@ -141,7 +139,7 @@ main {
     /* transform: rotateX(-30deg); */
 }
 
-.test-accordion-3 {
+.accordion-3 {
     height: 15vh;
     width: 100%;
     background-color: rgba(95, 0, 183, 0.855);
@@ -154,7 +152,7 @@ main {
     /* transform: rotateX(-20deg); */
 }
 
-.test-accordion-4 {
+.accordion-4 {
     height: 15vh;
     width: 100%;
     background-color: rgba(183, 0, 177, 0.855);
@@ -167,7 +165,7 @@ main {
     /* transform: rotateX(-15deg); */
 }
 
-.test-accordion-5 {
+.accordion-5 {
     height: 15vh;
     width: 100%;
     background-color: rgba(0, 64, 183, 0.855);
@@ -193,18 +191,18 @@ main {
 /* START CASE STUDY */
 
 .case-study {
-    height: 0px;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     gap: 24px;
+    height: 0;
+    overflow: hidden;
     transition: height 0.3s ease;
 }
 
 .case-study-slide {
     height: 40vh;
     width: 100%;
-    background-color: olivedrab;
+    background-color:  rgba(0, 183, 85, 0.855);
     border-radius: 16px;
 }
 
@@ -219,12 +217,12 @@ main {
     display: flex;
     flex-direction: row;
     width: 100%;
-    gap: 24px
+    gap: 24px;
 }
 
 .case-study-split-wrapper img {
     border-radius: 16;
-    background-color: orange;
+    background-color:  rgba(183, 6, 0, 0.855);
     height: 40vh;
     width: 50%; 
     border-radius: 16px;
@@ -237,6 +235,9 @@ main {
     width: 35%;
     padding-top: 64px;
     padding-bottom: 24px;
+    align-self: flex-start;
+    position: sticky;
+    top: 0;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -274,6 +275,7 @@ main {
     box-sizing: border-box;
     flex: 2;
     width: 100%;
+    height: 50vh;
     margin-bottom: 16px;
     box-shadow: inset 2px 2px #141414,
         inset -2px -2px #141414;
@@ -316,9 +318,9 @@ iframe {
 
 .icebreaker-tiles-wrapper {
     box-sizing: border-box;
-    overflow-x: scroll;
+    overflow-y: scroll;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     row-gap: 8px;
     column-gap: 8px;
@@ -328,7 +330,7 @@ iframe {
 
 .icebreaker-tile {
     box-sizing: border-box;
-    width: 80%;
+    width: 50%;
     background-color: rgba(29, 28, 32, 0.3);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(120, 120, 120, 0.2);
