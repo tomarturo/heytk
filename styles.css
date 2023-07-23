@@ -1,0 +1,206 @@
+/* typography notes - h1 will need to be much bigger, remove margins on existing header tags e.g. h6 in project card */
+
+@import url(satoshi.css);
+@import url(stabil.css);
+
+h1 {
+    font-family: "Stabil-Grotesk";
+    font-weight: 600;
+    font-size: 64px;
+    margin-bottom: 0;
+}
+
+h2 {
+    font-family: "Stabil-Grotesk";
+    font-weight: 700;
+}
+
+h3, h4, h5, h6 {
+    font-family: "Stabil-Grotesk";
+    font-weight: 600;
+}
+
+p {
+    font-family: "Satoshi-Variable";
+    font-weight: 400;
+}
+
+body {
+    color: #fff;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    gap: 64px;
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.projects-wrapper {
+    box-sizing: border-box;
+    margin-left: auto;
+    width: 70%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: scroll;
+}
+
+.project-card {
+    height: 15vh;
+    background-color: rgba(29, 28, 32, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(120, 120, 120, 0.2);
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    border-radius: 16px;
+}
+
+.first {
+    margin-top: 24px;
+}
+
+.project-header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.project-header-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+    align-items: flex-end;
+    color: #f3f3f3
+} 
+
+.chat-wrapper {
+    box-sizing: border-box;
+    height: 100vh;
+    width: 35%;
+    padding-top: 64px;
+    padding-bottom: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+.chat-wrapper p {
+    color: #f3f3f3;
+}
+
+.chat-header {
+    margin-bottom: 12px;
+}
+
+.chat-header p {
+    font-size: 20px;
+    margin-top: 4px;
+    width: 80%;
+}
+
+.chat-header h1 {
+    margin: 0;
+}
+
+.tk-highlight {
+    font-weight: 800;
+    background: linear-gradient(.45turn, #fff, 80%, #070707);
+    /* background: -webkit-linear-gradient(#ffffff, #141414); */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.embed-wrapper {
+    box-sizing: border-box;
+    flex: 2;
+    width: 100%;
+    margin-bottom: 16px;
+    box-shadow: inset 2px 2px #141414,
+        inset -2px -2px #141414;
+    position: relative;
+}
+
+iframe {
+    height: 100%;
+    width: inherit;
+}
+
+.embed-wrapper::before {
+    content: "";
+    box-shadow: inset 3px 8px black,
+        inset -3px -36px black;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.icebreakers-wrapper {
+    position: relative;
+    max-height: 30%;
+}
+
+.icebreakers-header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    text-transform: uppercase;
+}
+
+.icebreaker-tiles-wrapper {
+    box-sizing: border-box;
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 8px;
+    column-gap: 8px;
+    height: 100%;
+    padding-bottom: 20%;
+}
+
+.icebreaker-tile {
+    box-sizing: border-box;
+    width: 48%;
+    background-color: rgba(29, 28, 32, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(120, 120, 120, 0.2);
+    padding: 4px 6px 4px 6px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.icebreaker-tile p {
+    font-size: 10px;
+    text-decoration: underline;
+    text-transform: uppercase;
+    color: #f3f3f3;
+}
+
+.icebreaker-tile h5 {
+    font-weight: 300;
+}
+
+#gradient-canvas {
+    --gradient-color-1: #141414; 
+    --gradient-color-2: #212121; 
+    --gradient-color-3: #070707;  
+    --gradient-color-4: #151515;
+    position: fixed;
+    z-index: -1;
+}
