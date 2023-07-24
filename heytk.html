@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="chat.css">
     <script src="Gradient.js" ></script>
 </head>
 <body>
@@ -15,9 +16,13 @@
                 <h1>Hi. I'm <span class="tk-highlight">.tk</span></h1>
                 <p>What would you like to learn about Tom Kurzeka?</p>
             </header>
-            <section class="embed-wrapper">
-                <iframe src="https://portfolio-bot-wf71he6swx.streamlit.app/?embed=true" frameborder="0"></iframe>
-            </section>
+            <div id="chat-container">
+                <div id="chat-display"></div>
+                <form id="chat-form" autocomplete="off">
+                    <input type="text" id="user-input" placeholder="Ask .tk..."/>
+                    <button type="submit"></button>
+                </form>
+            </div>
             <section class="icebreakers-wrapper">
                 <header class="icebreakers-header">
                     <h3>Icebreakers</h3>
@@ -176,7 +181,6 @@
             </div>
         </section>
     </main>
-    
     <!-- Start GRADIENT -->
     <script>
         var gradient = new Gradient()
@@ -269,6 +273,69 @@
         });
         });
     });
+    </script>
+    
+    <!-- START CHAT SCRIPTS -->
+    <script>
+        // Array to store chat history
+        var chatHistory = [];
+    
+        // Function to display chat history
+        function displayChatHistory() {
+            $("#chat-display").empty(); // Clear existing chat messages
+            chatHistory.forEach(function (chat) {
+                var messageClass = chat.type === "user" ? "user-message" : "bot-message";
+                $("#chat-display").append("<div class='" + messageClass + "'>" + chat.message + "</div>");
+            });
+            // Scroll down to display the most recent messages
+            var chatDisplay = document.getElementById("chat-display");
+            chatDisplay.scrollTop = chatDisplay.scrollHeight;
+        }
+    
+        $(document).ready(function() {
+            $("#chat-form").submit(function(event) {
+                event.preventDefault();
+    
+                // Get user input
+                var userMessage = $("#user-input").val().trim();
+                if (userMessage === "") {
+                    return;
+                }
+    
+                // Display user message in the chat display area
+                $("#chat-display").append("<div class='user-message'>" + userMessage + "</div>");
+    
+                // Add user message to chat history
+                chatHistory.push({ type: "user", message: userMessage });
+    
+                // Send user message to the Python backend via API
+                $.ajax({
+                    type: "POST",
+                    url: "http://127.0.0.1:5000/api/chat",  // Replace with your Python server URL
+                    data: JSON.stringify({ "message": userMessage }),
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function(response) {
+                        // Display chatbot's response in the chat display area
+                        var botResponse = response.response;
+                        $("#chat-display").append("<div class='bot-message'>" + botResponse + "</div>");
+    
+                        // Add chatbot's response to chat history
+                        chatHistory.push({ type: "bot", message: botResponse });
+    
+                        // Clear the user input field
+                        $("#user-input").val("");
+    
+                        // Scroll down to display the most recent messages
+                        var chatDisplay = document.getElementById("chat-display");
+                        chatDisplay.scrollTop = chatDisplay.scrollHeight;
+                    },
+                    error: function(error) {
+                        console.error("Error sending message:", error);
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
