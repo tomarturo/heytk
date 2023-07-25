@@ -6,47 +6,72 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="projects.css">
+    <link rel="stylesheet" href="icebreakers.css">
+    <link rel="stylesheet" href="casestudy.css">
     <script src="Gradient.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.1.2/chroma.min.js"></script>
 </head>
 <body>
     <canvas id="gradient-canvas" style="width:100vw;height:100vh"></canvas>
     <main class="main">
-        <aside class="chat-wrapper">
-            <header class="chat-header">
-                <h1>Hi. I'm <span class="tk-highlight">.tk</span></h1>
-                <p>What would you like to learn about Tom Kurzeka?</p>
-            </header>
-            <div id="chat-container">
-                <div id="chat-display"></div>
-                <form id="chat-form" autocomplete="off">
-                    <input type="text" id="user-input" placeholder="Ask .tk..."/>
-                    <button type="submit"></button>
-                </form>
+        <aside class="aside-wrapper">
+            <div class="chat-wrapper">
+                <div id="chat-container">
+                    <div id="chat-display">
+                        <div class="bot-message" id="welcome-message">chat.tk</div>
+                        <div class="bot-message">
+                            What do you want to know about Tom Kurzeka?
+                        </div>
+                    </div>
+                    <form id="chat-form" autocomplete="off">
+                        <input type="text" id="user-input" placeholder="Type a question or select a tile"/>
+                        <button type="submit"></button>
+                    </form>
+                </div>
             </div>
             <section class="icebreakers-wrapper">
-                <header class="icebreakers-header">
-                    <h3>Icebreakers</h3>
-                    <h6>100% Organic</h6>
-                </header>
                 <div class="icebreaker-tiles-wrapper">
                     <div class="icebreaker-tile">
-                        <h4>This is a question about Tom</h4>
-                        <p>Copy</p>
+                        <h4 class="copy-text">Tell me about Tom's professional experience.</h4>
+                        <div class="overlay"><h4>Copied to clipboard</h4></div>
                     </div>
                     <div class="icebreaker-tile">
-                        <h4>This is a question about Tom</h4>
-                        <p>Copy</p>
-                    </div><div class="icebreaker-tile">
-                        <h4>This is a question about Tom</h4>
-                        <p>Copy</p>
-                    </div><div class="icebreaker-tile">
-                        <h4>This is a question about Tom</h4>
-                        <p>Copy</p>
+                        <h4 class="copy-text">Tell me about Tom's professional experience.</h4>
+                        <div class="overlay"><h4>Copied to clipboard</h4></div>
+                    </div>
+                    <div class="icebreaker-tile">
+                        <h4 class="copy-text">Tell me about Tom's professional experience.</h4>
+                        <div class="overlay"><h4>Copied to clipboard</h4></div>
+                    </div>
+                    <div class="icebreaker-tile">
+                        <h4 class="copy-text">Tell me about Tom's professional experience.</h4>
+                        <div class="overlay"><h4>Copied to clipboard</h4></div>
+                    </div>
+                    <div class="icebreaker-tile">
+                        <h4 class="copy-text">Tell me about Tom's professional experience.</h4>
+                        <div class="overlay"><h4>Copied to clipboard</h4></div>
+                    </div>
+                    <div class="icebreaker-tile">
+                        <h4 class="copy-text">Tell me about Tom's professional experience.</h4>
+                        <div class="overlay"><h4>Copied to clipboard</h4></div>
+                    </div>
+                    <div class="icebreaker-tile">
+                        <h4 class="copy-text">Tell me about Tom's professional experience.</h4>
+                        <div class="overlay"><h4>Copied to clipboard</h4></div>
+                    </div>
+                    <div class="icebreaker-tile">
+                        <h4 class="copy-text">Tell me about Tom's professional experience.</h4>
+                        <div class="overlay"><h4>Copied to clipboard</h4></div>
                     </div>
                 </div>
             </section>
         </aside>
         <section class="projects-wrapper">
+            <div class="site-title-wrapper" id="gradient-container">
+                <img src="images/site-title.svg" alt="">
+                <img src="images/site-title-details.svg" alt="">
+            </div>
             <div class="project-card-wrapper" id="solutions">
                 <div class="front-card">
                     <header class="project-header">
@@ -63,12 +88,18 @@
                 <div class="accordion-4"></div>
             </div>
             <div class="case-study" id="solutions-study">
-                <div class="case-study-slide">
-                    <h2>This is the opening statement for a case study</h2>
+                <div class="case-study-divider">
+                    <h1 style="padding-bottom: 32px;">A new site experience for small business owners</h1>
+                    <h3 style="font-weight: 300;">Leveraging insights from a four-week design sprint, 
+                        months of iteration, and multiple rounds of user testing, 
+                        I influenced the strategy and scope of 
+                        an experimental customer journey.</h3>
                 </div>
                 <div class="case-study-split-wrapper">
-                    <img src="" alt="">
-                    <img src="" alt="">
+                    <div class="case-study-img-wrapper">
+                        <img src="/images/solutions/solution hero 01.png" alt="Mobile mockup of the soultions marketing homepage carousel"></div>
+                    <div class="case-study-img-wrapper">
+                        <img src="/images/solutions/solution hero 02.png" alt="Mobile mockup of the create even landing page"></div>
                 </div>
                 <div class="case-study-statement">
                     <h3>This is a wide, short statement for the case study</h3>
@@ -179,6 +210,9 @@
                     <p class="case-study-text">This is another statement about this case study</p>
                 </div>
             </div>
+            <div class="site-footer-wrapper" id="gradient-container">
+                <div>footie</div>
+            </div>
         </section>
     </main>
     <!-- Start GRADIENT -->
@@ -274,69 +308,171 @@
         });
     });
     </script>
+
     
     <!-- START CHAT SCRIPTS -->
     <script>
-        // Array to store chat history
-        var chatHistory = [];
-    
-        // Function to display chat history
-        function displayChatHistory() {
-            $("#chat-display").empty(); // Clear existing chat messages
-            chatHistory.forEach(function (chat) {
-                var messageClass = chat.type === "user" ? "user-message" : "bot-message";
-                $("#chat-display").append("<div class='" + messageClass + "'>" + chat.message + "</div>");
-            });
+    // Array to store chat history
+    var chatHistory = [];
+
+    // Function to display chat history
+    function displayChatHistory() {
+        $("#chat-display").empty(); // Clear existing chat messages
+        chatHistory.forEach(function (chat) {
+            var messageClass = chat.type === "user" ? "user-message" : "bot-message";
+            $("#chat-display").append("<div class='" + messageClass + "'>" + chat.message + "</div>");
+        });
+        // Scroll down to display the most recent messages
+        var chatDisplay = document.getElementById("chat-display");
+        chatDisplay.scrollTop = chatDisplay.scrollHeight;
+    }
+
+    $(document).ready(function() {
+        $("#chat-form").submit(function(event) {
+            event.preventDefault();
+
+            // Get user input
+            var userMessage = $("#user-input").val().trim();
+            if (userMessage === "") {
+                return;
+            }
+
+            // Display user message in the chat display area
+            $("#chat-display").append("<div class='user-message'>" + userMessage + "</div>");
+
+            // Add user message to chat history
+            chatHistory.push({ type: "user", message: userMessage });
+
+            // Uncomment the following section to send the user message to the Python backend via API
+            // $.ajax({
+            //     type: "POST",
+            //     url: "http://127.0.0.1:5000/api/chat",  // Replace with your Python server URL
+            //     data: JSON.stringify({ "message": userMessage }),
+            //     contentType: "application/json",
+            //     dataType: "json",
+            //     success: function(response) {
+            //         // Display chatbot's response in the chat display area
+            //         var botResponse = response.response;
+            //         $("#chat-display").append("<div class='bot-message'>" + botResponse + "</div>");
+
+            //         // Add chatbot's response to chat history
+            //         chatHistory.push({ type: "bot", message: botResponse });
+
+            //         // Clear the user input field and reset its height
+            //         $("#user-input").val("");
+            //         $("#user-input").css("height", "");
+
+            //         // Scroll down to display the most recent messages
+            //         var chatDisplay = document.getElementById("chat-display");
+            //         chatDisplay.scrollTop = chatDisplay.scrollHeight;
+            //     },
+            //     error: function(error) {
+            //         console.error("Error sending message:", error);
+            //     }
+            // });
+
+            // Generate a placeholder response (for testing purposes)
+            var placeholderResponse = "This is a placeholder response to: " + userMessage;
+            $("#chat-display").append("<div class='bot-message'>" + placeholderResponse + "</div>");
+
+            // Add the placeholder response to chat history (for testing purposes)
+            chatHistory.push({ type: "bot", message: placeholderResponse });
+
+            // Clear the user input field and reset its height
+            $("#user-input").val("");
+            $("#user-input").css("height", "");
+
             // Scroll down to display the most recent messages
             var chatDisplay = document.getElementById("chat-display");
             chatDisplay.scrollTop = chatDisplay.scrollHeight;
-        }
-    
-        $(document).ready(function() {
-            $("#chat-form").submit(function(event) {
-                event.preventDefault();
-    
-                // Get user input
-                var userMessage = $("#user-input").val().trim();
-                if (userMessage === "") {
-                    return;
-                }
-    
-                // Display user message in the chat display area
-                $("#chat-display").append("<div class='user-message'>" + userMessage + "</div>");
-    
-                // Add user message to chat history
-                chatHistory.push({ type: "user", message: userMessage });
-    
-                // Send user message to the Python backend via API
-                $.ajax({
-                    type: "POST",
-                    url: "http://127.0.0.1:5000/api/chat",  // Replace with your Python server URL
-                    data: JSON.stringify({ "message": userMessage }),
-                    contentType: "application/json",
-                    dataType: "json",
-                    success: function(response) {
-                        // Display chatbot's response in the chat display area
-                        var botResponse = response.response;
-                        $("#chat-display").append("<div class='bot-message'>" + botResponse + "</div>");
-    
-                        // Add chatbot's response to chat history
-                        chatHistory.push({ type: "bot", message: botResponse });
-    
-                        // Clear the user input field
-                        $("#user-input").val("");
-    
-                        // Scroll down to display the most recent messages
-                        var chatDisplay = document.getElementById("chat-display");
-                        chatDisplay.scrollTop = chatDisplay.scrollHeight;
-                    },
-                    error: function(error) {
-                        console.error("Error sending message:", error);
-                    }
-                });
-            });
         });
-    </script>
+
+        // Adjust input field height to grow up to three lines with a vertical scrollbar
+        $("#user-input").on("input", function() {
+            this.style.height = "auto";
+            this.style.height = (this.scrollHeight) + "px";
+        });
+    });
+</script>
+
+
+<!-- Start icebreaker text copy -->
+<script>
+$(document).ready(function() {
+$(".icebreaker-tile").click(function() {
+    // Get the h4 text from the clicked tile
+    var h4Text = $(this).find("h4.copy-text").text();
+
+    // Create a temporary textarea element to copy text to clipboard
+    var tempTextArea = $("<textarea>");
+    tempTextArea.val(h4Text);
+    $("body").append(tempTextArea);
+
+    // Copy the text from the textarea to clipboard
+    tempTextArea.select();
+    document.execCommand("copy");
+
+    // Remove the temporary textarea
+    tempTextArea.remove();
+
+    // Show the overlay with "Copied to clipboard" message and hide the original text
+    $(this).addClass("copied");
+    setTimeout(function() {
+        $(this).removeClass("copied");
+    }.bind(this), 1500);
+});
+});
+</script>
+
+<!-- Start title div background color -->
+
+<script>
+    $(document).ready(function() {
+        // Function to calculate triadic color combinations
+        function calculateTriadicColors(color) {
+            const color1 = chroma(color).rotate(120).hex();
+            const color2 = chroma(color).rotate(-120).hex();
+            return [color, color1, color2];
+        }
+
+        // Array of 12 colors for the animation
+        const colors = ['#FF4D4D', '#4D4DFF', '#FFD94D', '#4DFF4D', '#D94DFF', '#4DFFD9',
+                        '#FFA64D', '#A64DFF', '#FF4D99', '#4D99FF', '#99FF4D', '#FF4DA6'];
+
+        // Animation duration and interval
+        const animationDuration = 2000; // 2 seconds
+        const interval = animationDuration / colors.length;
+
+        // Function to animate the gradient background
+        function animateGradient() {
+            let currentIndex = 0;
+
+            function updateGradientColor() {
+                const currentColor = colors[currentIndex];
+                const triadicColors = calculateTriadicColors(currentColor);
+                const gradientValue = `radial-gradient(ellipse at right, ${triadicColors.join(", ")})`;
+                $(".gradient-container").css("background", gradientValue);
+
+                currentIndex = (currentIndex + 1) % colors.length;
+            }
+
+            // Initial animation
+            updateGradientColor();
+
+            // Set interval for animation
+            const animationInterval = setInterval(updateGradientColor, interval);
+
+            // Clear interval after animation duration
+            setTimeout(() => {
+                clearInterval(animationInterval);
+            }, animationDuration);
+        }
+
+        // Start the gradient animation
+        animateGradient();
+    });
+</script>
+    
 </body>
 </html>
 

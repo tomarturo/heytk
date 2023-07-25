@@ -1,13 +1,12 @@
 /* START TYPOGRAPHY */
 
-@import url(satoshi.css);
-@import url(stabil.css);
+@import url(fonts.css);
 
 h1 {
     font-family: "Stabil-Grotesk";
     font-weight: 600;
     font-size: 64px;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 h2 {
@@ -25,9 +24,7 @@ p {
     font-weight: 400;
 }
 
-/* END TYPOGRAPHY */
-
-/* START SITE STYLES, STRUCTURE */
+/* START SITE STYLES + LAYOUT */
 
 body {
     color: #fff;
@@ -39,250 +36,44 @@ body {
 main {
     display: flex;
     flex-direction: row;
-    gap: 32px;
-    max-width: 1220px;
+    gap: 64px;
+    max-width: 1600px;
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    padding-top: 24px;
 }
 
-/* END SITE STYLES + STRUCTURE */
+/* START SITE TITLE CARD STYLES */
 
-/* START PROJECTS */
-
-.projects-wrapper {
-    box-sizing: border-box;
-    margin-left: auto;
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 64px 32px 32px 32px;
+.site-title-wrapper {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: flex-end;
+border-radius: 16px;
+padding: 16px;
+height: 55vh;
+background-color:mediumslateblue;
+margin-bottom: 8px;
 }
 
-.project-header {
-    width: 100%;
+.site-footer-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.project-header img {
-    display: inline-block;
-    max-width: 40px;    
-    align-content: center;
-}
-
-.project-title-wrapper {
-    display: flex;
-    flex-direction: column;
-}
-
-.project-card-wrapper {
-    perspective: 3000px;
-    perspective-origin: 50% 0;
-    position: relative;
-}
-
-/* .front-card {
-    height: 15vh;
-    background-color: rgb(23, 23, 24);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(120, 120, 120, 0.2);
-    display: flex;
-    flex-direction: row;
-    padding: 24px 32px;
+    align-items: flex-end;
     border-radius: 16px;
-    position: relative;
+    padding: 16px;
+    height: 55vh;
+    background-color: rgb(216, 162, 91);
+    margin-bottom: 8px;
+    }
+/* #gradient-container {
+background: radial-gradient(ellipse at right, #FF4D4D, #4D4DFF);
 } */
 
-.front-card {
-    height: 15vh;
-    background-color: rgb(23, 23, 24);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(120, 120, 120, 0.2);
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
-    border-radius: 16px;
-    position: relative;
-    z-index: 6;
-    transform-origin: 50% 100%;
-    /* transform: rotateX(-40deg); */
-}
-
-.accordion-1 {
-    height: 15vh;
-    width: 100%;
-    background-color: rgba(0, 183, 85, 0.855);
-    border-radius: 16px;
-    backdrop-filter: blur(10px);
-    position: absolute;
-    top: 0;
-    z-index: 5;
-    transform-origin: 50% 100%;
-    /* transform: rotateX(-40deg); */
-    
-}
-
-.accordion-2 {
-    height: 15vh;
-    width: 100%;
-    background-color: rgba(183, 6, 0, 0.855);
-    border-radius: 16px;
-    backdrop-filter: blur(10px);
-    position: absolute;
-    top: 0;
-    z-index: 4;
-    transform-origin: 50% 100%;
-    /* transform: rotateX(-30deg); */
-}
-
-.accordion-3 {
-    height: 15vh;
-    width: 100%;
-    background-color: rgba(95, 0, 183, 0.855);
-    border-radius: 16px;
-    backdrop-filter: blur(10px);
-    position: absolute;
-    top: 0;
-    z-index: 3;
-    transform-origin: 50% 100%;
-    /* transform: rotateX(-20deg); */
-}
-
-.accordion-4 {
-    height: 15vh;
-    width: 100%;
-    background-color: rgba(183, 0, 177, 0.855);
-    border-radius: 16px;
-    backdrop-filter: blur(10px);
-    position: absolute;
-    top: 0;
-    z-index: 2;
-    transform-origin: 50% 100%;
-    /* transform: rotateX(-15deg); */
-}
-
-.accordion-5 {
-    height: 15vh;
-    width: 100%;
-    background-color: rgba(0, 64, 183, 0.855);
-    border-radius: 16px;
-    backdrop-filter: blur(10px);
-    position: absolute;
-    top: 0;
-    z-index: 2;
-    transform-origin: 50% 100%;
-    /* transform: rotateX(-2deg); */
-}
-
-.first {
-    margin-top: 24px;
-}
-
-.project-header h2 {
-    margin-bottom: 0;
-}
-
-/* END PROJECTS */
-
-/* START CASE STUDY */
-
-.case-study {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    height: 0;
-    overflow: hidden;
-    transition: height 0.3s ease;
-}
-
-.case-study-slide {
-    height: 40vh;
-    width: 100%;
-    background-color:  rgba(0, 183, 85, 0.855);
-    border-radius: 16px;
-}
-
-.case-study-statement {
-    padding-top: 24px;
-    padding-bottom: 24px;
-    border-radius: 16px;
-    background-color:rgba(183, 0, 177, 0.855);
-}
-
-.case-study-split-wrapper {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    gap: 24px;
-}
-
-.case-study-split-wrapper img {
-    border-radius: 16;
-    background-color:  rgba(183, 6, 0, 0.855);
-    height: 40vh;
-    width: 50%; 
-    border-radius: 16px;
-}
-/* START CHAT */
-
-/* END CHAT */
-
-/* START ICEBREAKERS */
-
-.icebreakers-wrapper {
-    position: relative;
-    max-height: 30%;
-}
-
-.icebreakers-header {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    text-transform: uppercase;
-}
-
-.icebreaker-tiles-wrapper {
-    box-sizing: border-box;
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    row-gap: 8px;
-    column-gap: 8px;
-    height: 100%;
-    padding-bottom: 20%;
-}
-
-.icebreaker-tile {
-    box-sizing: border-box;
-    width: 100%;
-    background-color: rgba(29, 28, 32, 0.3);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(120, 120, 120, 0.2);
-    padding: 4px 6px 4px 6px;
-    text-align: center;
-    border-radius: 8px;
-}
-
-.icebreaker-tile p {
-    font-size: 12px;
-    text-decoration: underline;
-    text-transform: uppercase;
-    color: #f3f3f3;
-}
-
-.icebreaker-tile h4 {
-    font-weight: 400;
-}
-
-/* END ICEBREAKERS */
-
-/* START GRADIENT */
+/* START BACKGROUND GRADIENT */
 
 #gradient-canvas {
     --gradient-color-1: #141414; 

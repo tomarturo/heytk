@@ -1,0 +1,187 @@
+@import url(satoshi.css);
+@import url(stabil.css);
+
+
+.aside-wrapper {
+  box-sizing: border-box;
+  height: 100vh;
+  max-width: 25%;
+  align-self: flex-start;
+  position: sticky;
+  top: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+
+.aside-wrapper p {
+  color: #f3f3f3;
+}
+
+.chat-wrapper {
+  height: 100%;
+  max-height: 55vh;
+  min-height: 55vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgb(23, 23, 24);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(120, 120, 120, 0.2);
+  border-radius: 16px;;
+  padding: 16px 16px 16px 12px;
+  margin-bottom: 24px;;
+}
+
+.chat-header {
+  margin-bottom: 12px;
+}
+
+.chat-header p {
+  font-size: 20px;
+  margin-top: 4px;
+  width: 80%;
+}
+
+.chat-header h1 {
+  margin: 0;
+}
+
+#chat-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    backdrop-filter: blur(10px); 
+    height: 100%;
+    font-family: "Stabil-Grotesk";
+  }
+
+/* Chat display area styles */
+#chat-display {
+  overflow-y: auto;
+  font-family: "Stabil-Grotesk";
+  padding: 0px 12px 12px 12px;
+}
+
+/* User message styles */
+.user-message {
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-family: "Stabil-Grotesk";
+  color: #a2a2a2;
+}
+
+/* Bot message styles */
+.bot-message {
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-family: "Stabil-Grotesk";
+  position: relative;
+}
+
+.cursor-animation {
+  position: absolute;
+  width: 2px;
+  height: 20px;
+  background-color: #fff;
+  animation: blink 1s step-end infinite; /* Define the blinking animation */
+  right: -8px; /* Adjust the position of the cursor */
+}
+
+@keyframes blink {
+  50% {
+      opacity: 0; /* Make the cursor invisible */
+  }
+}
+
+#welcome-message {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+
+/* User input field styles */
+#user-input {
+  width: 90%;
+  padding: 8px 16px 8px 16px;
+  font-size: 16px;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  white-space: break-spaces; /* Allow text to wrap and use vertical scrollbar */
+  overflow-y: auto; /* Show vertical scrollbar when necessary */
+}
+
+input:focus {
+  outline: none;
+}
+
+input {
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(23, 23, 24, 0.5);
+  border-radius: 50px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 50px;
+}
+
+form:focus-within { 
+  outline: 1px solid white; 
+}
+
+/* Submit button styles */
+button {
+  width: 36px;
+  height: 36px;
+  background-image: url(/images/Send.svg);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  padding: 8px;
+  margin-right: 12px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+/* button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+} */
+
+
+
+
+/* .chat-wrapper {
+  box-sizing: border-box;
+  flex: 2;
+  width: 100%;
+  height: 50vh;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+iframe {
+  height: 100%;
+  width: inherit;
+}
+
+.embed-wrapper::before {
+  content: "";
+  box-shadow: inset 3px 8px black,
+      inset -3px -36px black;
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+} */
