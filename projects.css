@@ -42,16 +42,31 @@
 .front-card {
     height: 15vh;
     background-color: rgb(23, 23, 24);
-    backdrop-filter: blur(10px);
     border: 1px solid rgba(120, 120, 120, 0.2);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 20px;
     border-radius: 16px;
     position: relative;
     z-index: 6;
     transform-origin: 50% 100%;
     cursor: pointer;
+}
+
+.front-card-active {
+    height: auto;
+}
+
+.project-description {
+    display: none;
+    margin-left: 25%;
+    text-align: right;
+    padding: 24px;
+}
+
+.project-description h3 {
+    text-align: justify;
+    
 }
 
 .accordion-1 {
@@ -122,4 +137,45 @@
     margin-bottom: 0;
 }
 
-/* END PROJECTS */
+/* MEDIA QUERIES */
+
+/* Extra Small Devices (XS) */
+@media (max-width: 575.98px) {
+    .projects-wrapper {
+        width: 100%;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+  }
+  
+  /* Small Devices (SM) */
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    main {
+      /* Your styles for small devices here */
+    }
+  }
+  
+  /* Medium Devices (MD) */
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .projects-wrapper {
+      max-width: 70vw;
+    }
+  }
+  
+  /* Large Devices (LG) */
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    .projects-wrapper {
+      max-width: 65vw;
+    }
+
+  }
+  
+  /* Extra Large Devices (XL) */
+  @media (min-width: 1200px) and (max-width: 1600px) {
+    main {
+      gap: 32px;
+      margin-left: 32px;
+      margin-right: 32px;
+    }
+  }
+ 

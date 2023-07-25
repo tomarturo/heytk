@@ -81,6 +81,13 @@
                         </div>
                         <img src="./images/logos/vista-logo.svg" alt="VistaPrint company logo in black and white">
                     </header>
+                    <div class="project-description">
+                        <h1 style="padding-bottom: 32px;">A new site experience for small business owners</h1>
+                        <h3 style="font-weight: 300;">Leveraging insights from a four-week design sprint, 
+                            months of iteration, and multiple rounds of user testing, 
+                            I influenced the strategy and scope of 
+                            an experimental customer journey.</h3>
+                    </div>
                 </div>
                 <div class="accordion-1"></div>
                 <div class="accordion-2"></div>
@@ -89,7 +96,6 @@
             </div>
             <div class="case-study" id="solutions-study">
                 <div class="case-study-divider">
-                    <h1 style="padding-bottom: 32px;">A new site experience for small business owners</h1>
                     <h3 style="font-weight: 300;">Leveraging insights from a four-week design sprint, 
                         months of iteration, and multiple rounds of user testing, 
                         I influenced the strategy and scope of 
@@ -120,6 +126,10 @@
                         </div>
                         <img src="./images/logos/vista-logo.svg" alt="VistaPrint company logo in black and white">
                     </header>
+                    <div class="project-description">
+                        <h1 style="padding-bottom: 32px;">Elevating brand to the forefront of the customer journey</h1>
+                        <h3 style="font-weight: 300;">I collaborated with six different design teams to unify work in progress into a vision of a shopping modality guided by a golden thread: brand identity.</h3>
+                    </div>
                 </div>
                 <div class="accordion-1"></div>
                 <div class="accordion-2"></div>
@@ -153,6 +163,13 @@
                         </div>
                         <img src="./images/logos/the-dyrt-logo.svg" alt="The Dyrt company logo in white">
                     </header>
+                    <div class="project-description">
+                        <h1 style="padding-bottom: 32px;">A new site experience for small business owners</h1>
+                        <h3 style="font-weight: 300;">Leveraging insights from a four-week design sprint, 
+                            months of iteration, and multiple rounds of user testing, 
+                            I influenced the strategy and scope of 
+                            an experimental customer journey.</h3>
+                    </div>
                 </div>
                 <div class="accordion-1"></div>
                 <div class="accordion-2"></div>
@@ -186,6 +203,13 @@
                         </div>
                         <img src="/images/logos/the-dyrt-logo.svg" alt="The Dyrt company logo in white">
                     </header>
+                    <div class="project-description">
+                        <h1 style="padding-bottom: 32px;">A new site experience for small business owners</h1>
+                        <h3 style="font-weight: 300;">Leveraging insights from a four-week design sprint, 
+                            months of iteration, and multiple rounds of user testing, 
+                            I influenced the strategy and scope of 
+                            an experimental customer journey.</h3>
+                    </div>
                 </div>
                 <div class="accordion-1"></div>
                 <div class="accordion-2"></div>
@@ -225,6 +249,113 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script>
+        $(document).ready(function() {
+            var projectCards = $(".project-card-wrapper");
+            var caseStudies = $(".case-study");
+            var isOpen = [false, false, false, false];
+            var colors = ["green", "blue", "red", "yellow"];
+    
+            function playHoverAnimation(index) {
+                // Play the hover animation if the card is not open
+                if (!isOpen[index]) {
+                    var card_hover = gsap.timeline({ paused: true });
+    
+                    // Apply the staggered rotation animation
+                    card_hover.to(projectCards.eq(index).find(".front-card, .accordion-1, .accordion-2, .accordion-3"), {
+                        stagger: {
+                            each: 0.02,
+                            from: "start",
+                            ease: "back.out",
+                        },
+                        duration: 0.3,
+                        ease: "back.out",
+                        rotateX: function (i) {
+                            return -45 + i * 10;
+                        },
+                        scaleY: 1.03,
+                    });
+    
+                    card_hover.play();
+                }
+            }
+    
+            function reverseHoverAnimation(index) {
+                // Reverse the hover animation if the card is not open
+                if (!isOpen[index]) {
+                    var card_hover = gsap.timeline({ paused: true });
+    
+                    // Apply the staggered rotation animation in reverse
+                    card_hover.to(projectCards.eq(index).find(".front-card, .accordion-1, .accordion-2, .accordion-3"), {
+                        stagger: {
+                            each: 0.02,
+                            from: "end",
+                            ease: "circ.out",
+                        },
+                        duration: 0.3,
+                        ease: "circ.out",
+                        rotateX: 0,
+                        scaleY: 1,
+                    });
+    
+                    card_hover.play();
+                }
+            }
+    
+            projectCards.each(function(index) {
+                $(this).hover(
+                    function() {
+                        playHoverAnimation(index);
+                    },
+                    function() {
+                        reverseHoverAnimation(index);
+                    }
+                );
+    
+                $(this).click(function() {
+                    console.log("Clicked Card " + (index + 1) + "!");
+                    var caseStudy = caseStudies.eq(index);
+                    var frontCard = projectCards.eq(index).find(".front-card");
+                    var projectDescription = projectCards.eq(index).find(".project-description");
+    
+                    if (isOpen[index]) {
+                        // Collapse the project description
+                        projectDescription.slideUp(300, function() {
+                            frontCard.css({height: "15vh", "background-color": "rgb(23,23,24)"}); // Reset front-card height
+                            console.log("Animation completed!");
+                        });
+                    } else {
+                        // Reverse the hover animation if the card is not open and is clicked
+                        reverseHoverAnimation(index);
+                        // Expand the project description
+                        frontCard.css({"height": "auto", "background-color": colors[index]}); // Set front-card height to auto & set background color based on the index
+                        projectDescription.slideDown(300, function() {
+                            console.log("Animation completed!");
+                        });
+                    }
+                    if (isOpen[index]) {
+                        caseStudy.slideUp(300, function() {
+                        caseStudy.css({ overflow: "hidden", height: "0", display: "none" }); // Change overflow to hidden after slideUp
+                        console.log("Animation completed!");
+                    });
+                    } else {
+                    // Reverse the hover animation if the card is not open and is clicked
+                    reverseHoverAnimation(index);
+                    caseStudy.slideDown(300, function() {
+                        caseStudy.css({ overflow: "auto", height: "auto", display: "flex" }); // Change overflow to auto after slideDown
+                        console.log("Animation completed!");
+                    });
+                    }
+
+                    isOpen[index] = !isOpen[index];
+                });
+            });
+        });
+    </script>
+    
+  
+  
+  
+    <!-- <script>
     $(document).ready(function() {
         var projectCards = $(".project-card-wrapper");
         var caseStudies = $(".case-study");
@@ -292,14 +423,14 @@
 
             if (isOpen[index]) {
             caseStudy.slideUp(300, function() {
-                caseStudy.css({ overflow: "hidden", height: "0" }); // Change overflow to hidden after slideUp
+                caseStudy.css({ overflow: "hidden", height: "0", display: "none" }); // Change overflow to hidden after slideUp
                 console.log("Animation completed!");
             });
             } else {
             // Reverse the hover animation if the card is not open and is clicked
             reverseHoverAnimation(index);
             caseStudy.slideDown(300, function() {
-                caseStudy.css({ overflow: "auto", height: "auto" }); // Change overflow to auto after slideDown
+                caseStudy.css({ overflow: "auto", height: "auto", display: "flex" }); // Change overflow to auto after slideDown
                 console.log("Animation completed!");
             });
             }
@@ -307,7 +438,7 @@
         });
         });
     });
-    </script>
+    </script> -->
 
     
     <!-- START CHAT SCRIPTS -->
@@ -424,7 +555,7 @@ $(".icebreaker-tile").click(function() {
 });
 </script>
 
-<!-- Start title div background color -->
+<!-- Start  site-title div background color -->
 
 <script>
     $(document).ready(function() {

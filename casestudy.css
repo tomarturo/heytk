@@ -1,7 +1,7 @@
 /* START CASE STUDY */
 
 .case-study {
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 24px;
     height: 0;

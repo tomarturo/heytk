@@ -82,4 +82,38 @@
     color: #fff;
 }
 
-/* END ICEBREAKERS */
+/* MEDIA QUERIES */
+
+/* Extra Small Devices (XS) */
+@media (max-width: 575.98px) {
+    .icebreakers-wrapper {
+        
+    }
+  }
+  
+  /* Small Devices (SM) */
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    .icebreakers-wrapper {
+    }
+  }
+  
+  /* Medium Devices (MD) */
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .icebreakers-wrapper {
+    
+      }
+  }
+  
+  /* Large Devices (LG) */
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    .icebreakers-wrapper {
+    
+    }
+  }
+  
+  /* Extra Large Devices (XL) */
+  @media (min-width: 1200px) and (max-width: 1600px) {
+    .icebreakers-wrapper {
+      
+    }
+  }
