@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="projects.css">
+    <link rel="stylesheet" href="icebreakers.css">
+    <link rel="stylesheet" href="casestudy.css">
+    <script src="Gradient.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js" integrity="sha512-zInFF17qBFVvvvFpIfeBzo7Tj7+rQxLeTJDmbxjBz5/zIr89YVbTNelNhdTT+/DCrxoVzBeUPVFJsczKbB7sew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <canvas id="gradient-canvas" style="width:100vw;height:100vh"></canvas>
+    <main class="main">
+        <div class="mobile-nav">
+            <div class="projects-link">projects</div>
+            <div class="chat-link">chat.tk</div>
+        </div>
+        <section class="aside-wrapper">
+            <div class="chat-wrapper">
+                <div id="chat-container">
+                    <div id="chat-display">
+                        <div class="bot-message" id="welcome-message">chat.tk</div>
+                        <div class="bot-message">
+                            What do you want to know about Tom Kurzeka?
+                        </div>
+                    </div>
+                    <form id="chat-form" autocomplete="off">
+                        <input type="text" id="user-input" placeholder="Type a question or select a tile"/>
+                        <button type="submit"></button>
+                    </form>
+                </div>
+            </div>
+            <section class="icebreakers-wrapper">
+                <div class="icebreaker-tiles-wrapper">
+                    <div class="icebreaker-tile">
+                        <h4 class="copy-text">Tell me about Tom's professional experience.</h4>
+                        <div class="overlay"><h4>Copied to clipboard</h4></div>
+                    </div>
+                    <div class="icebreaker-tile">
+                        <h4 class="copy-text">Tell me about Tom's professional experience.</h4>
+                        <div class="overlay"><h4>Copied to clipboard</h4></div>
+                    </div>
+                    <div class="icebreaker-tile">
+                        <h4 class="copy-text">Tell me about Tom's professional experience.</h4>
+                        <div class="overlay"><h4>Copied to clipboard</h4></div>
+                    </div>
+                    <div class="icebreaker-tile">
+                        <h4 class="copy-text">Tell me about Tom's professional experience.</h4>
+                        <div class="overlay"><h4>Copied to clipboard</h4></div>
+                    </div>
+                    <div class="icebreaker-tile">
+                        <h4 class="copy-text">Tell me about Tom's professional experience.</h4>
+                        <div class="overlay"><h4>Copied to clipboard</h4></div>
+                    </div>
+                    <div class="icebreaker-tile">
+                        <h4 class="copy-text">Tell me about Tom's professional experience.</h4>
+                        <div class="overlay"><h4>Copied to clipboard</h4></div>
+                    </div>
+                    <div class="icebreaker-tile">
+                        <h4 class="copy-text">Tell me about Tom's professional experience.</h4>
+                        <div class="overlay"><h4>Copied to clipboard</h4></div>
+                    </div>
+                    <div class="icebreaker-tile">
+                        <h4 class="copy-text">Tell me about Tom's professional experience.</h4>
+                        <div class="overlay"><h4>Copied to clipboard</h4></div>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <div class="site-title-wrapper">
+            <img src="images/site-title blk.svg" alt="" id="site-title-img">
+            <img src="images/site-title-details blk.svg" alt="" id="site-title-details-img">
+            <canvas id="site-title-background"></canvas>
+        </div>
+        <section class="projects-wrapper">
+            <div class="project-card-wrapper" id="solutions">
+                <div class="front-card">
+                    <header class="project-header">
+                        <div class="project-title-wrapper">
+                            <h2>Small Business Solutions</h2>
+                            <p>VistaPrint • 2023</p>
+                        </div>
+                        <img src="./images/logos/vista-logo.svg" alt="VistaPrint company logo in black and white">
+                    </header>
+                    <div class="project-description">
+                        <h1 style="padding-bottom: 32px;">A new site experience for small business owners</h1>
+                        <h3 style="font-weight: 300;">Leveraging insights from a four-week design sprint, 
+                            months of iteration, and multiple rounds of user testing, 
+                            I influenced the strategy and scope of 
+                            an experimental customer journey.</h3>
+                    </div>
+                </div>
+                <div class="accordion-1"></div>
+                <div class="accordion-2"></div>
+                <div class="accordion-3"></div>
+                <div class="accordion-4"></div>
+            </div>
+            <div class="case-study" id="solutions-study">
+                <div class="case-study-divider">
+                    <h3 style="font-weight: 300;">Leveraging insights from a four-week design sprint, 
+                        months of iteration, and multiple rounds of user testing, 
+                        I influenced the strategy and scope of 
+                        an experimental customer journey.</h3>
+                </div>
+                <div class="case-study-split-wrapper">
+                    <div class="case-study-img-wrapper">
+                        <img src="/images/solutions/solution hero 01.png" alt="Mobile mockup of the soultions marketing homepage carousel"></div>
+                    <div class="case-study-img-wrapper">
+                        <img src="/images/solutions/solution hero 02.png" alt="Mobile mockup of the create even landing page"></div>
+                </div>
+                <div class="case-study-statement">
+                    <h3>This is a wide, short statement for the case study</h3>
+                </div>
+                <div class="case-study-slide">
+                    <p class="case-study-text">This is another statement about this case study</p>
+                </div>
+                <div class="case-study-slide">
+                    <p class="case-study-text">This is another statement about this case study</p>
+                </div>
+            </div>
+            <div class="project-card-wrapper" id="brand-first">
+                <div class="front-card">
+                    <header class="project-header">
+                        <div class="project-title-wrapper">
+                            <h2>Brand-First Customer Journey</h2>
+                            <p>VistaPrint • 2023</p>
+                        </div>
+                        <img src="./images/logos/vista-logo.svg" alt="VistaPrint company logo in black and white">
+                    </header>
+                    <div class="project-description">
+                        <h1 style="padding-bottom: 32px;">Elevating brand to the forefront of the customer journey</h1>
+                        <h3 style="font-weight: 300;">I collaborated with six different design teams to unify work in progress into a vision of a shopping modality guided by a golden thread: brand</h3>
+                    </div>
+                </div>
+                <div class="accordion-1"></div>
+                <div class="accordion-2"></div>
+                <div class="accordion-3"></div>
+                <div class="accordion-4"></div>
+            </div>
+            <div class="case-study" id="brand-first-study">
+                <div class="case-study-slide">
+                    <h2>This is the opening statement for a case study</h2>
+                </div>
+                <div class="case-study-split-wrapper">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+                <div class="case-study-statement">
+                    <h3>This is a wide, short statement for the case study</h3>
+                </div>
+                <div class="case-study-slide">
+                    <p class="case-study-text">This is another statement about this case study</p>
+                </div>
+                <div class="case-study-slide">
+                    <p class="case-study-text">This is another statement about this case study</p>
+                </div>
+            </div>
+            <div class="project-card-wrapper" id="field-reports">
+                <div class="front-card">
+                    <header class="project-header">
+                        <div class="project-title-wrapper">
+                            <h2>Field Reports Data Pipeline</h2>
+                            <p>The Dyrt • 2022</p>
+                        </div>
+                        <img src="./images/logos/the-dyrt-logo.svg" alt="The Dyrt company logo in white">
+                    </header>
+                    <div class="project-description">
+                        <h1 style="padding-bottom: 32px;">A new site experience for small business owners</h1>
+                        <h3 style="font-weight: 300;">Leveraging insights from a four-week design sprint, 
+                            months of iteration, and multiple rounds of user testing, 
+                            I influenced the strategy and scope of 
+                            an experimental customer journey.</h3>
+                    </div>
+                </div>
+                <div class="accordion-1"></div>
+                <div class="accordion-2"></div>
+                <div class="accordion-3"></div>
+                <div class="accordion-4"></div>
+            </div>
+            <div class="case-study" id="field-reports-study">
+                <div class="case-study-slide">
+                    <h2>This is the opening statement for a case study</h2>
+                </div>
+                <div class="case-study-split-wrapper">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+                <div class="case-study-statement">
+                    <h3>This is a wide, short statement for the case study</h3>
+                </div>
+                <div class="case-study-slide">
+                    <p class="case-study-text">This is another statement about this case study</p>
+                </div>
+                <div class="case-study-slide">
+                    <p class="case-study-text">This is another statement about this case study</p>
+                </div>
+            </div>
+            <div class="project-card-wrapper" id="manager-portal">
+                <div class="front-card">
+                    <header class="project-header">
+                        <div>
+                            <h2>Inventory Management Portal</h2>
+                            <p>The Dyrt • 2022</p>
+                        </div>
+                        <img src="/images/logos/the-dyrt-logo.svg" alt="The Dyrt company logo in white">
+                    </header>
+                    <div class="project-description">
+                        <h1 style="padding-bottom: 32px;">A new site experience for small business owners</h1>
+                        <h3 style="font-weight: 300;">Leveraging insights from a four-week design sprint, 
+                            months of iteration, and multiple rounds of user testing, 
+                            I influenced the strategy and scope of 
+                            an experimental customer journey.</h3>
+                    </div>
+                </div>
+                <div class="accordion-1"></div>
+                <div class="accordion-2"></div>
+                <div class="accordion-3"></div>
+                <div class="accordion-4"></div>
+            </div>
+            <div class="case-study" id="manager-portal-study">
+                <div class="case-study-slide">
+                    <h2>This is the opening statement for a case study</h2>
+                </div>
+                <div class="case-study-split-wrapper">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+                <div class="case-study-statement">
+                    <h3>This is a wide, short statement for the case study</h3>
+                </div>
+                <div class="case-study-slide">
+                    <p class="case-study-text">This is another statement about this case study</p>
+                </div>
+                <div class="case-study-slide">
+                    <p class="case-study-text">This is another statement about this case study</p>
+                </div>
+            </div>
+            <div class="site-footer-wrapper" id="gradient-container">
+                <div>footie</div>
+            </div>
+        </section>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
+

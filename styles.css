@@ -28,59 +28,91 @@ p {
     --font-weight-700: 700;
     --font-weight-800: 800;
     --font-weight-900: 900;
-  }
+    --chroma-color: #438bd8;
+}
+
+body {
+    box-sizing: border-box;
+}
   
-  /* Base font size for h1 */
-  h1 {
+/* Base font size for h1 */
+h1 {
     font-size: 48px;
     font-weight: var(--font-weight-700);
     margin-bottom: 1.618em; /* Golden ratio */
-  }
-  
-  /* Heading sizes and intervals based on golden ratio */
-  h2 {
+}
+
+/* Heading sizes and intervals based on golden ratio */
+h2 {
     font-size: calc(48px / 1.618); /* Golden ratio */
     font-weight: var(--font-weight-600);
     margin-bottom: 24px; /* Adjust as needed */
-  }
-  
-  h3 {
+}
+
+h3 {
     font-size: calc(48px / 1.618 / 1.618); /* Golden ratio squared */
     font-weight: var(--font-weight-500);
     margin-bottom: 39px; /* Adjust as needed */
-  }
-  
-  h4 {
+}
+
+h4 {
     font-size: calc(48x / 1.618 / 1.618 / 1.618); /* Golden ratio cubed */
     font-weight: var(--font-weight-400);
     margin-bottom: 63px; /* Adjust as needed */
-  }
-  
-  h5 {
+}
+
+h5 {
     font-size: calc(64x / 1.618 / 1.618 / 1.618 / 1.618); /* Golden ratio to the power of 4 */
     font-weight: var(--font-weight-300);
     margin-bottom: 102px; /* Adjust as needed */
-  }
-  
-  h6 {
+}
+
+h6 {
     font-size: calc(64px / 1.618 / 1.618 / 1.618 / 1.618 / 1.618); /* Golden ratio to the power of 5 */
     font-weight: var(--font-weight-300);
     margin-bottom: 165px; /* Adjust as needed */
-  }
-  
-  /* Media query for responsive adjustments */
-  @media screen and (max-width: 768px) {
+}
+
+/* Media query for responsive adjustments */
+@media screen and (max-width: 768px) {
     h1 {
-      font-size: 32px;
+        font-size: 32px;
+        font-weight: var(--font-weight-700);
+        margin-bottom: 1.618em; /* Golden ratio */
     }
-  
+        
+    /* Heading sizes and intervals based on golden ratio */
     h2 {
-      font-size: calc(18px / 1.618);
+        font-size: calc(32px / 1.618); /* Golden ratio */
+        font-weight: var(--font-weight-600);
+        margin-bottom: 24px; /* Adjust as needed */
     }
-  
-    /* Add responsive adjustments for other headings as needed */
-  }
-  
+        
+    h3 {
+        font-size: calc(32px / 1.618 / 1.618); /* Golden ratio squared */
+        font-weight: var(--font-weight-500);
+        margin-bottom: 39px; /* Adjust as needed */
+    }
+        
+    h4 {
+        font-size: calc(32px / 1.618 / 1.618 / 1.618); /* Golden ratio cubed */
+        font-weight: var(--font-weight-400);
+        margin-bottom: 63px; /* Adjust as needed */
+    }
+        
+    h5 {
+        font-size: calc(32px / 1.618 / 1.618 / 1.618 / 1.618); /* Golden ratio to the power of 4 */
+        font-weight: var(--font-weight-300);
+        margin-bottom: 102px; /* Adjust as needed */
+    }
+        
+    h6 {
+        font-size: calc(32px / 1.618 / 1.618 / 1.618 / 1.618 / 1.618); /* Golden ratio to the power of 5 */
+        font-weight: var(--font-weight-300);
+        margin-bottom: 165px; /* Adjust as needed */
+    }
+}
+
 
 /* START SITE STYLES + LAYOUT */
 
@@ -88,76 +120,61 @@ body {
     color: #fff;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     position: relative;
-    margin: 0;
+    margin: 0px;
 }
 
-main {
-    display: flex;
-    flex-direction: row;
-    gap: 64px;
-    max-width: 1600px;
+.main {
+    position: relative;
     margin-left: auto;
     margin-right: auto;
-    position: relative;
     padding-top: 24px;
+    max-width: 1600px;
 }
 
-/* Extra Small Devices (XS) */
-@media (max-width: 575.98px) {
-    main {
-        
-    }
-  }
-  
-  /* Small Devices (SM) */
-  @media (min-width: 576px) and (max-width: 767.98px) {
-    main {
-        
-    }
-  }
-  
-  /* Medium Devices (MD) */
-  @media (min-width: 768px) and (max-width: 991.98px) {
-    main {
-        display: block;
-        margin-left: 16px;
-        margin-right: 16px;
-      }
-  }
-  
-  /* Large Devices (LG) */
-  @media (min-width: 992px) and (max-width: 1199.98px) {
-    main {
-      gap: 16px;
-      margin-left: 16px;
-      margin-right: 16px;
-    }
-  }
-  
-  /* Extra Large Devices (XL) */
-  @media (min-width: 1200px) and (max-width: 1600px) {
-    main {
-      gap: 32px;
-      margin-left: 32px;
-      margin-right: 32px;
-    }
-  }
-  
+.mobile-nav {
+    display: none;
+    flex-direction: row;
+    background-color: rgba(23,23,24,.6);
+    border-radius: 500px;
+    border: 1px solid rgba(120, 120, 120, 0.3);
+    padding: 4px;
+    backdrop-filter: blur(10px);
+    z-index: 200;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    width: max-content;
+    top: 16px;
+    left: 0%;
+    right: 0%;
+    justify-content: space-between;
+}
 
-  
-
-/* START SITE TITLE CARD STYLES */
-
+/* SITE TITLE */
 .site-title-wrapper {
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: flex-end;
-border-radius: 16px;
-padding: 16px;
-height: 55vh;
-background-color:mediumslateblue;
-margin-bottom: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: calc(55vh + 32px); 
+    /* no padding allowed inside title wrapper because of canvas, 
+    need calc vh + padding of chat container (left) for vertical alignment */
+    margin-bottom: 16px;
+    position: relative;
+    width: calc(75% - 32px);
+    margin-left: calc(25% + 32px);
+    border-radius: 16px;
+}
+
+#site-title-img {
+    margin-left: 16px;
+    margin-bottom: 16px;
+    margin-top: 16px;
+}
+
+#site-title-details-img {
+    margin-right: 16px;
+    margin-bottom: 16px;
 }
 
 .site-footer-wrapper {
@@ -170,12 +187,10 @@ margin-bottom: 8px;
     height: 55vh;
     background-color: rgb(216, 162, 91);
     margin-bottom: 8px;
-    }
-/* #gradient-container {
-background: radial-gradient(ellipse at right, #FF4D4D, #4D4DFF);
-} */
+}
 
-/* START BACKGROUND GRADIENT */
+
+/* BACKGROUND GRADIENT */
 
 #gradient-canvas {
     --gradient-color-1: #141414; 
@@ -184,4 +199,150 @@ background: radial-gradient(ellipse at right, #FF4D4D, #4D4DFF);
     --gradient-color-4: #151515;
     position: fixed;
     z-index: -1;
+}
+
+#site-title-background {
+    --gradient-color-1: #438bd8;
+    --gradient-color-2: #38b805;
+    --gradient-color-3: #d3ea00;
+    --gradient-color-4: #a400c5;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+}
+
+/* Extra Small Devices (XS) */
+@media (max-width: 575.98px) {
+.mobile-nav {
+    display: flex;
+    }
+
+.projects-link {
+    margin: 2px 0px 2px 0px;
+    padding: 12px 24px 12px 24px;
+    background-color: #19181a;
+    border-radius: 500px;
+    backdrop-filter: blur(20px);
+    font-weight: 300;
+}
+
+.chat-link {
+    margin: 2px 0px 2px 0px;
+    padding: 12px 24px 12px 24px;
+}
+
+.site-title-wrapper {
+    height: 45vh;
+    }
+
+#site-title-img {
+    width: 60%;
+    }
+    
+#site-title-details-img {
+    width: 20%;
+    }   
+}
+
+.active-link {
+    margin: 2px 0px 2px 0px;
+    padding: 12px 24px 12px 24px;
+    background-color: #19181a;
+    border-radius: 500px;
+}
+  
+/* Small Devices (SM) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+.mobile-nav {
+    display: flex;
+}
+
+.main {
+    margin-left: 8px;
+    margin-right: 8px;
+    padding-top: 8px;
+}
+
+.projects-link {
+    margin: 2px 0px 2px 0px;
+    padding: 12px 24px 12px 24px;
+}
+
+.chat-link {
+    margin: 2px 0px 2px 0px;
+    padding: 12px 24px 12px 24px;
+}
+
+.site-title-wrapper {
+    height: 45vh;
+    width: 100%;
+    margin: 0;
+    }    
+
+#site-title-img {
+    width: 60%;
+    }
+
+#site-title-details-img {
+    width: 20%;
+    }
+}
+
+/* Medium Devices (MD) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding-top: 8px;
+    gap: 12px;
+    }
+
+.site-title-wrapper {
+    display: flex;
+    flex: 1 1 40%;
+    margin: 0;
+    height: 70vh;
+    }
+
+#site-title-img {
+    width: 65%;   
+    }
+
+#site-title-detail-img {
+    width: 25%;
+    }
+}
+
+/* Large Devices (LG) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .main {
+        margin-left: 16px;
+        margin-right: 16px;
+        padding-top: 16px;
+    }
+    .site-title-wrapper {
+        margin-left: calc(30% + 24px);
+        width: calc(70% - 24px);
+    }
+}
+
+/* Extra Large Devices (XL) */
+@media (min-width: 1200px) and (max-width: 1600px) {
+    .main {
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+}
+
+@media (min-width: 1599.8px) {
+    .main {
+        max-width: 1600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
 }

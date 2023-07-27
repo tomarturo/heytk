@@ -3,8 +3,8 @@
 
 .projects-wrapper {
     box-sizing: border-box;
-    margin-left: auto;
-    width: 75%;
+    width: calc(75% - 32px);
+    margin-left: calc(25% + 32px);
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -137,45 +137,47 @@
     margin-bottom: 0;
 }
 
+#manager-portal {
+    margin-bottom: 8px;
+}
+
 /* MEDIA QUERIES */
 
 /* Extra Small Devices (XS) */
 @media (max-width: 575.98px) {
     .projects-wrapper {
         width: 100%;
-        padding-left: 12px;
-        padding-right: 12px;
     }
   }
   
   /* Small Devices (SM) */
   @media (min-width: 576px) and (max-width: 767.98px) {
-    main {
-      /* Your styles for small devices here */
+     .projects-wrapper {
+        width: 100%;
     }
   }
   
   /* Medium Devices (MD) */
-  @media (min-width: 768px) and (max-width: 991.98px) {
+  @media (min-width: 576px) and (max-width: 991.98px) {
     .projects-wrapper {
-      max-width: 70vw;
+        flex-basis: 100%;
+        margin: 0px;
     }
   }
   
   /* Large Devices (LG) */
   @media (min-width: 992px) and (max-width: 1199.98px) {
     .projects-wrapper {
-      max-width: 65vw;
+        margin-left: calc(30% + 24px);
+        width: calc(70% - 24px);
     }
-
   }
   
   /* Extra Large Devices (XL) */
   @media (min-width: 1200px) and (max-width: 1600px) {
-    main {
-      gap: 32px;
-      margin-left: 32px;
-      margin-right: 32px;
+    .projects-wrapper {
+        width: calc(75% - 32px);
+        margin-left: calc(25% + 32px);
     }
   }
  
