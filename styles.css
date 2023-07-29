@@ -1,124 +1,73 @@
-/* START TYPOGRAPHY */
-
 @import url(fonts.css);
 
+/* reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+
+/* TYPOGRAPHY */
+h1, h2, h3, h4, h5, h6, p {
+    font-family: "Stabil-Grotesk";
+}
+
+/* fluid system from -- https://codepen.io/MadeByMike/pen/dRoLpJ -- TY! */
+
+:root {
+    /* font scale for 1.2 */
+	--font-size-1: 1em;
+	--font-size-2: 1.2em;
+	--font-size-3: 1.44rem;
+	--font-size-4: 1.728rem;
+	--font-size-5: 2.074rem;
+	--font-size-6: 2.488rem;
+}
+
 h1 {
-    font-family: "Stabil-Grotesk";
+	font-size: var(--font-size-6);
 }
-
 h2 {
-    font-family: "Stabil-Grotesk";
+	font-size: var(--font-size-5);
 }
-
-h3, h4, h5, h6 {
-    font-family: "Stabil-Grotesk";
+h3 {
+	font-size: var(--font-size-4);
+}
+h4 {
+	font-size: var(--font-size-3);
+}
+h5 {
+	font-size: var(--font-size-2);
+}
+h6 {
+	font-size: var(--font-size-1);
 }
 
 p {
-    font-family: "Satoshi-Variable";
-    font-weight: 400;
+    font-size: var(--font-size-1);
 }
-
-:root {
-    /* Define CSS variables for font weights */
-    --font-weight-300: 300;
-    --font-weight-400: 400;
-    --font-weight-500: 500;
-    --font-weight-600: 600;
-    --font-weight-700: 700;
-    --font-weight-800: 800;
-    --font-weight-900: 900;
-    --chroma-color: #438bd8;
-}
-
 body {
     box-sizing: border-box;
 }
-  
-/* Base font size for h1 */
-h1 {
-    font-size: 48px;
-    font-weight: var(--font-weight-700);
-    margin-bottom: 1.618em; /* Golden ratio */
-}
 
-/* Heading sizes and intervals based on golden ratio */
-h2 {
-    font-size: calc(48px / 1.618); /* Golden ratio */
-    font-weight: var(--font-weight-600);
-    margin-bottom: 24px; /* Adjust as needed */
-}
-
-h3 {
-    font-size: calc(48px / 1.618 / 1.618); /* Golden ratio squared */
-    font-weight: var(--font-weight-500);
-    margin-bottom: 39px; /* Adjust as needed */
-}
-
-h4 {
-    font-size: calc(48x / 1.618 / 1.618 / 1.618); /* Golden ratio cubed */
-    font-weight: var(--font-weight-400);
-    margin-bottom: 63px; /* Adjust as needed */
-}
-
-h5 {
-    font-size: calc(64x / 1.618 / 1.618 / 1.618 / 1.618); /* Golden ratio to the power of 4 */
-    font-weight: var(--font-weight-300);
-    margin-bottom: 102px; /* Adjust as needed */
-}
-
-h6 {
-    font-size: calc(64px / 1.618 / 1.618 / 1.618 / 1.618 / 1.618); /* Golden ratio to the power of 5 */
-    font-weight: var(--font-weight-300);
-    margin-bottom: 165px; /* Adjust as needed */
-}
-
-/* Media query for responsive adjustments */
-@media screen and (max-width: 768px) {
-    h1 {
-        font-size: 32px;
-        font-weight: var(--font-weight-700);
-        margin-bottom: 1.618em; /* Golden ratio */
-    }
-        
-    /* Heading sizes and intervals based on golden ratio */
-    h2 {
-        font-size: calc(32px / 1.618); /* Golden ratio */
-        font-weight: var(--font-weight-600);
-        margin-bottom: 24px; /* Adjust as needed */
-    }
-        
-    h3 {
-        font-size: calc(32px / 1.618 / 1.618); /* Golden ratio squared */
-        font-weight: var(--font-weight-500);
-        margin-bottom: 39px; /* Adjust as needed */
-    }
-        
-    h4 {
-        font-size: calc(32px / 1.618 / 1.618 / 1.618); /* Golden ratio cubed */
-        font-weight: var(--font-weight-400);
-        margin-bottom: 63px; /* Adjust as needed */
-    }
-        
-    h5 {
-        font-size: calc(32px / 1.618 / 1.618 / 1.618 / 1.618); /* Golden ratio to the power of 4 */
-        font-weight: var(--font-weight-300);
-        margin-bottom: 102px; /* Adjust as needed */
-    }
-        
-    h6 {
-        font-size: calc(32px / 1.618 / 1.618 / 1.618 / 1.618 / 1.618); /* Golden ratio to the power of 5 */
-        font-weight: var(--font-weight-300);
-        margin-bottom: 165px; /* Adjust as needed */
-    }
-}
-
-
-/* START SITE STYLES + LAYOUT */
-
+/* LAYOUT */
 body {
     color: #fff;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     position: relative;
     margin: 0px;
 }
@@ -215,9 +164,13 @@ body {
 
 /* Extra Small Devices (XS) */
 @media (max-width: 575.98px) {
+.main {
+    padding: 0px;
+}
+
 .mobile-nav {
     display: flex;
-    }
+}
 
 .projects-link {
     margin: 2px 0px 2px 0px;
@@ -235,6 +188,7 @@ body {
 
 .site-title-wrapper {
     height: 45vh;
+    display: none;
     }
 
 #site-title-img {

@@ -3,7 +3,7 @@
 
 .aside-wrapper {
   box-sizing: border-box;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100); 
   width: 25%;
   align-self: flex-start;
   position: fixed;
@@ -11,6 +11,9 @@
   display: flex;
   flex-direction: column;
   align-content: space-between;
+  /* border: 1px solid rgba(120, 120, 120, 0.2); */
+  border-radius: 16px;
+  margin-bottom: 32px;
 }
 
 .aside-wrapper p {
@@ -25,37 +28,21 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: rgb(23, 23, 24);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(120, 120, 120, 0.2);
   border-radius: 16px;;
-  padding: 16px 16px 16px 12px;
+  padding: 0px 16px 16px 12px;
   margin-bottom: 16px;
 }
 
-.chat-header {
-  margin-bottom: 12px;
-}
-
-.chat-header p {
-  font-size: 20px;
-  margin-top: 4px;
-  width: 80%;
-}
-
-.chat-header h1 {
-  margin: 0;
-}
-
 #chat-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    backdrop-filter: blur(10px); 
-    height: 100%;
-    font-family: "Stabil-Grotesk";
-    overflow: hidden;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(10px); 
+  height: 100%;
+  font-family: "Stabil-Grotesk";
+  overflow: hidden;
+  padding-bottom: 1px;
+}
 
 /* Chat display area styles */
 #chat-display {
@@ -97,11 +84,12 @@
 }
 
 #welcome-message {
+  font-family: "Stabil-Grotesk";
   font-size: 32px;
   font-weight: 600;
   margin-bottom: 16px;
+  padding-left: 12px;
 }
-
 
 /* User input field styles */
 #user-input {
@@ -154,11 +142,55 @@ button {
   cursor: pointer;
 }
 
-/* MEDIA QUERIES */
+/* MEDIA QUERIES */ 
 /* Extra Small Devices (XS) */
 @media (max-width: 575.98px) {
   .aside-wrapper {
-      display: none;
+      position: relative;
+      display: flex; 
+      /* display: flex on click */
+      width: 100%;
+      height: calc(var(--vh, 1vh) * 100); 
+      padding-top: 64px;
+      background: transparent;  
+  }
+
+  .chat-wrapper {
+    margin: 0px;
+    border: none;
+    flex-grow: 1;
+    max-height: unset;
+    background-color: transparent;
+    padding-bottom: 12px;
+  }
+
+  .chat-display {
+    flex-grow: 1;
+    padding: 0px 12px 12px 12px;
+  }
+
+  #chat-form {
+    flex-shrink: 1;
+    box-sizing: border-box;
+    min-height: 40px;
+    width: 100%;
+  }
+
+  #user-input {
+    font-size: 16px;
+  }
+
+  button {
+    width: 24px;
+    height: 24px;
+    background-image: url(/images/Send.svg);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-size: cover;
+    border: none;
+    padding: 12px;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
   }
 }
 
@@ -201,7 +233,6 @@ button {
 @media (min-width: 1200px) and (max-width: 1600px) {
   .aside-wrapper {
     width: 25%;
-    
   }
 }
 

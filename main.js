@@ -13,7 +13,7 @@ $(document).ready(function() {
     var projectCards = $(".project-card-wrapper");
     var caseStudies = $(".case-study");
     var isOpen = [false, false, false, false];
-    var colors = ["green", "blue", "red", "yellow"];
+    var colors = ["#1a1a1a", "blue", "red", "yellow"];
 
     function playHoverAnimation(index) {
         // Play the hover animation if the card is not open
@@ -196,11 +196,11 @@ $(document).ready(function() {
 $(document).ready(function() {
     $(".icebreaker-tile").click(function() {
         // Get the h4 text from the clicked tile
-        var h4Text = $(this).find("h4.copy-text").text();
+        var h6Text = $(this).find("h6.copy-text").text();
 
         // Create a temporary textarea element to copy text to clipboard
         var tempTextArea = $("<textarea>");
-        tempTextArea.val(h4Text);
+        tempTextArea.val(h6Text);
         $("body").append(tempTextArea);
 
         // Copy the text from the textarea to clipboard
@@ -257,6 +257,20 @@ if ($(window).width() <= 767.98) {
     });
 }
 
+// Accurate VH calculation from CSS Tricks TY!
+// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+let vh = window.innerHeight * 0.01;
+// Then we set the value in the --vh custom property to the root of the document
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+// We listen to the resize event
+window.addEventListener('resize', () => {
+    // We execute the same script as before
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  });
+
+
+
 // Title background gradient color change
 // const root = document.documentElement;
 // const gradientDuration = 10000; // 10 seconds
@@ -297,6 +311,7 @@ if ($(window).width() <= 767.98) {
 // });
 
 
+// Tilt image on hover
 
 
 

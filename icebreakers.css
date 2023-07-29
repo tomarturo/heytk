@@ -3,7 +3,8 @@
 .icebreakers-wrapper {
     position: relative;
     overflow-y: hidden;
-    padding-bottom: 32px;
+    padding: 0px 8px 32px 8px;
+
 }
 
 .icebreaker-tiles-wrapper {
@@ -23,7 +24,6 @@
     width: 48%;
     background-color: rgba(23, 23, 24);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(120, 120, 120, 0.2);
     padding: 16px;
     text-align: center;
     border-radius: 16px;
@@ -32,6 +32,14 @@
     position: relative;
     flex: 1 1 48%;
     height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.icebreaker-tile h6 {
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .icebreaker-tile:hover {
@@ -49,7 +57,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(23, 23, 24, 0.3);
+    background-color: rgba(23, 23, 24, 0.7);
     backdrop-filter: blur(10px);
     border-radius: 16px;
     display: flex;
@@ -88,7 +96,22 @@
 /* Extra Small Devices (XS) */
 @media (max-width: 575.98px) {
     .icebreakers-wrapper {
-        
+        flex-shrink: 1;
+        padding-bottom: 0px;
+    }
+
+    .icebreaker-tiles-wrapper {
+        overflow-y: hidden;
+        overflow-x: scroll;
+        flex-wrap: nowrap;
+        gap: 12px;
+        width: max-content;
+        padding: 0px 12px 12px 12px;
+    }
+
+    .icebreaker-tile {
+        height: auto;
+        width: 25%;
     }
   }
   
