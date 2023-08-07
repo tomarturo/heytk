@@ -7,6 +7,7 @@
   width: 25%;
   align-self: flex-start;
   position: fixed;
+  top: 24px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -84,9 +85,8 @@
 }
 
 #welcome-message {
-  font-family: "Stabil-Grotesk";
-  font-size: 32px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 500;
   margin-bottom: 16px;
   padding-left: 12px;
 }
@@ -116,6 +116,7 @@ form {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background-color: rgba(23, 23, 24, 0.5);
   border-radius: 50px;
@@ -143,25 +144,28 @@ button {
 }
 
 /* MEDIA QUERIES */ 
+
 /* Extra Small Devices (XS) */
-@media (max-width: 575.98px) {
+@media (max-width: 991.98px) {
   .aside-wrapper {
       position: relative;
-      display: flex; 
+      display: none; 
       /* display: flex on click */
       width: 100%;
-      height: calc(var(--vh, 1vh) * 100); 
-      padding-top: 64px;
+      height: 55vh; 
+      
       background: transparent;  
+      order: 3;
   }
 
   .chat-wrapper {
     margin: 0px;
     border: none;
     flex-grow: 1;
-    max-height: unset;
+    max-height: 80%;
     background-color: transparent;
     padding-bottom: 12px;
+    margin-bottom: 24px;
   }
 
   .chat-display {
@@ -192,32 +196,10 @@ button {
     transition: background-color 0.2s ease;
     cursor: pointer;
   }
-}
 
-/* Small Devices (SM) */
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .aside-wrapper {
-    display: none;
-  }
-}
-
-/* Medium Devices (MD) */
-@media (min-width: 768px) and (max-width: 991.98px) {  
-  .aside-wrapper {
-    display: flex;
-    height: 75%;
-    flex: 1 1 28%;
-    position: relative;
-    gap: 8px;
-    top: auto;
-    overflow-x: clip;
-  }
-
-  .chat-wrapper {
-    flex: 1 1 25%;
-    margin-bottom: 0px;
-    overflow-x: hidden;
-    overflow-y: scroll;
+  #welcome-message {
+    font-size: var(--font-size-5);
+    font-weight: 500;
   }
 }
 

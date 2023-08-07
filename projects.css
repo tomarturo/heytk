@@ -8,6 +8,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    margin-bottom: 24px;
 }
 
 .project-header {
@@ -132,28 +133,22 @@
 
 /* MEDIA QUERIES */
 
-/* Extra Small Devices (XS) */
-@media (max-width: 575.98px) {
+/* Mobile Screens */
+@media (max-width: 578px) {
+    .accordion-1, .accordion-2, .accordion-3, .accordion-4 {
+        display: none;
+    }
+}
+
+@media (max-width: 991.98px) {
     .projects-wrapper {
         width: 100%;
-    }
-  }
-  
-  /* Small Devices (SM) */
-  @media (min-width: 576px) and (max-width: 767.98px) {
-     .projects-wrapper {
-        width: 100%;
-    }
-  }
-  
-  /* Medium Devices (MD) */
-  @media (min-width: 576px) and (max-width: 991.98px) {
-    .projects-wrapper {
-        flex-basis: 100%;
         margin: 0px;
+        padding: 0px 8px 0px 8px;
+        order: 3;
     }
   }
-  
+
   /* Large Devices (LG) */
   @media (min-width: 992px) and (max-width: 1199.98px) {
     .projects-wrapper {

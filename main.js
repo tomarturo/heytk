@@ -220,15 +220,7 @@ $(document).ready(function() {
 
 // Mobile nav 
 // Check if the screen size is less than or equal to 767.98px (mobile devices)
-if ($(window).width() <= 767.98) {
     $(document).ready(function() {
-        // Show Projects section and hide Chat section on page load
-        $(".projects-wrapper").show();
-        $(".aside-wrapper").hide();
-
-        // Add active class to .projects-link on page load
-        $(".projects-link").addClass("active-link");
-
         // Click event for .projects-link
         $(".projects-link").click(function(e) {
             e.preventDefault();
@@ -255,7 +247,6 @@ if ($(window).width() <= 767.98) {
             $(".projects-link").removeClass("active-link");
         });
     });
-}
 
 // Accurate VH calculation from CSS Tricks TY!
 // First we get the viewport height and we multiple it by 1% to get a value for a vh unit

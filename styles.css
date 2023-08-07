@@ -24,11 +24,10 @@ time, mark, audio, video {
 
 /* TYPOGRAPHY */
 h1, h2, h3, h4, h5, h6, p {
-    font-family: "Stabil-Grotesk";
+    font-family: 'Satoshi-Variable';
 }
 
 /* fluid system from -- https://codepen.io/MadeByMike/pen/dRoLpJ -- TY! */
-
 :root {
     /* font scale for 1.2 */
 	--font-size-1: 1em;
@@ -82,21 +81,6 @@ body {
 
 .mobile-nav {
     display: none;
-    flex-direction: row;
-    background-color: rgba(23,23,24,.6);
-    border-radius: 500px;
-    border: 1px solid rgba(120, 120, 120, 0.3);
-    padding: 4px;
-    backdrop-filter: blur(10px);
-    z-index: 200;
-    margin-left: auto;
-    margin-right: auto;
-    position: fixed;
-    width: max-content;
-    top: 16px;
-    left: 0%;
-    right: 0%;
-    justify-content: space-between;
 }
 
 /* SITE TITLE */
@@ -107,7 +91,7 @@ body {
     align-items: flex-end;
     height: calc(55vh + 32px); 
     /* no padding allowed inside title wrapper because of canvas, 
-    need calc vh + padding of chat container (left) for vertical alignment */
+    need calc vh + padding of chat container (left) for vertical alignment */ 
     margin-bottom: 16px;
     position: relative;
     width: calc(75% - 32px);
@@ -126,16 +110,15 @@ body {
     margin-bottom: 16px;
 }
 
-.site-footer-wrapper {
+.footer-wrapper {
+    width: calc(75% - 32px);
+    margin-left: calc(25% + 32px);
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
     border-radius: 16px;
-    padding: 16px;
     height: 55vh;
-    background-color: rgb(216, 162, 91);
-    margin-bottom: 8px;
+    background-color: rgba(255, 255, 255, 0.7);
+    order: 4;
 }
 
 
@@ -163,32 +146,54 @@ body {
 }
 
 /* Extra Small Devices (XS) */
-@media (max-width: 575.98px) {
+@media (max-width: 991.98px) {
 .main {
-    padding: 0px;
+    padding: 4px 0px 4px 0px;
+    display: flex;
+    flex-direction: column;
 }
 
 .mobile-nav {
     display: flex;
+    flex-direction: row;
+    position: fixed;
+    width: 320px;
+    top: 12px;
+    z-index: 200;
+    right: 0%;
+    left: 0%;
+    margin: auto;
+    justify-content: space-around;
+    background-color: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 500px;
+    padding: 4px;
+    backdrop-filter: blur(10px);
+    font-family: 'Satoshi-Variable';
+    text-transform: lowercase;
+    font-weight: 500;
 }
 
 .projects-link {
+    width: 50%;
+    text-align: center;
     margin: 2px 0px 2px 0px;
     padding: 12px 24px 12px 24px;
-    background-color: #19181a;
     border-radius: 500px;
-    backdrop-filter: blur(20px);
-    font-weight: 300;
 }
 
 .chat-link {
+    width: 50%;
+    text-align: center;
     margin: 2px 0px 2px 0px;
     padding: 12px 24px 12px 24px;
 }
 
 .site-title-wrapper {
-    height: 45vh;
-    display: none;
+    height: 42vh;
+    margin: 0px 4px 16px 4px;
+    width: calc(100% - 8px);
+    order: 1;
     }
 
 #site-title-img {
@@ -198,77 +203,25 @@ body {
 #site-title-details-img {
     width: 20%;
     }   
-}
-
+    
 .active-link {
     margin: 2px 0px 2px 0px;
     padding: 12px 24px 12px 24px;
     background-color: #19181a;
     border-radius: 500px;
 }
-  
-/* Small Devices (SM) */
-@media (min-width: 576px) and (max-width: 767.98px) {
-.mobile-nav {
+
+.footer-wrapper {
     display: flex;
-}
-
-.main {
-    margin-left: 8px;
-    margin-right: 8px;
-    padding-top: 8px;
-}
-
-.projects-link {
-    margin: 2px 0px 2px 0px;
-    padding: 12px 24px 12px 24px;
-}
-
-.chat-link {
-    margin: 2px 0px 2px 0px;
-    padding: 12px 24px 12px 24px;
-}
-
-.site-title-wrapper {
-    height: 45vh;
-    width: 100%;
-    margin: 0;
-    }    
-
-#site-title-img {
-    width: 60%;
-    }
-
-#site-title-details-img {
-    width: 20%;
-    }
-}
-
-/* Medium Devices (MD) */
-@media (min-width: 768px) and (max-width: 991.98px) {
-.main {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 8px;
-    margin-right: 8px;
-    padding-top: 8px;
-    gap: 12px;
-    }
-
-.site-title-wrapper {
-    display: flex;
-    flex: 1 1 40%;
-    margin: 0;
-    height: 70vh;
-    }
-
-#site-title-img {
-    width: 65%;   
-    }
-
-#site-title-detail-img {
-    width: 25%;
-    }
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-radius: 16px;
+    padding: 16px;
+    height: 55vh;
+    background-color: rgb(216, 162, 91);
+    margin: 0px 8px 8px 8px;
+}    
 }
 
 /* Large Devices (LG) */
