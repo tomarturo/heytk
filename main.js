@@ -226,25 +226,73 @@ $(document).ready(function() {
             e.preventDefault();
             // Show Projects section
             $(".projects-wrapper").show();
+            // Show Site-title 
+            $(".site-title-wrapper").show();
+            // Restore title wrapper height 
+            $(".site-title-wrapper").css("height", "42vh");
+        // Show title contents
+            $("#site-title-img").show();
+            $("#site-title-details-img").show();
+            // $("#chat-title-img").hide();
+            // $("#chat-title-details-img").hide();
+            // Hide footer 
+            $(".footer-wrapper").hide();
             // Hide Chat section
             $(".aside-wrapper").hide();
             // Add active class to .projects-link
             $(this).addClass("active-link");
             // Remove active class from .chat-link
             $(".chat-link").removeClass("active-link");
+            // Remove active class from .contact-link
+            $(".contact-link").removeClass("active-link");
         });
 
         // Click event for .chat-link
+
         $(".chat-link").click(function(e) {
             e.preventDefault();
             // Show Chat section
             $(".aside-wrapper").show();
             // Hide Projects section
             $(".projects-wrapper").hide();
+            // Hide footer
+            $(".footer-wrapper").hide();
+        // Hide title contents
+            $("#site-title-img").hide();
+            $("#site-title-details-img").hide();
+            // $("#chat-title-img").show();
+        // Shorten title wrapper 
+            $(".site-title-wrapper").css("height", "80px");
+        // Fit all content inside mobile viewport via .main
+            // $(".main").css("height", "100vh");
+            // $(".main").css("max-height", "100vh"); 
+            // $(".main").css("overflow-y", "hidden"); 
+        // Hide site-title
+            // $(".site-title-wrapper").hide();
             // Add active class to .chat-link
             $(this).addClass("active-link");
             // Remove active class from .projects-link
             $(".projects-link").removeClass("active-link");
+            // Remove active class from .contact-link
+            $(".contact-link").removeClass("active-link");
+        });
+
+        // Click event for .contact-link
+        $(".contact-link").click(function(e) {
+            e.preventDefault();
+            // Show Chat section
+            $(".footer-wrapper").show();
+            // Hide Projects section
+            $(".projects-wrapper").hide();
+            // Hide Chat section
+            $(".aside-wrapper").hide();
+            // Show title
+            $(".site-title-wrapper").show();
+            // Add active class to .chat-link
+            $(this).addClass("active-link");
+            // Remove active class from .projects-link
+            $(".projects-link").removeClass("active-link");
+            $(".chat-link").removeClass("active-link");
         });
     });
 

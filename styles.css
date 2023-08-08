@@ -110,6 +110,19 @@ body {
     margin-bottom: 16px;
 }
 
+#chat-title-img {
+    display: none;
+    margin-left: 16px;
+    margin-bottom: 16px;
+    margin-top: 16px;
+    }
+
+#chat-title-details-img {
+    display: none;
+    margin-right: 16px;
+    margin-bottom: 16px;
+}
+
 .footer-wrapper {
     width: calc(75% - 32px);
     margin-left: calc(25% + 32px);
@@ -148,23 +161,27 @@ body {
 /* Extra Small Devices (XS) */
 @media (max-width: 991.98px) {
 .main {
-    padding: 4px 0px 4px 0px;
+    padding: 0px 0px 4px 0px;
     display: flex;
     flex-direction: column;
+}
+
+#site-title-background {
+    border-radius: 0px;
 }
 
 .mobile-nav {
     display: flex;
     flex-direction: row;
     position: fixed;
-    width: 320px;
+    width: 90%;
     top: 12px;
     z-index: 200;
     right: 0%;
     left: 0%;
     margin: auto;
     justify-content: space-around;
-    background-color: rgba(255,255,255,.08);
+    background-color: rgba(255,255,255,.3);
     border: 1px solid rgba(255,255,255,.08);
     border-radius: 500px;
     padding: 4px;
@@ -175,53 +192,75 @@ body {
 }
 
 .projects-link {
-    width: 50%;
+    width: 33%;
     text-align: center;
     margin: 2px 0px 2px 0px;
-    padding: 12px 24px 12px 24px;
+    padding: 8px;
     border-radius: 500px;
 }
 
 .chat-link {
-    width: 50%;
+    width: 33%;
     text-align: center;
     margin: 2px 0px 2px 0px;
-    padding: 12px 24px 12px 24px;
+    /* padding: 12px 24px 12px 24px; */
+    padding: 8px;
+}
+
+.contact-link {
+    width: 33%;
+    text-align: center;
+    margin: 2px 0px 2px 0px;
+    /* padding: 12px 24px 12px 24px; */
+    padding: 8px;
+}
+
+.active-link {
+    margin: 2px 0px 2px 0px;
+    /* padding: 12px 24px 12px 24px; */
+    padding: 8px;
+    background-color: #19181a;
+    border-radius: 500px;
 }
 
 .site-title-wrapper {
     height: 42vh;
-    margin: 0px 4px 16px 4px;
-    width: calc(100% - 8px);
+    margin: 0px;
+    width: 100%;
+    border-radius: none;
     order: 1;
     }
 
 #site-title-img {
     width: 60%;
-    }
+}
     
 #site-title-details-img {
     width: 20%;
-    }   
+}   
     
-.active-link {
-    margin: 2px 0px 2px 0px;
-    padding: 12px 24px 12px 24px;
-    background-color: #19181a;
-    border-radius: 500px;
+#chat-title-img {
+    display: none;
+    width: 50%;
+}
+
+#chat-title-details-img {
+    display: none;
+    width: 50%;
 }
 
 .footer-wrapper {
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
     border-radius: 16px;
-    padding: 16px;
-    height: 55vh;
+    height: 25vh;
     background-color: rgb(216, 162, 91);
-    margin: 0px 8px 8px 8px;
-}    
+    width: calc(100% - 32px);
+    margin: auto;
+    padding: 0px 8px 0px 8px;
+    }    
 }
 
 /* Large Devices (LG) */
@@ -235,6 +274,12 @@ body {
         margin-left: calc(30% + 24px);
         width: calc(70% - 24px);
     }
+
+    .footer-wrapper {        
+        margin-left: calc(30% + 24px);
+        width: calc(70% - 24px);
+    }
+    
 }
 
 /* Extra Large Devices (XL) */
@@ -242,6 +287,11 @@ body {
     .main {
         margin-left: 24px;
         margin-right: 24px;
+    }
+
+    .footer-wrapper {        
+        width: calc(75% - 32px);
+        margin-left: calc(25% + 32px);
     }
 }
 
@@ -251,5 +301,4 @@ body {
         margin-left: auto;
         margin-right: auto;
     }
-    
 }

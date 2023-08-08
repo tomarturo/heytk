@@ -16,18 +16,21 @@
     <script src="https://unpkg.com/tilt.js@1.2.1/dest/tilt.jquery.min.js"></script>
 </head>
 <body>
-    <canvas id="gradient-canvas" style="width:100vw;height:100vh"></canvas>
+    <canvas id="gradient-canvas" style="width:100vw; height:100vh"></canvas>
     <main class="main">
         <div class="mobile-nav">
             <div class="projects-link active-link">projects</div>
             <div class="chat-link">chat.tk</div>
+            <div class="contact-link">contact</div>
         </div>
         <section class="aside-wrapper">
             <div class="chat-wrapper">
-                <h2 id="welcome-message">chat.tk</h2>
+                <div class="pill">
+                    <h2 id="welcome-message">chat.tk</h2>
+                </div>
                 <div id="chat-container">
                     <div id="chat-display">
-                        <div class="bot-message">I can answer your questions about Tom Kurzeka. What would you like to know?</div>
+                        <div class="bot-message" id="mobile-welcome-message"><span style="font-weight:700; font-size: 32px;">Hi! I'm .tk</span></br>What would you like to know about Tom Kurzeka?</div>
                     </div>
                     <form id="chat-form" autocomplete="off">
                         <input type="text" id="user-input" placeholder="Type a question or select a tile"/>
@@ -42,7 +45,7 @@
                         <div class="overlay"><h6>Copied to clipboard</h6></div>
                     </div>
                     <div class="icebreaker-tile">
-                        <h6 class="copy-text">Tell me about Tom's professional experience.</h6>
+                        <h6 class="copy-text">Tasdfexperience .</h6>
                         <div class="overlay"><h6>Copied to clipboard</h6></div>
                     </div>
                     <div class="icebreaker-tile">
@@ -74,7 +77,9 @@
         </section>
         <div class="site-title-wrapper">
             <img src="images/site-title blk.svg" alt="" id="site-title-img">
+            <img src="images/chat-title blk.svg" alt="" id="chat-title-img">
             <img src="images/site-title-details blk.svg" alt="" id="site-title-details-img">
+            <img src="images/chat-title-details blk.svg" alt="" id="chat-title-details-img">
             <canvas id="site-title-background"></canvas>
         </div>
         <section class="projects-wrapper">
@@ -85,7 +90,6 @@
                             <h3>Small Business Solutions</h3>
                             <p>VistaPrint • 2023</p>
                         </div>
-                        <img src="./images/logos/vista-logo.svg" alt="VistaPrint company logo in black and white">
                     </header>
                     <div class="project-description">
                         <h4 style="font-weight: 500;">Leveraging insights from a four-week design sprint, 
@@ -140,7 +144,6 @@
                             <h3>Field Reports Data Pipeline</h3>
                             <p>The Dyrt • 2022</p>
                         </div>
-                        <img src="./images/logos/the-dyrt-logo.svg" alt="The Dyrt company logo in white">
                     </header>
                     <div class="project-description">
                         <h1 style="padding-bottom: 32px;">A new site experience for small business owners</h1>
@@ -180,7 +183,6 @@
                             <h3>Inventory Management Portal</h3>
                             <p>The Dyrt • 2022</p>
                         </div>
-                        <img src="/images/logos/the-dyrt-logo.svg" alt="The Dyrt company logo in white">
                     </header>
                     <div class="project-description">
                         <h1 style="padding-bottom: 32px;">A new site experience for small business owners</h1>
@@ -220,7 +222,6 @@
                             <h3>Brand-First Customer Journey</h3>
                             <p>VistaPrint • 2023</p>
                         </div>
-                        <img src="./images/logos/vista-logo.svg" alt="VistaPrint company logo in black and white">
                     </header>
                     <div class="project-description">
                         <h1 style="padding-bottom: 32px;">Elevating brand to the forefront of the customer journey</h1>

@@ -1,10 +1,7 @@
-/* START ICEBREAKERS */
-
 .icebreakers-wrapper {
     position: relative;
     overflow-y: hidden;
     padding: 0px 8px 32px 8px;
-
 }
 
 .icebreaker-tiles-wrapper {
@@ -21,25 +18,31 @@
 
 .icebreaker-tile {
     box-sizing: border-box;
-    width: 48%;
-    background-color: rgba(23, 23, 24);
-    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    /* background-color: rgba(23, 23, 24); */
+    background-color: #1d1c20;
+    /* box-shadow: inset 2px 6px 4px rgba(50, 50, 50, .8); */
     padding: 16px;
     text-align: center;
     border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
     cursor: pointer;
     user-select: none; /* Prevent text selection on double click */
     position: relative;
     flex: 1 1 48%;
-    height: 20vh;
+    /* height: 20vh; */
     display: flex;
     justify-content: center;
     align-items: center;    
 }
 
 .icebreaker-tile h6 {
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: var(--font-size-1);
+    font-weight: 400;
+    color: rgb(255, 255, 255);
 }
 
 .icebreaker-tile:hover {
@@ -76,14 +79,15 @@
     transition: opacity 0.2s; /* Add transition for smooth animation */
 }
 
-.icebreaker-tile p {
-    font-size: 12px;
+/* .icebreaker-tile p {
+    font-size: var(--font-size-1);
     text-transform: uppercase;
     color: #f3f3f3;
-}
+} */
 
-.icebreaker-tile h4 {
-    font-weight: 300;
+.icebreaker-tile {
+    font-size: var(--font-size-1);
+    font-weight: 400;
     color: #a2a2a2;
 }
 
@@ -96,8 +100,8 @@
 /* Extra Small Devices (XS) */
 @media (max-width: 991.98px) {
     .icebreakers-wrapper {
-        flex-shrink: 1;
-        padding-bottom: 0px;
+        padding: 0px;
+        height: 30%;
     }
 
     .icebreaker-tiles-wrapper {
@@ -105,26 +109,27 @@
         overflow-x: scroll;
         flex-wrap: nowrap;
         gap: 12px;
-        width: max-content;
         padding: 0px 12px 12px 12px;
+        height: fit-content;
     }
 
     .icebreaker-tile {
-        height: auto;
-        width: 25%;
+        /* flex: 1 1 30%; */
+        /* width: 40%; */
+        height:fit-content;
     }
 }
 
 /* Large Devices (LG) */
 @media (min-width: 992px) and (max-width: 1199.98px) {
 .icebreakers-wrapper {
-
-}
+    background-color: transparent;
+ }
 }
 
 /* Extra Large Devices (XL) */
 @media (min-width: 1200px) and (max-width: 1600px) {
 .icebreakers-wrapper {
-    
+    background-color: transparent;
 }
 }
