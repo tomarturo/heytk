@@ -36,6 +36,10 @@ h1, h2, h3, h4, h5, h6, p {
 	--font-size-4: 1.728rem;
 	--font-size-5: 2.074rem;
 	--font-size-6: 2.488rem;
+
+    /* case study colors */
+    --solutions-blue: #315cc9;
+    --field-reports-green: rgba();
 }
 
 h1 {
@@ -49,6 +53,7 @@ h3 {
 }
 h4 {
 	font-size: var(--font-size-3);
+    font-weight:400;
 }
 h5 {
 	font-size: var(--font-size-2);
@@ -89,7 +94,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
-    height: calc(55vh + 32px); 
+    height: calc(55vh + 64px); 
     /* no padding allowed inside title wrapper because of canvas, 
     need calc vh + padding of chat container (left) for vertical alignment */ 
     margin-bottom: 16px;
@@ -110,19 +115,6 @@ body {
     margin-bottom: 16px;
 }
 
-#chat-title-img {
-    display: none;
-    margin-left: 16px;
-    margin-bottom: 16px;
-    margin-top: 16px;
-    }
-
-#chat-title-details-img {
-    display: none;
-    margin-right: 16px;
-    margin-bottom: 16px;
-}
-
 .footer-wrapper {
     width: calc(75% - 32px);
     margin-left: calc(25% + 32px);
@@ -138,10 +130,14 @@ body {
 /* BACKGROUND GRADIENT */
 
 #gradient-canvas {
-    --gradient-color-1: #141414; 
+    --gradient-color-1: #0d0d0d; 
+    --gradient-color-2: #080707; 
+    --gradient-color-3: #322f2f;  
+    --gradient-color-4: #030303;
+    /* --gradient-color-1: #141414; 
     --gradient-color-2: #212121; 
     --gradient-color-3: #1b1b1b;  
-    --gradient-color-4: #151515;
+    --gradient-color-4: #151515; */
     position: fixed;
     z-index: -1;
 }

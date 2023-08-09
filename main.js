@@ -13,7 +13,7 @@ $(document).ready(function() {
     var projectCards = $(".project-card-wrapper");
     var caseStudies = $(".case-study");
     var isOpen = [false, false, false, false];
-    var colors = ["#1a1a1a", "blue", "red", "yellow"];
+    var colors = ["#151515", "#151515", "#151515", "#151515"];
 
     function playHoverAnimation(index) {
         // Play the hover animation if the card is not open
@@ -32,7 +32,7 @@ $(document).ready(function() {
                 rotateX: function (i) {
                     return -45 + i * 10;
                 },
-                scaleY: 1.03,
+                scaleY: 1.05,
             });
 
             card_hover.play();
@@ -80,14 +80,14 @@ $(document).ready(function() {
             if (isOpen[index]) {
                 // Collapse the project description
                 projectDescription.slideUp(300, function() {
-                    frontCard.css({height: "15vh", "background-color": "rgb(23,23,24)"}); // Reset front-card height
+                    frontCard.css({height: "fit-content", "background-color": "rgb(23,23,24)"}); // Reset front-card height
                     console.log("Animation completed!");
                 });
             } else {
                 // Reverse the hover animation if the card is not open and is clicked
                 reverseHoverAnimation(index);
                 // Expand the project description
-                frontCard.css({"height": "auto", "background-color": colors[index]}); // Set front-card height to auto & set background color based on the index
+                frontCard.css({"height": "fit-content", "background-color": colors[index]}); // Set front-card height to auto & set background color based on the index
                 projectDescription.slideDown(300, function() {
                     console.log("Animation completed!");
                 });
@@ -95,6 +95,7 @@ $(document).ready(function() {
             if (isOpen[index]) {
                 caseStudy.slideUp(300, function() {
                 caseStudy.css({ overflow: "hidden", height: "0", display: "none" }); // Change overflow to hidden after slideUp
+                frontCard.css("background-color", "#151515"); //reset the background color
                 console.log("Animation completed!");
             });
             } else {
@@ -257,18 +258,8 @@ $(document).ready(function() {
             $(".projects-wrapper").hide();
             // Hide footer
             $(".footer-wrapper").hide();
-        // Hide title contents
-            $("#site-title-img").hide();
-            $("#site-title-details-img").hide();
-            // $("#chat-title-img").show();
-        // Shorten title wrapper 
-            $(".site-title-wrapper").css("height", "80px");
-        // Fit all content inside mobile viewport via .main
-            // $(".main").css("height", "100vh");
-            // $(".main").css("max-height", "100vh"); 
-            // $(".main").css("overflow-y", "hidden"); 
-        // Hide site-title
-            // $(".site-title-wrapper").hide();
+            // Hide title wrapper 
+            $(".site-title-wrapper").hide();
             // Add active class to .chat-link
             $(this).addClass("active-link");
             // Remove active class from .projects-link
@@ -351,6 +342,4 @@ window.addEventListener('resize', () => {
 
 
 // Tilt image on hover
-
-
 

@@ -15,8 +15,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js" integrity="sha512-zInFF17qBFVvvvFpIfeBzo7Tj7+rQxLeTJDmbxjBz5/zIr89YVbTNelNhdTT+/DCrxoVzBeUPVFJsczKbB7sew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/tilt.js@1.2.1/dest/tilt.jquery.min.js"></script>
 </head>
-<body>
-    <canvas id="gradient-canvas" style="width:100vw; height:100vh"></canvas>
+<body style="background-color: black;">
+    <!-- <canvas id="gradient-canvas" style="width:100vw; height:100vh"></canvas> -->
     <main class="main">
         <div class="mobile-nav">
             <div class="projects-link active-link">projects</div>
@@ -24,13 +24,14 @@
             <div class="contact-link">contact</div>
         </div>
         <section class="aside-wrapper">
+            <div class="pill">
+                <h2 id="welcome-message">chat.tk</h2>
+            </div>
             <div class="chat-wrapper">
-                <div class="pill">
-                    <h2 id="welcome-message">chat.tk</h2>
-                </div>
                 <div id="chat-container">
                     <div id="chat-display">
-                        <div class="bot-message" id="mobile-welcome-message"><span style="font-weight:700; font-size: 32px;">Hi! I'm .tk</span></br>What would you like to know about Tom Kurzeka?</div>
+                        <!-- <div class="bot-message" style="font-size: 24px; margin-bottom: 20px">Welcome to <span style="font-weight:700;">chat.tk</span></div> -->
+                        <div class="bot-message">What would you like to know about Tom Kurzeka?</div>
                     </div>
                     <form id="chat-form" autocomplete="off">
                         <input type="text" id="user-input" placeholder="Type a question or select a tile"/>
@@ -77,25 +78,25 @@
         </section>
         <div class="site-title-wrapper">
             <img src="images/site-title blk.svg" alt="" id="site-title-img">
-            <img src="images/chat-title blk.svg" alt="" id="chat-title-img">
             <img src="images/site-title-details blk.svg" alt="" id="site-title-details-img">
-            <img src="images/chat-title-details blk.svg" alt="" id="chat-title-details-img">
             <canvas id="site-title-background"></canvas>
         </div>
         <section class="projects-wrapper">
             <div class="project-card-wrapper" id="solutions">
                 <div class="front-card">
-                    <header class="project-header">
+                    <div class="project-header">
                         <div class="project-title-wrapper">
-                            <h3>Small Business Solutions</h3>
-                            <p>VistaPrint • 2023</p>
+                            <h2>Solutions Marketing</h2>
+                            <h5>VistaPrint • 2023</h5>
                         </div>
-                    </header>
+                        <!-- <div class="buzz-words-wrapper">
+                            <h6 class="buzz-word">Information Architecture</h6>
+                            <h6 class="buzz-word">Growth</h6>
+                            <h6 class="buzz-word">A/B Testing</h6>
+                        </div> -->
+                    </div>
                     <div class="project-description">
-                        <h4 style="font-weight: 500;">Leveraging insights from a four-week design sprint, 
-                            months of iteration, and multiple rounds of user testing, 
-                            I influenced the strategy and scope of 
-                            an experimental customer journey.</h4>
+                        <h1 style="font-weight: 500; color: #DB9559">Helping small business owners accomplish their marketing goals.</h1>
                     </div>
                 </div>
                 <div class="accordion-1"></div>
@@ -104,47 +105,69 @@
                 <div class="accordion-4"></div>
             </div>
             <div class="case-study" id="solutions-study">
-                <div class="case-study-split-wrapper">
-                    <div class="case-study-img-wrapper">
-                        <img src="/images/solutions/solution hero 01.png" alt="Mobile mockup of the soultions marketing homepage carousel"></div>
-                    <div class="case-study-img-wrapper">
-                        <img src="/images/solutions/solution hero 01.png" alt="Mobile mockup of the soultions marketing homepage carousel">
+                <img src="images/solutions/final tiles 1.png" alt="Mockup of homepage carousel for desktop" style="border-radius: 16px;">
+                <div class="case-study-slide" style="display: flex; flex-direction: column; justify-content: space-between; padding: 80px; height: 42vh; background-color: #DB9559; color: black;">                    
+                    <h1>Small business owners are overwhelmed with options and crunched for time.</h1>
+                    <div style="display: flex; flex-direction: row; gap: 20%;">
+                        <h3 style="font-weight: 400;">They don't know where to go to find the products they need. </h3>
+                        <h3 style="font-weight: 400;">It is difficult to obtain multiple products that work well together.</h3>
                     </div>
                 </div>
-                <div class="case-study-statement">
-                    <h3>This is a wide, short statement for the case study</h3>
+                <div class="case-study-slide" style="display: flex; flex-direction: column; justify-content: space-between; padding: 80px;  background-color: #FFC254; color: black;">                    
+                    <h6 style="text-transform: uppercase; margin-bottom: 48px;">hypothesis</h6>
+                    <h3 style="font-weight: 400;">Collections of products in service of accomplishing common small business goals will help customers find what they need, discover new products, and increase awareness of Vista’s cross-category offerings.</h3>
                 </div>
                 <div class="case-study-split-wrapper">
-                    <div class="case-study-portrait-text-wrapper">
-                        <div style="flex-basis: 50%;">
-                            <h5 style="text-transform: uppercase; padding-bottom: 12px;">hypothesis</h5>
-                            <p>A shopping experience based on collections of products aimed at helping
-                                small businesses accomplish specific goals will increase consideration of
-                                cross-category offerings.</p>
-                        </div>
-                        <div>
-                            <h6 style="text-transform: uppercase;">team + role</h6>
-                            <p>
-                                I worked alongside a fellow UX designer and a content designer. We were embedded in a squad of 25 people,
-                                    with representatives from engineering, data, product, and marketing.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="case-study-img-wrapper">
+                    <div class="case-study-img-wrapper" style="background-color: #F16851;">
+                        <img src="/images/solutions/solution hero 01.png" alt="Mobile mockup of the create even landing page"></div>
+                    <div class="case-study-img-wrapper" style="background-color: #9A59F6;">
                         <img src="/images/solutions/solution hero 02.png" alt="Mobile mockup of the create even landing page"></div>
                 </div>
-                <div class="case-study-slide">
-                    <p class="case-study-text">This is another statement about this case study</p>
+                <div class="case-study-slide" style="display: flex; flex-direction: column; justify-content: space-between; padding: 80px;  background-color: #DB9559; color: black;">                    
+                    <div style="display: flex; flex-direction: row; gap: 3%;">
+                        <div style="flex-basis: 48%">
+                            <h6 style="text-transform: uppercase; margin-bottom: 48px;">role & process</h6>
+                            <h3 style="font-weight: 400; margin-bottom: 24px;">Embedded in a cross-functional squad of twenty people, I represented UX alongside two designers.</h3> 
+                            <h3 style="font-weight: 400;">We facilitated a week long workshop, then generated and tested three initial concepts in a two week discovery sprint.</h3>
+                        </div>
+                        <div style="flex-basis: 48%;">
+                            <h3 style="font-weight: 400; margin-bottom: 24px;">Over the next four months we iterated, diverged, and refined based on existing research, user testing, and various engineering and content constraints.</h3>
+                            <h3 style="font-weight: 400;">We presented bi-weekly to the larger team, leveraging our findings to influence experiment scope and project strategy.</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-study-split-wrapper">
+                    <div class="case-study-img-wrapper" style="background-color: #0096BD;">
+                        <img src="/images/solutions/solution hero 03.png" alt="Mobile mockup of the create even landing page"></div>
+                    <div class="case-study-img-wrapper" style="background-color: #FFC254;">
+                        <img src="/images/solutions/solution hero 04.png" alt="Mobile mockup of the create even landing page"></div>
+                </div>
+                <div class="case-study-three-wrapper">
+                    <div>
+                        <h2 style="margin-bottom: 24px;">3 weeks</h2>
+                        <h6 style="text-transform: uppercase;">a/b test<br>duration</h6>
+                    </div>
+                    <div>
+                        <h2 style="margin-bottom: 24px;">+ 0.56%</h2>
+                        <h6 style="text-transform: uppercase;">Made-it-rate to<br>product configuration</h6>
+                    </div>
+                    <div>
+                        <h2 style="margin-bottom: 24px;">+0.04%</h2>
+                        <h6 style="text-transform: uppercase;">multi-product<br>purchase rate</h6>
+                    </div>
+                </div>
+                <div class="case-study-slide" style="display: flex; flex-direction: column; justify-content: space-between; padding: 40px; background-color: #D659DB; color: black; text-align: center; border-radius: 500px;">                    
+                    <h3>More details available upon <a href="mailto:tom.kurzeka@gmail.com?subject=Let's Talk Design" style="color: white">request</a>.</h3>
                 </div>
             </div>
             <div class="project-card-wrapper" id="field-reports">
                 <div class="front-card">
-                    <header class="project-header">
+                    <div class="project-header">
                         <div class="project-title-wrapper">
-                            <h3>Field Reports Data Pipeline</h3>
-                            <p>The Dyrt • 2022</p>
+                            <h2>Field Reports</h2>
+                            <h5>The Dyrt • 2022</h5>
                         </div>
-                    </header>
+                    </div>
                     <div class="project-description">
                         <h1 style="padding-bottom: 32px;">A new site experience for small business owners</h1>
                         <h3 style="font-weight: 300;">Leveraging insights from a four-week design sprint, 
@@ -178,12 +201,12 @@
             </div>
             <div class="project-card-wrapper" id="manager-portal">
                 <div class="front-card">
-                    <header class="project-header">
-                        <div>
-                            <h3>Inventory Management Portal</h3>
-                            <p>The Dyrt • 2022</p>
+                    <div class="project-header">
+                        <div class="project-title-wrapper">
+                            <h2>Inventory Management Portal</h2>
+                            <h5>The Dyrt • 2022</h5>
                         </div>
-                    </header>
+                    </div>
                     <div class="project-description">
                         <h1 style="padding-bottom: 32px;">A new site experience for small business owners</h1>
                         <h2>Leveraging insights from a four-week design sprint, 
@@ -217,12 +240,12 @@
             </div>
             <div class="project-card-wrapper" id="brand-first">
                 <div class="front-card">
-                    <header class="project-header">
+                    <div class="project-header">
                         <div class="project-title-wrapper">
-                            <h3>Brand-First Customer Journey</h3>
-                            <p>VistaPrint • 2023</p>
+                            <h2>Brand-First Customer Journey</h2>
+                            <h5>VistaPrint • 2023</h5>
                         </div>
-                    </header>
+                    </div>
                     <div class="project-description">
                         <h1 style="padding-bottom: 32px;">Elevating brand to the forefront of the customer journey</h1>
                         <h3 style="font-weight: 300;">I collaborated with six different design teams to unify work in progress into a vision of a shopping modality guided by a golden thread: brand</h3>
@@ -253,7 +276,9 @@
             </div>
         </section>
         <section class="footer-wrapper">
-            <div></div>
+            <div class="container">
+                <h1 class="site-title">tom k.</h1>
+            </div>
         </section>
     </main>
     <script src="main.js"></script>

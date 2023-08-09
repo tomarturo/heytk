@@ -14,21 +14,36 @@
 .project-header {
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
-.project-header img {
-    display: inline-block;
-    max-width: 40px;    
-    align-content: center;
-}
-
 .project-title-wrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
 }
+
+.project-title-wrapper h5 {
+    font-weight: 400;
+}
+
+/* .buzz-words-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+}
+
+.buzz-word {
+    padding: 4px 8px 4px 8px;
+    background-color: rgba(255,255,255, 0.1);
+    border-radius: 4px;
+    font-weight: 400;
+    color: white;
+} */
 
 .project-card-wrapper {
     perspective: 3000px;
@@ -37,13 +52,13 @@
 }
 
 .front-card {
-    height: 15vh;
-    background-color: #1d1c20;
-    /* background-color: rgb(23, 23, 24); */
+    background-color: #151515;
+    /* background-color: #1d1c20; */
     border: 1px solid rgba(120, 120, 120, 0.2);
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    justify-content: center;
+    padding: 56px 32px 56px 32px;
     border-radius: 16px;
     position: relative;
     z-index: 6;
@@ -57,7 +72,11 @@
 
 .project-description {
     display: none;
-    padding: 56px 0px 0px 0px;
+    padding: 48px 0px 0px 0px;
+}
+
+.project-description h3 {
+    font-weight: 400;
 }
 
 .accordion-1 {
@@ -120,17 +139,37 @@
     transform-origin: 50% 100%;
 }
 
-.first {
-    margin-top: 24px;
-}
-
 .project-header h2 {
     margin-bottom: 0;
 }
 
 #manager-portal {
-    margin-bottom: 8px;
+    margin-bottom: 0px;
 }
+
+
+/* Accordion styles by project id */
+
+/* SOLUTIONS */
+#solutions .accordion-1 {
+    background-image: url(images/solutions/solutions\ accordion\ 1.png);
+    background-size: contain;   
+}
+
+#solutions .accordion-2 {
+    background-image: url(images/solutions/solutions\ accordion\ 3.png);
+    background-size: contain;
+}
+
+#solutions .accordion-3 {
+    background-image: url(images/solutions/solutions\ accordion\ 2.png);
+    background-size: contain;
+}
+
+#solutions .accordion-4 {
+    background-color: #0096BD; 
+}
+
 
 /* MEDIA QUERIES */
 
@@ -147,6 +186,12 @@
         margin: 0px 0px 16px;
         padding: 16px 8px 0px 8px;
         order: 3;
+    }
+
+    .project-description {
+        display: none;
+        padding: 48px 0px 0px 0px;
+        max-width: 100%;
     }
   }
 
