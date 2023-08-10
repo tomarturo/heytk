@@ -27,19 +27,15 @@ h1, h2, h3, h4, h5, h6, p {
     font-family: 'Satoshi-Variable';
 }
 
-/* fluid system from -- https://codepen.io/MadeByMike/pen/dRoLpJ -- TY! */
-:root {
-    /* font scale for 1.2 */
-	--font-size-1: 1em;
+:root {    
+    --font-size-0: 1rem;
+    --font-size-1: calc(1rem + 8px);
 	--font-size-2: 1.2em;
 	--font-size-3: 1.44rem;
 	--font-size-4: 1.728rem;
-	--font-size-5: 2.074rem;
-	--font-size-6: 2.488rem;
-
-    /* case study colors */
-    --solutions-blue: #315cc9;
-    --field-reports-green: rgba();
+    --font-size-5: 2.074rem;
+    --font-size-6: 2.488rem;
+    --border-radius: 16px;
 }
 
 h1 {
@@ -50,20 +46,24 @@ h2 {
 }
 h3 {
 	font-size: var(--font-size-4);
+    font-weight: 400;
 }
 h4 {
 	font-size: var(--font-size-3);
-    font-weight:400;
+    font-weight: 400;
 }
 h5 {
-	font-size: var(--font-size-2);
-}
-h6 {
 	font-size: var(--font-size-1);
 }
 
+h6 {
+	font-size: var(--font-size-0);
+    text-transform: uppercase;
+
+}
 p {
     font-size: var(--font-size-1);
+    font-weight: 400;
 }
 body {
     box-sizing: border-box;
@@ -143,10 +143,14 @@ body {
 }
 
 #site-title-background {
-    --gradient-color-1: #438bd8;
+    /* --gradient-color-1: #438bd8;
     --gradient-color-2: #38b805;
     --gradient-color-3: #d3ea00;
-    --gradient-color-4: #a400c5;
+    --gradient-color-4: #a400c5; */
+    --gradient-color-1: #F56846;
+    --gradient-color-2: #EBC2FE;
+    --gradient-color-3: #FFE486;
+    --gradient-color-4: #1CA65C;
     position: absolute;
     z-index: -1;
     width: 100%;
@@ -161,6 +165,22 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+.site-title-wrapper {
+    height: 50vh;
+    margin: 0px;
+    width: 100%;
+    border-radius: none;
+    order: 1;
+}
+
+#site-title-img {
+    width: 45%;
+}
+    
+#site-title-details-img {
+    width: 15%;
+}   
 
 #site-title-background {
     border-radius: 0px;
@@ -219,32 +239,6 @@ body {
     border-radius: 500px;
 }
 
-.site-title-wrapper {
-    height: 42vh;
-    margin: 0px;
-    width: 100%;
-    border-radius: none;
-    order: 1;
-    }
-
-#site-title-img {
-    width: 60%;
-}
-    
-#site-title-details-img {
-    width: 20%;
-}   
-    
-#chat-title-img {
-    display: none;
-    width: 50%;
-}
-
-#chat-title-details-img {
-    display: none;
-    width: 50%;
-}
-
 .footer-wrapper {
     display: none;
     flex-direction: row;
@@ -259,6 +253,48 @@ body {
     }    
 }
 
+/* Mobile Devices */
+
+@media (max-width: 575.98px) {
+    :root {
+        --font-size-0: .8rem;
+        --font-size-1: 1rem;
+        --font-size-2: 1.1rem;
+        --font-size-3: 1.2rem;
+        --font-size-4: 1.3rem;
+        --font-size-5: 1.5rem;
+        --font-size-6: 1.6rem;
+        --border-radius: 12px;
+    }
+}
+
+/* Small-Medium Devices */
+@media (min-width: 576px) and (max-width: 759.98px) {
+    :root {
+        --font-size-0: .8rem;
+        --font-size-1: calc(1rem + 4px);
+        --font-size-2: 1.2rem;
+        --font-size-3: 1.2rem;
+        --font-size-4: 1.6rem;
+        --font-size-5: 1.9rem;
+        --font-size-6: 2.2rem;
+        }
+}
+
+
+/* Medium Devices */
+@media (min-width: 760px) and (max-width: 991.98px) {
+    :root {
+        --font-size-0: .8rem;
+        --font-size-1: calc(1rem + 6px);
+        --font-size-2: 1.2rem;
+        --font-size-3: 1.2rem;
+        --font-size-4: 1.6rem;
+        --font-size-5: 1.9rem;
+        --font-size-6: 2.2rem;
+        }
+
+}
 /* Large Devices (LG) */
 @media (min-width: 992px) and (max-width: 1199.98px) {
     .main {
@@ -275,14 +311,22 @@ body {
         margin-left: calc(30% + 24px);
         width: calc(70% - 24px);
     }
-    
+
+    :root {
+    --font-size-1: calc(1rem + 6px);
+    --font-size-2: 1.2rem;
+    --font-size-3: 1.2rem;
+    --font-size-4: 1.6rem;
+    --font-size-5: 1.9rem;
+    --font-size-6: 2.2rem;
+    }
 }
 
 /* Extra Large Devices (XL) */
 @media (min-width: 1200px) and (max-width: 1600px) {
     .main {
-        margin-left: 24px;
-        margin-right: 24px;
+        margin-left: 16px;
+        margin-right: 16px;
     }
 
     .footer-wrapper {        
@@ -298,3 +342,4 @@ body {
         margin-right: auto;
     }
 }
+

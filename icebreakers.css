@@ -41,8 +41,9 @@
 }
 
 .icebreaker-tile h6 {
-    font-size: var(--font-size-1);
+    font-size: calc(1rem + 2px);
     font-weight: 400;
+    text-transform: none;
     color: rgb(255, 255, 255);
 }
 
