@@ -6,7 +6,10 @@ var gradient = new Gradient()
 gradient.initGradient('#site-title-background');
 
 var gradient = new Gradient()
-gradient.initGradient('#mobile-site-title-background');
+gradient.initGradient('#icebreaker-background');
+
+var gradient = new Gradient()
+gradient.initGradient('#icebreaker-background-2');
 
 // Project cards & case study 
 $(document).ready(function() {
@@ -229,17 +232,10 @@ $(document).ready(function() {
             $(".projects-wrapper").show();
             // Show Site-title 
             $(".site-title-wrapper").show();
-            // Restore title wrapper height 
-            $(".site-title-wrapper").css("height", "42vh");
-        // Show title contents
-            $("#site-title-img").show();
-            $("#site-title-details-img").show();
-            // $("#chat-title-img").hide();
-            // $("#chat-title-details-img").hide();
             // Hide footer 
             $(".footer-wrapper").hide();
             // Hide Chat section
-            $(".aside-wrapper").hide();
+            $(".aside-wrapper").css("display","none");
             // Add active class to .projects-link
             $(this).addClass("active-link");
             // Remove active class from .chat-link
@@ -249,17 +245,16 @@ $(document).ready(function() {
         });
 
         // Click event for .chat-link
-
         $(".chat-link").click(function(e) {
             e.preventDefault();
             // Show Chat section
-            $(".aside-wrapper").show();
+            $(".aside-wrapper").css("display","flex");
             // Hide Projects section
             $(".projects-wrapper").hide();
             // Hide footer
             $(".footer-wrapper").hide();
             // Hide title wrapper 
-            $(".site-title-wrapper").hide();
+        // $(".site-title-wrapper").hide();
             // Add active class to .chat-link
             $(this).addClass("active-link");
             // Remove active class from .projects-link
@@ -275,8 +270,8 @@ $(document).ready(function() {
             $(".footer-wrapper").show();
             // Hide Projects section
             $(".projects-wrapper").hide();
-            // Hide Chat section
-            $(".aside-wrapper").hide();
+            // Hide Chat section and reset flex direction
+            $(".aside-wrapper").css("display","none");
             // Show title
             $(".site-title-wrapper").show();
             // Add active class to .chat-link

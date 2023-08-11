@@ -22,10 +22,7 @@
     justify-content: center;
     align-items: center;
     width: 90%;
-    background-color: #151515;
-    /* background-color: rgba(23, 23, 24); */
-    /* background-color: #1d1c20; */
-    /* box-shadow: inset 2px 6px 4px rgba(50, 50, 50, .8); */
+    /* background-color: #151515; */
     padding: 16px;
     text-align: center;
     border-radius: 16px;
@@ -81,11 +78,6 @@
     transition: opacity 0.2s; /* Add transition for smooth animation */
 }
 
-/* .icebreaker-tile p {
-    font-size: var(--font-size-1);
-    text-transform: uppercase;
-    color: #f3f3f3;
-} */
 
 .icebreaker-tile {
     font-size: var(--font-size-1);
@@ -100,7 +92,7 @@
 /* MEDIA QUERIES */
 
 /* Extra Small Devices (XS) */
-@media (max-width: 991.98px) {
+@media (max-width: 575.98px) {
     .icebreakers-wrapper {
         padding: 0px;
         height: 30%;
@@ -113,6 +105,26 @@
         gap: 12px;
         padding: 0px 12px 12px 12px;
         height: fit-content;
+    }
+
+    .icebreaker-tile {
+        /* flex: 1 1 30%; */
+        /* width: 40%; */
+        height:fit-content;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .icebreakers-wrapper {
+        padding-top: 12px;
+    }
+
+    .icebreaker-tiles-wrapper {
+        overflow-y: scroll;
+        flex-wrap: nowrap;
+        gap: 12px;
+        padding: 12px 12px 12px 12px;
+        flex-direction: column;
     }
 
     .icebreaker-tile {
