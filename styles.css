@@ -256,42 +256,45 @@ body {
 
 .footer-wrapper {
     display: none;
-    border-radius: 16px;
+    border-radius: 0px;
     width: fit-content;
     margin: auto;
     padding: 0px 8px 0px 8px;
+    min-height: 100vh;
 }
 
 .footer-content {
     padding: 8px;
-    color: white;
+    /* color: white; */
     grid-template-columns: 1f;
-    display: flex;
+    display: grid;
     flex-direction: column;
     gap: 48px;
 }
 
 #footer-background {
-   display: none;
+    border-radius: 0px;
 }
 
 .contact-link {
     grid-column: 1/5; 
-    border-bottom: 1px solid white; 
+    /* border-bottom: 1px solid white;  */
     margin-top: 56px; 
     padding-bottom: 8px;
-    margin-bottom: 24px;; 
+    margin-bottom: 24px;
     display: flex; 
     flex-direction: row; 
     gap: 12px; 
     cursor: pointer; 
-    color: white; 
+    /* color: white;  */
     text-decoration: none;
     }
 
 .contact-icon {
     fill: #ffffff;
     }
+
+
 }
 
 /* Mobile Devices */

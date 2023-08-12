@@ -326,22 +326,13 @@ $(document).ready(function() {
 
 // EXPERIMENT ENDS HERE
 
-
-
-
-
-
-
-
 // Icebreaker tile copy on click
 $(document).ready(function() {
     $(".icebreaker-tile").click(function() {
         // Get the h4 text from the clicked tile
         var h6Text = $(this).find("div.copy-text").text();
-
         // Insert the h6 text into the chat input field
         $("#user-input").val(h6Text);
-
         // Submit the chat form
         $("#chat-form").submit();
         // Show the overlay with "Copied to clipboard" message and hide the original text
@@ -379,6 +370,8 @@ $(document).ready(function() {
         $(".aside-wrapper").css("display","flex");
         // Hide Projects section
         $(".projects-wrapper").hide();
+        // Hide site title 
+        $(".site-title-wrapper").hide();
         // Hide footer
         $(".footer-wrapper").hide();
         // Animate active link to highlight chat-link
@@ -389,13 +382,13 @@ $(document).ready(function() {
     $(".about-link").click(function(e) {
         e.preventDefault();
         // Show Chat section
-        $(".footer-wrapper").show();
+        $(".footer-wrapper").css("display","grid");
         // Hide Projects section
         $(".projects-wrapper").hide();
         // Hide Chat section and reset flex direction
         $(".aside-wrapper").css("display","none");
         // Show title
-        $(".site-title-wrapper").show();
+        $(".site-title-wrapper").hide();
         // // Animate active link to highlight about-link
         $(".active-link").css("transform", "translate(203%)");
     });
