@@ -1,7 +1,7 @@
 .icebreakers-wrapper {
     position: relative;
     overflow-y: hidden;
-    padding: 0px 8px 32px 8px;
+    padding: 0px 8px 0px 8px;
 }
 
 .icebreaker-tiles-wrapper {
@@ -21,20 +21,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
-    /* background-color: #151515; */
-    padding: 16px;
+    padding: 0px;
     text-align: center;
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: #151515;
+    border: 1px solid rgba(120, 120, 120, 0.2);
     cursor: pointer;
     user-select: none; /* Prevent text selection on double click */
     position: relative;
     flex: 1 1 48%;
-    height: 172px;
-    display: flex;
-    justify-content: center;
-    align-items: center;    
+    height: 15.5vh;
 }
 
 .icebreaker-tile h6 {
@@ -49,6 +45,11 @@
 }
 
 .copy-text {
+    font-family: "Satoshi-Variable";
+    font-size: 1rem;
+    font-weight: 400;
+    color: white;
+    max-width: 80%;
     opacity: 1; /* Set initial opacity to 1 */
     transition: opacity 0.15s; /* Add transition for smooth animation */
 }
@@ -69,6 +70,11 @@
     pointer-events: none; /* Make the overlay not block clicks on the tile */
 }
 
+.overlay div {
+    font-size: 1rem;
+    font-family: 'Satoshi-Variable';
+}
+
 .copied .copy-text {
     opacity: 0.7; /* Animate the opacity to 0 when .copied class is added */
 }
@@ -78,15 +84,26 @@
     transition: opacity 0.2s; /* Add transition for smooth animation */
 }
 
-
 .icebreaker-tile {
-    font-size: var(--font-size-1);
-    font-weight: 400;
-    color: #a2a2a2;
+    color: white; 
 }
 
 .overlay h4 {
     color: #fff;
+}
+
+.icebreaker-menu-button {
+    display: none;
+    text-align: center;
+    padding: 24px;
+    width: 100%;
+    border-radius: 16px;
+    background-color: #151515;
+    border: 1px solid rgba(120, 120, 120, 0.2);
+    font-size: 1rem;
+    font-family: "Satoshi-Variable";
+    color: white;
+    font-weight: 500;
 }
 
 /* MEDIA QUERIES */
@@ -94,6 +111,7 @@
 /* Extra Small Devices (XS) */
 @media (max-width: 575.98px) {
     .icebreakers-wrapper {
+        display: none;
         padding: 0px;
         height: 30%;
     }
@@ -108,30 +126,48 @@
     }
 
     .icebreaker-tile {
-        /* flex: 1 1 30%; */
-        /* width: 40%; */
-        height:fit-content;
+        flex: 1 1 40%;
+        min-width: 40%;;
+        padding: 24px;
+        height: fit-content;
+    }
+
+    .copy-text {
+        width: auto;
+    }
+
+    .icebreaker-menu-button {
+        display: block;
     }
 }
 
+
+
+/* Tablets */
 @media (min-width: 576px) and (max-width: 991.98px) {
-    .icebreakers-wrapper {
-        padding-top: 12px;
-    }
+.icebreakers-wrapper {
+    padding: 24px 12px 16px 16px;
+}
 
-    .icebreaker-tiles-wrapper {
-        overflow-y: scroll;
-        flex-wrap: nowrap;
-        gap: 12px;
-        padding: 12px 12px 12px 12px;
-        flex-direction: column;
-    }
+.icebreaker-tiles-wrapper {
+    overflow-y: scroll;
+    flex-wrap: nowrap;
+    gap: 12px;
+    /* padding: 12px 12px 12px 12px; */
+    flex-direction: column;
+}
 
-    .icebreaker-tile {
-        /* flex: 1 1 30%; */
-        /* width: 40%; */
-        height:fit-content;
-    }
+.icebreaker-tile {
+    padding: 32px 16px 32px 16px;
+}
+
+.copy-text {
+    width: auto;
+}
+
+.chat-wrapper {
+    padding-bottom: 16px;
+}
 }
 
 /* Large Devices (LG) */

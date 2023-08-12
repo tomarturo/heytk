@@ -6,10 +6,19 @@ var gradient = new Gradient()
 gradient.initGradient('#site-title-background');
 
 var gradient = new Gradient()
-gradient.initGradient('#icebreaker-background');
+gradient.initGradient('#footer-background');
 
-var gradient = new Gradient()
-gradient.initGradient('#icebreaker-background-2');
+// Icebreaker tile height 
+$(document).ready(function() {
+    // Check if the screen width is 991.98px or larger
+    if ($(window).width() >= 991.98) {
+      // Get the height of .front-card including padding
+      const frontCardHeight = $(".front-card").outerHeight();
+      // Set the height of .icebreaker-tile to the height of .front-card
+      $(".icebreaker-tile").height(frontCardHeight);
+    }
+  });
+
 
 // Project cards & case study 
 $(document).ready(function() {
@@ -124,12 +133,125 @@ function displayChatHistory() {
         var messageClass = chat.type === "user" ? "user-message" : "bot-message";
         $("#chat-display").append("<div class='" + messageClass + "'>" + chat.message + "</div>");
     });
-    // Scroll down to display the most recent messages
-    var chatDisplay = document.getElementById("chat-display");
-    chatDisplay.scrollTop = chatDisplay.scrollHeight;
 }
 
+// WORKING CODE STARTS HERE, EXPERIMENTAL HIDE ON SCROLL STARTS BELOW THIS COMMENT
+
+// $(document).ready(function() {
+//     $("#chat-form").submit(function(event) {
+//         event.preventDefault();
+
+//         // Get user input
+//         var userMessage = $("#user-input").val().trim();
+//         if (userMessage === "") {
+//             return;
+//         }
+
+//         // Display user message in the chat display area
+//         $("#chat-display").append("<div class='user-message'>" + userMessage + "</div>");
+
+//         // Add user message to chat history
+//         chatHistory.push({ type: "user", message: userMessage });
+
+//         // Uncomment the following section to send the user message to the Python backend via API
+//         // $.ajax({
+//         //     type: "POST",
+//         //     url: "http://127.0.0.1:5000/api/chat",  // Replace with your Python server URL
+//         //     data: JSON.stringify({ "message": userMessage }),
+//         //     contentType: "application/json",
+//         //     dataType: "json",
+//         //     success: function(response) {
+//         //         // Display chatbot's response in the chat display area
+//         //         var botResponse = response.response;
+//         //         $("#chat-display").append("<div class='bot-message'>" + botResponse + "</div>");
+
+//         //         // Add chatbot's response to chat history
+//         //         chatHistory.push({ type: "bot", message: botResponse });
+
+//         //         // Clear the user input field and reset its height
+//         //         $("#user-input").val("");
+//         //         $("#user-input").css("height", "");
+
+//         //         // Scroll down to display the most recent messages
+//         //         var chatDisplay = document.getElementById("chat-display");
+//         //         chatDisplay.scrollTop = chatDisplay.scrollHeight;
+//         //     },
+//         //     error: function(error) {
+//         //         console.error("Error sending message:", error);
+//         //     }
+//         // });
+        
+//         // Create a new div for the bot message and hide it initially
+//         var botMessage = $("<div class='bot-message'></div>").hide();
+        
+//         // Append the bot message container to the chat display and show it
+//         $("#chat-display").append(botMessage);
+        
+//         // Generate a placeholder response (for testing purposes)
+//         var placeholderResponse = "This is a placeholder response to: " + userMessage;
+        
+//         // Split the response into individual words
+//         var words = placeholderResponse.split(" ");
+          
+//         // Set white-space property to preserve line breaks
+//         botMessage.css("white-space", "pre-wrap");
+          
+//         // Loop through each word and append it to the bot message
+//         $.each(words, function(index, word) {
+//             // Create a new span for the word, hide it initially
+//             var wordSpan = $("<span class='bot-word'></span>").text(word).hide();
+            
+//             // Append the word to the bot message
+//             botMessage.append(wordSpan);
+            
+//             // Add space after each word except the last one
+//             if (index < words.length - 1) {
+//                 botMessage.append(" ");
+//             }
+            
+//             // Fade in the word
+//             wordSpan.delay(index * 200).fadeIn(300); // Delay and duration can be adjusted
+//         });
+        
+//         // Show the bot message and calculate its total height
+//         botMessage.show();
+//         var botMessageHeight = botMessage.outerHeight();
+
+//         // Scroll down to display the most recent messages along with the new message
+//         var chatDisplay = document.getElementById("chat-display");
+//         chatDisplay.scrollTop = chatDisplay.scrollHeight + botMessageHeight;
+
+//         // Add the placeholder response to chat history (for testing purposes)
+//         chatHistory.push({ type: "bot", message: placeholderResponse });
+
+//         // Clear the user input field and reset its height
+//         $("#user-input").val("");
+//         $("#user-input").css("height", "");
+//     });
+
+//     // Adjust input field height to grow up to three lines with a vertical scrollbar
+//     $("#user-input").on("input", function() {
+//         this.style.height = "auto";
+//         this.style.height = (this.scrollHeight) + "px";
+//     });
+// });
+
+
+// HIDE ALL MESSAGES ON SCROLL EXPERIMENT STARTS HERE
+
 $(document).ready(function() {
+    // Variable to keep track of whether chat display is scrolled down
+    var isScrolledDown = false;
+
+    // Function to check if chat display is scrolled down
+    function checkScroll() {
+        isScrolledDown = $("#chat-display")[0].scrollHeight - $("#chat-display").scrollTop() === $("#chat-display").outerHeight();
+    }
+
+    // Initialize the variable and attach the scroll event handler
+    checkScroll();
+    $("#chat-display").on("scroll", checkScroll);
+
     $("#chat-form").submit(function(event) {
         event.preventDefault();
 
@@ -139,148 +261,145 @@ $(document).ready(function() {
             return;
         }
 
+        // Hide all previous messages if chat display is not scrolled down
+        if (!isScrolledDown) {
+            $(".user-message, .bot-message").hide();
+        }
+
         // Display user message in the chat display area
         $("#chat-display").append("<div class='user-message'>" + userMessage + "</div>");
+
+        // Scroll to the top of the chat display
+        var chatDisplay = document.getElementById("chat-display");
+        chatDisplay.scrollTop = 0;
 
         // Add user message to chat history
         chatHistory.push({ type: "user", message: userMessage });
 
-        // Uncomment the following section to send the user message to the Python backend via API
-        // $.ajax({
-        //     type: "POST",
-        //     url: "http://127.0.0.1:5000/api/chat",  // Replace with your Python server URL
-        //     data: JSON.stringify({ "message": userMessage }),
-        //     contentType: "application/json",
-        //     dataType: "json",
-        //     success: function(response) {
-        //         // Display chatbot's response in the chat display area
-        //         var botResponse = response.response;
-        //         $("#chat-display").append("<div class='bot-message'>" + botResponse + "</div>");
-
-        //         // Add chatbot's response to chat history
-        //         chatHistory.push({ type: "bot", message: botResponse });
-
-        //         // Clear the user input field and reset its height
-        //         $("#user-input").val("");
-        //         $("#user-input").css("height", "");
-
-        //         // Scroll down to display the most recent messages
-        //         var chatDisplay = document.getElementById("chat-display");
-        //         chatDisplay.scrollTop = chatDisplay.scrollHeight;
-        //     },
-        //     error: function(error) {
-        //         console.error("Error sending message:", error);
-        //     }
-        // });
-
         // Generate a placeholder response (for testing purposes)
         var placeholderResponse = "This is a placeholder response to: " + userMessage;
-        $("#chat-display").append("<div class='bot-message'>" + placeholderResponse + "</div>");
 
-        // Add the placeholder response to chat history (for testing purposes)
-        chatHistory.push({ type: "bot", message: placeholderResponse });
+        // Split the response into individual words
+        var words = placeholderResponse.split(" ");
 
-        // Clear the user input field and reset its height
+        // Create a new div for the bot message and hide it initially
+        var botMessage = $("<div class='bot-message'></div>").hide();
+
+        // Set white-space property to preserve line breaks
+        botMessage.css("white-space", "pre-wrap");
+
+        // Append the bot message container to the chat display and show it
+        $("#chat-display").append(botMessage);
+        botMessage.show();
+
+        // Loop through each word and append it to the bot message
+        $.each(words, function(index, word) {
+            // Create a new span for the word, hide it initially
+            var wordSpan = $("<span class='bot-word'></span>").text(word).hide();
+
+            // Append the word to the bot message
+            botMessage.append(wordSpan);
+
+            // Add space after each word except the last one
+            if (index < words.length - 1) {
+                botMessage.append(" ");
+            }
+
+            // Fade in the word
+            wordSpan.delay(index * 200).fadeIn(300); // Delay and duration can be adjusted
+        });
+
+        // Clear the input field
         $("#user-input").val("");
-        $("#user-input").css("height", "");
-
-        // Scroll down to display the most recent messages
-        var chatDisplay = document.getElementById("chat-display");
-        chatDisplay.scrollTop = chatDisplay.scrollHeight;
     });
 
-    // Adjust input field height to grow up to three lines with a vertical scrollbar
-    $("#user-input").on("input", function() {
-        this.style.height = "auto";
-        this.style.height = (this.scrollHeight) + "px";
-    });
+    // Show previous messages when chat display is scrolled down
+    function showPreviousMessages() {
+        if (isScrolledDown) {
+            $(".user-message, .bot-message").show();
+        }
+    }
+
+    // Attach a click event to the chat display to show previous messages
+    $("#chat-display").on("click", showPreviousMessages);
 });
+
+// EXPERIMENT ENDS HERE
+
+
+
+
+
+
+
 
 // Icebreaker tile copy on click
 $(document).ready(function() {
     $(".icebreaker-tile").click(function() {
         // Get the h4 text from the clicked tile
-        var h6Text = $(this).find("h6.copy-text").text();
+        var h6Text = $(this).find("div.copy-text").text();
 
-        // Create a temporary textarea element to copy text to clipboard
-        var tempTextArea = $("<textarea>");
-        tempTextArea.val(h6Text);
-        $("body").append(tempTextArea);
+        // Insert the h6 text into the chat input field
+        $("#user-input").val(h6Text);
 
-        // Copy the text from the textarea to clipboard
-        tempTextArea.select();
-        document.execCommand("copy");
-
-        // Remove the temporary textarea
-        tempTextArea.remove();
-
+        // Submit the chat form
+        $("#chat-form").submit();
         // Show the overlay with "Copied to clipboard" message and hide the original text
         $(this).addClass("copied");
         setTimeout(function() {
-            $(this).removeClass("copied");
+        $(this).removeClass("copied");
         }.bind(this), 1500);
     });
 });
 
 // Mobile nav 
 // Check if the screen size is less than or equal to 767.98px (mobile devices)
-    $(document).ready(function() {
-        // Click event for .projects-link
-        $(".projects-link").click(function(e) {
-            e.preventDefault();
-            // Show Projects section
-            $(".projects-wrapper").show();
-            // Show Site-title 
-            $(".site-title-wrapper").show();
-            // Hide footer 
-            $(".footer-wrapper").hide();
-            // Hide Chat section
-            $(".aside-wrapper").css("display","none");
-            // Add active class to .projects-link
-            $(this).addClass("active-link");
-            // Remove active class from .chat-link
-            $(".chat-link").removeClass("active-link");
-            // Remove active class from .contact-link
-            $(".contact-link").removeClass("active-link");
-        });
-
-        // Click event for .chat-link
-        $(".chat-link").click(function(e) {
-            e.preventDefault();
-            // Show Chat section
-            $(".aside-wrapper").css("display","flex");
-            // Hide Projects section
-            $(".projects-wrapper").hide();
-            // Hide footer
-            $(".footer-wrapper").hide();
-            // Hide title wrapper 
-        // $(".site-title-wrapper").hide();
-            // Add active class to .chat-link
-            $(this).addClass("active-link");
-            // Remove active class from .projects-link
-            $(".projects-link").removeClass("active-link");
-            // Remove active class from .contact-link
-            $(".contact-link").removeClass("active-link");
-        });
-
-        // Click event for .contact-link
-        $(".contact-link").click(function(e) {
-            e.preventDefault();
-            // Show Chat section
-            $(".footer-wrapper").show();
-            // Hide Projects section
-            $(".projects-wrapper").hide();
-            // Hide Chat section and reset flex direction
-            $(".aside-wrapper").css("display","none");
-            // Show title
-            $(".site-title-wrapper").show();
-            // Add active class to .chat-link
-            $(this).addClass("active-link");
-            // Remove active class from .projects-link
-            $(".projects-link").removeClass("active-link");
-            $(".chat-link").removeClass("active-link");
-        });
+$(document).ready(function() {
+    // Click event for .projects-link
+    $(".projects-link").click(function(e) {
+        e.preventDefault();
+        // Show Projects section
+        $(".projects-wrapper").show();
+        // Show Site-title 
+        $(".site-title-wrapper").show();
+        // Hide footer 
+        $(".footer-wrapper").hide();
+        // Hide Chat section
+        $(".aside-wrapper").css("display","none");
+        // Animate active link to highlight projects-link
+        // // Animate active link to highlight about-link
+        $(".active-link").css("transform", "translate(0%)");
     });
+
+    // Click event for .chat-link
+    $(".chat-link").click(function(e) {
+        e.preventDefault();
+        $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+        // Show Chat section
+        $(".aside-wrapper").css("display","flex");
+        // Hide Projects section
+        $(".projects-wrapper").hide();
+        // Hide footer
+        $(".footer-wrapper").hide();
+        // Animate active link to highlight chat-link
+        $(".active-link").css("transform", "translate(calc(101%))");
+    });
+
+    // Click event for .about-link
+    $(".about-link").click(function(e) {
+        e.preventDefault();
+        // Show Chat section
+        $(".footer-wrapper").show();
+        // Hide Projects section
+        $(".projects-wrapper").hide();
+        // Hide Chat section and reset flex direction
+        $(".aside-wrapper").css("display","none");
+        // Show title
+        $(".site-title-wrapper").show();
+        // // Animate active link to highlight about-link
+        $(".active-link").css("transform", "translate(203%)");
+    });
+});
 
 // Accurate VH calculation from CSS Tricks TY!
 // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
@@ -293,48 +412,3 @@ window.addEventListener('resize', () => {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   });
-
-
-
-// Title background gradient color change
-// const root = document.documentElement;
-// const gradientDuration = 10000; // 10 seconds
-// const interval = gradientDuration / 100; // 100 random colors
-// let currentColorIndex = 0;
-// let colors = [];
-
-// // Generate an array of 100 random colors using chroma.js
-// for (let i = 0; i < 100; i++) {
-//     colors.push(chroma.random().hex());
-// }
-
-// function animateColorChange() {
-//     const currentColor = colors[currentColorIndex];
-//     const nextColor = colors[(currentColorIndex + 1) % colors.length];
-//     const startTime = Date.now();
-
-//     function updateColor() {
-//     const currentTime = Date.now() - startTime;
-//     const progress = currentTime / gradientDuration;
-//     const interpolatedColor = chroma.mix(currentColor, nextColor, progress, 'hsl');
-//     root.style.setProperty('--chroma-color', interpolatedColor.hex());
-
-//     if (currentTime < gradientDuration) {
-//         requestAnimationFrame(updateColor);
-//     } else {
-//         currentColorIndex = (currentColorIndex + 1) % colors.length;
-//         animateColorChange();
-//     }
-//     }
-
-//     updateColor();
-// }
-
-// // Start the color animation once the page loads
-// window.addEventListener('load', () => {
-//     animateColorChange();
-// });
-
-
-// Tilt image on hover
-

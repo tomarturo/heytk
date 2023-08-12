@@ -16,12 +16,13 @@
     <script src="https://unpkg.com/tilt.js@1.2.1/dest/tilt.jquery.min.js"></script>
 </head>
 <body style="background-color: black;">
-    <!-- <canvas id="gradient-canvas" style="width:100vw; height:100vh"></canvas> -->
+    <canvas id="gradient-canvas" style="width:100vw; height:100vh"></canvas>
     <main class="main">
         <div class="mobile-nav">
-            <div class="projects-link active-link">projects</div>
+            <div class="projects-link">projects</div>
             <div class="chat-link">chat.tk</div>
-            <div class="contact-link">contact</div>
+            <div class="about-link">about</div>
+            <div class="active-link"></div>
         </div>
         <section class="aside-wrapper">
             <div class="pill">
@@ -30,7 +31,7 @@
             <div class="chat-wrapper">
                 <div id="chat-container">
                     <div id="chat-display">
-                        <div class="bot-message">What would you like to know about Tom?</div>
+                        <div class="bot-message" id="mobile-welcome-message">What would you like to know about Tom?</div>
                     </div>
                     <form id="chat-form" autocomplete="off">
                         <input type="text" id="user-input" placeholder="Type a question or select a tile"/>
@@ -38,41 +39,42 @@
                     </form>
                 </div>
             </div>
+            <div class="icebreaker-menu-button">
+                <div>Start with an icebreaker</div>
+            </div>
             <section class="icebreakers-wrapper">
                 <div class="icebreaker-tiles-wrapper">
                     <div class="icebreaker-tile">
-                        <h6 class="copy-text">Tell me about Tom's professional experience.</h6>
-                        <div class="overlay"><h6>Copied to clipboard</h6></div>
-                        <canvas id="icebreaker-background" width="200" height="200"></canvas>
+                        <div class="copy-text">Tell me about Tom's professional experience.</div>
+                        <div class="overlay"><div>Asked and answered!</div></div>
                     </div>
                     <div class="icebreaker-tile">
-                        <h6 class="copy-text">Tasdfexperience .</h6>
-                        <div class="overlay"><h6>Copied to clipboard</h6></div>
-                        <canvas id="icebreaker-background-2" width="200" height="200"></canvas>
+                        <div class="copy-text">What is Tom looking for in his next role?</div>
+                        <div class="overlay"><div>Asked and answered!</div></div>
                     </div>
                     <div class="icebreaker-tile">
-                        <h6 class="copy-text">Tell me about Tom's professional experience.</h6>
-                        <div class="overlay"><h6>Copied to clipboard</h6></div>
+                        <div class="copy-text">Tell me about Tom's professional experience.</div>
+                        <div class="overlay"><div>Asked and answered!</div></div>
                     </div>
                     <div class="icebreaker-tile">
-                        <h6 class="copy-text">Tell me about Tom's professional experience.</h6>
-                        <div class="overlay"><h6>Copied to clipboard</h6></div>
+                        <div class="copy-text">Tell me about Tom's professional experience.</div>
+                        <div class="overlay"><div>Copied to clipboard</div></div>
                     </div>
                     <div class="icebreaker-tile">
-                        <h6 class="copy-text">Tell me about Tom's professional experience.</h6>
-                        <div class="overlay"><h6>Copied to clipboard</h6></div>
+                        <div class="copy-text">Tell me about Tom's professional experience.</div>
+                        <div class="overlay"><div>Copied to clipboard</div></div>
                     </div>
                     <div class="icebreaker-tile">
-                        <h6 class="copy-text">Tell me about Tom's professional experience.</h6>
-                        <div class="overlay"><h6>Copied to clipboard</h6></div>
+                        <div class="copy-text">Tell me about Tom's professional experience.</div>
+                        <div class="overlay"><div>Copied to clipboard</div></div>
                     </div>
                     <div class="icebreaker-tile">
-                        <h6 class="copy-text">Tell me about Tom's professional experience.</h6>
-                        <div class="overlay"><h6>Copied to clipboard</h6></div>
+                        <div class="copy-text">Tell me about Tom's professional experience.</div>
+                        <div class="overlay"><div>Copied to clipboard</div></div>
                     </div>
                     <div class="icebreaker-tile">
-                        <h6 class="copy-text">Tell me about Tom's professional experience.</h6>
-                        <div class="overlay"><h6>Copied to clipboard</h6></div>
+                        <div class="copy-text">Tell me about Tom's professional experience.</div>
+                        <div class="overlay"><div>Copied to clipboard</div></div>
                     </div>
                 </div>
             </section>
@@ -165,7 +167,7 @@
                         </div>
                     </div>
                     <div class="project-description">
-                        <h1 style="color: #EBC2FE">Gathering cell coverage and campground data with a touch of delight.</h1>
+                        <h1 style="color: #EBC2FE">A delightful way for users to submit cellular coverage and campground data.</h1>
                     </div>
                 </div>
                 <div class="accordion-1"></div>
@@ -315,9 +317,29 @@
             </div>
         </section>
         <section class="footer-wrapper">
-            <div class="container">
-                <h1 class="site-title">tom k.</h1>
+            <div class="footer-content">
+                <div style="grid-column: 1 / 3;">
+                    <h2>Curious</h2>
+                    <p>With experience on both small startup teams and large cross-functional squads, I adapt my design process to address the challenges, constraints, and business needs at hand.</p>
+                </div>
+                <div style="grid-column: 3 / 5;">
+                    <h2>Ambitious</h2>
+                    <p>Tom Kurzeka is a product designer based in portland, oregon</p>
+                </div>
+                <div style="grid-column: 1 / 3; grid-row-start: 2;">
+                    <h2>Resourceful</h2>
+                    <p>Tom Kurzeka is a product designer based in portland, oregon</p>
+                </div>
+                <div style="grid-column: 3 / 5; grid-row-start: 2;">
+                    <h2>Collaborative</h2>
+                    <p>Tom Kurzeka is a product designer based in portland, oregon</p>
+                </div>
+                <a class="contact-link" href="mailto:tom.kurzeka@gmail.com?subject=Let's Talk Design">
+                    <img class="contact-icon" src="images/contact arrow.svg" alt="arrow icon">
+                    <h2>Get in touch</h2>
+                </a>
             </div>
+            <canvas id="footer-background"></canvas>
         </section>
     </main>
     <script src="main.js"></script>

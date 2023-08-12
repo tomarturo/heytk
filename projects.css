@@ -35,20 +35,6 @@
     white-space: nowrap;
 }
 
-/* .buzz-words-wrapper {
-    display: flex;
-    flex-direction: row;
-    gap: 4px;
-}
-
-.buzz-word {
-    padding: 4px 8px 4px 8px;
-    background-color: rgba(255,255,255, 0.1);
-    border-radius: 4px;
-    font-weight: 400;
-    color: white;
-} */
-
 .project-card-wrapper {
     perspective: 3000px;
     perspective-origin: 50% 0;
@@ -57,7 +43,6 @@
 
 .front-card {
     background-color: #151515;
-    /* background-color: #1d1c20; */
     border: 1px solid rgba(120, 120, 120, 0.2);
     display: flex;
     flex-direction: column;
@@ -88,7 +73,7 @@
 }
 
 .accordion-1 {
-    height: 15vh;
+    height: 100px;
     width: 100%;
     background-color: rgba(0, 183, 85, 0.855);
     border-radius: 16px;
@@ -100,7 +85,7 @@
 }
 
 .accordion-2 {
-    height: 15vh;
+    height: 100px;
     width: 100%;
     background-color: rgba(183, 6, 0, 0.855);
     border-radius: 16px;
@@ -112,7 +97,7 @@
 }
 
 .accordion-3 {
-    height: 15vh;
+    height: 100px;
     width: 100%;
     background-color: rgba(95, 0, 183, 0.855);
     border-radius: 16px;
@@ -124,7 +109,7 @@
 }
 
 .accordion-4 {
-    height: 15vh;
+    height: 100px;
     width: 100%;
     background-color: rgba(183, 0, 177, 0.855);
     border-radius: 16px;

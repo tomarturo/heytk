@@ -116,16 +116,42 @@ body {
 }
 
 .footer-wrapper {
-    width: calc(75% - 32px);
-    margin-left: calc(25% + 32px);
+    color: black;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: fit-content;
+    /* no padding allowed inside title wrapper because of canvas, 
+    need calc vh + padding of chat container (left) for vertical alignment */ 
+    margin-bottom: 16px;
+    position: relative;
+    width: calc(75% - 32px);
+    margin-left: calc(25% + 32px);
     border-radius: 16px;
-    height: 55vh;
-    background-color: rgba(255, 255, 255, 0.7);
-    order: 4;
 }
 
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 64px;
+    row-gap: 64px;
+    padding: 80px;
+}
+
+.contact-link {
+    grid-column: 1/5; 
+    border-bottom: 1px solid black; 
+    margin-top: 80px; 
+    padding-bottom: 8px; 
+    display: flex; 
+    flex-direction: row; 
+    gap: 12px; 
+    cursor: pointer; 
+    color: black; 
+    text-decoration: none;
+}
 
 /* GRADIENTS */
 
@@ -150,12 +176,11 @@ body {
     border-radius: 16px;
 }
 
-
-#icebreaker-background {
-    --gradient-color-1: #0d0d0d; 
-    --gradient-color-2: #080707; 
-    --gradient-color-3: #322f2f;  
-    --gradient-color-4: #030303;
+#footer-background {
+    --gradient-color-1: #1CA65C;
+    --gradient-color-2: #FFE486;
+    --gradient-color-3: #EBC2FE;
+    --gradient-color-4: #F56846;
     position: absolute;
     z-index: -1;
     width: 100%;
@@ -163,19 +188,7 @@ body {
     border-radius: 16px;
 }
 
-#icebreaker-background-2 {
-    --gradient-color-1: #0d0d0d; 
-    --gradient-color-2: #080707; 
-    --gradient-color-3: #322f2f;  
-    --gradient-color-4: #030303;
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    border-radius: 16px;
-}
-
-/* Extra Small Devices (XS) */
+/* All Mobile Devices (XS) */
 @media (max-width: 991.98px) {
 .main {
     padding: 0px 0px 4px 0px;
@@ -183,94 +196,102 @@ body {
     flex-direction: column;
 }
 
-.site-title-wrapper {
-    height: 50vh;
-    margin: 0px;
-    width: 100%;
-    border-radius: none;
-    order: 1;
-}
-
-#site-title-img {
-    width: 45%;
-}
-    
-#site-title-details-img {
-    width: 15%;
-}   
-
-#site-title-background {
-    border-radius: 0px;
-}
-
 .mobile-nav {
     display: flex;
     flex-direction: row;
     position: fixed;
     width: calc(100% - 16px);
+    height: 48px;
     top: 12px;
     z-index: 200;
     right: 0%;
     left: 0%;
     margin: auto;
     justify-content: space-around;
-    background-color: rgba(255,255,255,.4);
-    /* border: 1px solid rgba(255,255,255,.2); */
+    background-color: rgba(255,255,255,.7);
     border-radius: 12px;
     backdrop-filter: blur(10px);
     font-family: 'Satoshi-Variable';
     text-transform: lowercase;
-    font-weight: 500;
     color: black;
-    /* box-shadow: inset 4px 4px rgba(255,255,255,0.05); */
     cursor: pointer;
 }
 
 .projects-link {
+    position: relative;
+    z-index: 10;
     width: 33%;
     text-align: center;
-    /* margin: 2px 0px 2px 0px; */
     padding: 12px;
     border-radius: 12px;
 }
 
 .chat-link {
+    position: relative;
+    z-index: 10;
     width: 33%;
     text-align: center;
-    /* margin: 2px 0px 2px 0px; */
-    /* padding: 12px 24px 12px 24px; */
     padding: 12px;
 }
 
-.contact-link {
+.about-link {
+    position: relative;
+    z-index: 10;
     width: 33%;
     text-align: center;
-    /* margin: 2px 0px 2px 0px; */
-    /* padding: 12px 24px 12px 24px; */
     padding: 12px;
 }
 
 .active-link {
-    /* margin: 2px 0px 2px 0px; */
-    /* padding: 12px 24px 12px 24px; */
-    padding: 12px;
+    position: absolute;
+    left: 0%;
+    width: 33%;
+    height: 48px;
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 1px 1px 3px rgba(23,23,23,0.15);
+    pointer-events: none;
+    transition: all .3s ease-out;
 }
 
 .footer-wrapper {
     display: none;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
     border-radius: 16px;
-    height: 25vh;
-    background-color: rgb(216, 162, 91);
-    width: calc(100% - 32px);
+    width: fit-content;
     margin: auto;
     padding: 0px 8px 0px 8px;
-    }    
+}
+
+.footer-content {
+    padding: 8px;
+    color: white;
+    grid-template-columns: 1f;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+#footer-background {
+   display: none;
+}
+
+.contact-link {
+    grid-column: 1/5; 
+    border-bottom: 1px solid white; 
+    margin-top: 56px; 
+    padding-bottom: 8px;
+    margin-bottom: 24px;; 
+    display: flex; 
+    flex-direction: row; 
+    gap: 12px; 
+    cursor: pointer; 
+    color: white; 
+    text-decoration: none;
+    }
+
+.contact-icon {
+    fill: #ffffff;
+    }
 }
 
 /* Mobile Devices */
@@ -285,6 +306,32 @@ body {
         --font-size-6: 1.6rem;
         --border-radius: 12px;
     }
+    
+    .mobile-nav {
+        font-weight: 700;
+        /* width: calc(100% - 48px); */
+    }
+
+    .site-title-wrapper {
+        height: 50vh;
+        margin: 0px;
+        width: 100%;
+        border-radius: none;
+    }
+    
+    #site-title-img {
+        width: 55%;
+    }
+        
+    #site-title-details-img {
+        width: 25%;
+    }   
+    
+    #site-title-background {
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+    }
 }
 
 /* Small-Medium Devices */
@@ -297,7 +344,32 @@ body {
         --font-size-4: 1.6rem;
         --font-size-5: 1.9rem;
         --font-size-6: 2.2rem;
-        }
+    }
+
+    .mobile-nav {
+        font-weight: 500;
+    }
+    
+    .site-title-wrapper {
+        height: 50vh;
+        margin: 0px;
+        width: 100%;
+        border-radius: none;
+    }
+    
+    #site-title-img {
+        width: 45%;
+    }
+        
+    #site-title-details-img {
+        width: 20%;
+    }   
+    
+    #site-title-background {
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+    }
 }
 
 /* Medium Devices */
@@ -310,6 +382,27 @@ body {
         --font-size-4: 1.6rem;
         --font-size-5: 1.9rem;
         --font-size-6: 2.2rem;
+    }
+
+    .site-title-wrapper {
+        height: 55vh;
+        margin: 0px;
+        width: 100%;
+        border-radius: none;
+    }
+    
+    #site-title-img {
+        width: 45%;
+    }
+        
+    #site-title-details-img {
+        width: 15%;
+    }   
+    
+    #site-title-background {
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
     }
 }
 
