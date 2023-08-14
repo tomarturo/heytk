@@ -19,7 +19,6 @@ $(document).ready(function() {
     }
   });
 
-
 // Project cards & case study 
 $(document).ready(function() {
     var projectCards = $(".project-card-wrapper");
@@ -123,6 +122,9 @@ $(document).ready(function() {
         });
     });
 });
+
+// CHAT INTERACTIONS 
+
 // Array to store chat history
 var chatHistory = [];
 
@@ -343,7 +345,8 @@ $(document).ready(function() {
     });
 });
 
-// Mobile nav 
+// MOBILE NAV
+
 // Check if the screen size is less than or equal to 767.98px (mobile devices)
 $(document).ready(function() {
     // Click event for .projects-link
@@ -357,15 +360,16 @@ $(document).ready(function() {
         $(".footer-wrapper").hide();
         // Hide Chat section
         $(".aside-wrapper").css("display","none");
+        // Enable overflow on .main
+        $(".main").css("overflow","auto")
         // Animate active link to highlight projects-link
-        // // Animate active link to highlight about-link
         $(".active-link").css("transform", "translate(0%)");
     });
 
     // Click event for .chat-link
     $(".chat-link").click(function(e) {
         e.preventDefault();
-        $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+        $("html, body").animate({ scrollTop: 0}, 0);
         // Show Chat section
         $(".aside-wrapper").css("display","flex");
         // Hide Projects section
@@ -374,6 +378,8 @@ $(document).ready(function() {
         $(".site-title-wrapper").hide();
         // Hide footer
         $(".footer-wrapper").hide();
+        // Hide overflow on .main
+        $(".main").css("overflow","hidden")
         // Animate active link to highlight chat-link
         $(".active-link").css("transform", "translate(calc(101%))");
     });
@@ -381,6 +387,7 @@ $(document).ready(function() {
     // Click event for .about-link
     $(".about-link").click(function(e) {
         e.preventDefault();
+        $("html, body").animate({ scrollTop: 0}, 0);
         // Show Chat section
         $(".footer-wrapper").css("display","grid");
         // Hide Projects section
@@ -389,10 +396,51 @@ $(document).ready(function() {
         $(".aside-wrapper").css("display","none");
         // Show title
         $(".site-title-wrapper").hide();
+        // Hide overflow on .main
+        $(".main").css("overflow","auto")
         // // Animate active link to highlight about-link
         $(".active-link").css("transform", "translate(203%)");
     });
 });
+
+// ICEBREAKER MOBILE INTERACTIONS 
+
+// show icebreakers wrapper on menu-button click
+$(document).ready(function() {
+    $(".icebreaker-menu-button").click(function() {
+        // Show the icebreaker menu
+        $(".icebreakers-wrapper").css("display", "flex");
+        
+        // Animate the slide up effect
+        $(".icebreakers-wrapper").animate({ bottom: "0" }, 500);
+    });
+});
+
+// hide icebreakers wrapper on close-button click
+$(document).ready(function() {
+    $(".close-icebreaker-button").click(function() {
+        console.log("button click!")
+        // Animate the slide down effect to hide the menu
+        $(".icebreakers-wrapper").animate({ bottom: "-100%" }, 500, function() {
+            // Once the animation is complete, hide the menu
+            $(".icebreakers-wrapper").css("display", "none");
+        });
+    });
+});
+
+// hide icebreakers wrapper on icebreaker-tile click
+$(document).ready(function() {
+    // Check if the screen width is 991.98px or larger
+    if ($(window).width() <= 991.98) {
+        $(".icebreaker-tile").click(function() {
+            // Animate the slide down effect to hide the menu
+            $(".icebreakers-wrapper").animate({ bottom: "-100%" }, 500, function() {
+                // Once the animation is complete, hide the menu
+                $(".icebreakers-wrapper").css("display", "none");
+            });
+        });
+    }
+  });
 
 // Accurate VH calculation from CSS Tricks TY!
 // First we get the viewport height and we multiple it by 1% to get a value for a vh unit

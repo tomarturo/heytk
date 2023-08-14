@@ -191,7 +191,7 @@
     }
 
     .front-card {
-        padding: 48px 24px 48px 24px;
+        padding: 32px 24px 32px 24px;
     }
 
     .project-title-wrapper {
@@ -201,6 +201,11 @@
     }
 }
 
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .front-card {
+        padding: 48px 32px 48px 32px;
+    }    
+}
 @media (max-width: 991.98px) {
     .projects-wrapper {
         width: 100%;
