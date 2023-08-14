@@ -5,7 +5,7 @@
 }
 
 .icebreaker-tiles-wrapper {
-    height: 98%;
+    height: 90%;
     box-sizing: border-box;
     overflow-y: scroll;
     display: flex;
@@ -14,6 +14,7 @@
     row-gap: 12px;
     column-gap: 12px;
     padding-bottom: 12px;
+    padding-top: 2px;
 }
 
 .icebreaker-tile {
@@ -30,7 +31,7 @@
     user-select: none; /* Prevent text selection on double click */
     position: relative;
     flex: 1 1 48%;
-    height: 15.5vh;
+    /* height: 15.5vh; */
 }
 
 .icebreaker-tile h6 {
@@ -47,7 +48,7 @@
 .copy-text {
     font-family: "Satoshi-Variable";
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 400;   
     color: white;
     max-width: 80%;
     opacity: 1; /* Set initial opacity to 1 */
@@ -117,19 +118,35 @@
 
 .close-icebreaker-button {
     height: 32px;
-    width: 32px;
+    width: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     border-radius: 100%;
-    background-color: white;
+    
     color: black;
+    cursor: pointer;
 }
 
 /* MEDIA QUERIES */
 
-/* Extra Small Devices (XS) */
+
+/* Small Devices  */
+
+@media (max-width: 450px) {
+    .icebreaker-tile {
+    flex: 1 1 100%;
+    }
+}
+
+@media (min-width: 451px) and (max-width: 991.98px) {
+    .icebreaker-tile {
+        flex: 1 1 40%;
+    }
+    
+}
+/* All Mobile Devices */
 @media (max-width: 991.98px) {
     .icebreakers-wrapper {
         display: none;
@@ -137,23 +154,24 @@
         flex-direction: column;
         bottom: -100vh;
         padding-top: 8px;
+        padding-bottom: 16px;   
         z-index: 1000;
-        height: 80vh;
+        /* height: 80vh; */
+        max-height: 80vh;
         border-radius: 12px 12px 0px 0px;
         background-color: black;
-        border: 1px solid rgba(120, 120, 120, 0.2);
+        border: 1px solid rgba(120, 120, 120, 0.5);
         backdrop-filter: blur(10px);
     }
 
     .icebreaker-tiles-wrapper {
         gap: 12px;
         padding: 0px 12px 12px 12px;
-        height:80vh;
+        /* height: 80vh; */
     }
 
     .icebreaker-tile {
-        flex: 1 1 40%;
-        min-width: 40%;;
+        min-width: 40%;
         padding: 24px;
         height: fit-content;
     }
@@ -164,10 +182,16 @@
 
     .icebreaker-menu-button {
         display: block;
+        cursor: pointer;
     }
 
     .icebreaker-mobile-header {
         display: flex;
+        padding-bottom: 24px;
+    }
+
+    .icebreaker-mobile-header h4 {
+        font-weight: 500;   
     }
 }
 
