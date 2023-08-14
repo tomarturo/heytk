@@ -160,7 +160,10 @@
         max-height: 80vh;
         border-radius: 12px 12px 0px 0px;
         background-color: black;
-        border: 1px solid rgba(120, 120, 120, 0.5);
+        border-top: 1px solid rgba(120, 120, 120, 0.5);
+        border-right: 1px solid rgba(120, 120, 120, 0.5);
+        border-left: 1px solid rgba(120, 120, 120, 0.5);
+        border-bottom: 0px;
         backdrop-filter: blur(10px);
     }
 

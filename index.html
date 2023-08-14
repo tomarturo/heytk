@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js" integrity="sha512-zInFF17qBFVvvvFpIfeBzo7Tj7+rQxLeTJDmbxjBz5/zIr89YVbTNelNhdTT+/DCrxoVzBeUPVFJsczKbB7sew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://unpkg.com/tilt.js@1.2.1/dest/tilt.jquery.min.js"></script>
+    
 </head>
 <body style="background-color: black;">
     <canvas id="gradient-canvas" style="width:100vw; height:100vh"></canvas>
@@ -48,35 +48,35 @@
                     <img src="images/close.svg" class="close-icebreaker-button"></img>
                 </div>
                 <div class="icebreaker-tiles-wrapper">
-                    <div class="icebreaker-tile">
+                    <div class="icebreaker-tile" data-tilt>
                         <div class="copy-text">Tell me about Tom's professional experience.</div>
                         <div class="overlay"><div>Asked and answered!</div></div>
                     </div>
-                    <div class="icebreaker-tile">
+                    <div class="icebreaker-tile" data-tilt>
                         <div class="copy-text">What is Tom looking for in his next role?</div>
                         <div class="overlay"><div>Asked and answered!</div></div>
                     </div>
-                    <div class="icebreaker-tile">
+                    <div class="icebreaker-tile" data-tilt>
                         <div class="copy-text">Tell me about Tom's professional experience.</div>
                         <div class="overlay"><div>Asked and answered!</div></div>
                     </div>
-                    <div class="icebreaker-tile">
+                    <div class="icebreaker-tile" data-tilt>
                         <div class="copy-text">Tell me about Tom's professional experience.</div>
                         <div class="overlay"><div>Copied to clipboard</div></div>
                     </div>
-                    <div class="icebreaker-tile">
+                    <div class="icebreaker-tile" data-tilt>
                         <div class="copy-text">Tell me about Tom's professional experience.</div>
                         <div class="overlay"><div>Copied to clipboard</div></div>
                     </div>
-                    <div class="icebreaker-tile">
+                    <div class="icebreaker-tile" data-tilt>
                         <div class="copy-text">Tell me about Tom's professional experience.</div>
                         <div class="overlay"><div>Copied to clipboard</div></div>
                     </div>
-                    <div class="icebreaker-tile">
+                    <div class="icebreaker-tile" data-tilt>
                         <div class="copy-text">Tell me about Tom's professional experience.</div>
                         <div class="overlay"><div>Copied to clipboard</div></div>
                     </div>
-                    <div class="icebreaker-tile">
+                    <div class="icebreaker-tile" data-tilt>
                         <div class="copy-text">Tell me about Tom's professional experience.</div>
                         <div class="overlay"><div>Copied to clipboard</div></div>
                     </div>
@@ -346,6 +346,7 @@
             <canvas id="footer-background"></canvas>
         </section>
     </main>
+    <script src="https://unpkg.com/tilt.js@1.2.1/dest/tilt.jquery.min.js"></script>
     <script src="main.js"></script>
 </body>
 </html>

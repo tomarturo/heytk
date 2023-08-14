@@ -139,21 +139,21 @@ function displayChatHistory() {
 
 // WORKING CODE STARTS HERE, EXPERIMENTAL HIDE ON SCROLL STARTS BELOW THIS COMMENT
 
-// $(document).ready(function() {
-//     $("#chat-form").submit(function(event) {
-//         event.preventDefault();
+$(document).ready(function() {
+    $("#chat-form").submit(function(event) {
+        event.preventDefault();
 
-//         // Get user input
-//         var userMessage = $("#user-input").val().trim();
-//         if (userMessage === "") {
-//             return;
-//         }
+        // Get user input
+        var userMessage = $("#user-input").val().trim();
+        if (userMessage === "") {
+            return;
+        }
 
-//         // Display user message in the chat display area
-//         $("#chat-display").append("<div class='user-message'>" + userMessage + "</div>");
+        // Display user message in the chat display area
+        $("#chat-display").append("<div class='user-message'>" + userMessage + "</div>");
 
-//         // Add user message to chat history
-//         chatHistory.push({ type: "user", message: userMessage });
+        // Add user message to chat history
+        chatHistory.push({ type: "user", message: userMessage });
 
             // Uncomment to connect to flaskapp or API
             // $.ajax({
@@ -183,150 +183,60 @@ function displayChatHistory() {
             //     }
             // });
         
-//         // Create a new div for the bot message and hide it initially
-//         var botMessage = $("<div class='bot-message'></div>").hide();
-        
-//         // Append the bot message container to the chat display and show it
-//         $("#chat-display").append(botMessage);
-        
-//         // Generate a placeholder response (for testing purposes)
-//         var placeholderResponse = "This is a placeholder response to: " + userMessage;
-        
-//         // Split the response into individual words
-//         var words = placeholderResponse.split(" ");
-          
-//         // Set white-space property to preserve line breaks
-//         botMessage.css("white-space", "pre-wrap");
-          
-//         // Loop through each word and append it to the bot message
-//         $.each(words, function(index, word) {
-//             // Create a new span for the word, hide it initially
-//             var wordSpan = $("<span class='bot-word'></span>").text(word).hide();
-            
-//             // Append the word to the bot message
-//             botMessage.append(wordSpan);
-            
-//             // Add space after each word except the last one
-//             if (index < words.length - 1) {
-//                 botMessage.append(" ");
-//             }
-            
-//             // Fade in the word
-//             wordSpan.delay(index * 200).fadeIn(300); // Delay and duration can be adjusted
-//         });
-        
-//         // Show the bot message and calculate its total height
-//         botMessage.show();
-//         var botMessageHeight = botMessage.outerHeight();
-
-//         // Scroll down to display the most recent messages along with the new message
-//         var chatDisplay = document.getElementById("chat-display");
-//         chatDisplay.scrollTop = chatDisplay.scrollHeight + botMessageHeight;
-
-//         // Add the placeholder response to chat history (for testing purposes)
-//         chatHistory.push({ type: "bot", message: placeholderResponse });
-
-//         // Clear the user input field and reset its height
-//         $("#user-input").val("");
-//         $("#user-input").css("height", "");
-//     });
-
-//     // Adjust input field height to grow up to three lines with a vertical scrollbar
-//     $("#user-input").on("input", function() {
-//         this.style.height = "auto";
-//         this.style.height = (this.scrollHeight) + "px";
-//     });
-// });
-
-
-// HIDE ALL MESSAGES ON SCROLL EXPERIMENT STARTS HERE
-
-$(document).ready(function() {
-    // Variable to keep track of whether chat display is scrolled down
-    var isScrolledDown = false;
-
-    // Function to check if chat display is scrolled down
-    function checkScroll() {
-        isScrolledDown = $("#chat-display")[0].scrollHeight - $("#chat-display").scrollTop() === $("#chat-display").outerHeight();
-    }
-
-    // Initialize the variable and attach the scroll event handler
-    checkScroll();
-    $("#chat-display").on("scroll", checkScroll);
-
-    $("#chat-form").submit(function(event) {
-        event.preventDefault();
-
-        // Get user input
-        var userMessage = $("#user-input").val().trim();
-        if (userMessage === "") {
-            return;
-        }
-
-        // Hide all previous messages if chat display is not scrolled down
-        if (!isScrolledDown) {
-            $(".user-message, .bot-message").hide();
-        }
-
-        // Display user message in the chat display area
-        $("#chat-display").append("<div class='user-message'>" + userMessage + "</div>");
-
-        // Scroll to the top of the chat display
-        var chatDisplay = document.getElementById("chat-display");
-        chatDisplay.scrollTop = 0;
-
-        // Add user message to chat history
-        chatHistory.push({ type: "user", message: userMessage });
-
-        // Generate a placeholder response (for testing purposes)
-        var placeholderResponse = "This is a placeholder response to: " + userMessage;
-
-        // Split the response into individual words
-        var words = placeholderResponse.split(" ");
-
         // Create a new div for the bot message and hide it initially
         var botMessage = $("<div class='bot-message'></div>").hide();
-
-        // Set white-space property to preserve line breaks
-        botMessage.css("white-space", "pre-wrap");
-
+        
         // Append the bot message container to the chat display and show it
         $("#chat-display").append(botMessage);
-        botMessage.show();
-
+        
+        // Generate a placeholder response (for testing purposes)
+        var placeholderResponse = "This is a placeholder response to: " + userMessage;
+        
+        // Split the response into individual words
+        var words = placeholderResponse.split(" ");
+          
+        // Set white-space property to preserve line breaks
+        botMessage.css("white-space", "pre-wrap");
+          
         // Loop through each word and append it to the bot message
         $.each(words, function(index, word) {
             // Create a new span for the word, hide it initially
             var wordSpan = $("<span class='bot-word'></span>").text(word).hide();
-
+            
             // Append the word to the bot message
             botMessage.append(wordSpan);
-
+            
             // Add space after each word except the last one
             if (index < words.length - 1) {
                 botMessage.append(" ");
             }
-
+            
             // Fade in the word
             wordSpan.delay(index * 200).fadeIn(300); // Delay and duration can be adjusted
         });
+        
+        // Show the bot message and calculate its total height
+        botMessage.show();
+        var botMessageHeight = botMessage.outerHeight();
 
-        // Clear the input field
+        // Scroll down to display the most recent messages along with the new message
+        var chatDisplay = document.getElementById("chat-display");
+        chatDisplay.scrollTop = chatDisplay.scrollHeight + botMessageHeight;
+
+        // Add the placeholder response to chat history (for testing purposes)
+        chatHistory.push({ type: "bot", message: placeholderResponse });
+
+        // Clear the user input field and reset its height
         $("#user-input").val("");
+        $("#user-input").css("height", "");
+    });    
+
+    // Adjust input field height to grow up to three lines with a vertical scrollbar
+    $("#user-input").on("input", function() {
+        this.style.height = "auto";
+        this.style.height = (this.scrollHeight) + "px";
     });
-
-    // Show previous messages when chat display is scrolled down
-    function showPreviousMessages() {
-        if (isScrolledDown) {
-            $(".user-message, .bot-message").show();
-        }
-    }
-
-    // Attach a click event to the chat display to show previous messages
-    $("#chat-display").on("click", showPreviousMessages);
 });
-
-// EXPERIMENT ENDS HERE
 
 // Icebreaker tile copy on click
 $(document).ready(function() {
@@ -337,11 +247,8 @@ $(document).ready(function() {
         $("#user-input").val(h6Text);
         // Submit the chat form
         $("#chat-form").submit();
-        // Show the overlay with "Copied to clipboard" message and hide the original text
-        $(this).addClass("copied");
-        setTimeout(function() {
-        $(this).removeClass("copied");
-        }.bind(this), 1500);
+        // Animate the button
+        
     });
 });
 
@@ -442,7 +349,7 @@ $(document).ready(function() {
     }
   });
 
-// Accurate VH calculation from CSS Tricks TY!
+// Accurate VH calculation
 // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
 let vh = window.innerHeight * 0.01;
 // Then we set the value in the --vh custom property to the root of the document
