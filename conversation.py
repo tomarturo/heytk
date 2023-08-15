@@ -3,10 +3,8 @@ from langchain.vectorstores import Chroma
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.llms import OpenAI
 from langchain.chains import ConversationalRetrievalChain
-
-#get openai api key
-# import os
-# OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+import os
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 def initialize_qa():
     #get documents
@@ -19,7 +17,7 @@ def initialize_qa():
     documents = text_splitter.split_documents(documents)
 
     #create embeddings and vectordb
-    embeddings = OpenAIEmbeddings(openai_api_key="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")
+    embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
     vectorstore = Chroma.from_documents(documents, embeddings)
 
     # create a memory object, which is neccessary to track the inputs/outputs and hold a conversation
@@ -27,6 +25,6 @@ def initialize_qa():
     memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
     # initialize the ConversationalRetrievalChain
-    qa = ConversationalRetrievalChain.from_llm(OpenAI(temperature=0, openai_api_key="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"), vectorstore.as_retriever(), memory=memory)
+    qa = ConversationalRetrievalChain.from_llm(OpenAI(temperature=0, openai_api_key=OPENAI_API_KEY), vectorstore.as_retriever(), memory=memory)
 
     return qa
