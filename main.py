@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, url_for, jsonify
-# from conversation import qa
+from conversation import initialize_qa
 
 app = Flask(__name__)
 
@@ -7,13 +7,12 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-if __name__ == "__main__":
-    app.run(debug=True)
-
-@app.route("/chat", methods=["POST"])
+@app.route('/chat', methods=["POST", "GET"])
 def chat():
     user_message = request.json["message"]
     
+    qa = initialize_qa()
+
     # Run langchain
     result = qa({"question": "message"})
     
@@ -25,5 +24,5 @@ def chat():
 
     return response
 
-# if __name__ == "__main__":
-#     app.run(host="ht", port=5000)
+if __name__ == "__main__":
+    app.run(debug=True)

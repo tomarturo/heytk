@@ -155,33 +155,36 @@ $(document).ready(function() {
         // Add user message to chat history
         chatHistory.push({ type: "user", message: userMessage });
 
-            // Uncomment to connect to flaskapp or API
-            $.ajax({
-                type: "POST",
-                url: "/chat",  // Replace with your Python server URL
-                data: JSON.stringify({ "message": userMessage }),
-                contentType: "application/json",
-                dataType: "json",
-                success: function(response) {
-                    // Display chatbot's response in the chat display area
-                    var botResponse = response.response;
-                    $("#chat-display").append("<div class='bot-message'>" + botResponse + "</div>");
+        // Routing to flask app route
+        var chatUrl = document.getElementById('user-input').getAttribute('data-chat-url');
+        
+        // Uncomment to connect to flaskapp or API
+        $.ajax({
+            type: "POST",
+            url: chatUrl,
+            data: JSON.stringify({ "message": userMessage }),
+            contentType: "application/json",
+            dataType: "json",
+            success: function(response) {
+                // Display chatbot's response in the chat display area
+                var botResponse = response.response;
+                $("#chat-display").append("<div class='bot-message'>" + botResponse + "</div>");
 
-                    // Add chatbot's response to chat history
-                    chatHistory.push({ type: "bot", message: botResponse });
+                // Add chatbot's response to chat history
+                chatHistory.push({ type: "bot", message: botResponse });
 
-                    // Clear the user input field and reset its height
-                    $("#user-input").val("");
-                    $("#user-input").css("height", "");
+                // Clear the user input field and reset its height
+                $("#user-input").val("");
+                $("#user-input").css("height", "");
 
-                    // Scroll down to display the most recent messages
-                    var chatDisplay = document.getElementById("chat-display");
-                    chatDisplay.scrollTop = chatDisplay.scrollHeight;
-                },
-                error: function(error) {
-                    console.error("Error sending message:", error);
-                }
-            });
+                // Scroll down to display the most recent messages
+                var chatDisplay = document.getElementById("chat-display");
+                chatDisplay.scrollTop = chatDisplay.scrollHeight;
+            },
+            error: function(error) {
+                console.error("Error sending message:", error);
+            }
+        });
         
         // // Create a new div for the bot message and hide it initially
         // var botMessage = $("<div class='bot-message'></div>").hide();
