@@ -10,7 +10,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 #get documents
 from langchain.document_loaders import TextLoader
-loader = TextLoader("reference/about1.txt")
+loader = TextLoader("./static/reference/about1.txt")
 documents = loader.load()
 
 # split text 

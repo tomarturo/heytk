@@ -1,5 +1,4 @@
-@import url(satoshi.css);
-@import url(stabil.css);
+@import url(/fonts/satoshi.css);
 
 .aside-wrapper {
   box-sizing: border-box;
@@ -149,7 +148,7 @@ form:focus-within {
 button {
   width: 36px;
   height: 36px;
-  background-image: url(//static/images/Send.svg);
+  background-image: url(/static/images/Send.svg);
   background-repeat: no-repeat;
   background-color: transparent;
   border: none;

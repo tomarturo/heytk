@@ -156,75 +156,78 @@ $(document).ready(function() {
         chatHistory.push({ type: "user", message: userMessage });
 
             // Uncomment to connect to flaskapp or API
-            // $.ajax({
-            //     type: "POST",
-            //     url: "http://127.0.0.1:5000/api/chat",  // Replace with your Python server URL
-            //     data: JSON.stringify({ "message": userMessage }),
-            //     contentType: "application/json",
-            //     dataType: "json",
-            //     success: function(response) {
-            //         // Display chatbot's response in the chat display area
-            //         var botResponse = response.response;
-            //         $("#chat-display").append("<div class='bot-message'>" + botResponse + "</div>");
+            $.ajax({
+                type: "POST",
+                url: "/chat",  // Replace with your Python server URL
+                data: JSON.stringify({ "message": userMessage }),
+                contentType: "application/json",
+                dataType: "json",
+                success: function(response) {
+                    // Display chatbot's response in the chat display area
+                    var botResponse = response.response;
+                    $("#chat-display").append("<div class='bot-message'>" + botResponse + "</div>");
 
-            //         // Add chatbot's response to chat history
-            //         chatHistory.push({ type: "bot", message: botResponse });
+                    // Add chatbot's response to chat history
+                    chatHistory.push({ type: "bot", message: botResponse });
 
-            //         // Clear the user input field and reset its height
-            //         $("#user-input").val("");
-            //         $("#user-input").css("height", "");
+                    // Clear the user input field and reset its height
+                    $("#user-input").val("");
+                    $("#user-input").css("height", "");
 
-            //         // Scroll down to display the most recent messages
-            //         var chatDisplay = document.getElementById("chat-display");
-            //         chatDisplay.scrollTop = chatDisplay.scrollHeight;
-            //     },
-            //     error: function(error) {
-            //         console.error("Error sending message:", error);
-            //     }
-            // });
+                    // Scroll down to display the most recent messages
+                    var chatDisplay = document.getElementById("chat-display");
+                    chatDisplay.scrollTop = chatDisplay.scrollHeight;
+                },
+                error: function(error) {
+                    console.error("Error sending message:", error);
+                }
+            });
         
-        // Create a new div for the bot message and hide it initially
-        var botMessage = $("<div class='bot-message'></div>").hide();
+        // // Create a new div for the bot message and hide it initially
+        // var botMessage = $("<div class='bot-message'></div>").hide();
         
-        // Append the bot message container to the chat display and show it
-        $("#chat-display").append(botMessage);
+        // // Append the bot message container to the chat display and show it
+        // $("#chat-display").append(botMessage);
         
-        // Generate a placeholder response (for testing purposes)
-        var placeholderResponse = "This is a placeholder response to: " + userMessage;
+
+        // PLACEHOLDER CHATBOT INTERACTIONS AND FADE IN ANIMATION
+
+        // // Generate a placeholder response (for testing purposes)
+        // var placeholderResponse = "This is a placeholder response to: " + userMessage;
         
-        // Split the response into individual words
-        var words = placeholderResponse.split(" ");
+        // // Split the response into individual words
+        // var words = placeholderResponse.split(" ");
           
-        // Set white-space property to preserve line breaks
-        botMessage.css("white-space", "pre-wrap");
+        // // Set white-space property to preserve line breaks
+        // botMessage.css("white-space", "pre-wrap");
           
-        // Loop through each word and append it to the bot message
-        $.each(words, function(index, word) {
-            // Create a new span for the word, hide it initially
-            var wordSpan = $("<span class='bot-word'></span>").text(word).hide();
+        // // Loop through each word and append it to the bot message
+        // $.each(words, function(index, word) {
+        //     // Create a new span for the word, hide it initially
+        //     var wordSpan = $("<span class='bot-word'></span>").text(word).hide();
             
-            // Append the word to the bot message
-            botMessage.append(wordSpan);
+        //     // Append the word to the bot message
+        //     botMessage.append(wordSpan);
             
-            // Add space after each word except the last one
-            if (index < words.length - 1) {
-                botMessage.append(" ");
-            }
+        //     // Add space after each word except the last one
+        //     if (index < words.length - 1) {
+        //         botMessage.append(" ");
+        //     }
             
-            // Fade in the word
-            wordSpan.delay(index * 200).fadeIn(300); // Delay and duration can be adjusted
-        });
+        //     // Fade in the word
+        //     wordSpan.delay(index * 200).fadeIn(300); // Delay and duration can be adjusted
+        // });
         
-        // Show the bot message and calculate its total height
-        botMessage.show();
-        var botMessageHeight = botMessage.outerHeight();
+        // // Show the bot message and calculate its total height
+        // botMessage.show();
+        // var botMessageHeight = botMessage.outerHeight();
 
-        // Scroll down to display the most recent messages along with the new message
-        var chatDisplay = document.getElementById("chat-display");
-        chatDisplay.scrollTop = chatDisplay.scrollHeight + botMessageHeight;
+        // // Scroll down to display the most recent messages along with the new message
+        // var chatDisplay = document.getElementById("chat-display");
+        // chatDisplay.scrollTop = chatDisplay.scrollHeight + botMessageHeight;
 
-        // Add the placeholder response to chat history (for testing purposes)
-        chatHistory.push({ type: "bot", message: placeholderResponse });
+        // // Add the placeholder response to chat history (for testing purposes)
+        // chatHistory.push({ type: "bot", message: placeholderResponse });
 
         // Clear the user input field and reset its height
         $("#user-input").val("");

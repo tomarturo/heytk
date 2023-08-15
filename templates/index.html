@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/projects.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/icebreakers.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/icebreakers.css')}}">
-    <script src="Gradient.js" ></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/styles.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/chat.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/projects.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/icebreakers.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/casestudy.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/fonts.css')}}"/> 
+    <script src="/static/js/Gradient.js" ></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js" integrity="sha512-zInFF17qBFVvvvFpIfeBzo7Tj7+rQxLeTJDmbxjBz5/zIr89YVbTNelNhdTT+/DCrxoVzBeUPVFJsczKbB7sew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
 </head>
 <body style="background-color: black;">
     <canvas id="gradient-canvas" style="width:100vw; height:100vh"></canvas>
@@ -45,7 +45,7 @@
             <section class="icebreakers-wrapper">
                 <div class="icebreaker-mobile-header">
                     <h4>Suggested Questions</h4>
-                    <img src="/static//static//static/images/close.svg" class="close-icebreaker-button"></img>
+                    <img src="/static/static/static/images/close.svg" class="close-icebreaker-button"></img>
                 </div>
                 <div class="icebreaker-tiles-wrapper">
                     <div class="icebreaker-tile" data-tilt>
@@ -84,7 +84,7 @@
             </section>
         </section>
         <div class="site-title-wrapper">
-            <img src="/static//static/images/site-title blk.svg" alt="" id="site-title-img">
+            <img src="/static/images/site-title blk.svg" alt="" id="site-title-img">
             <img src="/static/images/site-title-details blk.svg" alt="" id="site-title-details-img">
             <canvas id="site-title-background"></canvas>
         </div>
@@ -121,9 +121,9 @@
                 </div>
                 <div class="case-study-split-wrapper">
                     <div class="case-study-img-wrapper" style="background-color: #F16851;">
-                        <img src="//static/images/solutions/solution hero 01.png" alt="Mobile mockup of the create even landing page"></div>
+                        <img src="/static/images/solutions/solution hero 01.png" alt="Mobile mockup of the create even landing page"></div>
                     <div class="case-study-img-wrapper" style="background-color: #9A59F6;">
-                        <img src="//static/images/solutions/solution hero 02.png" alt="Mobile mockup of the create even landing page"></div>
+                        <img src="/static/images/solutions/solution hero 02.png" alt="Mobile mockup of the create even landing page"></div>
                 </div>
                 <div class="case-study-slide" id="auto-height" style="background-color: #DB9559;">                    
                     <h6>role & process</h6>
@@ -140,9 +140,9 @@
                 </div>
                 <div class="case-study-split-wrapper">
                     <div class="case-study-img-wrapper" style="background-color: #0096BD;">
-                        <img src="//static/images/solutions/solution hero 03.png" alt="Mobile mockup of the create even landing page"></div>
+                        <img src="/static/images/solutions/solution hero 03.png" alt="Mobile mockup of the create even landing page"></div>
                     <div class="case-study-img-wrapper" style="background-color: #FFC254;">
-                        <img src="//static/images/solutions/solution hero 04.png" alt="Mobile mockup of the create even landing page"></div>
+                        <img src="/static/images/solutions/solution hero 04.png" alt="Mobile mockup of the create even landing page"></div>
                 </div>
                 <div class="case-study-three-up-wrapper">
                     <div class="case-study-metric" style="background-color: #66D071;">
@@ -190,9 +190,9 @@
                 </div>
                 <div class="case-study-split-wrapper">
                     <div class="case-study-img-wrapper" style="background-color: #1CA65C;">
-                        <img src="//static/images/fields/Fields 1.png" alt="Mobile mockup of the field reports opening screen"></div>
+                        <img src="/static/images/fields/Fields 1.png" alt="Mobile mockup of the field reports opening screen"></div>
                     <div class="case-study-img-wrapper" style="background-color: #F56846;">
-                        <img src="//static/images/fields/Fields 2.png" alt="Mobile mockup of the field reports location confirmation screen"></div>
+                        <img src="/static/images/fields/Fields 2.png" alt="Mobile mockup of the field reports location confirmation screen"></div>
                 </div>
                 <div class="case-study-slide" id="auto-height" style="background-color: #EBC2FE;">                    
                     <h6>role & process</h6>
