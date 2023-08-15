@@ -1,33 +1,3 @@
-@font-face {
-    font-family: 'Stabil-Grotesk';
-    font-weight: 900;
-    src: url(./fonts/stabil/StabilGroteskTrial-Black.otf);
-}
-
-@font-face {
-    font-family: 'Stabil-Grotesk';
-    font-weight: 800;
-    src: url(./fonts/stabil/StabilGroteskTrial-Bold.otf);
-}
-
-@font-face {
-    font-family: 'Stabil-Grotesk';
-    font-weight: 700;
-    src: url(/fonts/stabil/StabilGroteskTrial-Medium.otf);
-}
-
-@font-face {
-    font-family: 'Stabil-Grotesk';
-    font-weight: 500;
-    src: url(fonts/stabil/StabilGroteskTrial-Light.otf);
-}
-
-@font-face {
-    font-family: 'Labil-Grotesk-Regular';
-    font-weight: 500;
-    src: url(fonts/labil/LabilGroteskTrial-Regular.otf);
-}
-
 /**
  * @license
  *
