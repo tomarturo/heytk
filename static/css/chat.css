@@ -149,7 +149,7 @@ form:focus-within {
 button {
   width: 36px;
   height: 36px;
-  background-image: url(/images/Send.svg);
+  background-image: url(//static/images/Send.svg);
   background-repeat: no-repeat;
   background-color: transparent;
   border: none;

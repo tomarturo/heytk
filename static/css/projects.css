@@ -145,17 +145,17 @@
 
 /* SOLUTIONS */
 #solutions .accordion-1 {
-    background-image: url(images/solutions/solutions\ accordion\ 1.png);
+    background-image: url(/static/images/solutions/solutions\ accordion\ 1.png);
     background-size: contain;   
 }
 
 #solutions .accordion-2 {
-    background-image: url(images/solutions/solutions\ accordion\ 3.png);
+    background-image: url(/static/images/solutions/solutions\ accordion\ 3.png);
     background-size: contain;
 }
 
 #solutions .accordion-3 {
-    background-image: url(images/solutions/solutions\ accordion\ 2.png);
+    background-image: url(/static/images/solutions/solutions\ accordion\ 2.png);
     background-size: contain;
 }
 
@@ -165,12 +165,12 @@
 
 /* FIELD REPRTS */
 #field-reports .accordion-1 {
-    background-image: url(images/fields/fields\ accordion\ 02.png);
+    background-image: url(/static/images/fields/fields\ accordion\ 02.png);
     background-size: contain;   
 }
 
 #field-reports .accordion-2 {
-    background-image: url(images/fields/fields\ accordion\ 01.png);
+    background-image: url(/static/images/fields/fields\ accordion\ 01.png);
     background-size: contain;
 }
 
