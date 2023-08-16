@@ -77,7 +77,6 @@
     width: 100%;
     background-color: rgba(0, 183, 85, 0.855);
     border-radius: 16px;
-    backdrop-filter: blur(10px);
     position: absolute;
     top: 0;
     z-index: 5;
@@ -89,7 +88,6 @@
     width: 100%;
     background-color: rgba(183, 6, 0, 0.855);
     border-radius: 16px;
-    backdrop-filter: blur(10px);
     position: absolute;
     top: 0;
     z-index: 4;
@@ -101,7 +99,6 @@
     width: 100%;
     background-color: rgba(95, 0, 183, 0.855);
     border-radius: 16px;
-    backdrop-filter: blur(10px);
     position: absolute;
     top: 0;
     z-index: 3;
@@ -113,19 +110,6 @@
     width: 100%;
     background-color: rgba(183, 0, 177, 0.855);
     border-radius: 16px;
-    backdrop-filter: blur(10px);
-    position: absolute;
-    top: 0;
-    z-index: 2;
-    transform-origin: 50% 100%;
-}
-
-.accordion-5 {
-    height: 15vh;
-    width: 100%;
-    background-color: rgba(0, 64, 183, 0.855);
-    border-radius: 16px;
-    backdrop-filter: blur(10px);
     position: absolute;
     top: 0;
     z-index: 2;

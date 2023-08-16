@@ -158,33 +158,37 @@ $(document).ready(function() {
         // Routing to flask app route
         var chatUrl = document.getElementById('user-input').getAttribute('data-chat-url');
         
-        // Uncomment to connect to flaskapp or API
         $.ajax({
             type: "POST",
             url: chatUrl,
-            data: JSON.stringify({ 
-                "message": userMessage, 
-                "chatHistory": chatHistory}),
+            data: JSON.stringify({"message": userMessage}),
             contentType: "application/json",
             dataType: "json",
-            success: function(response) {
+            success: function(response_json) {
+                console.log("Received response:", response_json);
                 // Display chatbot's response in the chat display area
-                var botResponse = response.response;
+                var botResponse = response_json.response;
                 $("#chat-display").append("<div class='bot-message'>" + botResponse + "</div>");
-
-                // Add chatbot's response to chat history
-                chatHistory.push({ type: "bot", message: botResponse });
-
-                // Clear the user input field and reset its height
-                $("#user-input").val("");
-                $("#user-input").css("height", "");
-
-                // Scroll down to display the most recent messages
-                var chatDisplay = document.getElementById("chat-display");
-                chatDisplay.scrollTop = chatDisplay.scrollHeight;
             },
+
             error: function(error) {
-                console.error("Error sending message:", error);
+                if (error.responseJSON && error.responseJSON.error) {
+                    var errorMessage = error.responseJSON.error;
+        
+                    // Display error message in the chat display area
+                    $("#chat-display").append("<div class='bot-message'>" + errorMessage + "</div>");
+        
+                    // Display error message in the console
+                    console.error("Error sending message:", errorMessage);
+                } else {
+                    var genericErrorMessage = "😖 Ugh! An error occurred. Use the contact link to get in touch with Tom to continue your chat.";
+        
+                    // Display generic error message in the chat display area
+                    $("#chat-display").append("<div class='bot-message'>" + genericErrorMessage + "</div>");
+        
+                    // Display generic error message in the console
+                    console.error("Error sending message:", genericErrorMessage);
+                }
             }
         });
         

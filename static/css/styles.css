@@ -209,7 +209,8 @@ body {
     left: 0%;
     margin: auto;
     justify-content: space-around;
-    background-color: rgba(255,255,255,.7);
+    background-color: rgba(255,255,255,.4);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     font-family: 'Satoshi-Variable';
     text-transform: lowercase;
