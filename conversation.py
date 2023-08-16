@@ -9,15 +9,16 @@ OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 def initialize_qa():
     #get documents
     from langchain.document_loaders import TextLoader
-    loader = TextLoader("./static/reference/about1.txt")
+    loader = TextLoader("./static/reference/resume.txt")
     documents = loader.load()
 
     # split text 
-    text_splitter = CharacterTextSplitter(chunk_size=400, chunk_overlap=100)
+    text_splitter = CharacterTextSplitter(chunk_size=300, chunk_overlap=0)
     documents = text_splitter.split_documents(documents)
+    print(documents)
 
     #create embeddings and vectordb
-    embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
+    embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY, model="text-embedding-ada-002")
     vectorstore = Chroma.from_documents(documents, embeddings)
 
     # create a memory object, which is neccessary to track the inputs/outputs and hold a conversation

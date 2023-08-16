@@ -10,13 +10,17 @@ def index():
 @app.route('/chat', methods=["POST", "GET"])
 def chat():
     user_message = request.json["message"]
-    
+    chat_history = request.json["chatHistory"]
+
+    print("Received chat history:", chat_history)
+
+    # Initialize conversation     
     qa = initialize_qa()
 
-    # Run langchain
+    # Run conversation
     result = qa({"question": "message"})
     
-    # Get the chatbot's response
+    # Get the chatbot response
     bot_response = result['answer']
 
     # Create the response 

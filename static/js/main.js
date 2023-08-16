@@ -162,7 +162,9 @@ $(document).ready(function() {
         $.ajax({
             type: "POST",
             url: chatUrl,
-            data: JSON.stringify({ "message": userMessage }),
+            data: JSON.stringify({ 
+                "message": userMessage, 
+                "chatHistory": chatHistory}),
             contentType: "application/json",
             dataType: "json",
             success: function(response) {
@@ -248,9 +250,9 @@ $(document).ready(function() {
 $(document).ready(function() {
     $(".icebreaker-tile").click(function() {
         // Get the h4 text from the clicked tile
-        var h6Text = $(this).find("div.copy-text").text();
+        var tileText = $(this).find("div.tile-text").text();
         // Insert the h6 text into the chat input field
-        $("#user-input").val(h6Text);
+        $("#user-input").val(tileText);
         // Submit the chat form
         $("#chat-form").submit();
         // Animate the button
