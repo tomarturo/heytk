@@ -20,17 +20,16 @@
 
 .chat-wrapper {
   position: relative;
-  height: 100%;
-  max-height: 55vh;
   max-width: 100%;
-  min-height: 55vh;
+  max-height: 55vh;
+  min-height: calc(55vh + 8px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border-radius: var(--border-radius);
-  padding: 16px 0px 16px 0px;
+  padding: 8px 0px 8px 0px;
   /* background-color: #151515; */
-  /* margin-bottom: 16px; */
+  margin-bottom: 8px;
 }
 
 #chat-container {
@@ -39,17 +38,28 @@
   justify-content: space-between;
   height: 100%;
   overflow: hidden;
-  padding: 2px;
+  padding: 0px 0px 1px 0px;
 }
 
 /* Chat display area styles */
 #chat-display {
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
-  font-family: "Stabil-Grotesk";
-  /* padding: 0px 12px 12px 12px; */
-  overflow-x: hidden;
+  padding-bottom: 16px;
+  overflow-x: hidden; 
+  gap: 8px;
 }
 
+#chat-display * {
+  overflow-anchor: none; 
+}
+
+#chat-display-anchor {
+  overflow-anchor: auto;
+  height: 1px;
+  order: 3;
+}
 
 /* User message styles */
 .user-message {
@@ -71,36 +81,18 @@
   display: none;
 }
 
-.cursor-animation {
-  position: absolute;
-  width: 2px;
-  height: 20px;
-  background-color: #fff;
-  animation: blink 1s step-end infinite; /* Define the blinking animation */
-  right: -8px; /* Adjust the position of the cursor */
-}
-
-@keyframes blink {
-  50% {
-      opacity: 0; /* Make the cursor invisible */
-  }
-}
-
-#welcome-message {
+#pill-text {
   font-size: var(--font-size-2);
   font-weight: 600;
-  /* font-size: 24px;
-  font-weight: 500; */
-  /* margin-bottom: 16px; */
-  /* padding-left: 12px; */
   color: black;
 }
 
 .pill {
   background-color: white;
+  position: relative;
   padding: 4px 12px 4px 12px;
   border-radius: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   width: max-content;
 }
 
@@ -118,11 +110,16 @@
 
 input:focus {
   outline: none;
+  color: white;
 }
 
 input {
   -webkit-background-clip: text !important;
   background-clip: text !important;
+}
+
+input[type=text] {
+  color: white;
 }
 
 form {
@@ -135,8 +132,13 @@ form {
   border-radius: var(--border-radius);
   overflow-x: hidden;
   overflow-y: auto;
-  min-height: 50px;
-  margin: 48px 1px 0px 1px;
+  min-height: 64px;
+  margin: 16px 1px 0px 1px;
+}
+
+form:hover {
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 form:focus-within { 
@@ -155,6 +157,37 @@ button {
   margin-right: 12px;
   transition: background-color 0.2s ease;
   cursor: pointer;
+}
+
+#loading-animation {
+  display: none;
+  order: 2;
+  border: 4px solid rgba(112, 149, 0, 0.0);
+  border-left: 4px solid white;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Define the blinking cursor animation */
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* Apply the animation to the cursor class */
+#cursor {
+  display: inline-block;
+  width: 0.5em;
+  height: 1.5em;
+  animation: blink 1s infinite;
+  order: 1;
 }
 
 /* MEDIA QUERIES */ 
@@ -191,8 +224,7 @@ button {
   #chat-form {
     flex-shrink: 1;
     box-sizing: border-box;
-    min-height: 50px;
-    width: 100%;
+    min-height: 64px;
     margin-right: 1px;
     margin-top: 12px;
   }
@@ -211,6 +243,7 @@ button {
     padding: 16px;
     transition: background-color 0.2s ease;
     cursor: pointer;
+    
   }
 
   .pill {

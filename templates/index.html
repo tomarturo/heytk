@@ -14,7 +14,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js" integrity="sha512-zInFF17qBFVvvvFpIfeBzo7Tj7+rQxLeTJDmbxjBz5/zIr89YVbTNelNhdTT+/DCrxoVzBeUPVFJsczKbB7sew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.1/markdown-it.min.js" integrity="sha512-SYfDUYPg5xspsG6OOpXU366G8SZsdHOhqk/icdrYJ2E/WKZxPxze7d2HD3AyXpT7U22PZ5y74xRpqZ6A2bJ+kQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body style="background-color: black;">
     <canvas id="gradient-canvas" style="width:100vw; height:100vh"></canvas>
@@ -27,12 +26,14 @@
         </div>
         <section class="aside-wrapper">
             <div class="pill">
-                <h2 id="welcome-message">chat.tk</h2>
+                <h2 id="pill-text">chat.tk</h2>
             </div>
             <div class="chat-wrapper">
                 <div id="chat-container">
                     <div id="chat-display">
                         <div class="bot-message" id="mobile-welcome-message">What would you like to know about Tom?</div>
+                        <div id="cursor">▒</div>
+                        <div id="chat-display-anchor"></div>
                     </div>
                     <form id="chat-form" autocomplete="off">
                         <input type="text" id="user-input" data-chat-url="{{ url_for('chat') }}" placeholder="Ask a question or select a suggestion"/>

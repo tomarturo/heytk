@@ -8,6 +8,9 @@ gradient.initGradient('#site-title-background');
 var gradient = new Gradient()
 gradient.initGradient('#footer-background');
 
+var gradient = new Gradient()
+gradient.initGradient('#pill-background');
+
 // Icebreaker tile height 
 $(document).ready(function() {
     // Check if the screen width is 991.98px or larger
@@ -123,22 +126,7 @@ $(document).ready(function() {
     });
 });
 
-// CHAT INTERACTIONS 
-
-// Array to store chat history
-var chatHistory = [];
-
-// Function to display chat history
-function displayChatHistory() {
-    $("#chat-display").empty(); // Clear existing chat messages
-    chatHistory.forEach(function (chat) {
-        var messageClass = chat.type === "user" ? "user-message" : "bot-message";
-        $("#chat-display").append("<div class='" + messageClass + "'>" + chat.message + "</div>");
-    });
-}
-
-// WORKING CODE STARTS HERE, EXPERIMENTAL HIDE ON SCROLL STARTS BELOW THIS COMMENT
-
+// Chat POST and display animations
 $(document).ready(function() {
     $("#chat-form").submit(function(event) {
         event.preventDefault();
@@ -152,9 +140,6 @@ $(document).ready(function() {
         // Display user message in the chat display area
         $("#chat-display").append("<div class='user-message'>" + userMessage + "</div>");
 
-        // Add user message to chat history
-        chatHistory.push({ type: "user", message: userMessage });
-
         // Routing to flask app route
         var chatUrl = document.getElementById('user-input').getAttribute('data-chat-url');
         
@@ -164,12 +149,63 @@ $(document).ready(function() {
             data: JSON.stringify({"message": userMessage}),
             contentType: "application/json",
             dataType: "json",
+            
             success: function(response_json) {
                 console.log("Received response:", response_json);
-                // Display chatbot's response in the chat display area
+                // Hide cursor 1
+                $("#cursor").hide();
+                // Get the bot response from the JSON
                 var botResponse = response_json.response;
-                $("#chat-display").append("<div class='bot-message'>" + botResponse + "</div>");
-            },
+                
+                // Create a new div for the bot message and hide it initially
+                var botMessage = $("<div class='bot-message'></div>").hide();
+                
+                // Append the bot message container to the chat display and show it
+                $("#chat-display").append(botMessage);
+                
+                // Split the bot response into individual words
+                var words = botResponse.split(" ");
+                
+                // Set white-space property to preserve line breaks
+                botMessage.css("white-space", "pre-wrap");
+                
+                // Variable to keep track of completed iterations
+                var completedIterations = 0;
+
+                // Loop through each word and append it to the bot message
+                $.each(words, function(index, word) {
+                    // Create a new span for the word, hide it initially
+                    var wordSpan = $("<span class='bot-word'></span>").text(word).hide();
+                    
+                    // Append the word to the bot message
+                    botMessage.append(wordSpan);
+                    
+                    // Add space after each word except the last one
+                    if (index < words.length - 1) {
+                        botMessage.append(" ");
+                    }
+                    
+                    // Fade in the word
+                    wordSpan.delay(index * 50).fadeIn(100, function() {
+                        // Increment the completedIterations count
+                        completedIterations++;
+
+                    // Show the bot message
+                    botMessage.show();  
+
+                        // Check if all iterations are complete
+                        if (completedIterations === words.length) {
+                            // All iterations are complete, perform actions after the loop
+                            console.log("All word animations are complete.");
+            
+                            // Show cursor
+                            setTimeout(function() {
+                                $("#cursor").show();    
+                            }, 1000);
+                        }
+                    });
+                });
+            },  
 
             error: function(error) {
                 if (error.responseJSON && error.responseJSON.error) {
@@ -191,63 +227,20 @@ $(document).ready(function() {
                 }
             }
         });
-        
-        // // Create a new div for the bot message and hide it initially
-        // var botMessage = $("<div class='bot-message'></div>").hide();
-        
-        // // Append the bot message container to the chat display and show it
-        // $("#chat-display").append(botMessage);
-        
-
-        // PLACEHOLDER CHATBOT INTERACTIONS AND FADE IN ANIMATION
-
-        // // Generate a placeholder response (for testing purposes)
-        // var placeholderResponse = "This is a placeholder response to: " + userMessage;
-        
-        // // Split the response into individual words
-        // var words = placeholderResponse.split(" ");
-          
-        // // Set white-space property to preserve line breaks
-        // botMessage.css("white-space", "pre-wrap");
-          
-        // // Loop through each word and append it to the bot message
-        // $.each(words, function(index, word) {
-        //     // Create a new span for the word, hide it initially
-        //     var wordSpan = $("<span class='bot-word'></span>").text(word).hide();
-            
-        //     // Append the word to the bot message
-        //     botMessage.append(wordSpan);
-            
-        //     // Add space after each word except the last one
-        //     if (index < words.length - 1) {
-        //         botMessage.append(" ");
-        //     }
-            
-        //     // Fade in the word
-        //     wordSpan.delay(index * 200).fadeIn(300); // Delay and duration can be adjusted
-        // });
-        
-        // // Show the bot message and calculate its total height
-        // botMessage.show();
-        // var botMessageHeight = botMessage.outerHeight();
-
-        // // Scroll down to display the most recent messages along with the new message
-        // var chatDisplay = document.getElementById("chat-display");
-        // chatDisplay.scrollTop = chatDisplay.scrollHeight + botMessageHeight;
-
-        // // Add the placeholder response to chat history (for testing purposes)
-        // chatHistory.push({ type: "bot", message: placeholderResponse });
 
         // Clear the user input field and reset its height
         $("#user-input").val("");
-        $("#user-input").css("height", "");
-    });    
-
-    // Adjust input field height to grow up to three lines with a vertical scrollbar
-    $("#user-input").on("input", function() {
-        this.style.height = "auto";
-        this.style.height = (this.scrollHeight) + "px";
+        $("#user-input").css("height", ""); 
     });
+});
+
+$(document).ready(function() {
+    var wrapper = $('.chat-wrapper')
+    var wrapperHeight = wrapper.height();
+    wrapperHeight = wrapper.height();
+    totalHeight = window.innerHeight - (wrapper.height() + asideWrapper.height());
+    chatDisplay.scrollTop = totalHeight
+    chatDisplay.scroll();
 });
 
 // Icebreaker tile copy on click
