@@ -128,6 +128,13 @@ $(document).ready(function() {
 
 // Chat POST and display animations
 $(document).ready(function() {
+    
+    var cursor = $("#cursor")
+    var chatDisplay = $("#chat-display");
+    function scrollDisplay() {
+        chatDisplay.animate({"scrollTop": $('#chat-display')[0].scrollHeight}, 1000);
+    }
+
     $("#chat-form").submit(function(event) {
         event.preventDefault();
 
@@ -138,11 +145,16 @@ $(document).ready(function() {
         }
 
         // Display user message in the chat display area
-        $("#chat-display").append("<div class='user-message'>" + userMessage + "</div>");
-
-        // Routing to flask app route
-        var chatUrl = document.getElementById('user-input').getAttribute('data-chat-url');
+        chatDisplay.append("<div class='user-message'>" + userMessage + "</div>");
         
+        var userMessageHeight = $(".user-message").height();
+        var currentScrollPosition = chatDisplay.scrollTop();
+        var chatDisplayScrollHeight = chatDisplay.scrollHeight;
+        chatDisplay.animate({ scrollTop: currentScrollPosition + userMessageHeight + 40 }, 1000);
+        cursor.show() 
+    
+
+        var chatUrl = $("#user-input").attr('data-chat-url');
         $.ajax({
             type: "POST",
             url: chatUrl,
@@ -152,16 +164,18 @@ $(document).ready(function() {
             
             success: function(response_json) {
                 console.log("Received response:", response_json);
-                // Hide cursor 1
-                $("#cursor").hide();
+
                 // Get the bot response from the JSON
                 var botResponse = response_json.response;
                 
                 // Create a new div for the bot message and hide it initially
-                var botMessage = $("<div class='bot-message'></div>").hide();
+                var botMessage = $("<div class='bot-message'>").css("opacity", 0);
                 
+                setTimeout(function() {
                 // Append the bot message container to the chat display and show it
-                $("#chat-display").append(botMessage);
+                chatDisplay.append(botMessage);
+                botMessage.animate({ opacity: 1 }, 300);
+                scrollDisplay();
                 
                 // Split the bot response into individual words
                 var words = botResponse.split(" ");
@@ -173,74 +187,68 @@ $(document).ready(function() {
                 var completedIterations = 0;
 
                 // Loop through each word and append it to the bot message
-                $.each(words, function(index, word) {
-                    // Create a new span for the word, hide it initially
-                    var wordSpan = $("<span class='bot-word'></span>").text(word).hide();
-                    
-                    // Append the word to the bot message
-                    botMessage.append(wordSpan);
-                    
-                    // Add space after each word except the last one
-                    if (index < words.length - 1) {
-                        botMessage.append(" ");
-                    }
-                    
-                    // Fade in the word
-                    wordSpan.delay(index * 50).fadeIn(100, function() {
-                        // Increment the completedIterations count
-                        completedIterations++;
+                setTimeout(function() {
+                    cursor.hide()
+                1800})
 
-                    // Show the bot message
-                    botMessage.show();  
-
-                        // Check if all iterations are complete
-                        if (completedIterations === words.length) {
-                            // All iterations are complete, perform actions after the loop
-                            console.log("All word animations are complete.");
-            
-                            // Show cursor
-                            setTimeout(function() {
-                                $("#cursor").show();    
-                            }, 1000);
+                    $.each(words, function(index, word) {
+                        // Create a new span for the word, hide it initially
+                        var wordSpan = $("<span class='bot-word'></span>").text(word).css("opacity", 0);
+                        
+                        // Append the word to the bot message
+                        botMessage.append(wordSpan);
+                        
+                        // Add space after each word except the last one
+                        if (index < words.length - 1) {
+                            botMessage.append(" ");
                         }
+                        
+                        // Fade in the word
+                        wordSpan.delay(index * 50).animate({opacity: 1}, 300, function() {
+                            // Increment the completedIterations count
+                            completedIterations++; 
+                            
+                            // Check if all iterations are complete
+                            if (completedIterations === words.length) {
+                                // All iterations are complete, perform actions after the loop                 
+                                scrollDisplay();
+                            }                    
+                        });
                     });
-                });
+                6000});
             },  
-
+            
             error: function(error) {
+                cursor.hide()
                 if (error.responseJSON && error.responseJSON.error) {
                     var errorMessage = error.responseJSON.error;
-        
+                    
                     // Display error message in the chat display area
-                    $("#chat-display").append("<div class='bot-message'>" + errorMessage + "</div>");
-        
+                    chatDisplay.append("<div class='bot-message'>" + errorMessage + "</div>");
+                    
                     // Display error message in the console
                     console.error("Error sending message:", errorMessage);
                 } else {
                     var genericErrorMessage = "😖 Ugh! An error occurred. Use the contact link to get in touch with Tom to continue your chat.";
-        
+                    
                     // Display generic error message in the chat display area
-                    $("#chat-display").append("<div class='bot-message'>" + genericErrorMessage + "</div>");
-        
+                    chatDisplay.append("<div class='bot-message'>" + genericErrorMessage + "</div>");
+                    
                     // Display generic error message in the console
                     console.error("Error sending message:", genericErrorMessage);
                 }
+                scrollDisplay();
+                
+                setTimeout(function() {
+                    cursor.hide()
+                1800})
             }
         });
 
         // Clear the user input field and reset its height
-        $("#user-input").val("");
-        $("#user-input").css("height", ""); 
+        $("#user-input").val(" ");
+        
     });
-});
-
-$(document).ready(function() {
-    var wrapper = $('.chat-wrapper')
-    var wrapperHeight = wrapper.height();
-    wrapperHeight = wrapper.height();
-    totalHeight = window.innerHeight - (wrapper.height() + asideWrapper.height());
-    chatDisplay.scrollTop = totalHeight
-    chatDisplay.scroll();
 });
 
 // Icebreaker tile copy on click

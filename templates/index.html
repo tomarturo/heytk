@@ -36,7 +36,7 @@
                         <div id="chat-display-anchor"></div>
                     </div>
                     <form id="chat-form" autocomplete="off">
-                        <input type="text" id="user-input" data-chat-url="{{ url_for('chat') }}" placeholder="Ask a question or select a suggestion"/>
+                        <input type="text" id="user-input" data-chat-url="{{ url_for('chat') }}" placeholder="Ask a question or select a suggestion" onblur="this.placeholder='Ask a question or select a suggestion'"/>
                         <button type="submit"></button>
                     </form>
                 </div>
