@@ -8,8 +8,58 @@ gradient.initGradient('#site-title-background');
 var gradient = new Gradient()
 gradient.initGradient('#footer-background');
 
-var gradient = new Gradient()
-gradient.initGradient('#pill-background');
+// Initial page animation
+// $( window ).on("load", function() {    
+//     $("#loading-wrapper > div").addClass("animate")
+//     setTimeout(function(){
+//         $("#loading-wrapper").hide()
+//         $("body").css("overflow", "auto")
+//         $("#cursor").show();
+//         var welcomeMessage = $("#welcome-message");
+//         var welcomeWords = (welcomeMessage).split(" ");
+//         welcomeMessage.css("white-space", "pre-wrap");
+//     }, 2000);
+// });
+
+function showWelcomeMessage() {
+    var welcomeMessage = $("#welcome-message");
+    var welcomeText = "Hi! I'm here to answer your questions about Tom. What would you like to know?";
+    var welcomeWords = welcomeText.split(" ");
+    welcomeMessage.css("white-space", "pre-wrap");
+    var cursor = $("#cursor"); // Assuming you have an element with ID "cursor"
+    cursor.hide();
+
+    $.each(welcomeWords, function(index, word) {
+        // Create a new span for the word, hide it initially
+        var wordSpan = $("<span class='welcome-word'></span>").text(word).css("opacity", 0);
+        
+        // Append the word to the bot message
+        welcomeMessage.append(wordSpan);
+        
+        // Add space after each word except the last one
+        if (index < welcomeWords.length - 1) {
+            welcomeMessage.append(" ");
+        }   
+        
+        // Fade in the word
+        wordSpan.delay(index * 50).animate({ opacity: 1 }, 300);
+    });
+}
+
+$(window).on("load", function() {
+    $("#loading-wrapper > div").addClass("animate");
+    var cursor = $("#cursor"); // Assuming you have an element with ID "cursor"
+    cursor.show();
+    
+    setTimeout(function() {
+        $("#loading-wrapper").hide();
+        $("body").css("overflow", "auto");
+    }, 2000);
+
+    setTimeout(function() {
+        showWelcomeMessage();
+    }, 4000);
+});
 
 // Icebreaker tile height 
 $(document).ready(function() {
@@ -128,7 +178,6 @@ $(document).ready(function() {
 
 // Chat POST and display animations
 $(document).ready(function() {
-    
     var cursor = $("#cursor")
     var chatDisplay = $("#chat-display");
     function scrollDisplay() {
@@ -269,21 +318,27 @@ $(document).ready(function() {
 
 // Check if the screen size is less than or equal to 767.98px (mobile devices)
 $(document).ready(function() {
+    var projectsWrapper = $(".projects-wrapper");
+    var footerWrapper = $(".footer-wrapper");
+    var asideWrapper = $(".aside-wrapper");
+    var activeLink = $(".active-link");
+    var siteTitleWrapper = $(".site-title-wrapper");
+    var mainContent = $(".main");
     // Click event for .projects-link
     $(".projects-link").click(function(e) {
         e.preventDefault();
         // Show Projects section
-        $(".projects-wrapper").show();
+        projectsWrapper.show();
         // Show Site-title 
-        $(".site-title-wrapper").show();
+        siteTitleWrapper.show();
         // Hide footer 
-        $(".footer-wrapper").hide();
+        footerWrapper.hide();
         // Hide Chat section
-        $(".aside-wrapper").css("display","none");
+        asideWrapper.css("display","none");
         // Enable overflow on .main
-        $(".main").css("overflow","auto")
+        mainContent.css("overflow","auto")
         // Animate active link to highlight projects-link
-        $(".active-link").css("transform", "translate(0%)");
+        activeLink.css("transform", "translate(0%)");
     });
 
     // Click event for .chat-link
@@ -291,17 +346,17 @@ $(document).ready(function() {
         e.preventDefault();
         $("html, body").animate({ scrollTop: 0}, 0);
         // Show Chat section
-        $(".aside-wrapper").css("display","flex");
+        asideWrapper.css("display","flex");
         // Hide Projects section
-        $(".projects-wrapper").hide();
+        projectsWrapper.hide();
         // Hide site title 
         $(".site-title-wrapper").hide();
         // Hide footer
-        $(".footer-wrapper").hide();
+        footerWrapper.hide();
         // Hide overflow on .main
-        $(".main").css("overflow","hidden")
+        mainContent.css("overflow","hidden")
         // Animate active link to highlight chat-link
-        $(".active-link").css("transform", "translate(calc(101%))");
+        activeLink.css("transform", "translate(calc(101%))");
     });
 
     // Click event for .about-link
@@ -309,21 +364,19 @@ $(document).ready(function() {
         e.preventDefault();
         $("html, body").animate({ scrollTop: 0}, 0);
         // Show Chat section
-        $(".footer-wrapper").css("display","grid");
+        footerWrapper.css("display","grid");
         // Hide Projects section
-        $(".projects-wrapper").hide();
+        projectsWrapper.hide();
         // Hide Chat section and reset flex direction
-        $(".aside-wrapper").css("display","none");
+        asideWrapper.css("display","none");
         // Show title
-        $(".site-title-wrapper").hide();
+        siteTitleWrapper.hide();
         // Hide overflow on .main
-        $(".main").css("overflow","auto")
+        mainContent.css("overflow","auto")
         // // Animate active link to highlight about-link
-        $(".active-link").css("transform", "translate(203%)");
+        activeLink.css("transform", "translate(203%)");
     });
 });
-
-// ICEBREAKER MOBILE INTERACTIONS 
 
 // show icebreakers wrapper on menu-button click
 $(document).ready(function() {
