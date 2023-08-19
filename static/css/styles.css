@@ -88,7 +88,7 @@ body {
 }
 
 .loading-top {
-    background-color: whitesmoke;
+    background-color: black;
     height: 50%;
     width: 100%;
     transform-origin: top;
@@ -99,7 +99,7 @@ body {
 }
 
 .loading-bottom {
-    background-color: whitesmoke;
+    background-color: black;
     height: 50%;
     width: 100%;
     transform-origin: bottom;
@@ -110,7 +110,7 @@ body {
 }
 
 .loading-ruler {
-    background-color: black;
+    background-color: #4e4e4e;
     width: 100%;
     height: 1px;
     transform-origin: center center;
@@ -130,7 +130,7 @@ body {
       }
 
     99% {
-        opacity: 1;
+        opacity: .7;
     }
     
     100% {
@@ -173,7 +173,7 @@ body {
 .site-title-wrapper {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: flex-end;
     height: calc(55vh + 64px); 
     /* no padding allowed inside title wrapper because of canvas, 
@@ -183,6 +183,23 @@ body {
     width: calc(75% - 32px);
     margin-left: calc(25% + 32px);
     border-radius: var(--border-radius);
+    color: black;
+}
+
+.title-text {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 48px;
+    gap: 10%;
+}
+
+.title-text h1 {
+    line-height: 1.2;
+}
+
+.title-text p {
+    max-width: 45%;
 }
 
 #site-title-img {
@@ -397,19 +414,22 @@ body {
         border-radius: none;
     }
     
-    #site-title-img {
-        width: 55%;
-    }
-        
-    #site-title-details-img {
-        width: 25%;
-    }   
-    
     #site-title-background {
         width: 100%;
         height: 100%;
         border-radius: 0px;
     }
+
+    .title-text {
+        flex-direction: column;
+        gap: 12px;
+        margin: 24px;
+    }
+    
+    .title-text p {
+        max-width: 100%;
+    }
+    
 
     .footer-content {
         margin-top: 70px;

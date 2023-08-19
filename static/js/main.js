@@ -327,6 +327,7 @@ $(document).ready(function() {
     // Click event for .projects-link
     $(".projects-link").click(function(e) {
         e.preventDefault();
+        $("html, body").animate({ scrollTop: 0}, 0);
         // Show Projects section
         projectsWrapper.show();
         // Show Site-title 
