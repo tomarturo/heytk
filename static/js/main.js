@@ -61,17 +61,6 @@ $(window).on("load", function() {
     }, 4000);
 });
 
-// Icebreaker tile height 
-$(document).ready(function() {
-    // Check if the screen width is 991.98px or larger
-    if ($(window).width() >= 991.98) {
-      // Get the height of .front-card including padding
-      const frontCardHeight = $(".front-card").outerHeight();
-      // Set the height of .icebreaker-tile to the height of .front-card
-      $(".icebreaker-tile").height(frontCardHeight);
-    }
-  });
-
 // Project cards & case study 
 $(document).ready(function() {
     var projectCards = $(".project-card-wrapper");
@@ -300,7 +289,7 @@ $(document).ready(function() {
     });
 });
 
-// Icebreaker tile copy on click
+// Icebreaker tile submit on click
 $(document).ready(function() {
     $(".icebreaker-tile").click(function() {
         // Get the h4 text from the clicked tile

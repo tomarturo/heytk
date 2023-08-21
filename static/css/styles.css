@@ -173,9 +173,8 @@ body {
 .site-title-wrapper {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
     align-items: flex-end;
-    height: calc(55vh + 64px); 
+    height: fit-content;
     /* no padding allowed inside title wrapper because of canvas, 
     need calc vh + padding of chat container (left) for vertical alignment */ 
     margin-bottom: 16px;
@@ -188,19 +187,43 @@ body {
 
 .title-text {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+    flex-direction: column;
     margin: 48px;
-    gap: 10%;
 }
 
 .title-text h1 {
-    line-height: 1.2;
+    font-size: 164px;
+    font-weight: 500;
+    line-height: 115%;
 }
 
-.title-text p {
-    max-width: 45%;
+.subtitle-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
+
+#subtitle {
+    font-size: 20px;
+    max-width: 40%;
+}
+
+#title-1 { 
+    margin-left: 5%;
+    width: 50%;
+}
+
+#title-2 {
+    margin-right: 5%;
+    /* font-size: 120px; */
+}
+
+#title-3 { 
+    /* font-size: 120px; */
+    margin-left: 20%;
+}
+
 
 #site-title-img {
     margin-left: 16px;
@@ -214,11 +237,8 @@ body {
 }
 
 .footer-wrapper {
-    color: black;
+    color: white;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
     height: fit-content;
     /* no padding allowed inside title wrapper because of canvas, 
     need calc vh + padding of chat container (left) for vertical alignment */ 
@@ -227,22 +247,21 @@ body {
     width: calc(75% - 32px);
     margin-left: calc(25% + 32px);
     border-radius: var(--border-radius);
+    /* background-color: #151515;
+    border: 1px solid rgba(120, 120, 120, 0.2); */
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    gap: 64px;
-    row-gap: 64px;
-    padding: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 164px 32px 32px 32px;
+    width: 100%;
 }
 
+
 .contact-link {
-    grid-column: 1/5; 
-    border-bottom: 1px solid black; 
-    margin-top: 80px; 
-    padding-bottom: 8px; 
     display: flex; 
     flex-direction: row; 
     gap: 12px; 
@@ -251,6 +270,11 @@ body {
     text-decoration: none;
 }
 
+.footer-message {
+    font-size: 1rem;
+    font-family: 'Satoshi-Variable';
+    color: black;
+}
 /* GRADIENTS */
 
 #gradient-canvas {
@@ -456,24 +480,45 @@ body {
     }
     
     .site-title-wrapper {
-        height: 70vh;
+        height: fit-content;
         margin: 0px;
         width: 100%;
         border-radius: none;
     }
     
-    #site-title-img {
-        width: 45%;
-    }
-        
-    #site-title-details-img {
-        width: 20%;
-    }   
-    
     #site-title-background {
         width: 100%;
         height: 100%;
         border-radius: 0px;
+    }
+
+    .title-text {
+        display: flex;
+        flex-direction: column;
+        margin: 56px 40px;
+    }
+    
+    .title-text h1 {
+        font-size: 100px;
+    }
+    
+    .subtitle-text {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 12px;
+        padding-bottom: 12px; 
+    }
+    
+    #title-2 {
+        margin-right: 2%;
+    }
+
+    #subtitle {
+        font-size: 16px;
+        max-width: 45%;
+        text-align: justify;
     }
 }
 
