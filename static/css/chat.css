@@ -147,7 +147,7 @@ form:focus-within {
 }
 
 /* Submit button styles */
-button {
+.submit-button {
   width: 28px;
   height: 28px;
   background-image: url(/static/images/send.svg);
@@ -157,12 +157,12 @@ button {
   border: none;
   margin: 0px 12px 6px 0px;
   transition: background-color 0.2s ease;
-  cursor: pointer;
   transform: rotate(-45deg);
   transition: .4s ease-in;
+  cursor: pointer;
 }
 
-button:hover {
+.submit-button:hover {
   transform: rotate(-90deg);
   transition: .4s ease-in-out;
 }
@@ -184,7 +184,7 @@ button:hover {
 
 /* MEDIA QUERIES */ 
 
-/* Extra Small Devices (XS) */
+/* All Mobile Devices (XS) */
 @media (max-width: 991.98px) {
   .aside-wrapper {
       position: relative;
@@ -226,17 +226,9 @@ button:hover {
     font-size: 16px;
   }
 
-  button {
-    width: 32px;
-    height: 32px;
-    background-repeat: no-repeat;
-    background-color: transparent;
-    background-size: 24px;
-    border: none;
-    padding: 8px;
-    transition: background-color 0.2s ease;
-    cursor: pointer;
-    margin-right: 6px;
+  .submit-button {
+    width: 20px;
+    height: 20px;
   }
 
   .pill {
@@ -245,7 +237,7 @@ button:hover {
 
   #welcome-message {
     font-size: var(--font-size-4);
-    font-weight: 600;
+    font-weight: 500;
   }
 }
 
@@ -253,18 +245,7 @@ button:hover {
 @media (min-width: 576px) and (max-width: 991.98px) {
 #welcome-message {
   font-size: var(--font-size-4);
-  font-weight: 600;
-}
-
-button {
-  width: 32px;
-  height: 32px;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  background-size: cover;
-  border: none;
-  padding: 16px;
-  cursor: pointer;
+  font-weight: 500;
 }
 
 .chat-wrapper {

@@ -24,9 +24,8 @@
     <canvas id="gradient-canvas" style="width:100vw; height:100vh"></canvas>
     <main class="main">
         <div class="mobile-nav">
-            <div class="projects-link">projects</div>
-            <div class="chat-link">chat.tk</div>
-            <div class="about-link">about</div>
+            <button class="projects-link">projects</button>
+            <button class="chat-link">chat.tk</button>
             <div class="active-link"></div>
         </div>
         <section class="aside-wrapper">
@@ -42,43 +41,43 @@
                     </div>
                     <form id="chat-form" autocomplete="off">
                         <input type="text" id="user-input" data-chat-url="{{ url_for('chat') }}" placeholder="Ask a question or select a suggestion" onblur="this.placeholder='Ask a question or select a suggestion'"/>
-                        <button type="submit"></button>
+                        <button class="submit-button" type="submit"></button>
                     </form>
                 </div>
             </div>
-            <div class="icebreaker-menu-button">
+            <button class="icebreaker-menu-button">
                 <div>View Suggestions</div>
-            </div>
+            </button>
             <section class="icebreakers-wrapper">
                 <div class="icebreaker-mobile-header">
                     <h4>Suggested Questions</h4>
-                    <img src="/static/images/close.svg" class="close-icebreaker-button"></img>
+                    <button class="close-icebreaker-button"></button>
                 </div>
                 <div class="icebreaker-tiles-wrapper">
-                    <div class="icebreaker-tile" data-tilt>
+                    <button class="icebreaker-tile" data-tilt>
                         <div class="tile-text">Tell me about Tom's professional experience.</div>
-                    </div>
-                    <div class="icebreaker-tile" data-tilt>
+                    </button>
+                    <button class="icebreaker-tile" data-tilt>
+                        <div class="tile-text">Does Tom have experience with user research?</div>
+                    </button>
+                    <button class="icebreaker-tile" data-tilt>
                         <div class="tile-text">What is Tom looking for in his next role?</div>
-                    </div>
-                    <div class="icebreaker-tile" data-tilt>
-                        <div class="tile-text">Tell me about Tom's professional experience.</div>
-                    </div>
-                    <div class="icebreaker-tile" data-tilt>
-                        <div class="tile-text">Tell me about Tom's professional experience.</div>
-                    </div>
-                    <div class="icebreaker-tile" data-tilt>
-                        <div class="tile-text">Tell me about Tom's professional experience.</div>
-                    </div>
-                    <div class="icebreaker-tile" data-tilt>
-                        <div class="tile-text">Tell me about Tom's professional experience.</div>
-                    </div>
-                    <div class="icebreaker-tile" data-tilt>
-                        <div class="tile-text">Tell me about Tom's professional experience.</div>
-                    </div>
-                    <div class="icebreaker-tile" data-tilt>
-                        <div class="tile-text">Tell me about Tom's professional experience.</div>
-                    </div>
+                    </button>
+                    <button class="icebreaker-tile" data-tilt>
+                        <div class="tile-text">What is Tom's design perpsective?</div>
+                    </button>
+                    <button class="icebreaker-tile" data-tilt>
+                        <div class="tile-text">What is Tom's perspective on pineapple on pizza?</div>
+                    </button>
+                    <button class="icebreaker-tile" data-tilt>
+                        <div class="tile-text">What is Tom's design superpower?</div>
+                    </button>
+                    <button class="icebreaker-tile" data-tilt>
+                        <div class="tile-text">Tell me about Tom's hobbies.</div>
+                    </button>
+                    <button class="icebreaker-tile" data-tilt>
+                        <div class="tile-text">What is Tom's favorite color?</div>
+                    </button>
                 </div>
             </section>
         </section>
@@ -94,23 +93,21 @@
                 </div>
                 <h1 id="title-3">designer</h1>
             </div>
-            <!-- <img src="/static/images/site-title blk.svg" alt="" id="site-title-img">
-            <img src="/static/images/site-title-details blk.svg" alt="" id="site-title-details-img"> -->
             <canvas id="site-title-background"></canvas>
         </div>
         <section class="projects-wrapper">
             <div class="project-card-wrapper" id="solutions">
-                <div class="front-card">
-                    <div class="project-header">
-                        <div class="project-title-wrapper">
-                            <h2>Solutions Marketing</h2>
-                            <h5>VistaPrint • 2023</h5>
+                <button type="button" class="front-card">
+                        <div class="project-header">
+                            <div class="project-title-wrapper">
+                                <h2>Solutions Marketing</h2>
+                                <h5>VistaPrint • 2023</h5>
+                            </div>
                         </div>
-                    </div>
-                    <div class="project-description">
-                        <h1 style="color: #DB9559">Helping small business owners accomplish their marketing goals.</h1>
-                    </div>
-                </div>
+                        <div class="project-description">
+                            <h1 style="color: #DB9559">Helping small business owners accomplish their marketing goals.</h1>
+                        </div>
+                </button>
                 <div class="accordion-1"></div>
                 <div class="accordion-2"></div>
                 <div class="accordion-3"></div>
@@ -173,7 +170,7 @@
                 </div>
             </div>
             <div class="project-card-wrapper" id="field-reports">
-                <div class="front-card">
+                <button class="front-card">
                     <div class="project-header">
                         <div class="project-title-wrapper">
                             <h2>Field Reports</h2>
@@ -183,7 +180,7 @@
                     <div class="project-description">
                         <h1 style="color: #EBC2FE">A delightful way for users to submit cellular coverage and campground data.</h1>
                     </div>
-                </div>
+                </button>
                 <div class="accordion-1"></div>
                 <div class="accordion-2"></div>
                 <div class="accordion-3"></div>
@@ -224,13 +221,13 @@
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <div class="case-study-portrait-text-wrapper" style="background-color: #FFE486; ">
+                    <div class="case-study-portrait-text-wrapper" style="background-color: #FFE486;">
                         <p>This feature was an opportunity to unite interaction design, a technical requirement, and The Dyrt's evolving brand identity.</p>
                         <p>I collaborated with our in-house illustrator to combine our visual style and easy-going brand voice into a one-of-a-kind loading indicator.</p>
                     </div>
                 </div>
                 <div class="case-study-split-wrapper">
-                    <div class="case-study-portrait-text-wrapper" id="re-order" style="background-color: #FFE486; ">
+                    <div class="case-study-portrait-text-wrapper" id="re-order" style="background-color: #FFE486;">
                         <p>After the connection test, users have the option of answering amenities questions about the campground.</p>
                         <p>Leveraging our custom iconography and some motion, this interaction breathes life and delight into an otherwise tedious task.</p>
                     </div>
@@ -258,8 +255,8 @@
                     <h4>More details available upon <a href="mailto:tom.kurzeka@gmail.com?subject=Let's Talk Design" style="color: white">request</a>.</h4>
                 </div>
             </div>
-            <div class="project-card-wrapper" id="manager-portal">
-                <div class="front-card">
+            <div class="project-card-wrapper" id="smores">
+                <button class="front-card">
                     <div class="project-header">
                         <div class="project-title-wrapper">
                             <h2>S'mores Design System</h2>
@@ -267,15 +264,16 @@
                         </div>
                     </div>
                     <div class="project-description">
-                        <h1 style="padding-bottom: 32px;">A new site experience for small business owners</h1>
+                        <h1 style="padding-bottom: 32px; color: #FFE486">Growing a design system alongside a startup.</h1>
+                        <p style="font-weight: 300;">🚧 Under construction 🚧</p>
                     </div>  
-                </div>
+                </button>
                 <div class="accordion-1"></div>
                 <div class="accordion-2"></div>
                 <div class="accordion-3"></div>
                 <div class="accordion-4"></div>
             </div>
-            <div class="case-study" id="manager-portal-study">
+            <!-- <div class="case-study" id="smores-study">
                 <div class="case-study-slide">
                     <h3>This is the opening statement for a case study</h3>
                 </div>
@@ -292,28 +290,28 @@
                 <div class="case-study-slide">
                     <p class="case-study-text">This is another statement about this case study</p>
                 </div>
-            </div>
-            <div class="project-card-wrapper" id="brand-first">
-                <div class="front-card">
+            </div> -->
+            <div class="project-card-wrapper" id="brand">
+                <button class="front-card">
                     <div class="project-header">
                         <div class="project-title-wrapper">
-                            <h2>Brand-First Shopping</h2>
+                            <h2>Brand-First Journey</h2>
                             <h5>VistaPrint • 2023</h5>
                         </div>
                     </div>
                     <div class="project-description">
-                        <h1 style="padding-bottom: 32px;">Elevating brand to the forefront of the customer journey</h1>
-                        <h3 style="font-weight: 300;">I collaborated with six different design teams to unify work in progress into a vision of a shopping modality guided by a golden thread: brand</h3>
+                        <h1 style="padding-bottom: 32px; color: #1CA65C">Elevating brand to the forefront of the customer journey</h1>
+                        <p style="font-weight: 300;">🚧 Under construction 🚧</p>
                     </div>
-                </div>
+                </button>
                 <div class="accordion-1"></div>
                 <div class="accordion-2"></div>
                 <div class="accordion-3"></div>
                 <div class="accordion-4"></div>
             </div>
-            <div class="case-study" id="brand-first-study">
+            <!-- <div class="case-study" id="brand-study">
                 <div class="case-study-slide">
-                    <h2>This is the opening statement for a case study</h2>
+                    <h2>I collaborated with six different design teams to unify work in progress into a vision of a shopping modality guided by a golden thread: brand</h2>
                 </div>
                 <div class="case-study-split-wrapper">
                     <img src="" alt="">
@@ -328,7 +326,7 @@
                 <div class="case-study-slide">
                     <p class="case-study-text">This is another statement about this case study</p>
                 </div>
-            </div>
+            </div> -->
         </section>
         <section class="footer-wrapper">
             <div class="footer-content">
@@ -336,7 +334,7 @@
                     <img class="contact-icon" src="/static/images/contact arrow.svg" alt="arrow icon">
                     <h2>Get in touch</h2>
                 </a>
-                <div class="footer-message">© Tom Kurzeka 2023</div>
+                <div class="footer-copyright">© Tom Kurzeka 2023</div>
             </div>
             <canvas id="footer-background"></canvas>
         </section>

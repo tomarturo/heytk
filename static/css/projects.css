@@ -52,6 +52,7 @@
     position: relative;
     z-index: 6;
     transform-origin: 50% 100%;
+    width: 100%;
     cursor: pointer;
 }
 
@@ -75,7 +76,6 @@
 .accordion-1 {
     height: 100px;
     width: 100%;
-    background-color: rgba(0, 183, 85, 0.855);
     border-radius: 16px;
     position: absolute;
     top: 0;
@@ -86,7 +86,6 @@
 .accordion-2 {
     height: 100px;
     width: 100%;
-    background-color: rgba(183, 6, 0, 0.855);
     border-radius: 16px;
     position: absolute;
     top: 0;
@@ -97,7 +96,6 @@
 .accordion-3 {
     height: 100px;
     width: 100%;
-    background-color: rgba(95, 0, 183, 0.855);
     border-radius: 16px;
     position: absolute;
     top: 0;
@@ -105,24 +103,14 @@
     transform-origin: 50% 100%;
 }
 
-.accordion-4 {
-    height: 100px;
-    width: 100%;
-    background-color: rgba(183, 0, 177, 0.855);
-    border-radius: 16px;
-    position: absolute;
-    top: 0;
-    z-index: 2;
-    transform-origin: 50% 100%;
-}
-
 .project-header h2 {
     margin-bottom: 0;
 }
 
-#manager-portal {
+/* #manager-portal {
     margin-bottom: 0px;
-}
+} */
+
 
 /* Accordion styles by project id */
 
@@ -142,10 +130,6 @@
     background-size: contain;
 }
 
-#solutions .accordion-4 {
-    background-color: #0096BD; 
-}
-
 /* FIELD REPRTS */
 #field-reports .accordion-1 {
     background-image: url(/static/images/fields/fields\ accordion\ 02.png);
@@ -161,11 +145,34 @@
     background-color: #EBC2FE;
 }
 
-#field-reports .accordion-4 {
-    background-color: #0096BD; 
+/* SMORES */
+#smores .accordion-1 {
+    background-color: #F56846; 
+    background-size: contain;   
+}
+
+#smores .accordion-2 {
+    background-color: #EBC2FE;
+    background-size: contain;
+}
+
+#smores .accordion-3 {
+    background-color: #FFE486;
 }
 
 
+/* Brand First */
+#brand .accordion-1 {
+    background-color: #FFE486;
+}
+
+#brand .accordion-2 {
+    background-color: #F56846; 
+}
+
+#brand .accordion-3 {
+    background-color: #1CA65C;
+}
 
 /* Mobile Screens */
 @media (max-width: 578px) {
@@ -186,9 +193,10 @@
 
 @media (min-width: 576px) and (max-width: 991.98px) {
     .front-card {
-        padding: 48px 32px 48px 32px;
+        padding: 56px 32px 56px 32px;
     }    
 }
+
 @media (max-width: 991.98px) {
     .projects-wrapper {
         width: 100%;

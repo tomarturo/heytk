@@ -25,6 +25,21 @@ body {
     background: black;
 }
 
+button {
+    background-color: transparent;
+    border-width: 0;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    padding: inherit;
+    color: white;
+    width: unset;
+    text-align: unset;
+    margin: unset;
+}
+
 /* TYPOGRAPHY */
 h1, h2, h3, h4, h5, h6, p {
     font-family: 'Satoshi-Variable';
@@ -95,7 +110,7 @@ body {
 }
 
 .loading-top.animate {
-    animation: scaleLoading 800ms ease-in-out 1000ms 1 forwards;
+    animation: scaleLoading 800ms ease-in-out 1300ms 1 forwards;
 }
 
 .loading-bottom {
@@ -106,11 +121,11 @@ body {
 }
 
 .loading-bottom.animate {
-    animation: scaleLoading 800ms ease-in-out 1000ms 1 forwards;
+    animation: scaleLoading 800ms ease-in-out 1300ms 1 forwards;
 }
 
 .loading-ruler {
-    background-color: #4e4e4e;
+    background-color: #e9e2e2;
     width: 100%;
     height: 1px;
     transform-origin: center center;
@@ -120,7 +135,7 @@ body {
 }
 
 .loading-ruler.animate {
-    animation: scaleRuler 1000ms ease-in-out;
+    animation: scaleRuler 1300ms ease-in-out;
 }
 
 @keyframes scaleRuler {
@@ -129,8 +144,12 @@ body {
         transform: scaleX(0);
       }
 
-    99% {
-        opacity: .7;
+    85% {
+        opacity: .5;
+    }
+
+    95% {
+        opacity: 0;
     }
     
     100% {
@@ -211,35 +230,19 @@ body {
 
 #title-1 { 
     margin-left: 5%;
-    width: 50%;
 }
 
 #title-2 {
     margin-right: 5%;
-    /* font-size: 120px; */
 }
 
 #title-3 { 
-    /* font-size: 120px; */
     margin-left: 20%;
-}
-
-
-#site-title-img {
-    margin-left: 16px;
-    margin-bottom: 16px;
-    margin-top: 16px;
-}
-
-#site-title-details-img {
-    margin-right: 16px;
-    margin-bottom: 16px;
 }
 
 .footer-wrapper {
     color: white;
     display: flex;
-    height: fit-content;
     /* no padding allowed inside title wrapper because of canvas, 
     need calc vh + padding of chat container (left) for vertical alignment */ 
     margin-bottom: 16px;
@@ -247,8 +250,6 @@ body {
     width: calc(75% - 32px);
     margin-left: calc(25% + 32px);
     border-radius: var(--border-radius);
-    /* background-color: #151515;
-    border: 1px solid rgba(120, 120, 120, 0.2); */
 }
 
 .footer-content {
@@ -260,7 +261,6 @@ body {
     width: 100%;
 }
 
-
 .contact-link {
     display: flex; 
     flex-direction: row; 
@@ -270,10 +270,15 @@ body {
     text-decoration: none;
 }
 
-.footer-message {
+.contact-link:hover {
+    text-decoration: underline;
+}
+
+.footer-copyright {
     font-size: 1rem;
     font-family: 'Satoshi-Variable';
     color: black;
+    padding-bottom: 4px;
 }
 /* GRADIENTS */
 
@@ -343,32 +348,26 @@ body {
 .projects-link {
     position: relative;
     z-index: 10;
-    width: 33%;
+    width: 50%;
     border-radius: 8px;
     text-align: center;
     padding: 8px;
+    color: black;
 }
 
 .chat-link {
     position: relative;
     z-index: 10;
-    width: 33%;
+    width: 50%;
     text-align: center;
     padding: 8px;
-}
-
-.about-link {
-    position: relative;
-    z-index: 10;
-    width: 33%;
-    text-align: center;
-    padding: 8px;
+    color: black;
 }
 
 .active-link {
     position: absolute;
     left: 0%;
-    width: 33%;
+    width: 50%;
     height: 40px;
     background-color: #fff;
     border-radius: 8px;
@@ -378,21 +377,14 @@ body {
 }
 
 .footer-wrapper {
-    display: none;
     border-radius: 0px;
     width: 100%;
     margin: auto;
-    /* padding: 0px 8px 0px 8px; */
-    min-height: 100vh;
-    height: max-content;
+    order: 3;
 }
 
 .footer-content {
-    padding: 48px;
-    grid-template-columns: 1f;
-    display: grid;
-    flex-direction: column;
-    gap: 48px;
+    padding: 64px 48px 48px 48px;
 }
 
 #footer-background {
@@ -400,11 +392,6 @@ body {
 }
 
 .contact-link {
-    grid-column: 1/5; 
-    /* border-bottom: 1px solid white;  */
-    margin-top: 56px; 
-    padding-bottom: 8px;
-    margin-bottom: 24px;
     display: flex; 
     flex-direction: row; 
     gap: 12px; 
@@ -432,7 +419,8 @@ body {
     }
 
     .site-title-wrapper {
-        height: 65vh;
+        height: fit-content;
+        padding-top: 120px;
         margin: 0px;
         width: 100%;
         border-radius: none;
@@ -449,11 +437,37 @@ body {
         gap: 12px;
         margin: 24px;
     }
-    
-    .title-text p {
-        max-width: 100%;
+
+    .title-text h1 {
+        font-size: 18vw;
     }
     
+    #title-1 {
+        max-width: none;
+    }
+    
+    .subtitle-text {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .title-text p {
+        max-width: none;
+        min-width: 100%;
+    }
+
+    #subtitle {
+        font-size: 14px;
+    }
+    #title-2 {
+        width: 100%;
+        text-align: right;
+        margin-right: 0;
+    }
+
+    #title-3 {
+        margin-left: 15%;
+    }
 
     .footer-content {
         margin-top: 70px;
@@ -482,6 +496,7 @@ body {
     .site-title-wrapper {
         height: fit-content;
         margin: 0px;
+        padding-top: 120px;
         width: 100%;
         border-radius: none;
     }
@@ -499,7 +514,71 @@ body {
     }
     
     .title-text h1 {
-        font-size: 100px;
+        font-size: 14vw;
+    }
+
+    #title-1 {
+        margin-left: 10%;
+    }
+    
+    .subtitle-text {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 12px;
+        padding-bottom: 12px; 
+    }
+    
+    #title-2 {
+        margin-right: 2%;
+    }
+
+    #subtitle {
+        font-size: 16px;
+        max-width: 50%;
+        text-align: left;
+    }
+}
+
+/* Medium Devices */
+@media (min-width: 760px) and (max-width: 991.98px) {
+    :root {
+        --font-size-0: .8rem;
+        --font-size-1: calc(1rem + 6px);
+        --font-size-2: 1.2rem;
+        --font-size-3: 1.2rem;
+        --font-size-4: 1.6rem;
+        --font-size-5: 1.9rem;
+        --font-size-6: 2.2rem;
+        --border-radius: 12px;
+    }
+    .site-title-wrapper {
+        height: fit-content;
+        margin: 0px;
+        padding-top: 120px;
+        width: 100%;
+        border-radius: none;
+    }
+    
+    #site-title-background {
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+    }
+
+    .title-text {
+        display: flex;
+        flex-direction: column;
+        margin: 56px 40px;
+    }
+    
+    .title-text h1 {
+        font-size: 13vw;
+    }
+
+    #title-1 {
+        margin-left: 10%;
     }
     
     .subtitle-text {
@@ -520,42 +599,7 @@ body {
         max-width: 45%;
         text-align: justify;
     }
-}
-
-/* Medium Devices */
-@media (min-width: 760px) and (max-width: 991.98px) {
-    :root {
-        --font-size-0: .8rem;
-        --font-size-1: calc(1rem + 6px);
-        --font-size-2: 1.2rem;
-        --font-size-3: 1.2rem;
-        --font-size-4: 1.6rem;
-        --font-size-5: 1.9rem;
-        --font-size-6: 2.2rem;
-        --border-radius: 12px;
-    }
-
-    .site-title-wrapper {
-        height: 70vh;
-        margin: 0px;
-        width: 100%;
-        border-radius: none;
-    }
     
-    #site-title-img {
-        width: 45%;
-    }
-        
-    #site-title-details-img {
-        width: 15%;
-    }   
-    
-    #site-title-background {
-        width: 100%;
-        height: 100%;
-        border-radius: 0px;
-    }
-
     .mobile-nav {
         width: calc(100% - 32px);
     }
@@ -568,9 +612,35 @@ body {
         margin-right: 16px;
         padding-top: 16px;
     }
+
     .site-title-wrapper {
+        height: calc(60vh + 32px);      
         margin-left: calc(30% + 24px);
         width: calc(70% - 24px);
+    }
+
+    .title-text {
+        margin: auto 32px auto 32px;
+    }
+
+    .title-text h1 {
+        font-size: 10vw;
+        font-weight: 500;
+        line-height: 115%;
+    }
+
+
+    #title-1 {
+        margin-left: 10%;
+    }
+
+    #title-2 {
+        margin-right: 0;
+    }
+
+    #subtitle {
+        font-size: 16px;
+        max-width: 45%;
     }
 
     .footer-wrapper {        
@@ -598,6 +668,16 @@ body {
     .footer-wrapper {        
         width: calc(75% - 32px);
         margin-left: calc(25% + 32px);
+    }
+
+    .title-text h1 {
+        font-size: 10vw;
+        font-weight: 500;
+        line-height: 115%;
+    }
+
+    #subtitle {
+        font-size: 16px;
     }
 }
 

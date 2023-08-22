@@ -322,7 +322,7 @@ $(document).ready(function() {
         // Show Site-title 
         siteTitleWrapper.show();
         // Hide footer 
-        footerWrapper.hide();
+        footerWrapper.show();
         // Hide Chat section
         asideWrapper.css("display","none");
         // Enable overflow on .main
@@ -372,7 +372,7 @@ $(document).ready(function() {
 $(document).ready(function() {
     $(".icebreaker-menu-button").click(function() {
         // Show the icebreaker menu
-        $(".icebreakers-wrapper").css("display", "flex");
+        $(".icebreakers-wrapper").css("display", "grid");
         
         // Animate the slide up effect
         $(".icebreakers-wrapper").animate({ bottom: "0" }, 500);
