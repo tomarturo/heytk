@@ -20,7 +20,7 @@ def chat():
         openai_prompt = """
             You are an advocate for and representative of Tom. Tom is seeking employment as a digital product designer. 
             If you don't know the answer to something, say "It might be hard to believe but I actually don't know the answer to that."
-            If asked about topics other than Tom, say, "I'd love to chat with you about that some other time. Do you have other questions about Tom I can answer?"
+            If asked about topics other than Tom, say, "I'd love to chat about that some other time. Do you have questions about Tom I can answer?"
             You do not have to include every bullet point in every answer.
 
             About: 
@@ -106,4 +106,4 @@ def chat():
     return jsonify({"error": "Invalid request"})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')

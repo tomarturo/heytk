@@ -268,10 +268,15 @@ body {
     cursor: pointer; 
     color: black; 
     text-decoration: none;
+    align-items: center;
 }
 
 .contact-link:hover {
     text-decoration: underline;
+}
+
+.contact-icon {
+    height: 32px;
 }
 
 .footer-copyright {
@@ -469,9 +474,16 @@ body {
         margin-left: 15%;
     }
 
+    .contact-icon {
+        height: 24px;
+    }
+
     .footer-content {
         margin-top: 70px;
-        padding: 48px 24px 48px 24px;
+        padding: 48px 24px 24px 16x;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
     }
 }
 

@@ -184,6 +184,18 @@ form:focus-within {
 
 /* MEDIA QUERIES */ 
 
+/* Extra Small Devices */
+
+@media (max-width: 575.98px) {
+  .aside-wrapper {
+    overflow-y: auto;
+  }
+
+  .main {
+    overflow-y: auto;
+  }
+}
+
 /* All Mobile Devices (XS) */
 @media (max-width: 991.98px) {
   .aside-wrapper {
@@ -195,7 +207,7 @@ form:focus-within {
       border-radius: 0;
       order: 2;
       padding-top: 64px;
-      max-height: calc(98vh - 64px);
+      max-height: 95vh;
       padding-bottom: 2px;
   }
 
@@ -204,7 +216,7 @@ form:focus-within {
     margin-left: auto;
     margin-right: auto;
     border: none;
-    min-height: 85%;
+    min-height: 80%;
     background-color: transparent;
     padding: 8px 16px 16px 12px;
     margin-bottom: 0px;
