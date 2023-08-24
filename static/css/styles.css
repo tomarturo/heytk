@@ -198,8 +198,8 @@ body {
     need calc vh + padding of chat container (left) for vertical alignment */ 
     margin-bottom: 16px;
     position: relative;
-    width: calc(75% - 32px);
-    margin-left: calc(25% + 32px);
+    width: 74%;
+    margin-right: 24px;
     border-radius: var(--border-radius);
     color: black;
 }
@@ -247,8 +247,8 @@ body {
     need calc vh + padding of chat container (left) for vertical alignment */ 
     margin-bottom: 16px;
     position: relative;
-    width: calc(75% - 32px);
-    margin-left: calc(25% + 32px);
+    width: 74%;
+    margin-right: calc(25% + 32px);
     border-radius: var(--border-radius);
 }
 
@@ -627,8 +627,7 @@ body {
 
     .site-title-wrapper {
         height: calc(60vh + 32px);      
-        margin-left: calc(30% + 24px);
-        width: calc(70% - 24px);
+        width: 69%;
     }
 
     .title-text {
@@ -640,7 +639,6 @@ body {
         font-weight: 500;
         line-height: 115%;
     }
-
 
     #title-1 {
         margin-left: 10%;
@@ -656,7 +654,7 @@ body {
     }
 
     .footer-wrapper {        
-        margin-left: calc(30% + 24px);
+        margin-right: calc(30% + 24px);
         width: calc(70% - 24px);
     }
 
@@ -671,7 +669,7 @@ body {
 }
 
 /* Extra Large Devices (XL) */
-@media (min-width: 1200px) and (max-width: 1600px) {
+@media (min-width: 1200px) and (max-width: 1599.99px) {
     .main {
         margin-left: 16px;
         margin-right: 16px;
@@ -679,7 +677,7 @@ body {
 
     .footer-wrapper {        
         width: calc(75% - 32px);
-        margin-left: calc(25% + 32px);
+        margin-right: calc(25% + 32px);
     }
 
     .title-text h1 {
@@ -693,10 +691,13 @@ body {
     }
 }
 
-@media (min-width: 1599.8px) {
+@media (min-width: 1600px) {
     .main {
+        position: relative;
         max-width: 1600px;
         margin-left: auto;
         margin-right: auto;
+        padding-left: 16px;
+        padding-right: 16px;
     }
 }

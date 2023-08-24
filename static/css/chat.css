@@ -1,9 +1,14 @@
 @import url(fonts.css);
 
+.aside-absolute {
+  position: absolute;
+  width: calc(24% - 16px);
+  right: 0;
+}
+
 .aside-wrapper {
   box-sizing: border-box;
-  height: calc(var(--vh, 1vh) * 100); 
-  width: 25%;
+  height: 100vh;
   align-self: flex-start;
   position: fixed;
   top: 24px;
@@ -12,6 +17,7 @@
   flex-direction: column;
   align-content: space-between;
   margin-bottom: 32px;
+  margin-right: 16px;
 }
 
 .aside-wrapper p {
@@ -28,7 +34,6 @@
   justify-content: space-between;
   border-radius: var(--border-radius);
   padding: 8px 0px 8px 0px;
-  /* background-color: #151515; */
   margin-bottom: 8px;
 }
 
@@ -273,23 +278,27 @@ form:focus-within {
 
 /* Large Devices (LG) */
 @media (min-width: 992px) and (max-width: 1199.98px) {
+  .aside-absolute {
+    width: calc(30% - 16px);
+  }
+  
   .aside-wrapper {
-    width: 30%;
-    max-width: 30%;
+    margin-right: 16px;
   }
 }
 
 /* Extra Large Devices (XL) */
 @media (min-width: 1200px) and (max-width: 1600px) {
-  .aside-wrapper {
+  /* .aside-wrapper {
     width: 25%;
-  }
+  } */
 }
 
 @media (min-width: 1599px) {
   .aside-wrapper {
     width: 384px;
     max-width: 384px;
+    margin-right: 32px;
   }
 }
 
