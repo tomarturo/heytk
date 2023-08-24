@@ -102,6 +102,15 @@
     border-radius: var(--border-radius);
 }
 
+.scrolling-img-wrapper {
+    overflow-y: scroll;
+    -webkit-mask-image: url(/static/images/white-device-frame.svg);
+    mask-image: url(/static/images/white-device-frame.svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    height: 99%;
+}
+
 .eyebrow {
     margin-bottom: 48px;
 }
