@@ -3,7 +3,7 @@
 
 .projects-wrapper {
     box-sizing: border-box;
-    width: 74%;
+    width: 75%;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -132,16 +132,17 @@
 /* FIELD REPRTS */
 #field-reports .accordion-1 {
     background-image: url(/static/images/fields/fields\ accordion\ 02.png);
-    background-size: contain;   
+    background-size: contain;
 }
 
 #field-reports .accordion-2 {
-    background-image: url(/static/images/fields/fields\ accordion\ 01.png);
+    background-image: url(/static/images/fields/fields\ accordion\ 03.png);
     background-size: contain;
 }
 
 #field-reports .accordion-3 {
-    background-color: #EBC2FE;
+    background-image: url(/static/images/fields/fields\ accordion\ 01.png);
+    background-size: contain;
 }
 
 /* SMORES */
@@ -162,15 +163,18 @@
 
 /* Brand First */
 #brand .accordion-1 {
-    background-color: #FFE486;
+    background-image: url(/static/images/brand/brand\ accordion\ 01.png);
+    background-size: contain;   
 }
 
 #brand .accordion-2 {
-    background-color: #F56846; 
+    background-image: url(/static/images/brand/brand\ accordion\ 02.png);
+    background-size: contain;   
 }
 
 #brand .accordion-3 {
-    background-color: #1CA65C;
+    background-image: url(/static/images/brand/brand\ accordion\ 03.png);
+    background-size: contain; 
 }
 
 /* Mobile Screens */
@@ -221,7 +225,7 @@
   /* Extra Large Devices (XL) */
   @media (min-width: 1200px) and (max-width: 1600px) {
     .projects-wrapper {
-        width: 74%;
+        width: 75%;
     }
   }
  

@@ -27,8 +27,8 @@
 .chat-wrapper {
   position: relative;
   max-width: 100%;
-  max-height: 55vh;
-  min-height: calc(55vh + 8px);
+  max-height: 45vh;
+  min-height: 45vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

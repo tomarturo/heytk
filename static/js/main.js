@@ -313,6 +313,7 @@ $(document).ready(function() {
     var activeLink = $(".active-link");
     var siteTitleWrapper = $(".site-title-wrapper");
     var mainContent = $(".main");
+    var asideAbsolute = $(".aside-absolute");
     // Click event for .projects-link
     $(".projects-link").click(function(e) {
         e.preventDefault();
@@ -335,6 +336,8 @@ $(document).ready(function() {
     $(".chat-link").click(function(e) {
         e.preventDefault();
         $("html, body").animate({ scrollTop: 0}, 0);
+        // Modify aside absolute position wrapper;
+        asideAbsolute.css({position: "relative", width: "100%"});
         // Show Chat section
         asideWrapper.css("display","flex");
         // Hide Projects section
@@ -347,24 +350,6 @@ $(document).ready(function() {
         mainContent.css("overflow","hidden")
         // Animate active link to highlight chat-link
         activeLink.css("transform", "translate(calc(101%))");
-    });
-
-    // Click event for .about-link
-    $(".about-link").click(function(e) {
-        e.preventDefault();
-        $("html, body").animate({ scrollTop: 0}, 0);
-        // Show Chat section
-        footerWrapper.css("display","grid");
-        // Hide Projects section
-        projectsWrapper.hide();
-        // Hide Chat section and reset flex direction
-        asideWrapper.css("display","none");
-        // Show title
-        siteTitleWrapper.hide();
-        // Hide overflow on .main
-        mainContent.css("overflow","auto")
-        // // Animate active link to highlight about-link
-        activeLink.css("transform", "translate(203%)");
     });
 });
 
@@ -416,3 +401,5 @@ window.addEventListener('resize', () => {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   });
+
+

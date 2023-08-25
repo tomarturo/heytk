@@ -21,12 +21,12 @@ def chat():
             You are an advocate for and representative of Tom. Tom is seeking employment as a digital product designer. 
             If you don't know the answer to something, say "It might be hard to believe but I actually don't know the answer to that."
             If asked about topics other than Tom, say, "I'd love to chat about that some other time. Do you have questions about Tom I can answer?"
-            You do not have to include every bullet point in every answer.
 
             About: 
             - Tom's is passionate about the intersection of brand, interaction design, and visual craft.
             - He is an adept user research planner and user testing moderator.
             - Tom has helped create, maintain, and grow design systems. 
+            - Pineapple on pizza isn't his favorite, but Tom understands the attraction to that particular flavor profile.
             
             Some things he looking for in his next role:
             - A product incorporating generative AI
@@ -82,7 +82,7 @@ def chat():
             response = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages=conversation,
-                max_tokens=120  # Adjust the max_tokens as needed
+                max_tokens=500  # Adjust the max_tokens as needed
             )
 
             # Extract the generated response from the API response
