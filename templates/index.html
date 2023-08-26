@@ -20,12 +20,31 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/icebreakers.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/casestudy.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='/css/fonts.css')}}"/> 
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5N9PQKV7');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ET8CW40N7D"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ET8CW40N7D');
+    </script>
     <script src="/static/js/Gradient.js" ></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js" integrity="sha512-zInFF17qBFVvvvFpIfeBzo7Tj7+rQxLeTJDmbxjBz5/zIr89YVbTNelNhdTT+/DCrxoVzBeUPVFJsczKbB7sew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5N9PQKV7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div id="loading-wrapper">
         <div class="loading-top"></div>
         <div class="loading-ruler"></div>
@@ -54,7 +73,7 @@
         </div>
         <section class="projects-wrapper">
             <div class="project-card-wrapper" id="solutions">
-                <button type="button" class="front-card">
+                <button type="button" class="front-card" id="solutions-button">
                         <div class="project-header">
                             <div class="project-title-wrapper">
                                 <h2>Solutions Marketing</h2>
@@ -123,15 +142,15 @@
                     </div>
                 </div>
                 <div class="end-study" style="background-color: #D659DB;">                    
-                    <h4>More details available upon <a href="mailto:tom.kurzeka@gmail.com?subject=Let's Talk Design" style="color: white">request</a>.</h4>
+                    <h4>More details available upon <a href="mailto:tom.kurzeka@gmail.com?subject=Let's Talk Design" style="color: white" id="request-info">request</a>.</h4>
                 </div>
             </div>
            
             <div class="project-card-wrapper" id="brand">
-                <button class="front-card">
+                <button class="front-card" id="brand-button">
                     <div class="project-header">
                         <div class="project-title-wrapper">
-                            <h2>Brand Identity Management</h2>
+                            <h2>Brand Management</h2>
                             <h5>VistaPrint • 2023</h5>
                         </div>
                     </div>
@@ -222,11 +241,11 @@
                     </div>
                 </div>
                 <div class="end-study" style="background-color: #73B6FF;">                    
-                    <h4>More details available upon <a href="mailto:tom.kurzeka@gmail.com?subject=Let's Talk Design" style="color: white">request</a>.</h4>
+                    <h4>More details available upon <a href="mailto:tom.kurzeka@gmail.com?subject=Let's Talk Design" style="color: white" id="request-info">request</a>.</h4>
                 </div>
             </div>
             <div class="project-card-wrapper" id="field-reports">
-                <button class="front-card">
+                <button class="front-card" id="field-reports-button">
                     <div class="project-header">
                         <div class="project-title-wrapper">
                             <h2>Field Reports</h2>
@@ -308,11 +327,11 @@
                     </div>
                 </div>
                 <div class="end-study" style="background-color: #1CA65C;">                    
-                    <h4>More details available upon <a href="mailto:tom.kurzeka@gmail.com?subject=Let's Talk Design" style="color: white">request</a>.</h4>
+                    <h4>More details available upon <a href="mailto:tom.kurzeka@gmail.com?subject=Let's Talk Design" style="color: white" id="request-info">request</a>.</h4>
                 </div>
             </div>
             <div class="project-card-wrapper" id="smores">
-                <button class="front-card">
+                <button class="front-card" id="smores-button">
                     <div class="project-header">
                         <div class="project-title-wrapper">
                             <h2>S'mores Design System</h2>
@@ -376,28 +395,28 @@
                     </div>
                     <div class="icebreaker-tiles-wrapper">
                         <button class="icebreaker-tile" data-tilt>
-                            <div class="tile-text">Tell me about Tom's professional experience.</div>
+                            <div class="tile-text" id="tile-1">Tell me about Tom's professional experience.</div>
                         </button>
                         <button class="icebreaker-tile" data-tilt>
-                            <div class="tile-text">Does Tom have experience with user research?</div>
+                            <div class="tile-text" id="tile-2">Does Tom have experience with user research?</div>
                         </button>
                         <button class="icebreaker-tile" data-tilt>
-                            <div class="tile-text">What is Tom looking for in his next role?</div>
+                            <div class="tile-text" id="tile-3">What is Tom looking for in his next role?</div>
                         </button>
                         <button class="icebreaker-tile" data-tilt>
-                            <div class="tile-text">What is Tom's design perpsective?</div>
+                            <div class="tile-text" id="tile-4">What is Tom's design perpsective?</div>
                         </button>
                         <button class="icebreaker-tile" data-tilt>
-                            <div class="tile-text">What is Tom's perspective on pineapple on pizza?</div>
+                            <div class="tile-text" id="tile-5">What is Tom's perspective on pineapple on pizza?</div>
                         </button>
                         <button class="icebreaker-tile" data-tilt>
-                            <div class="tile-text">What is Tom's design superpower?</div>
+                            <div class="tile-text" id="tile-6">What is Tom's design superpower?</div>
                         </button>
                         <button class="icebreaker-tile" data-tilt>
-                            <div class="tile-text">Tell me about Tom's hobbies.</div>
+                            <div class="tile-text" id="tile-7">Tell me about Tom's hobbies.</div>
                         </button>
                         <button class="icebreaker-tile" data-tilt>
-                            <div class="tile-text">What is Tom's favorite color?</div>
+                            <div class="tile-text" id="tile-8">What is Tom's favorite color?</div>
                         </button>
                     </div>
                 </section>

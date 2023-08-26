@@ -125,7 +125,6 @@ $(document).ready(function() {
         );
 
         $(this).click(function() {
-            console.log("Clicked Card " + (index + 1) + "!");
             var caseStudy = caseStudies.eq(index);
             var frontCard = projectCards.eq(index).find(".front-card");
             var projectDescription = projectCards.eq(index).find(".project-description");
@@ -134,7 +133,6 @@ $(document).ready(function() {
                 // Collapse the project description
                 projectDescription.slideUp(300, function() {
                     frontCard.css({height: "fit-content", "background-color": "rgb(23,23,24)"}); // Reset front-card height
-                    console.log("Animation completed!");
                 });
             } else {
                 // Reverse the hover animation if the card is not open and is clicked
@@ -142,21 +140,18 @@ $(document).ready(function() {
                 // Expand the project description
                 frontCard.css({"height": "fit-content", "background-color": colors[index]}); // Set front-card height to auto & set background color based on the index
                 projectDescription.slideDown(300, function() {
-                    console.log("Animation completed!");
                 });
             }
             if (isOpen[index]) {
                 caseStudy.slideUp(300, function() {
                 caseStudy.css({ overflow: "hidden", height: "0", display: "none" }); // Change overflow to hidden after slideUp
                 frontCard.css("background-color", "#151515"); //reset the background color
-                console.log("Animation completed!");
             });
             } else {
             // Reverse the hover animation if the card is not open and is clicked
             reverseHoverAnimation(index);
             caseStudy.slideDown(300, function() {
                 caseStudy.css({ overflow: "auto", height: "auto", display: "flex" }); // Change overflow to auto after slideDown
-                console.log("Animation completed!");
             });
             }
 
@@ -201,7 +196,6 @@ $(document).ready(function() {
             dataType: "json",
             
             success: function(response_json) {
-                console.log("Received response:", response_json);
 
                 // Get the bot response from the JSON
                 var botResponse = response_json.response;
@@ -367,7 +361,6 @@ $(document).ready(function() {
 // hide icebreakers wrapper on close-button click
 $(document).ready(function() {
     $(".close-icebreaker-button").click(function() {
-        console.log("button click!")
         // Animate the slide down effect to hide the menu
         $(".icebreakers-wrapper").animate({ bottom: "-100%" }, 500, function() {
             // Once the animation is complete, hide the menu

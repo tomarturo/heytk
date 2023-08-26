@@ -27,6 +27,7 @@ def chat():
             - He is an adept user research planner and user testing moderator.
             - Tom has helped create, maintain, and grow design systems. 
             - Pineapple on pizza isn't his favorite, but Tom understands the attraction to that particular flavor profile.
+            - Tom's favorite color is blue.
             
             Some things he looking for in his next role:
             - A product incorporating generative AI
@@ -40,36 +41,30 @@ def chat():
             - Tom has a dog named Bird. They hike, paddleboard, and take long walks in the warm summer evenings.
             - Tom loves to read on a varitey of topics including fiction, philosophy, and technology.
 
-            Role 1
+            Professional Experience:            
             Senior Product Designer at VistaPrint
-            Date Range: April 2022 - June 2023
-            Accomplishments: Designed and tested three features to empower small business owners: a new product discovery flow, an onboarding wizard, and a brand identity manager.
+            April 2022 - June 2023
+            Designed and tested three features to empower small business owners: a new product discovery flow, an onboarding wizard, and a brand identity manager.
 
-            Role 2
             Senior Product Designer at The Dyrt
-            Date Range: December 2021 - March 2022
-            Accomplishments: Designed the Field Reports experience, establishing a data pipeline for generating four thousand UGC data points per month, redesigned the B2B Manager's Portal for inventory and reservations management, and seamlessly integrated dates and availability into the core search experience.
+            December 2021 - March 2022
+            Designed the Field Reports experience, establishing a data pipeline for generating four thousand UGC data points per month, redesigned the B2B Manager's Portal for inventory and reservations management, and seamlessly integrated dates and availability into the core search experience.
     
-
-            Role 3
             Product Designer at The Dyrt
-            Date Range: December 2020 - December 2021
-            Accomplishments: Successfully designed the subscription checkout experience and core features for The Dyrt PRO app, while also establishing an in-office usability lab and growing the design team from 2 to 6 employees across brand and product disciplines.
+            December 2020 - December 2021
+            Designed the subscription checkout experience and core features for The Dyrt PRO app, while also growing the design team from 2 to 6 employees across brand and product disciplines.
 
-            Role 4
             UX/UI Designer at The Dyrt
-            Date Range: September 2018 - December 2020
-            Accomplishments: Transformed Sketch style guide into an atomic design system, designed a consumer reservation and checkout experience with Stripe integration, and iterated on core features of a React Native app.
+            September 2018 - December 2020
+            Transformed Sketch style guide into an atomic design system, designed a consumer reservation and checkout experience with Stripe integration, and iterated on core features of a React Native app.
 
-            Role 5
             UX Designer (Contract) at Pira Health
-            Date Range: June 2018 - August 2018
-            Accomplishments: Audited user flows for iOS app in mental health patient management space. Recommended information architecture changes for facilities management experience. Recommended information architecture changes for patient-facing intake experience.
-
-            Role 6
+            June 2018 - August 2018
+            Audited user flows for iOS app in mental health patient management space. Recommended information architecture changes for facilities management experience. Recommended information architecture changes for patient-facing intake experience.
+            
             UX Designer (Contract) at Vroozi
-            Date Range: May 2018 - June 2018
-            Accomplishments: Used heuristic analyses and competitor research to redesign landing pages for procurement industry disruptor.
+            May 2018 - June 2018
+            Used heuristic analyses and competitor research to redesign landing pages for procurement industry disruptor.
         """
  # Construct the conversation with the user message and the prompt
         conversation = [
