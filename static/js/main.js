@@ -170,8 +170,18 @@ $(document).ready(function() {
 
     $("#chat-form").submit(function(event) {
         event.preventDefault();
+    
+        var userInput = $("#user-input").val();
 
-        // Get user input
+        // Push data to the data layer
+        dataLayer.push({
+            event: 'chatFormSubmission',
+            category: 'Form',
+            action: 'Submit',
+            label: userInput
+        });
+
+        // Get user input and trim
         var userMessage = $("#user-input").val().trim();
         if (userMessage === "") {
             return;
@@ -361,6 +371,7 @@ $(document).ready(function() {
 // hide icebreakers wrapper on close-button click
 $(document).ready(function() {
     $(".close-icebreaker-button").click(function() {
+
         // Animate the slide down effect to hide the menu
         $(".icebreakers-wrapper").animate({ bottom: "-100%" }, 500, function() {
             // Once the animation is complete, hide the menu
