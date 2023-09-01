@@ -147,17 +147,19 @@
 
 /* SMORES */
 #smores .accordion-1 {
-    background-color: #F56846; 
-    background-size: contain;   
+    background-image: url(/static/images/smores/smores\ accordion\ 01.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #smores .accordion-2 {
-    background-color: #EBC2FE;
+    background-image: url(/static/images/smores/smores\ accordion\ 02.png);
     background-size: contain;
 }
 
 #smores .accordion-3 {
-    background-color: #FFE486;
+    background-image: url(/static/images/smores/smores\ accordion\ 03.png);
+    background-size: contain;
 }
 
 
