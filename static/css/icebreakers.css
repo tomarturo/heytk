@@ -27,7 +27,7 @@
     background-color: #151515;
     border: 1px solid rgba(120, 120, 120, 0.2);
     cursor: pointer;
-    user-select: none; /* Prevent text selection on double click */
+    user-select: none; 
     position: relative;
     color: whitesmoke;
 }
@@ -46,8 +46,6 @@
     font-size: 1rem;
     font-weight: 400;   
     color: whitesmoke;
-    opacity: 1; /* Set initial opacity to 1 */
-    transition: opacity 0.15s; /* Add transition for smooth animation */
 }
 
 .icebreaker-tile {

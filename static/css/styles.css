@@ -240,6 +240,8 @@ body {
     margin-left: 20%;
 }
 
+/* Footer */
+
 .footer-wrapper {
     color: white;
     display: flex;
@@ -285,8 +287,8 @@ body {
     color: black;
     padding-bottom: 4px;
 }
-/* GRADIENTS */
 
+/* GRADIENTS */
 #gradient-canvas {
     --gradient-color-1: #0d0d0d; 
     --gradient-color-2: #080707; 
@@ -332,7 +334,6 @@ body {
     display: flex;
     flex-direction: row;
     position: fixed;
-    /* width: calc(100% - 16px); */
     height: 40px;
     top: 12px;
     border-radius: 8px;
