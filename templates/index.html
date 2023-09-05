@@ -21,14 +21,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/casestudy.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='/css/fonts.css')}}"/> 
     <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+<!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5N9PQKV7');</script>
-    <!-- End Google Tag Manager -->
+    })(window,document,'script','dataLayer','GTM-5N9PQKV7');</script> -->
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ET8CW40N7D"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-ET8CW40N7D"></script> -->
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -42,9 +41,8 @@
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5N9PQKV7"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+<!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5N9PQKV7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
     <div id="loading-wrapper">
         <div class="loading-top"></div>
         <div class="loading-ruler"></div>
@@ -87,7 +85,6 @@
                 <div class="accordion-1"></div>
                 <div class="accordion-2"></div>
                 <div class="accordion-3"></div>
-                <div class="accordion-4"></div>
             </div>
             <div class="case-study" id="solutions-study">
                 <img src="/static/images/solutions/solutions grid.png" alt="Mockup of homepage carousel for desktop">
@@ -98,16 +95,14 @@
                         <h3>It is difficult to obtain multiple products that work well together.</h3>
                     </div>
                 </div>
-                <div class="case-study-slide" id="auto-height" style="background-color: #FFC254;">                    
+                <div class="case-study-slide" id="auto-height" style="background-color: #0096BD;">                    
                     <h6>hypothesis</h6>
                     <p>Collections of products in service of accomplishing common small business goals will help customers find what they need, discover new products, and increase awareness of Vista's cross-category offerings.</p>
                 </div>
-                <div class="case-study-split-wrapper">
-                    <div class="case-study-img-wrapper" style="background-color: #F16851;">
-                        <img src="/static/images/solutions/solution hero 01.png" alt="Mobile mockup of the create even landing page"></div>
-                    <div class="case-study-img-wrapper" style="background-color: #9A59F6;">
-                        <img src="/static/images/solutions/solution hero 02.png" alt="Mobile mockup of the create even landing page"></div>
-                </div>
+                <video class="desktop-video" controls muted>
+                    <source src="/static/images/solutions/all solutions.mov" type="video/mp4" alt="Desktop mockup of the All Small Business Solutions page.">
+                    Your browser does not support the video tag.
+                </video>
                 <div class="case-study-slide" id="auto-height" style="background-color: #DB9559;">                    
                     <h6>role & process</h6>
                     <div class="study-columns-wrapper">
@@ -122,10 +117,41 @@
                     </div>
                 </div>
                 <div class="case-study-split-wrapper">
-                    <div class="case-study-img-wrapper" style="background-color: #0096BD;">
-                        <img src="/static/images/solutions/solution hero 03.png" alt="Mobile mockup of the create even landing page"></div>
-                    <div class="case-study-img-wrapper" style="background-color: #FFC254;">
-                        <img src="/static/images/solutions/solution hero 04.png" alt="Mobile mockup of the create even landing page"></div>
+                    <div class="case-study-img-wrapper" id="amenity-interaction-video" style="background-color: #F16851;">
+                        <video class="video" autoplay loop muted>
+                            <source src="/static/images/solutions/carousel.mov" type="video/mp4" alt="Mobile mockup of the carousel of solutions links on the homepage.">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="case-study-portrait-text-wrapper" id="re-order" style="background-color: #FFC254;">
+                        <p>This was my first project at VistaPrint. It took some time to get acquainted with the design system and the capacity of the front-end teams.</p>
+                        <p>We were able to re-use a standard tile component as well as color and font pickers from our studio experience.</p>
+                    </div>
+                </div>
+                <div class="case-study-split-wrapper">
+                    <div class="case-study-portrait-text-wrapper" id="re-order" style="background-color: #0096BD;">
+                        <p>This was my first project at VistaPrint. It took some time to get acquainted with the design system and the capacity of the front-end teams.</p>
+                        <p>We were able to re-use a standard tile component as well as color and font pickers from our studio experience.</p>
+                    </div>
+                    <div class="case-study-img-wrapper" id="amenity-interaction-video" style="background-color: #9A59F6;">
+                        <video class="video" autoplay loop muted>
+                            <source src="/static/images/solutions/event sdp.mov" type="video/mp4" alt="Mobile mockup of the rock any event solution detail page.">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <div class="case-study-slide" id="auto-height" style="background-color: #DB9559;">                    
+                    <h6>role & process</h6>
+                    <div class="study-columns-wrapper">
+                        <div>
+                            <p style="margin-bottom: 24px;">Embedded in a cross-functional squad of twenty people, I represented UX alongside two designers.</p>
+                            <p>We facilitated a week long workshop, then generated and tested three initial concepts in a two week discovery sprint.</p>
+                        </div>
+                        <div>
+                            <p style="margin-bottom: 24px;">Over the next four months we iterated, diverged, and refined based on existing research, user testing, and various engineering and content constraints.</p>
+                            <p>We presented bi-weekly to the larger team, leveraging our findings to influence experiment scope and project strategy.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="case-study-three-up-wrapper">
                     <div class="case-study-metric" style="background-color: #66D071;">
@@ -160,7 +186,6 @@
                 <div class="accordion-1"></div>
                 <div class="accordion-2"></div>
                 <div class="accordion-3"></div>
-                <div class="accordion-4"></div>
             </div>
             <div class="case-study" id="brand-study">
                 <img src="/static/images/brand/brand grid.png" alt="Decorative grid of ui elements from brand kit feature">
@@ -253,17 +278,16 @@
                         </div>
                     </div>
                     <div class="project-description">
-                        <h1 style="padding-bottom: 32px; color: #E57150">Establishing a design system at a growing startup.</h1>
+                        <h1 style="padding-bottom: 32px; color: #20CAAB">Establishing a design system at a growing startup.</h1>
                     </div>  
                 </button>
                 <div class="accordion-1"></div>
                 <div class="accordion-2"></div>
                 <div class="accordion-3"></div>
-                <div class="accordion-4"></div>
             </div>
             <div class="case-study" id="smores-study">
                 <img src="/static/images/smores/smores grid.png" alt="A decorative grid showing a selection of design system components">
-                <div class="case-study-slide" style="background-color: #E57150;">                    
+                <div class="case-study-slide" style="background-color: #20CAAB;">                    
                     <h1>A cross-platform visual language rooted in our brand identity.</h1>
                     <div class="study-columns-wrapper">
                         <h3>In 2019, a rebrand led by our Design Director brought a modern look and feel to our latest MVP - The  Dyrt PRO.</h3>
@@ -274,7 +298,8 @@
                     <img style="max-width:100%;" src="/static/images/smores/smores type.png" alt="A series of headers representing the design system type scale">
                     <img style="max-width:100%;" src="/static/images/smores/smores colors.png" alt="Circular swatches representing the design system colors">
                 </div>
-                <div class="case-study-slide" id="auto-height" style="background-color: #397C70;">                    
+                <img style="padding: 40px; background-color: #F8F6F4;" src="/static/images/smores/spacing cta.png" alt="">
+                <div class="case-study-slide" id="auto-height" style="background-color: #E57150;">                    
                     <h6>role & process 1.1</h6>
                     <div class="study-columns-wrapper">
                         <div>
@@ -291,13 +316,12 @@
                     <source src="/static/images/smores/campground details.mov" type="video/mp4" alt="Desktop mockup of the redesigned campground details page featuring new brand styles">
                     Your browser does not support the video tag.
                 </video>
-                <img style="padding: 40px; background-color: #3d3b3b;" src="/static/images/smores/spacing cta.png" alt="">
                 <div class="case-study-three-up-wrapper">
                     <img src="/static/images/smores/review organism.png" alt="A mockup of the redesigned user review component">
                     <img src="/static/images/smores/review molecules.png" alt="A mockup showing the design system molecules that make up the review component">
                     <img src="/static/images/smores/review atoms.png" alt="A mockup showing the design system atoms that make up the preceding molecules">
                 </div>
-                <div class="case-study-slide" id="auto-height" style="background-color: #E57150;">                    
+                <div class="case-study-slide" id="auto-height" style="background-color: #E3AB50;">                    
                     <h6>role & process 1.2</h6>
                     <div class="study-columns-wrapper">
                         <div>
@@ -313,12 +337,12 @@
                 <div class="case-study-split-wrapper">
                     <div class="case-study-img-wrapper" id="amenity-interaction-video" style="background-color:#841E65;">
                         <video class="video" autoplay loop muted>
-                            <source src="/static/images/brand/mobile brand kit empty.mov" type="video/mp4" alt="Mobile mockup of the empty state of the brand kit">
+                            <source src="/static/images/smores/trip planner.mov" type="video/mp4" alt="Mobile mockup of the empty state of the brand kit">
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <div class="case-study-portrait-text-wrapper" id="re-order" style="background-color: #E3AB50;">
-                        <p>The design system shines in our native Trip Planner interface.</p>
+                    <div class="case-study-portrait-text-wrapper" id="re-order" style="background-color: #20CAAB;">
+                        <p>The S'mores Design System makes configuring and editing a days-long road trip easy in our Trip Planner feature.</p>
                         <p>We used large tap targets for radios buttons and checkboxes, which were helpful for our older audience.</p>
                         <p>Our custom iconography and bright active state styling sustain our brand voice throughout the flow.</p>
                     </div>
@@ -328,13 +352,12 @@
                     <img src="/static/images/smores/bottom sheet molecules.png" alt="A mockup showing the design system molecules that make up the bottom sheet organism">
                     <img src="/static/images/smores/bottom sheet atoms.png" alt="A mockup showing the design system atoms that make up the preceding molecules">
                 </div>
-                <div class="case-study-slide" id="auto-height" style="background-color: #397C70;">                    
+                <div class="case-study-slide" id="auto-height" style="background-color: #E57150;">                    
                     <h6>s'mores as collaborative space</h6>
-                    <p>The lines of communication established between design and development while establishing S'mores were crucial to The Dyrt's broader accomplishments.</p> 
-                    <p>Collaboration across the design team was critical to successfully incorporating The Dyrt's brand identity into this visual language.</p> 
+                    <p>A design system is a bridge between design and development. Part and parcel of establishing a design system is refining lines of communication between these teams. This communication was critical to The Dyrt's broader success.</p> 
                     <p>As the design team grew, S'mores became a meeting place for Brand, Product, and Marketing designers to explore, borrow, and learn from neighboring disciplines.</p> 
                 </div>
-                <div class="end-study" style="background-color: #E57150;">                    
+                <div class="end-study" style="background-color: #20CAAB;">                    
                     <h4>Want to learn more about my process? <a href="mailto:tom.kurzeka@gmail.com?subject=Let's Talk Design" style="color: white" id="request-info">Get in touch</a>.</h4>
                 </div>
             </div>
@@ -353,7 +376,6 @@
                 <div class="accordion-1"></div>
                 <div class="accordion-2"></div>
                 <div class="accordion-3"></div>
-                <div class="accordion-4"></div>
             </div>
             <div class="case-study" id="field-reports-study">
                 <img src="/static/images/fields/amenities grid.png" alt="A grid showing the amenities tile component">
