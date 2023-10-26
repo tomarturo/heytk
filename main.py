@@ -1,8 +1,20 @@
+import sys
 import os
 import openai
 from flask import Flask, request, jsonify, render_template
+from flask_flatpages import FlatPages, pygments_style_defs
+from flask_frozen import Freezer
+
+DEBUG = True
+FLATPAGES_AUTO_RELOAD = DEBUG
+FLATPAGES_EXTENSION = '.md'
+FLATPAGES_ROOT = 'content'
+POST_DIR = 'posts'
 
 app = Flask(__name__)
+flatpages = FlatPages(app)
+freezer = Freezer(app)
+app.config.from_object(__name__)
 
 # Set your OpenAI API key here
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -100,5 +112,24 @@ def chat():
 
     return jsonify({"error": "Invalid request"})
 
+# Route for displaying all posts
+@app.route("/posts/")
+def posts():
+    posts = [p for p in flatpages if p.path.startswith(POST_DIR)]
+    posts.sort(key=lambda item:item['date'], reverse=False)
+    return render_template('posts.html', posts=posts)
+
+# Creates a route for each individual post
+@app.route('/posts/<name>/')
+def post(name):
+    path = '{}/{}'.format(POST_DIR, name)
+    post = flatpages.get_or_404(path)
+    return render_template('post.html', post=post)
+
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0')
+    # app.run(debug=True, host='0.0.0.0')
+    if len(sys.argv) > 1 and sys.argv[1] == "build":
+        freezer.freeze()
+    else:
+        app.run(host='0.0.0.0', debug=True)
+
