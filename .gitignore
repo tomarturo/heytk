@@ -2,3 +2,5 @@ venv
 .env
 .DS_Store
 conversation.py
+node_modules
+
