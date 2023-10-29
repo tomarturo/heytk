@@ -19,9 +19,96 @@ app.config.from_object(__name__)
 # Set your OpenAI API key here
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+# data
+worknav = [
+	{"name": "Overview",
+	"path": "/", 
+	"icon": "OV"},
+	{"name": "Solutions Marketing", 
+	"path": "solutions",
+	"icon": "SM"},
+	{"name": "Brand Kit",
+	"path": "brand-kit",
+	"icon": "BK"},
+	{"name": "S'mores", 
+	"path": "s'mores", 
+	"icon": "DS"},
+	{"name": "Field Reports", 
+	"path": "field-reports", 
+	"icon": "FR"},
+]
+
+personalnav = [
+	{"name": "The Tom Blog",
+	"path": "tom-blog",
+	"icon": "TTB"},
+	{"name": "PooPal",
+	"path": "poo-pal",
+	"icon": "PP"},
+	{"name": "HeyTK",
+	"path": "hey-tk",
+	"icon": "HTK"},
+	{"name": "Next Steps",
+	"path": "next-steps",
+	"icon": "NS"},
+]
+
+miscnav = [
+	{"name": "About",
+	"path": "about",
+	"icon": "AB"},
+	{"name": "Contact",
+	"path": "contact",
+	"icon": "CT"}
+]
+
+projectheader = {
+    " ": {
+        "title": "Welcome, Earthling",
+        "company": "Tom Kurzeka",
+		"year": "2023"
+    },
+    "solutions": {
+        "title": "Solutions Marketing",
+        "tag": ["b2b", "a/b testing", "strategy"],
+        "company": "VistaPrint",
+        "companyURL": "www.vistaprint.com",
+		"year": "2023"
+    },
+}
+
+context = {
+	"worknav": worknav,
+	"personalnav": personalnav,
+	"miscnav": miscnav,
+}
+
+# all routes
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route("/solutions")
+def solutions():
+	selected_project = projectheader.get("solutions")
+	context["selected_project"] = selected_project
+	return render_template("solutions.html", **context)
+
+# Blog routing
+# Route for displaying all posts
+@app.route("/posts/")
+def posts():
+    posts = [p for p in flatpages if p.path.startswith(POST_DIR)]
+    posts.sort(key=lambda item:item['date'], reverse=False)
+    return render_template('posts.html', posts=posts)
+
+# Creates a route for each individual post
+@app.route('/posts/<name>/')
+def post(name):
+    path = '{}/{}'.format(POST_DIR, name)
+    post = flatpages.get_or_404(path)
+    return render_template('post.html', post=post)
+
 
 @app.route('/chat', methods=["POST", "GET"])
 def chat():
@@ -112,20 +199,7 @@ def chat():
 
     return jsonify({"error": "Invalid request"})
 
-# Route for displaying all posts
-@app.route("/posts/")
-def posts():
-    posts = [p for p in flatpages if p.path.startswith(POST_DIR)]
-    posts.sort(key=lambda item:item['date'], reverse=False)
-    return render_template('posts.html', posts=posts)
-
-# Creates a route for each individual post
-@app.route('/posts/<name>/')
-def post(name):
-    path = '{}/{}'.format(POST_DIR, name)
-    post = flatpages.get_or_404(path)
-    return render_template('post.html', post=post)
-
+# run app
 if __name__ == "__main__":
     # app.run(debug=True, host='0.0.0.0')
     if len(sys.argv) > 1 and sys.argv[1] == "build":
