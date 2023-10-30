@@ -1,12 +1,14 @@
+console.log("i'm running in this build");
+
 // Start Gradient background    
-var gradient = new Gradient()
-gradient.initGradient('#gradient-canvas');
+// var gradient = new Gradient()
+// gradient.initGradient('#gradient-canvas');
 
-var gradient = new Gradient()
-gradient.initGradient('#site-title-background');
+// var gradient = new Gradient()
+// gradient.initGradient('#site-title-background');
 
-var gradient = new Gradient()
-gradient.initGradient('#footer-background');
+// var gradient = new Gradient()
+// gradient.initGradient('#footer-background');
 
 function showWelcomeMessage() {
     var welcomeMessage = $("#welcome-message");
@@ -160,13 +162,15 @@ $(document).ready(function() {
     
         var userInput = $("#user-input").val();
 
+        alert("submitted!");
+        
         // Push data to the data layer
-        dataLayer.push({
-            event: 'chatFormSubmission',
-            category: 'Form',
-            action: 'Submit',
-            label: userInput
-        });
+        // dataLayer.push({
+        //     event: 'chatFormSubmission',
+        //     category: 'Form',
+        //     action: 'Submit',
+        //     label: userInput
+        // });
 
         // Get user input and trim
         var userMessage = $("#user-input").val().trim();
@@ -175,7 +179,7 @@ $(document).ready(function() {
         }
 
         // Display user message in the chat display area
-        chatDisplay.append("<div class='user-message'>" + userMessage + "</div>");
+        chatDisplay.append("<div class='text-2xl'>" + userMessage + "</div>");
         
         var userMessageHeight = $(".user-message").height();
         var currentScrollPosition = chatDisplay.scrollTop();

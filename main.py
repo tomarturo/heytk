@@ -21,9 +21,6 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # data
 worknav = [
-	{"name": "Overview",
-	"path": "/", 
-	"icon": "OV"},
 	{"name": "Solutions Marketing", 
 	"path": "/solutions",
 	"icon": "SM"},

@@ -1,6 +1,6 @@
 @import url(fonts.css);
 
-.aside-absolute {
+/* .aside-absolute {
   position: absolute;
   width: calc(24% - 16px);
   right: 0;
@@ -22,7 +22,7 @@
 
 .aside-wrapper p {
   color: #f3f3f3;
-}
+} */
 
 .chat-wrapper {
   position: relative;
