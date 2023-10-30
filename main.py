@@ -25,22 +25,25 @@ worknav = [
 	"path": "/", 
 	"icon": "OV"},
 	{"name": "Solutions Marketing", 
-	"path": "solutions",
+	"path": "/solutions",
 	"icon": "SM"},
 	{"name": "Brand Kit",
-	"path": "brand-kit",
+	"path": "/brand-kit",
 	"icon": "BK"},
 	{"name": "S'mores", 
-	"path": "s'mores", 
+	"path": "/s'mores", 
 	"icon": "DS"},
 	{"name": "Field Reports", 
-	"path": "field-reports", 
+	"path": "/field-reports", 
 	"icon": "FR"},
 ]
 
 personalnav = [
+    {"name": "chat.tk",
+     "path": "/chat-tk",
+     "icon": "TK"},
 	{"name": "The Tom Blog",
-	"path": "blog",
+	"path": "/blog",
 	"icon": "TTB"},
 	{"name": "PooPal",
 	"path": "poo-pal",
@@ -73,7 +76,17 @@ projectheader = {
         "tag": ["b2b", "a/b testing", "strategy"],
         "company": "VistaPrint",
         "companyURL": "www.vistaprint.com",
-		"year": "2023"
+		"year": "2023 • "
+    },
+    "blog": {
+        "title": "The Tom Blog",
+        "tag": ["creative", "quirky", "fascinating"],
+		"year": "Since 2018"
+    },
+    "chat-tk": {
+        "title": "chat.tk",
+        "tag": ["generative ai", "llm's", "curiosity"],
+        "year": "2023"
     },
 }
 
@@ -96,14 +109,17 @@ def solutions():
 
 # Blog routing
 # Route for displaying all posts
-@app.route("/posts/")
-def posts():
-    posts = [p for p in flatpages if p.path.startswith(POST_DIR)]
-    posts.sort(key=lambda item:item['date'], reverse=False)
-    return render_template('posts.html', posts=posts)
+@app.route("/blog/")
+def blog():
+    selected_project = projectheader.get("blog")
+    blog = [p for p in flatpages if p.path.startswith(POST_DIR)]
+    blog.sort(key=lambda item:item['date'], reverse=False)
+    context["selected_project"] = selected_project
+    context["blog"] = blog
+    return render_template('blog.html', **context)
 
 # Creates a route for each individual post
-@app.route('/posts/<name>/')
+@app.route('/blog/<name>/')
 def post(name):
     path = '{}/{}'.format(POST_DIR, name)
     post = flatpages.get_or_404(path)
