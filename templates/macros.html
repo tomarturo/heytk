@@ -1,0 +1,79 @@
+{% macro case_study_title(text1) %}
+<div class="pt-16 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
+   <h1 class="text-6xl font-extrabold text-center px-2 lg:px-2 lg:pt-8 xl:px-12 xl:pt-16 sm:ml-64">{{text1}}</h1>
+</div>
+{% endmacro %}
+
+{% macro case_study_hero(path, alt) %}
+<img src="{{path}}" alt="{{alt}}">
+{% endmacro %}
+
+{% macro display_text_with_columns(text1, text2, text3) %}
+<div class="p-20 flex flex-col justify-between bg-zinc-100 gap-16">
+   <h3 class="text-4xl font-bold">{{text1}}</h3>
+   <div class="flex flex-row gap-16">
+      <p class="text-2xl">{{text2}}</p>
+      <p class="text-2xl">{{text3}}</p>
+   </div>
+</div>
+{% endmacro %}
+
+{% macro paragraph_with_eyebrow(text1, text2) %}
+<div class="p-20 flex flex-col gap-12 bg-zinc-100">
+   <p class="text-base uppercase">{{text1}}</p>
+   <p class="text-2xl">{{text2}}</p>
+</div>
+{% endmacro %}
+
+{% macro columns_with_eyebrow(text1, text2, text3) %}
+<div class="p-20 flex flex-col gap-12 bg-zinc-100">
+   <p class="text-base uppercase">{{text1}}</p>
+   <div class="flex flex-row gap-16">
+      <p class="text-2xl">{{text2}}</p>
+      <p class="text-2xl">{{text3}}</p>
+   </div>
+</div>
+{% endmacro %}
+
+{% macro three_paragraphs_vertical(text1, text2, text3) %}
+<div class="p-20 flex flex-col bg-zinc-100 justify-between gap-12">
+   <p class="text-2xl">{{text1}}</p>
+   <p class="text-2xl">{{text2}}</p>
+   <p class="text-2xl">{{text3}}</p>
+</div>
+{% endmacro %}
+
+{% macro landscape_video(path, alt) %}
+<video class="w-full" controls muted>
+   <source src="{{path}}" type="video/mp4" alt="{{alt}}">
+   Your browser does not support the video tag.
+</video>
+{% endmacro %}
+
+{% macro portrait_video(background_color, path, alt) %}
+<div class="{{background_color}} p-8 flex justify-center">
+   <video class="max-w-[55%]" autoplay loop muted>
+      <source src="{{path}}" type="video/mp4" alt="{{alt}}">
+      Your browser does not support the video tag.
+   </video>
+</div>
+{% endmacro %}
+
+{% macro three_data_points(point1, text1, point2, text2, point3, text3) %}
+<div class="grid grid-cols-3 gap-4 mb-4">
+   <div class="w-full py-12 items-center justify-center bg-zinc-100 flex flex-col items-center gap-2">
+      <p class="text-3xl font-bold">{{point1}}</p>
+      <p class="text-base uppercase">{{text1}}</p>
+   </div>   
+   <div class="w-full py-12 items-center justify-center bg-zinc-100 flex flex-col items-center gap-2">
+      <p class="text-3xl font-bold">{{point2}}</p>
+      <p class="text-base uppercase">{{text2}}</p>
+   </div>   
+   <div class="w-full py-12 items-center justify-center bg-zinc-100 flex flex-col items-center gap-2">
+      <p class="text-3xl font-bold">{{point3}}</p>
+      <p class="text-base uppercase">{{text3}}</p>
+   </div>   
+</div>
+{% endmacro %}
+
+

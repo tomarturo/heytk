@@ -40,7 +40,7 @@ worknav = [
 
 personalnav = [
 	{"name": "The Tom Blog",
-	"path": "tom-blog",
+	"path": "blog",
 	"icon": "TTB"},
 	{"name": "PooPal",
 	"path": "poo-pal",

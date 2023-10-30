@@ -1,7 +1,8 @@
 <nav class="fixed z-50 w-full p-3 md:grid grid-cols-[16rem_auto] items-center bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
    <div class="flex flex-column items-center justify-between">
-      <a href="http://127.0.0.1:5000">
-         <h1 class="text-base font-semibold">heytk |&nbsp;<span class="text-xs font-normal align-middle">web mien of tom kurzeka</span></h1>
+      <a href="http://127.0.0.1:5000" class="flex flex-row">
+         <h1 class="text-base font-semibold">heytk |&nbsp;</h1>
+         <span class="text-xs font-normal pt-1">web mien of tom kurzeka</span>
       </a>
       <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
          <span class="sr-only">Open sidebar</span>
@@ -26,9 +27,9 @@
    </div>
 </nav> 
 
-<aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
-   <div class="h-full px-3 pb-12 overflow-y-auto bg-white dark:bg-gray-800">
-      <h2 class="text-xs mb-2 font-bold uppercase">Professional Work</h2>
+<aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-8 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
+   <div class="h-full px-3 pt-8 pb-12 overflow-y-auto bg-white dark:bg-gray-800">
+      <h2 class="text-xs mb-2 text-gray-600 font-bold uppercase">Professional Work</h2>
       <ul class="space-y-2 font-medium">
          {% for link in worknav %}
          <li>
@@ -40,7 +41,7 @@
             </a>
          </li>
          {% endfor %}
-      <h2 class="pt-8 text-xs font-bold uppercase">Personal Projects</h2>
+      <h2 class="pt-8 text-xs text-gray-600 font-bold uppercase">Personal Projects</h2>
       <ul class="space-y-2 font-medium">
          {% for link in personalnav %}
          <li>
@@ -52,7 +53,7 @@
             </a>
          </li>
          {% endfor %}
-      <h2 class="pt-8 text-xs font-bold uppercase">Miscellany</h2>
+      <h2 class="pt-8 text-xs text-gray-600 font-bold uppercase">Miscellany</h2>
       <ul class="space-y-2 font-medium">
          {% for link in miscnav %}
          <li>
