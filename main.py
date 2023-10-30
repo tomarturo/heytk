@@ -39,12 +39,12 @@ worknav = [
 ]
 
 personalnav = [
-    {"name": "chat.tk",
-     "path": "/chat-tk",
-     "icon": "TK"},
 	{"name": "The Tom Blog",
 	"path": "/blog",
 	"icon": "TTB"},
+     {"name": "ChatTK",
+     "path": "/chat-tk",
+     "icon": "TK"},
 	{"name": "PooPal",
 	"path": "poo-pal",
 	"icon": "PP"},
@@ -84,7 +84,7 @@ projectheader = {
 		"year": "Since 2018"
     },
     "chat-tk": {
-        "title": "chat.tk",
+        "title": "ChatTK",
         "tag": ["generative ai", "llm's", "curiosity"],
         "year": "2023"
     },
@@ -107,6 +107,12 @@ def solutions():
 	context["selected_project"] = selected_project
 	return render_template("solutions.html", **context)
 
+@app.route("/chat-tk")
+def chat_tk():
+	selected_project = projectheader.get("chat-tk")
+	context["selected_project"] = selected_project
+	return render_template("chat-tk.html", **context)
+
 # Blog routing
 # Route for displaying all posts
 @app.route("/blog/")
@@ -123,9 +129,12 @@ def blog():
 def post(name):
     path = '{}/{}'.format(POST_DIR, name)
     post = flatpages.get_or_404(path)
-    return render_template('post.html', post=post)
+    selected_project = projectheader.get("blog")
+    context["selected_project"] = selected_project
+    context["post"] = post
+    return render_template('post.html', **context)
 
-
+# Creates route for chat API call
 @app.route('/chat', methods=["POST", "GET"])
 def chat():
     if request.method == "POST":

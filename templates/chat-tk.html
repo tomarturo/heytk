@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+{{ component.case_study_title(
+    "Talk to a robot. Learn about Tom."
+ ) }}
+<div class=" px-4 lg:px-4 lg:py-8 xl:px-20 xl:py-20 sm:ml-64 flex flex-col gap-4">
+    <div class="chat-wrapper">
+        <div id="chat-container">
+            <div id="chat-display">
+                <div class="bot-message" id="welcome-message"></div>
+                <div id="cursor">▒</div>
+                <div id="chat-display-anchor"></div>
+            </div>
+            <form id="chat-form" autocomplete="off">
+                <input type="text" id="user-input" data-chat-url="{{ url_for('chat') }}" placeholder="Ask a question or select a suggestion" onblur="this.placeholder='Ask a question or select a suggestion'"/>
+                <button class="submit-button" type="submit"></button>
+            </form>
+        </div>
+    </div>
+    <button class="icebreaker-menu-button">
+        <div>View Suggestions</div>
+    </button>
+    <section class="icebreakers-wrapper">
+        <div class="icebreaker-mobile-header">
+            <h4>Suggested Questions</h4>
+            <button class="close-icebreaker-button"></button>
+        </div>
+        <div class="icebreaker-tiles-wrapper">
+            <button class="icebreaker-tile" data-tilt>
+                <div class="tile-text" id="tile-1">Tell me about Tom's professional experience.</div>
+            </button>
+            <button class="icebreaker-tile" data-tilt>
+                <div class="tile-text" id="tile-2">Does Tom have experience with user research?</div>
+            </button>
+            <button class="icebreaker-tile" data-tilt>
+                <div class="tile-text" id="tile-3">What is Tom looking for in his next role?</div>
+            </button>
+            <button class="icebreaker-tile" data-tilt>
+                <div class="tile-text" id="tile-4">What is Tom's design perpsective?</div>
+            </button>
+            <button class="icebreaker-tile" data-tilt>
+                <div class="tile-text" id="tile-5">What is Tom's perspective on pineapple on pizza?</div>
+            </button>
+            <button class="icebreaker-tile" data-tilt>
+                <div class="tile-text" id="tile-6">What is Tom's design superpower?</div>
+            </button>
+            <button class="icebreaker-tile" data-tilt>
+                <div class="tile-text" id="tile-7">Tell me about Tom's hobbies.</div>
+            </button>
+            <button class="icebreaker-tile" data-tilt>
+                <div class="tile-text" id="tile-8">What is Tom's favorite color?</div>
+            </button>
+        </div>
+    </section>
+</div>
+
+{% endblock content %}

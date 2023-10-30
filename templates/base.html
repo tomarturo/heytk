@@ -10,51 +10,10 @@
     <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/casestudy.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='/css/fonts.css')}}"/> 
-    <style>
-        /* TYPOGRAPHY */
-h1, h2, h3, h4, h5, h6, p {
-    font-family: 'Satoshi-Variable';
-}
-
-:root {    
-    --font-size-0: 1rem;
-    --font-size-1: calc(1rem + 8px);
-	--font-size-2: 1.2em;
-	--font-size-3: 1.44rem;
-	--font-size-4: 1.728rem;
-    --font-size-5: 2.074rem;
-    --font-size-6: 2.488rem;
-    --border-radius: 16px;
-}
-
-h1 {
-	font-size: var(--font-size-6);
-}
-h2 {
-	font-size: var(--font-size-5);
-}
-h3 {
-	font-size: var(--font-size-4);
-    font-weight: 400;
-}
-h4 {
-	font-size: var(--font-size-3);
-    font-weight: 400;
-}
-h5 {
-	font-size: var(--font-size-1);
-}
-
-h6 {
-	font-size: var(--font-size-0);
-    text-transform: uppercase;
-
-}
-p {
-    font-size: var(--font-size-1);
-    font-weight: 400;
-}
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/chat.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/icebreakers.css')}}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 </head>
 <body>
     {% include "_navigation.html" %}
@@ -63,5 +22,6 @@ p {
     </div>  
    {% include "_footer.html" %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.0.0/flowbite.min.js"></script>
+    <script src="/static/js/main.js"></script>
 </body>
 </html>

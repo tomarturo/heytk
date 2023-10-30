@@ -1,22 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ post.title }}</title>
-    <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
-</head>
-<body class="bg-zinc-100 text-zinc-800 dark:bg-zinc-900 dark:text-zinc-100">
-    <main class="max-w-2xl mx-auto pt-12">
-        <header class="flex flex-col gap-4 mb-2">
-            <p class="text-base mb-1"> {{ post.date.strftime("%B %d, %Y") }} </p>
-            <h1 class="text-4xl font-bold">{{ post.title }}</h1>   
-            <p class="text-base mb-2"> {{ post.preview }} </p>
-        </header>
-        <article class="prose prose-slate max-w-none dark:prose-invert">
-            {{ post.html|safe }}
-        </article>
-    </main>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<!-- max-w-2xl mx-auto pl-16 pt-12 text-zinc-800 dark:text-zinc-100 -->
+<main class="px-4 lg:px-4 lg:py-8 xl:px-56 xl:py-20 sm:ml-64 flex flex-col gap-4 ">
+    <header class="flex flex-col gap-4 mb-2">
+        <p class="text-base mb-1"> {{ post.date.strftime("%B %d, %Y") }} </p>
+        <h1 class="text-4xl font-bold">{{ post.title }}</h1>   
+        <p class="text-base mb-2"> {{ post.preview }} </p>
+    </header>
+    <article class="prose prose-slate max-w-none dark:prose-invert">
+        {{ post.html|safe }}
+    </article>
+</main>
+{% endblock content%}
