@@ -1,6 +1,38 @@
+<!-- {% macro nav_section(title) %}
+<h2 class="text-xs mb-1.5 text-gray-600 font-semibold uppercase">{{title}}</h2>
+      <ul class="space-y-2 font-medium mb-6">
+         {% for link in section_name %}
+         {% call nav_item(
+            link.path,
+            link.color,
+            link.icon,
+            link.name
+            ) %}
+         {% endcall %}
+         {% endfor %}
+      </ul>
+{% endmacro %} -->
+
+{% macro nav_item(path, color, icon, name) %}
+<li>
+   <a href="{{path}}" class="flex items-center p-2 text-gray-900 rounded-sm dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+      <span class="w-8 h-8 text-gray-500 {{color}} rounded-sm flex items-center justify-center transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true">
+         <img class="w-4 h-4" src="/static/icons/{{icon}}">
+      </span>
+      <span class="text-sm ml-3">{{name}}</span>
+   </a>
+</li>
+{% endmacro %}
+
+{% macro icebreaker_tile(icebreaker) %}
+<button class="icebreaker-tile block max-w-sm p-6 h-full w-full bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+   <div class="tile-text text-sm text-gray-900 dark:text-white">{{icebreaker}}</div>
+</button>
+{% endmacro %}
+
 {% macro case_study_title(text1) %}
 <div class="pt-16 pb-8 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
-   <h1 class="text-6xl font-extrabold text-center px-2 lg:px-2 lg:pt-8 xl:px-12 xl:pt-16 sm:ml-64">{{text1}}</h1>
+   <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-center px-2 lg:px-2 lg:pt-8 xl:px-12 xl:pt-16 lg:ml-64">{{text1}}</h1>
 </div>
 {% endmacro %}
 
@@ -9,37 +41,37 @@
 {% endmacro %}
 
 {% macro display_text_with_columns(text1, text2, text3) %}
-<div class="p-20 flex flex-col justify-between bg-zinc-100 gap-16">
-   <h3 class="text-4xl font-bold">{{text1}}</h3>
+<div class="px-8 py-12 md:px-12 md:py-16 lg:px-8 py-12 xl:p-20 flex flex-col justify-between bg-gray-50 gap-16 xl:gap-24">
+   <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold">{{text1}}</h3>
    <div class="flex flex-row gap-16">
-      <p class="text-2xl">{{text2}}</p>
-      <p class="text-2xl">{{text3}}</p>
+      <p class="text-base lg:text-lg">{{text2}}</p>
+      <p class="text-base lg:text-lg">{{text3}}</p>
    </div>
 </div>
 {% endmacro %}
 
 {% macro paragraph_with_eyebrow(text1, text2) %}
-<div class="p-20 flex flex-col gap-12 bg-zinc-100">
-   <p class="text-base uppercase">{{text1}}</p>
-   <p class="text-2xl">{{text2}}</p>
+<div class="px-8 py-12 md:px-12 md:py-16 lg:px-8 py-12 xl:p-20 flex flex-col gap-12 bg-gray-50">
+   <p class="text-xs lg:text-sm font-bold text-gray-700 uppercase">{{text1}}</p>
+   <p class="text-base lg:text-lg">{{text2}}</p>
 </div>
 {% endmacro %}
 
 {% macro columns_with_eyebrow(text1, text2, text3) %}
-<div class="p-20 flex flex-col gap-12 bg-zinc-100">
-   <p class="text-base uppercase">{{text1}}</p>
+<div class="px-8 py-12 md:px-12 md:py-16 lg:px-8 py-12 xl:p-20 flex flex-col gap-12 bg-gray-50">
+   <p class="text-xs lg:text-sm font-bold text-gray-700 uppercase">{{text1}}</p>
    <div class="flex flex-row gap-16">
-      <p class="text-2xl">{{text2}}</p>
-      <p class="text-2xl">{{text3}}</p>
+      <p class="text-base lg:text-lg">{{text2}}</p>
+      <p class="text-base lg:text-lg">{{text3}}</p>
    </div>
 </div>
 {% endmacro %}
 
 {% macro three_paragraphs_vertical(text1, text2, text3) %}
-<div class="p-20 flex flex-col bg-zinc-100 justify-between gap-12">
-   <p class="text-2xl">{{text1}}</p>
-   <p class="text-2xl">{{text2}}</p>
-   <p class="text-2xl">{{text3}}</p>
+<div class="px-8 py-12 md:px-12 md:py-16 lg:px-8 py-12 xl:p-20 flex flex-col bg-gray-50 justify-between gap-12">
+   <p class="text-base lg:text-lg">{{text1}}</p>
+   <p class="text-base lg:text-lg">{{text2}}</p>
+   <p class="text-base lg:text-lg">{{text3}}</p>
 </div>
 {% endmacro %}
 
@@ -61,17 +93,17 @@
 
 {% macro three_data_points(point1, text1, point2, text2, point3, text3) %}
 <div class="grid grid-cols-3 gap-4 mb-4">
-   <div class="w-full py-12 items-center justify-center bg-zinc-100 flex flex-col items-center gap-2">
-      <p class="text-3xl font-bold">{{point1}}</p>
-      <p class="text-base uppercase">{{text1}}</p>
+   <div class="w-full text-center py-12 px-4 items-center justify-center bg-gray-50 flex flex-col items-center gap-2">
+      <p class="text-2xl lg:text-3xl font-bold">{{point1}}</p>
+      <p class="text-xs lg:text-sm font-bold text-gray-700 uppercase">{{text1}}</p>
    </div>   
-   <div class="w-full py-12 items-center justify-center bg-zinc-100 flex flex-col items-center gap-2">
-      <p class="text-3xl font-bold">{{point2}}</p>
-      <p class="text-base uppercase">{{text2}}</p>
+   <div class="w-full text-center py-12 px-4 items-center justify-center bg-gray-50 flex flex-col items-center gap-2">
+      <p class="text-2xl lg:text-3xl font-bold">{{point2}}</p>
+      <p class="text-xs lg:text-sm font-bold text-gray-700 uppercase">{{text2}}</p>
    </div>   
-   <div class="w-full py-12 items-center justify-center bg-zinc-100 flex flex-col items-center gap-2">
-      <p class="text-3xl font-bold">{{point3}}</p>
-      <p class="text-base uppercase">{{text3}}</p>
+   <div class="w-full text-center py-12 px-4 items-center justify-center bg-gray-50 flex flex-col items-center gap-2">
+      <p class="text-2xl lg:text-3xl font-bold">{{point3}}</p>
+      <p class="text-xs lg:text-sm font-bold text-gray-700 uppercase a">{{text3}}</p>
    </div>   
 </div>
 {% endmacro %}

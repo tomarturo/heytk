@@ -1,17 +1,17 @@
-<nav class="fixed z-50 w-full p-3 md:grid grid-cols-[16rem_auto] items-center bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+<nav class="fixed z-50 w-full p-3 lg:grid grid-cols-[16rem_auto] items-center bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
    <div class="flex flex-column items-center justify-between">
       <a href="http://127.0.0.1:5000" class="flex flex-row">
          <h1 class="text-base font-semibold">heytk |&nbsp;</h1>
          <span class="text-xs font-normal pt-1">web mien of tom kurzeka</span>
       </a>
-      <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+      <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
          <span class="sr-only">Open sidebar</span>
          <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
          </svg>
       </button>
    </div>
-   <div class="hidden md:flex px-2 justify-between">
+   <div class="hidden lg:flex px-2 justify-between">
       <div class="flex flex-column gap-2">
          <h2 class="text-sm font-medium">{{selected_project.title}}</h2>
          <div class="flex flex-column gap-1">
@@ -27,54 +27,44 @@
    </div>
 </nav> 
 
-<aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-8 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
+<aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-8 transition-transform -translate-x-full bg-white border-r border-gray-200 lg:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
    <div class="h-full px-3 pt-8 pb-12 overflow-y-auto bg-white dark:bg-gray-800">
-      <div class="mb-6">
-         <a href="/" class="flex items-center p-2 text-gray-900 rounded-sm dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-            <span class="w-10 h-10 text-gray-500 bg-violet-300 rounded-sm flex items-center justify-center transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-               <p class="text-xs">OV</p>
-            </span>
-            <span class="text-sm ml-3">Overview</span>
-         </a>
-      </div>
-      <h2 class="text-xs mb-1 text-gray-600 font-bold uppercase">Professional Work</h2>
-      <ul class="space-y-2 font-medium mb-6">
-         {% for link in worknav %}
-         <li>
-            <a href="{{link.path}}" class="flex items-center p-2 text-gray-900 rounded-sm dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-               <span class="w-10 h-10 text-gray-500 bg-blue-300 rounded-sm flex items-center justify-center transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                  <p class="text-xs">{{link.icon}}</p>
-               </span>
-               <span class="text-sm ml-3">{{link.name}}</span>
-            </a>
-         </li>
-         {% endfor %}
-      </ul>
-      <h2 class="mb-1 text-xs text-gray-600 font-bold uppercase">Personal Projects</h2>
-      <ul class="space-y-2 font-medium mb-6">
-         {% for link in personalnav %}
-         <li>
-            <a href="{{link.path}}" class="flex items-center p-2 text-gray-900 rounded-sm dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-               <span class="w-10 h-10 text-gray-500 bg-green-200 rounded-sm flex items-center justify-center transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                  <p class="text-xs">{{link.icon}}</p>
-               </span>
-               <span class="text-sm ml-3">{{link.name}}</span>
-            </a>
-         </li>
-         {% endfor %}
-      </ul>
-      <h2 class="mb-1 text-xs text-gray-600 font-bold uppercase">Miscellany</h2>
+      <div class="bg-green-500"></div>
       <ul class="space-y-2 font-medium mb-6">
          {% for link in miscnav %}
-         <li>
-            <a href="{{link.path}}" class="flex items-center p-2 text-gray-900 rounded-sm dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-               <span class="w-10 h-10 text-gray-500 bg-yellow-200 rounded-sm flex items-center justify-center transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                  <p class="text-xs">{{link.icon}}</p>
-               </span>
-               <span class="text-sm ml-3">{{link.name}}</span>
-            </a>
-         </li>
+         {{ component.nav_item(
+            link.path,
+            link.color,
+            link.icon,
+            link.name
+            ) }}
          {% endfor %}
       </ul>
+      <h2 class="text-xs mb-1.5 text-gray-600 font-semibold uppercase">Professional Work</h2>
+      <ul class="space-y-2 font-medium mb-6">
+         {% for link in worknav %}
+         {{ component.nav_item(
+            link.path,
+            link.color,
+            link.icon,
+            link.name
+            ) }}
+         {% endfor %}
+      </ul>
+      <h2 class="mb-1.5 text-xs text-gray-600 font-semibold uppercase">Personal Projects</h2>
+      <ul class="space-y-2 font-medium mb-6">
+         {% for link in personalnav %}
+         {{ component.nav_item(
+            link.path,
+            link.color,
+            link.icon,
+            link.name
+            ) }}
+         {% endfor %}
+      </ul>
+      <!-- Exploring how to nest macros with call.. -->
+      <!-- {{ component.nav_section (
+         "TestWork",
+      )}} -->
    </div>
 </aside>

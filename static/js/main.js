@@ -12,7 +12,7 @@ console.log("i'm running in this build");
 
 function showWelcomeMessage() {
     var welcomeMessage = $("#welcome-message");
-    var welcomeText = "Hi! I'm here to answer your questions about Tom. What would you like to know?";
+    var welcomeText = "Hi! I'm here to answer your questions about Tom.\nWhat would you like to know?";
     var welcomeWords = welcomeText.split(" ");
     welcomeMessage.css("white-space", "pre-wrap");
     var cursor = $("#cursor"); // Assuming you have an element with ID "cursor"
@@ -161,16 +161,14 @@ $(document).ready(function() {
         event.preventDefault();
     
         var userInput = $("#user-input").val();
-
-        alert("submitted!");
         
         // Push data to the data layer
-        // dataLayer.push({
-        //     event: 'chatFormSubmission',
-        //     category: 'Form',
-        //     action: 'Submit',
-        //     label: userInput
-        // });
+        dataLayer.push({
+            event: 'chatFormSubmission',
+            category: 'Form',
+            action: 'Submit',
+            label: userInput
+        });
 
         // Get user input and trim
         var userMessage = $("#user-input").val().trim();
@@ -179,7 +177,7 @@ $(document).ready(function() {
         }
 
         // Display user message in the chat display area
-        chatDisplay.append("<div class='text-2xl'>" + userMessage + "</div>");
+        chatDisplay.append("<div class='text-lg font-medium'>" + userMessage + "</div>");
         
         var userMessageHeight = $(".user-message").height();
         var currentScrollPosition = chatDisplay.scrollTop();
@@ -202,7 +200,7 @@ $(document).ready(function() {
                 var botResponse = response_json.response;
                 
                 // Create a new div for the bot message and hide it initially
-                var botMessage = $("<div class='bot-message'>").css("opacity", 0);
+                var botMessage = $("<div class='text-lg bot-message'>").css("opacity", 0);
                 
                 setTimeout(function() {
                 // Append the bot message container to the chat display and show it

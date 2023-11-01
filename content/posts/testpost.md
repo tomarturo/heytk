@@ -15,7 +15,7 @@ A **Dog Horoscope** is a fun and playful way to gain insights into your dog's un
 ### How to Determine Your Dog's Zodiac Sign
 
 To find out your dog's zodiac sign, you'll need to know their date of birth. Each zodiac sign corresponds to a specific date range. Here's a quick guide to get you started:
-
+code
 - **Aries (March 21 - April 19):** Energetic and independent, Aries dogs are born leaders.
 - **Taurus (April 20 - May 20):** Taurus pups are known for their loyalty and love of comfort.
 - **Gemini (May 21 - June 20):** These dogs are curious, sociable, and quick learners.

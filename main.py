@@ -23,47 +23,54 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 worknav = [
 	{"name": "Solutions Marketing", 
 	"path": "/solutions",
-	"icon": "SM"},
+	"icon": "puzzle.svg",
+    "color": "bg-orange-400"},
 	{"name": "Brand Kit",
 	"path": "/brand-kit",
-	"icon": "BK"},
+	"icon": "color-swatch.svg",
+    "color": "bg-green-300"},
 	{"name": "S'mores", 
 	"path": "/s'mores", 
-	"icon": "DS"},
+	"icon": "template.svg",
+    "color": "bg-blue-400"},
 	{"name": "Field Reports", 
 	"path": "/field-reports", 
-	"icon": "FR"},
+	"icon": "map.svg",
+    "color": "bg-pink-400"},
 ]
 
 personalnav = [
-	{"name": "The Tom Blog",
-	"path": "/blog",
-	"icon": "TTB"},
      {"name": "ChatTK",
      "path": "/chat-tk",
-     "icon": "TK"},
+     "icon": "chat.svg",
+     "color": "bg-lime-400"},
+	{"name": "The Tom Blog",
+	"path": "/blog",
+	"icon": "rss.svg",
+    "color": "bg-purple-400"},
 	{"name": "PooPal",
 	"path": "poo-pal",
-	"icon": "PP"},
+	"icon": "map-pin.svg",
+    "color": "bg-orange-600"},
 	{"name": "HeyTK",
 	"path": "hey-tk",
-	"icon": "HTK"},
-	{"name": "Next Steps",
-	"path": "next-steps",
-	"icon": "NS"},
+	"icon": "terminal.svg",
+    "color": "bg-yellow-300"},
 ]
 
 miscnav = [
+     {"name": "Home",
+      "path": "/overview",
+      "icon": "home.svg",
+      "color": "bg-fuchsia-500"},
 	{"name": "About",
 	"path": "about",
-	"icon": "AB"},
-	{"name": "Contact",
-	"path": "contact",
-	"icon": "CT"}
+	"icon": "at-symbol.svg",
+    "color": "bg-green-500"},
 ]
 
 projectheader = {
-    " ": {
+    "overview": {
         "title": "Welcome, Earthling",
         "company": "Tom Kurzeka",
 		"year": "2023"
@@ -87,16 +94,35 @@ projectheader = {
     },
 }
 
+icebreakers = [
+     "Tell me about Tom's professional experience.",
+     "Does Tom have experience with user research?",
+     "What is Tom looking for in his next role?",
+     "What is Tom's design perpsective?",
+     "What is Tom's favorite design tool?",
+     "What is Tom's perspective on pineapple on pizza?",
+     "What is Tom's design superpower?",
+     "Tell me about Tom's hobbies.",
+     "What is Tom's favorite color?",
+]
+
 context = {
 	"worknav": worknav,
 	"personalnav": personalnav,
 	"miscnav": miscnav,
+    "icebreakers": icebreakers,
 }
 
 # all routes
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route("/overview")
+def overview():
+	selected_project = projectheader.get("overview")
+	context["selected_project"] = selected_project
+	return render_template("overview.html", **context)
 
 @app.route("/solutions")
 def solutions():
