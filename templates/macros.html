@@ -1,21 +1,27 @@
-<!-- {% macro nav_section(title) %}
-<h2 class="text-xs mb-1.5 text-gray-600 font-semibold uppercase">{{title}}</h2>
-      <ul class="space-y-2 font-medium mb-6">
-         {% for link in section_name %}
-         {% call nav_item(
-            link.path,
-            link.color,
-            link.icon,
-            link.name
-            ) %}
-         {% endcall %}
-         {% endfor %}
-      </ul>
-{% endmacro %} -->
+{% macro project_tile(image, desc, cta, path) %}
+<div class="bg-gray-50 rounded-sm">
+   <a href="{{url_for(path)}}">
+       <img class="rounded-t-sm" src="/static/images/{{image}}"/>
+   </a>
+   <div class="px-4 py-6 flex flex-col justify-between">
+       <p class="mb-4 text-lg font-normal text-gray-800 dark:text-gray-400">{{desc}}</p>
+       <a href="{{url_for(path)}}" class="inline-flex items-center font-semibold text-gray-800">
+           {{cta}}
+            <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+           </svg>
+       </a>
+   </div>
+</div>
+{% endmacro %}
 
-{% macro nav_item(path, color, icon, name) %}
+{% macro nav_item(path, color, icon, name, current_endpoint) %}
 <li>
-   <a href="{{path}}" class="flex items-center p-2 text-gray-900 rounded-sm dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+   {% if current_endpoint == path %}
+   <a href="{{url_for(path)}}" class="flex items-center p-2 bg-gray-50 ring ring-1 ring-gray-100 ring-inset text-gray-900 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-700 group">   
+   {% else %}   
+   <a href="{{url_for(path)}}" class="flex items-center p-2 text-gray-900 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-700 group"> 
+   {% endif %}
       <span class="w-8 h-8 text-gray-500 {{color}} rounded-sm flex items-center justify-center transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true">
          <img class="w-4 h-4" src="/static/icons/{{icon}}">
       </span>

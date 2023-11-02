@@ -32,39 +32,42 @@
       <div class="bg-green-500"></div>
       <ul class="space-y-2 font-medium mb-6">
          {% for link in miscnav %}
+         {% set current_endpoint = request.endpoint %}
          {{ component.nav_item(
             link.path,
             link.color,
             link.icon,
-            link.name
+            link.name,
+            current_endpoint
             ) }}
          {% endfor %}
       </ul>
       <h2 class="text-xs mb-1.5 text-gray-600 font-semibold uppercase">Professional Work</h2>
       <ul class="space-y-2 font-medium mb-6">
          {% for link in worknav %}
+         {% set current_endpoint = request.endpoint %}
          {{ component.nav_item(
             link.path,
             link.color,
             link.icon,
-            link.name
+            link.name,
+            current_endpoint
             ) }}
          {% endfor %}
       </ul>
       <h2 class="mb-1.5 text-xs text-gray-600 font-semibold uppercase">Personal Projects</h2>
       <ul class="space-y-2 font-medium mb-6">
+         {% set current_endpoint = request.endpoint %}
          {% for link in personalnav %}
          {{ component.nav_item(
             link.path,
             link.color,
             link.icon,
-            link.name
+            link.name,
+            current_endpoint
             ) }}
          {% endfor %}
+         <p>Current Endpoint: {{ request.endpoint }}</p>
       </ul>
-      <!-- Exploring how to nest macros with call.. -->
-      <!-- {{ component.nav_section (
-         "TestWork",
-      )}} -->
    </div>
 </aside>

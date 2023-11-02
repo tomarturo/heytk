@@ -5,26 +5,101 @@
     <div class="p-2 mt-12">
        <div class="grid grid-cols-2 gap-4 mb-4">
           <div class="flex flex-col p-6 gap-32 rounded bg-gray-50 dark:bg-gray-800">
-             <p class="text-4xl font-bold text-gray-800 dark:text-gray-500">Tom Kurzeka</p>
+             <p class="text-8xl font-extrabold text-gray-800 dark:text-gray-500">Tom Kurzeka</p>
              <p class="text-lg text-gray-800 dark:text-gray-500">Digital Product Designer</p>
           </div>
-          <div class="flex flex-col p-6 justify-between rounded bg-gray-50 dark:bg-gray-800">
-             <p class="text-lg text-gray-800 dark:text-gray-500">0-to-1 product designer with startup experience. Passionate about visual craft and interaction design. Recently prototyping with LLM's and tinkering with frontend code.</p>
-             <p class="text-lg text-gray-800 dark:text-gray-500">Actively looking for my next role.</p>
+          <div class="grid grid-cols-2 auto-rows-[30%,_1fr] rounded gap-4">
+             <p class="flex flex-col items-center justify-center text-3xl font-extrabold text-gray-800 bg-gray-50 dark:text-gray-500">PDX</p>
+             <p class="flex flex-col items-center justify-center text-3xl font-extrabold text-gray-800 bg-gray-50 dark:text-gray-500">11:06:33 PST</p>
+             <p class="row-span-2 col-span-2 flex flex-col items-center justify-center px-8 text-lg text-gray-800 bg-gray-50 dark:text-gray-500">0-to-1 product designer with startup experience. Passionate about visual craft and interaction design. Recently prototyping with LLM's and tinkering with frontend code.</p>
           </div>
        </div>
-       <div class="grid grid-cols-4 gap-4">
-          <div class="flex items-center justify-center rounded bg-yellow-200 h-28 dark:bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">
-             </p>
-          </div>
-          <div class="col-span-3 bg-blue-300 flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
-             <p class="text-2xl text-gray-400 dark:text-gray-500">
-                <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                </svg>
-             </p>
-          </div>
+       <div class="grid grid-cols-3 gap-4 mb-4">
+         {{ component.project_tile(
+            "/solutions/solutions grid.png",
+            "Helping small business owners market themselves",
+            "Explore solutions marketing",
+            "solutions"
+         ) }}
+         {{ component.project_tile(
+            "/chat tk.png",
+            "A conversational agent to help you get to know me",
+            "Start chatting",
+            "chat_tk"
+         ) }}
+         {{ component.project_tile(
+            "/solutions/solutions grid.png",
+            "Helping small business owners market themselves",
+            "Explore solutions marketing",
+            "solutions"
+         ) }}
+         </div>
+         <div class="grid grid-cols-3 gap-4 mb-4">
+            {% for post in blog[0:1] %}
+            <div class="col-span-2 gap-4 bg-gray-50 p-10">
+               <p class="text-sm text-zinc-500 dark:text-zinc-400 mb-2"> {{ post.date.strftime("%B %d, %Y") }} </p>
+                <a class="flex flex-col gap-12 rounded" href="{{ url_for('post', name=post.path.replace('posts/', '')) }}">
+                  <div class="flex flex-col gap-2">
+                     <h2 class="text-xl font-medium">{{ post.title }}</h2>
+                     <p class="text-base">{{ post.preview }}</p>
+                  </div>
+                  <div class="inline-flex items-center font-semibold text-gray-800">
+                     Read more
+                     <svg class="w-4 h-4 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                     </svg>
+                  </div>
+                </a>
+            </div>
+            {% endfor %}
+            <div class="bg-gray-50 p-10">
+               <a href="{{url_for('blog')}}" class="h-full flex flex-col justify-between">
+                  <h3 class="text-2xl font-semibold uppercase">The Tom Blog<span class="font-normal text-orange-500"> / Thoughts on Design / Creativity / Technology</span></h3>
+                  <div class="inline-flex items-center font-semibold text-gray-800">Read more
+                     <svg class="w-4 h-4 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                     </svg>
+                  </div>
+               </a>
+            </div>
+         </div>
+         <div class="grid grid-cols-3 gap-4 mb-4">
+            <div class="flex flex-col justify-center gap-2 bg-gray-50 p-10">
+               <p class="text-lg font-medium">You are visitor</p>
+               <p class="text-8xl font-extrabold text-purple-700">235</p>
+            </div>
+            <div class="col-span-2 gap-4 bg-gray-50 p-10">
+               <h3 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Tell me about yourself</h3>
+               <p class="mb-4 text-gray-800">Select the option that best describes your role</p>
+               <ul class="items-center w-full text-base font-medium text-gray-900 bg-white border border-gray-200 rounded-sm block lg:flex mb-4 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                  <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                     <div class="flex items-center pl-3">
+                           <input id="horizontal-list-radio-license" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                           <label for="horizontal-list-radio-license" class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Recruiter</label>
+                     </div>
+                  </li>
+                  <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                     <div class="flex items-center pl-3">
+                           <input id="horizontal-list-radio-id" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                           <label for="horizontal-list-radio-id" class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Hiring Manager</label>
+                     </div>
+                  </li>
+                  <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                     <div class="flex items-center pl-3">
+                           <input id="horizontal-list-radio-millitary" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                           <label for="horizontal-list-radio-millitary" class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Design Manager</label>
+                     </div>
+                  </li>
+                  <li class="w-full dark:border-gray-600">
+                     <div class="flex items-center pl-3">
+                           <input id="horizontal-list-radio-passport" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                           <label for="horizontal-list-radio-passport" class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Designer (IC)</label>
+                     </div>
+                  </li>
+               </ul>
+               <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Submit</button>
+            </div>
+         </div>
        </div>
     </div>
  </div>

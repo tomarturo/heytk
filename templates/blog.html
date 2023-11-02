@@ -10,10 +10,10 @@
             <article class="grid grid-cols-2 grid-cols-[20%_auto] gap-12">
                 {% for post in blog %}
                 <p class="text-sm text-zinc-500 dark:text-zinc-400 pt-4"> {{ post.date.strftime("%B %d, %Y") }} </p>
-                <a class="flex flex-col gap-2 p-3 rounded hover:bg-purple-100 dark:hover:bg-zinc-800" href="{{ url_for('post', name=post.path.replace('posts/', '')) }}">
+                <a class="flex flex-col gap-2 p-3 rounded" href="{{ url_for('post', name=post.path.replace('posts/', '')) }}">
                     <h2 class="text-xl font-medium">{{ post.title }}</h2>
-                    <p class="text-base">{{ post.preview }}</p>
-                    <p class="text-sm font-medium text-purple-700 dark:text-purple-500">Read more</p>
+                    <p class="">{{ post.preview }}</p>
+                    <p class="font-medium text-zinc-900">Read more</p>
                 </a>
                 {% endfor %}
             </article>

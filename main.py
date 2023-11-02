@@ -22,58 +22,58 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 # data
 worknav = [
 	{"name": "Solutions Marketing", 
-	"path": "/solutions",
+	"path": "solutions",
 	"icon": "puzzle.svg",
     "color": "bg-orange-400"},
-	{"name": "Brand Kit",
-	"path": "/brand-kit",
-	"icon": "color-swatch.svg",
-    "color": "bg-green-300"},
-	{"name": "S'mores", 
-	"path": "/s'mores", 
-	"icon": "template.svg",
-    "color": "bg-blue-400"},
-	{"name": "Field Reports", 
-	"path": "/field-reports", 
-	"icon": "map.svg",
-    "color": "bg-pink-400"},
+	# {"name": "Brand Kit",
+	# "path": "brand-kit",
+	# "icon": "color-swatch.svg",
+    # "color": "bg-green-300"},
+	# {"name": "S'mores", 
+	# "path": "smores", 
+	# "icon": "template.svg",
+    # "color": "bg-blue-400"},
+	# {"name": "Field Reports", 
+	# "path": "field-reports", 
+	# "icon": "map.svg",
+    # "color": "bg-pink-400"},
 ]
 
 personalnav = [
      {"name": "ChatTK",
-     "path": "/chat-tk",
+     "path": "chat_tk",
      "icon": "chat.svg",
      "color": "bg-lime-400"},
 	{"name": "The Tom Blog",
-	"path": "/blog",
+	"path": "blog",
 	"icon": "rss.svg",
     "color": "bg-purple-400"},
-	{"name": "PooPal",
-	"path": "poo-pal",
-	"icon": "map-pin.svg",
-    "color": "bg-orange-600"},
-	{"name": "HeyTK",
-	"path": "hey-tk",
-	"icon": "terminal.svg",
-    "color": "bg-yellow-300"},
+	# {"name": "PooPal",
+	# "path": "poo-pal",
+	# "icon": "map-pin.svg",
+    # "color": "bg-orange-600"},
+	# {"name": "HeyTK",
+	# "path": "hey-tk",
+	# "icon": "terminal.svg",
+    # "color": "bg-yellow-300"},
 ]
 
 miscnav = [
      {"name": "Home",
-      "path": "/overview",
+      "path": "overview",
       "icon": "home.svg",
       "color": "bg-fuchsia-500"},
-	{"name": "About",
-	"path": "about",
-	"icon": "at-symbol.svg",
-    "color": "bg-green-500"},
+	# {"name": "About",
+	# "path": "about",
+	# "icon": "at-symbol.svg",
+    # "color": "bg-green-500"},
 ]
 
 projectheader = {
     "overview": {
-        "title": "Welcome, Earthling",
-        "company": "Tom Kurzeka",
-		"year": "2023"
+        "title": "Welcome",
+        "company": "Please enjoy",
+		"year": " "
     },
     "solutions": {
         "title": "Solutions Marketing",
@@ -120,9 +120,12 @@ def index():
 
 @app.route("/overview")
 def overview():
-	selected_project = projectheader.get("overview")
-	context["selected_project"] = selected_project
-	return render_template("overview.html", **context)
+    blog = [p for p in flatpages if p.path.startswith(POST_DIR)]
+    blog.sort(key=lambda item:item['date'], reverse=True)
+    context["blog"] = blog
+    selected_project = projectheader.get("overview")
+    context["selected_project"] = selected_project
+    return render_template("overview.html", **context)
 
 @app.route("/solutions")
 def solutions():
@@ -138,13 +141,13 @@ def chat_tk():
 
 # Blog routing
 # Route for displaying all posts
-@app.route("/blog/")
+@app.route("/blog")
 def blog():
     selected_project = projectheader.get("blog")
     blog = [p for p in flatpages if p.path.startswith(POST_DIR)]
-    blog.sort(key=lambda item:item['date'], reverse=False)
-    context["selected_project"] = selected_project
+    blog.sort(key=lambda item:item['date'], reverse=True)
     context["blog"] = blog
+    context["selected_project"] = selected_project
     return render_template('blog.html', **context)
 
 # Creates a route for each individual post
