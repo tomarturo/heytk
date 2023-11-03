@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{{ component.case_study_title(
+   "Empowering small business owners to leverage brand identity consistently and efficiently"
+) }}
+
+<div class="py-12 px-4 lg:px-4 lg:py-8 xl:px-20 xl:py-20 lg:ml-64 flex flex-col items-center">
+   <div class="flex flex-col gap-4 xl:max-w-6xl">
+      {{ component.case_study_hero(
+         "/static/images/brand/brand grid.png",
+         "Decorative grid of ui elements from brand kit feature"
+      ) }}
+      {{ component.display_text_with_columns(
+         "Managing brand identity is labor intensive and time consuming.",
+         "Business owners often upload assets and select the same colors and typefaces multiple times.",
+         "Business owners know brand consistency is important but struggle to find the tools and time to achieve it."
+         ) }}
+      {{ component.paragraph_with_eyebrow(
+         "hypothesis",
+         "A place where customers can upload a logo and select colors and fonts for use across the site will increase the number of customers completing their designs (as measured by MIR to design review)."
+         ) }}
+      
+      <div class="grid md:grid-cols-2 gap-4">
+         {{ component.portrait_video(
+            "bg-[#FF8F28]",
+            "/static/images/brand/mobile brand kit empty.mov",
+            "Mobile mockup of the empty state of the brand kit"
+         ) }}
+         {{ component.three_paragraphs_vertical(
+            "We wanted configuring the brand kit to feel snappy and easy. We used the same tile style for adding different kinds of elements.",
+            "We didn't want to overcrowd the interface with repetitive overflow menus. We kept element-level configurations inside panels.",
+         ) }}
+      </div>
+      
+      <div class="flex flex-col flex-col-reverse md:grid grid-cols-2 gap-4">
+         {{ component.three_paragraphs_vertical(
+            "This was my first project at VistaPrint. It took some time to get acquainted with the design system and the capacity of the front-end teams.",
+            "We were able to re-use a standard tile component as well as color and font pickers from our studio experience.",
+         ) }}
+         {{ component.portrait_video(
+            "bg-[#FFB9F0]",
+            "/static/images/brand/mobile brand kit filled.mov",
+            "Mobile mockup of the brand kit completed state and edit interactions"
+         ) }}
+      </div>
+      
+      {{ component.columns_with_eyebrow(
+        "role & process",
+        "I joined this effort after a discovery and requirements gathering process was completed. I was brought on to design an MVP enabling users to configure four brand elements: business background, colors, logo, and type.",
+        "After an interaction and pattern audit of six competitors, I iterated and refined concepts over four weeks. I presented weekly to my squad for general feedback and to the Brand Kit Design Manager for refinements based on his discovery research."
+     ) }}
+
+     <img src="/static/images/brand/kit home toggle.png" alt="Brand kit landing page empty state with no brand kit records created">
+
+      {{ component.columns_with_eyebrow(
+         "site-wide personalization",
+         "Allowing customers to switch between mulitple kits was a key requirement. The primary brand kit's logo, colors, and fonts are easily accessible in Vista Studio."
+         "Throughout the site, brand kit aattributes are applied to product recommendations and incorporated into design templates."
+         ) }}
+
+      {{ component.three_data_points(
+         "+425",
+         "brand kits created per day",
+         "+8%",
+         "made-it-rate to design review",
+         "$45,000",
+         "est. annulaized revenue"
+         ) }}
+   </div>
+
+</div>
+{% endblock content %}

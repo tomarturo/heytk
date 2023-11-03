@@ -7,8 +7,8 @@ console.log("i'm running in this build");
 // var gradient = new Gradient()
 // gradient.initGradient('#site-title-background');
 
-// var gradient = new Gradient()
-// gradient.initGradient('#footer-background');
+var gradient = new Gradient()
+gradient.initGradient('#overview_tile');
 
 function showWelcomeMessage() {
     var welcomeMessage = $("#welcome-message");

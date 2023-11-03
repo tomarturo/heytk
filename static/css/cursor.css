@@ -11,3 +11,16 @@
     animation: blink 1s infinite;
     order: 1;
   }
+
+  #overview_tile {
+    --gradient-color-1: #F56846;
+    --gradient-color-2: #EBC2FE;
+    --gradient-color-3: #FFE486;
+    --gradient-color-4: #1CA65C;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }

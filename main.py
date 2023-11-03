@@ -4,12 +4,18 @@ import openai
 from flask import Flask, request, jsonify, render_template
 from flask_flatpages import FlatPages, pygments_style_defs
 from flask_frozen import Freezer
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 DEBUG = True
 FLATPAGES_AUTO_RELOAD = DEBUG
 FLATPAGES_EXTENSION = '.md'
 FLATPAGES_ROOT = 'content'
 POST_DIR = 'posts'
+
+# get current time for dashboard 
+pst = datetime.now(ZoneInfo('US/Pacific'))
+print(f"Pacific time {pst.isoformat(timespec='minutes')}")
 
 app = Flask(__name__)
 flatpages = FlatPages(app)
@@ -25,18 +31,18 @@ worknav = [
 	"path": "solutions",
 	"icon": "puzzle.svg",
     "color": "bg-orange-400"},
-	# {"name": "Brand Kit",
-	# "path": "brand-kit",
-	# "icon": "color-swatch.svg",
-    # "color": "bg-green-300"},
-	# {"name": "S'mores", 
-	# "path": "smores", 
-	# "icon": "template.svg",
-    # "color": "bg-blue-400"},
-	# {"name": "Field Reports", 
-	# "path": "field-reports", 
-	# "icon": "map.svg",
-    # "color": "bg-pink-400"},
+	{"name": "Brand Kit",
+	"path": "brand_kit",
+	"icon": "color-swatch.svg",
+    "color": "bg-green-300"},
+	{"name": "S'mores", 
+	"path": "smores", 
+	"icon": "template.svg",
+    "color": "bg-blue-400"},
+	{"name": "Field Reports", 
+	"path": "field_reports", 
+	"icon": "map.svg",
+    "color": "bg-pink-400"},
 ]
 
 personalnav = [
@@ -69,6 +75,18 @@ miscnav = [
     # "color": "bg-green-500"},
 ]
 
+contactnav = [
+    {"name": "Email me",
+    # "path": "mailto:tom.kurzeka@gmail.com",
+    "icon": "email.svg",},
+    {"name": "@tomarturo",
+    "path": "www.github.com/tomarturo",
+    "icon": "github-mark.svg"},
+    {"name": "Friend me",
+    "path": "www.linkedin.com/in/tomkurzeka",
+    "icon": "linked-in.svg"}
+]
+
 projectheader = {
     "overview": {
         "title": "Welcome",
@@ -92,6 +110,27 @@ projectheader = {
         "tag": ["generative ai", "llm's", "curiosity"],
         "year": "2023"
     },
+    "brand-kit" : {
+         "title": "Brand Kit",
+         "tag": ["personalization", "interaction", "mvp"],
+         "company": "VistaPrint",
+         "companyURL": "www.vistaprint.com",
+         "year": "2023 •"
+    },
+    "smores" : {
+         "title": "S'mores Design System",
+         "tag": ["systems", "visual design", "ixd"],
+         "company": "The Dyrt",
+         "companyURL": "www.thedyrt.com",
+         "year": "2021 •"
+    },
+    "field-reports" : {
+         "title": "Field Reports",
+         "tag": ["iOS", "Android", "data gathering"],
+         "company": "The Dyrt",
+         "companyURL": "www.thedyrt.com",
+         "year": "2021 •"
+    }
 }
 
 icebreakers = [
@@ -110,7 +149,9 @@ context = {
 	"worknav": worknav,
 	"personalnav": personalnav,
 	"miscnav": miscnav,
+    "contactnav": contactnav,
     "icebreakers": icebreakers,
+    "pst": pst,
 }
 
 # all routes
@@ -138,6 +179,24 @@ def chat_tk():
 	selected_project = projectheader.get("chat-tk")
 	context["selected_project"] = selected_project
 	return render_template("chat-tk.html", **context)
+
+@app.route("/brand-kit")
+def brand_kit():
+	selected_project = projectheader.get("brand-kit")
+	context["selected_project"] = selected_project
+	return render_template("brand-kit.html", **context)
+
+@app.route("/smores")
+def smores():
+	selected_project = projectheader.get("smores")
+	context["selected_project"] = selected_project
+	return render_template("smores.html", **context)
+
+@app.route("/field-reports")
+def field_reports():
+	selected_project = projectheader.get("field-reports")
+	context["selected_project"] = selected_project
+	return render_template("field-reports.html", **context)
 
 # Blog routing
 # Route for displaying all posts

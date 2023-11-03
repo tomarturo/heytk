@@ -4,13 +4,15 @@
 <div class="p-2 lg:ml-64">
     <div class="p-2 mt-12">
        <div class="grid grid-cols-2 gap-4 mb-4">
-          <div class="flex flex-col p-6 gap-32 rounded bg-gray-50 dark:bg-gray-800">
+          <div class="relative flex flex-col p-6 gap-32 rounded bg-transparent">
+          <canvas id="overview_tile" class="rounded"></canvas>
              <p class="text-8xl font-extrabold text-gray-800 dark:text-gray-500">Tom Kurzeka</p>
              <p class="text-lg text-gray-800 dark:text-gray-500">Digital Product Designer</p>
           </div>
           <div class="grid grid-cols-2 auto-rows-[30%,_1fr] rounded gap-4">
-             <p class="flex flex-col items-center justify-center text-3xl font-extrabold text-gray-800 bg-gray-50 dark:text-gray-500">PDX</p>
-             <p class="flex flex-col items-center justify-center text-3xl font-extrabold text-gray-800 bg-gray-50 dark:text-gray-500">11:06:33 PST</p>
+            <!-- <iframe class="col-span-2" src="https://api.mapbox.com/styles/v1/tomwonders/clohmj7ow000h01r7ej2c8b9l.html?title=false&access_token=pk.eyJ1IjoidG9td29uZGVycyIsImEiOiJja3Z5MmtvY3MwYTQ4MzBycGo2ZWtva25uIn0.a91hZfYy_8fwWIKgC4HUmQ&zoomwheel=false#12.8/45.51989/-122.66032" title="Frank" style="border:none;"></iframe> -->
+            <p class="flex flex-col items-center justify-center text-3xl font-extrabold text-gray-800 bg-gray-50 dark:text-gray-500">PDX</p>
+             <p class="flex flex-col items-center justify-center text-3xl font-extrabold text-gray-800 bg-gray-50 dark:text-gray-500">11:09:33 PST</p>
              <p class="row-span-2 col-span-2 flex flex-col items-center justify-center px-8 text-lg text-gray-800 bg-gray-50 dark:text-gray-500">0-to-1 product designer with startup experience. Passionate about visual craft and interaction design. Recently prototyping with LLM's and tinkering with frontend code.</p>
           </div>
        </div>
@@ -22,16 +24,16 @@
             "solutions"
          ) }}
          {{ component.project_tile(
+            "/smores/smores grid.png",
+            "Establishing a design system for a startup",
+            "Checkout S'mores",
+            "smores"
+         ) }}
+         {{ component.project_tile(
             "/chat tk.png",
             "A conversational agent to help you get to know me",
             "Start chatting",
             "chat_tk"
-         ) }}
-         {{ component.project_tile(
-            "/solutions/solutions grid.png",
-            "Helping small business owners market themselves",
-            "Explore solutions marketing",
-            "solutions"
          ) }}
          </div>
          <div class="grid grid-cols-3 gap-4 mb-4">

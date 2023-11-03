@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{{ component.case_study_title(
+   "A delightful way for users to submit cellular coverage & campground data"
+) }}
+
+<div class="py-12 px-4 lg:px-4 lg:py-8 xl:px-20 xl:py-20 lg:ml-64 flex flex-col items-center">
+   <div class="flex flex-col gap-4 xl:max-w-6xl">
+      {{ component.case_study_hero(
+         "/static/images/fields/amenities grid.png",
+         "A grid showing the amenities tile component"
+      ) }}
+      {{ component.display_text_with_columns(
+         "Campers want to know if they'll have cell service before they reserve a campsite.",
+         "Staying connected lowers the barrier of entry to the outdoors.",
+         "Competitors are collecting and displaying this data on their listings."
+         ) }}
+      
+      <div class="grid md:grid-cols-2 gap-4">
+         <div class="flex flex-col items-center p-10 bg-[#EBC2FE]"><img class="max-w-[65%]" src="/static/images/fields/Fields 1.png" alt="Mobile mockup of the field reports opening screen"></div>
+         <div class="flex flex-col items-center p-10 bg-[#4AA1FF]"><img class="max-w-[65%]" src="/static/images/fields/Fields 2.png" alt="Mobile mockup of the field reports location confirmation screen"></div>
+      </div>
+      
+      {{ component.columns_with_eyebrow(
+         "role & process",
+         "I owned this feature from start to finish, working closely with the Head of Product and a Lead Engineer. I was given two requirements: measure network connection speed and gather amenities data points.",
+         "As a part of this work, I also audited the app navigation patterns. We standardized control placement, iconography, and UX copy in S'mores, the design system."
+      ) }}
+      
+      <div class="grid md:grid-cols-2 gap-4">
+         {{ component.portrait_video(
+            "bg-[#1CA65C]",
+            "/static/images/fields/connection test animation.mov",
+            "Mobile mockup of the amenities quesitons interaction"
+         ) }}
+         {{ component.three_paragraphs_vertical(
+            "This feature was an opportunity to unite interaction design, a technical requirement, and The Dyrt's evolving brand identity.",
+            "I collaborated with our in-house illustrator to combine our visual style and easy-going brand voice into a one-of-a-kind loading indicator."
+         ) }}
+      </div>
+      
+      <div class="flex flex-col flex-col-reverse md:grid grid-cols-2 gap-4">
+         {{ component.three_paragraphs_vertical(
+            "After the connection test, users have the option of answering amenities questions about the campground.",
+            "Leveraging our custom iconography and some motion, this interaction breathes life and delight into an otherwise tedious task.",
+            "The Solutions Detail Page presents a high-level goal broken down into three approachable substories, with products and advice for each."
+         ) }}
+         {{ component.portrait_video(
+            "bg-[#F56846]",
+            "/static/images/fields/amenities interaction.mov",
+            "Mobile mockup of the amenities quesitons interaction"
+         ) }}
+      </div>
+      
+      {{ component.paragraph_with_eyebrow(
+         "perspective",
+         "The Field Report feature extends the customer experience of the app beyond planning and into the camping moment. This is a step into a future of utility and interaction based on customer location."
+         ) }}
+
+      <div class="grid grid-cols-2 gap-4 mb-4">
+         <div class="w-full text-center py-12 px-4 items-center justify-center bg-gray-50 flex flex-col items-center gap-2">
+            <p class="text-2xl lg:text-3xl font-bold">93,000</p>
+            <p class="text-xs lg:text-sm font-bold text-gray-700 uppercase">amenities updates first 60 days</p>
+         </div>   
+         <div class="w-full text-center py-12 px-4 items-center justify-center bg-gray-50 flex flex-col items-center gap-2">
+            <p class="text-2xl lg:text-3xl font-bold">13,000</p>
+            <p class="text-xs lg:text-sm font-bold text-gray-700 uppercase a">submitted reports first 6 months</p>
+         </div>   
+      </div>
+   </div>
+</div>
+{% endblock content %}
