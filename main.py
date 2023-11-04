@@ -13,10 +13,6 @@ FLATPAGES_EXTENSION = '.md'
 FLATPAGES_ROOT = 'content'
 POST_DIR = 'posts'
 
-# get current time for dashboard 
-pst = datetime.now(ZoneInfo('US/Pacific'))
-print(f"Pacific time {pst.isoformat(timespec='minutes')}")
-
 app = Flask(__name__)
 flatpages = FlatPages(app)
 freezer = Freezer(app)
@@ -151,7 +147,6 @@ context = {
 	"miscnav": miscnav,
     "contactnav": contactnav,
     "icebreakers": icebreakers,
-    "pst": pst,
 }
 
 # all routes
@@ -311,9 +306,4 @@ def chat():
 
 # run app
 if __name__ == "__main__":
-    # app.run(debug=True, host='0.0.0.0')
-    if len(sys.argv) > 1 and sys.argv[1] == "build":
-        freezer.freeze()
-    else:
-        app.run(host='0.0.0.0', debug=True)
-
+    app.run()
