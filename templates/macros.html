@@ -1,7 +1,7 @@
 {% macro project_tile(image, desc, cta, path) %}
-<div class="bg-gray-50 rounded-sm">
+<div class="bg-gray-50 rounded-sm border border-gray-100 rounded-md">
    <a href="{{url_for(path)}}">
-       <img class="rounded-t-sm" src="/static/images/{{image}}"/>
+       <img class="rounded-t-md" src="/static/images/{{image}}"/>
    </a>
    <div class="px-4 py-6 flex flex-col justify-between">
        <p class="mb-4 text-lg font-normal text-gray-800 dark:text-gray-400">{{desc}}</p>

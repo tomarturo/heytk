@@ -6,21 +6,21 @@
        <div class="relative grid grid-cols-2 mb-4">
           <canvas id="overview_tile"></canvas>
           <div class="flex flex-col p-6 gap-20 justify-between bg-transparent">
-             <p class="text-7xl font-extrabold text-gray-800">Tom Kurzeka</p>
-             <p class="text-xl text-gray-800">Digital Product Designer</p>
+             <p class="text-7xl font-extrabold text-neutral-800">Tom Kurzeka</p>
+             <p class="text-xl text-neutral-700">Digital Product Designer</p>
           </div>
           <div class="grid grid-cols-2">
             <!-- <iframe class="col-span-2" src="https://api.mapbox.com/styles/v1/tomwonders/clohmj7ow000h01r7ej2c8b9l.html?title=false&access_token=pk.eyJ1IjoidG9td29uZGVycyIsImEiOiJja3Z5MmtvY3MwYTQ4MzBycGo2ZWtva25uIn0.a91hZfYy_8fwWIKgC4HUmQ&zoomwheel=false#12.8/45.51989/-122.66032" title="Frank" style="border:none;"></iframe> -->
             <!-- <p class="flex flex-col items-center justify-center text-6xl font-extrabold text-gray-800 bg-gray-50 dark:text-gray-500">PDX</p> -->
-             <div class="flex flex-col bg-transparent border-l-[16px] border-b-[16px] border-white p-4">
-                <p class="text-4xl text-right font-bold text-gray-800">Portland</p>
-                <p class="text-xl text-right uppercase font-semibold text-gray-700">Oregon</p>
+             <div class="flex flex-col bg-transparent border-l-[4px] border-b-[4px] border-white p-4">
+                <p class="text-4xl text-right font-bold text-neutral-800">Portland</p>
+                <p class="text-xl text-right uppercase font-semibold text-neutral-700">Oregon</p>
              </div>
-             <div class="flex flex-col bg-transparent border-b-[16px] border-l-[16px] border-white p-4">
+             <div class="flex flex-col bg-transparent border-b-[4px] border-l-[4px] border-white p-4">
                 <p class="text-right text-4xl font-bold text-gray-800" id="current-time"></p>
-                <p class="text-right text-xl font-semibold text-gray-700">PST</p>
+                <p class="text-right text-xl font-semibold text-neutral-700">PST</p>
              </div>
-             <p class="row-span-2 col-span-2 flex flex-col items-center justify-center p-10 md:text-lg xl:text-xl text-gray-800 bg-transparent border-l-[16px] border-white">0-to-1 product designer with startup experience. Passionate about visual craft and interaction design. Recently prototyping with LLM's and tinkering with frontend code.</p>
+             <p class="row-span-2 col-span-2 flex flex-col items-center justify-center p-10 md:text-lg xl:text-xl text-gray-800 bg-transparent border-l-[4px] border-white">0-to-1 product designer with startup experience. Passionate about visual craft and interaction design. Recently prototyping with LLM's and tinkering with frontend code.</p>
           </div>
        </div>
        <div class="grid grid-cols-3 gap-4 mb-4">
@@ -29,23 +29,23 @@
             "Helping small business owners market themselves",
             "Explore solutions marketing",
             "solutions"
-         ) }}
-         {{ component.project_tile(
-            "/smores/smores grid.png",
-            "Establishing a design system for a startup",
-            "Checkout S'mores",
-            "smores"
-         ) }}
+            ) }}
          {{ component.project_tile(
             "/chat tk.png",
             "A conversational agent to help you get to know me",
             "Start chatting",
             "chat_tk"
          ) }}
+         {{ component.project_tile(
+            "/smores/smores grid.png",
+            "Scaffolding a design system alongside a rebrand",
+            "Checkout S'mores",
+            "smores"
+         ) }}
          </div>
          <div class="grid grid-cols-3 gap-4 mb-4">
             {% for post in blog[0:1] %}
-            <div class="col-span-2 gap-4 bg-gray-50 p-10">
+            <div class="col-span-2 gap-4 bg-gray-50 p-10 border border-gray-100 rounded-md">
                <p class="text-sm text-zinc-500 dark:text-zinc-400 mb-2"> {{ post.date.strftime("%B %d, %Y") }} </p>
                 <a class="flex flex-col gap-12 rounded" href="{{ url_for('post', name=post.path.replace('posts/', '')) }}">
                   <div class="flex flex-col gap-2">
@@ -61,7 +61,7 @@
                 </a>
             </div>
             {% endfor %}
-            <div class="bg-gray-50 p-10">
+            <div class="bg-gray-50 p-10 border border-gray-100 rounded-md">
                <a href="{{url_for('blog')}}" class="h-full flex flex-col justify-between">
                   <h3 class="text-2xl font-semibold uppercase">The Tom Blog<span class="font-normal text-orange-500"> / Thoughts on Design / Creativity / Technology</span></h3>
                   <div class="inline-flex items-center font-semibold text-gray-800">Read more
@@ -73,11 +73,11 @@
             </div>
          </div>
          <div class="grid grid-cols-3 gap-4 mb-4">
-            <div class="flex flex-col justify-center gap-2 bg-gray-50 p-10">
+            <div class="flex flex-col justify-center gap-2 bg-gray-50 p-10 border border-gray-100 rounded-md">
                <p class="text-lg font-medium">You are visitor</p>
                <p class="text-8xl font-extrabold text-purple-700">235</p>
             </div>
-            <div class="col-span-2 gap-4 bg-gray-50 p-10">
+            <div class="col-span-2 gap-4 bg-gray-50 p-10 border border-gray-100 rounded-md">
                <h3 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Tell me about yourself</h3>
                <p class="mb-4 text-gray-800">Select the option that best describes your role</p>
                <ul class="items-center w-full text-base font-medium text-gray-900 bg-white border border-gray-200 rounded-sm block lg:flex mb-4 dark:bg-gray-700 dark:border-gray-600 dark:text-white">

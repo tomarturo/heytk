@@ -89,8 +89,8 @@ contactnav = [
 
 projectheader = {
     "overview": {
-        "title": "Welcome",
-        "company": "Please enjoy",
+        "title": " ",
+        "company": "Welcome",
 		"year": " "
     },
     "solutions": {
