@@ -4,23 +4,21 @@
 <div class="p-2 lg:ml-64">
     <div class="p-2 mt-12">
        <div class="relative grid grid-cols-2 mb-4">
-          <canvas id="overview_tile"></canvas>
+          <canvas class="lg:rounded-md" id="overview_tile"></canvas>
           <div class="flex flex-col p-6 gap-20 justify-between bg-transparent">
              <p class="text-7xl font-extrabold text-neutral-800">Tom Kurzeka</p>
              <p class="text-xl text-neutral-700">Digital Product Designer</p>
           </div>
           <div class="grid grid-cols-2">
-            <!-- <iframe class="col-span-2" src="https://api.mapbox.com/styles/v1/tomwonders/clohmj7ow000h01r7ej2c8b9l.html?title=false&access_token=pk.eyJ1IjoidG9td29uZGVycyIsImEiOiJja3Z5MmtvY3MwYTQ4MzBycGo2ZWtva25uIn0.a91hZfYy_8fwWIKgC4HUmQ&zoomwheel=false#12.8/45.51989/-122.66032" title="Frank" style="border:none;"></iframe> -->
-            <!-- <p class="flex flex-col items-center justify-center text-6xl font-extrabold text-gray-800 bg-gray-50 dark:text-gray-500">PDX</p> -->
-             <div class="flex flex-col bg-transparent border-l-[4px] border-b-[4px] border-white p-4">
-                <p class="text-4xl text-right font-bold text-neutral-800">Portland</p>
-                <p class="text-xl text-right uppercase font-semibold text-neutral-700">Oregon</p>
+             <div class="flex flex-col bg-transparent border-l-[4px] border-b-[4px] border-stone-950 p-4">
+                <p class="text-4xl text-right font-bold text-stone-800">Portland</p>
+                <p class="text-xl text-right uppercase font-semibold text-stone-700">Oregon</p>
              </div>
-             <div class="flex flex-col bg-transparent border-b-[4px] border-l-[4px] border-white p-4">
-                <p class="text-right text-4xl font-bold text-gray-800" id="current-time"></p>
-                <p class="text-right text-xl font-semibold text-neutral-700">PST</p>
+             <div class="flex flex-col bg-transparent border-b-[4px] border-l-[4px] border-stone-950 p-4">
+                <p class="text-right text-4xl font-bold text-stone-800" id="current-time"></p>
+                <p class="text-right text-xl font-semibold text-stone-700">PST</p>
              </div>
-             <p class="row-span-2 col-span-2 flex flex-col items-center justify-center p-10 md:text-lg xl:text-xl text-gray-800 bg-transparent border-l-[4px] border-white">0-to-1 product designer with startup experience. Passionate about visual craft and interaction design. Recently prototyping with LLM's and tinkering with frontend code.</p>
+             <p class="row-span-2 col-span-2 flex flex-col items-center justify-center p-10 md:text-lg xl:text-xl text-stone-800 bg-transparent border-l-[4px] border-stone-950">0-to-1 product designer with startup experience. Passionate about visual craft and interaction design. Recently prototyping with LLM's and tinkering with frontend code.</p>
           </div>
        </div>
        <div class="grid grid-cols-3 gap-4 mb-4">
@@ -45,26 +43,26 @@
          </div>
          <div class="grid grid-cols-3 gap-4 mb-4">
             {% for post in blog[0:1] %}
-            <div class="col-span-2 gap-4 bg-gray-50 p-10 border border-gray-100 rounded-md">
-               <p class="text-sm text-zinc-500 dark:text-zinc-400 mb-2"> {{ post.date.strftime("%B %d, %Y") }} </p>
-                <a class="flex flex-col gap-12 rounded" href="{{ url_for('post', name=post.path.replace('posts/', '')) }}">
+            <a class="group col-span-2 gap-4 bg-stone-900 p-10 border border-stone-800 rounded-md hover:border-stone-700" href="{{ url_for('post', name=post.path.replace('posts/', '')) }}">
+               <p class="text-sm text-stone-500 mb-2"> {{ post.date.strftime("%B %d, %Y") }} </p>
+                <div class="flex flex-col gap-12 rounded"">
                   <div class="flex flex-col gap-2">
-                     <h2 class="text-xl font-medium">{{ post.title }}</h2>
-                     <p class="text-base">{{ post.preview }}</p>
+                     <h2 class="text-xl text-stone-100">{{ post.title }}</h2>
+                     <p class="text-base text-stone-200">{{ post.preview }}</p>
                   </div>
-                  <div class="inline-flex items-center font-semibold text-gray-800">
+                  <div class="inline-flex items-center font-medium text-stone-300 group-hover:text-stone-100 transition-all duration-100">
                      Read more
                      <svg class="w-4 h-4 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                      </svg>
                   </div>
-                </a>
-            </div>
+                </div>
+            </a>
             {% endfor %}
-            <div class="bg-gray-50 p-10 border border-gray-100 rounded-md">
-               <a href="{{url_for('blog')}}" class="h-full flex flex-col justify-between">
-                  <h3 class="text-2xl font-semibold uppercase">The Tom Blog<span class="font-normal text-orange-500"> / Thoughts on Design / Creativity / Technology</span></h3>
-                  <div class="inline-flex items-center font-semibold text-gray-800">Read more
+            <div class="">
+               <a href="{{url_for('blog')}}" class="group h-full flex flex-col justify-between bg-stone-900 p-10 border border-stone-800 rounded-md hover:border-stone-700 transition-all duration-100">
+                  <h3 class="text-2xl text-stone-100 font-semibold uppercase">The Tom Blog<span class="font-normal text-orange-500"> / Thoughts on Design / Creativity / Technology</span></h3>
+                  <div class="inline-flex items-center font-medium text-stone-300 group-hover:text-stone-100 transition-all duration-100">View posts
                      <svg class="w-4 h-4 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                      </svg>
@@ -73,36 +71,36 @@
             </div>
          </div>
          <div class="grid grid-cols-3 gap-4 mb-4">
-            <div class="flex flex-col justify-center gap-2 bg-gray-50 p-10 border border-gray-100 rounded-md">
-               <p class="text-lg font-medium">You are visitor</p>
-               <p class="text-8xl font-extrabold text-purple-700">235</p>
+            <div class="flex flex-col justify-center gap-2 bg-stone-900 p-10 border border-stone-800 rounded-md group">
+               <p class="text-stone-100 text-lg font-medium">You are visitor</p>
+               <p class="text-8xl font-extrabold text-pink-700 group-hover:text-emerald-700 transition-all duration-700">235</p>
             </div>
-            <div class="col-span-2 gap-4 bg-gray-50 p-10 border border-gray-100 rounded-md">
-               <h3 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Tell me about yourself</h3>
-               <p class="mb-4 text-gray-800">Select the option that best describes your role</p>
-               <ul class="items-center w-full text-base font-medium text-gray-900 bg-white border border-gray-200 rounded-sm block lg:flex mb-4 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                  <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+            <div class="col-span-2 gap-4 bg-stone-900 p-10 border border-stone-800 rounded-md">
+               <h3 class="mb-2 text-lg font-semibold text-stone-100 dark:text-white">Tell me about yourself</h3>
+               <p class="mb-4 text-stone-100">Select the option that best describes your role</p>
+               <ul class="items-center w-full text-base font-medium text-stone-100 bg-stone-800 border border-stone-700 rounded-md block lg:flex mb-4">
+                  <li class="w-full border-b border-stone-600 sm:border-b-0 sm:border-r dark:border-gray-600">
                      <div class="flex items-center pl-3">
-                           <input id="horizontal-list-radio-license" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                           <label for="horizontal-list-radio-license" class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Recruiter</label>
+                           <input id="horizontal-list-radio-license" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-stone-900 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                           <label for="horizontal-list-radio-license" class="w-full py-3 ml-2 text-sm font-medium text-stone-200  ">Recruiter</label>
                      </div>
                   </li>
-                  <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                  <li class="w-full border-b border-stone-600 sm:border-b-0 sm:border-r">
                      <div class="flex items-center pl-3">
-                           <input id="horizontal-list-radio-id" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                           <label for="horizontal-list-radio-id" class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Hiring Manager</label>
+                           <input id="horizontal-list-radio-id" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-stone-900 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                           <label for="horizontal-list-radio-id" class="w-full py-3 ml-2 text-sm font-medium text-stone-200  ">Hiring Manager</label>
                      </div>
                   </li>
-                  <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                  <li class="w-full border-b border-stone-600 sm:border-b-0 sm:border-r">
                      <div class="flex items-center pl-3">
-                           <input id="horizontal-list-radio-millitary" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                           <label for="horizontal-list-radio-millitary" class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Design Manager</label>
+                           <input id="horizontal-list-radio-millitary" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-stone-900 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                           <label for="horizontal-list-radio-millitary" class="w-full py-3 ml-2 text-sm font-medium text-stone-200  ">Design Manager</label>
                      </div>
                   </li>
-                  <li class="w-full dark:border-gray-600">
+                  <li class="w-full">
                      <div class="flex items-center pl-3">
-                           <input id="horizontal-list-radio-passport" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-50 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                           <label for="horizontal-list-radio-passport" class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Designer (IC)</label>
+                           <input id="horizontal-list-radio-passport" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-stone-900 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                           <label for="horizontal-list-radio-passport" class="w-full py-3 ml-2 text-sm font-medium text-stone-200">Designer (IC)</label>
                      </div>
                   </li>
                </ul>
