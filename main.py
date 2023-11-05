@@ -122,7 +122,7 @@ projectheader = {
     },
     "field-reports" : {
          "title": "Field Reports",
-         "tag": ["iOS", "Android", "data gathering"],
+         "tag": ["iOS", "android", "data gathering"],
          "company": "The Dyrt",
          "companyURL": "www.thedyrt.com",
          "year": "2021 •"
