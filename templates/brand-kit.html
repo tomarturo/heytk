@@ -6,12 +6,14 @@
    "Brand management for businesses of all sizes"
 ) }}
 
-<div class="px-4 lg:px-4 xl:px-20 lg:ml-64 flex flex-col items-center">
-   <div class="flex flex-col gap-4 xl:max-w-6xl">
-      {{ component.case_study_hero(
-         "/static/images/brand/brand grid.png",
-         "Decorative grid of ui elements from brand kit feature"
-      ) }}
+<div class="relative px-4 lg:px-4 xl:px-20 lg:ml-64 flex flex-col items-center">
+   {% include "_password-scrim.html" %} 
+   {{ component.case_study_hero(
+      "/static/images/brand/brand grid.png",
+      "Decorative grid of ui elements from brand kit feature"
+   ) }}
+   
+   <div id="password-wrapper" class="hidden flex flex-col gap-4 xl:max-w-6xl pt-4">
       {{ component.display_text_with_columns(
          "Managing brand identity is labor intensive and time consuming.",
          "Business owners often upload assets and select the same colors and typefaces multiple times.",
@@ -68,6 +70,7 @@
          "$45,000",
          "est. annulaized revenue"
          ) }}
+   </div>
    </div>
 
 </div>

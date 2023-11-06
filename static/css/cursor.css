@@ -12,6 +12,16 @@
     order: 1;
   }
 
+  #chat-display * {
+    overflow-anchor: none; 
+  }
+  
+  #chat-display-anchor {
+    overflow-anchor: auto;
+    min-height: 24px;
+    order: 3;
+  }
+
   #overview_tile {
     /* --gradient-color-1: #F56846;
     --gradient-color-2: #EBC2FE;
@@ -33,4 +43,8 @@
     position: absolute;
     top: 0;
     left: 0;
+  }
+
+  .bot-message {
+    color: #D6D1D3;
   }

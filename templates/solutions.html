@@ -6,12 +6,13 @@
    "Products & advice for small business owners"
 ) }}
 
-<div class="px-4 lg:px-4 xl:px-20 lg:ml-64 flex flex-col items-center">
-   <div class="flex flex-col gap-4 xl:max-w-6xl">
-      {{ component.case_study_hero(
-         "/static/images/solutions/solutions grid.png",
-         "A grid of various brands and product tiles"
-      ) }}
+<div class="relative px-4 lg:px-4 xl:px-20 lg:ml-64 flex flex-col items-center">
+   {% include "_password-scrim.html" %} 
+   {{ component.case_study_hero(
+      "/static/images/solutions/solutions grid.png",
+      "A grid of various brands and product tiles"
+   ) }}
+   <div id="password-wrapper" class="hidden flex flex-col gap-4 xl:max-w-6xl pt-4">
       {{ component.display_text_with_columns(
          "Small business owners are overwhelmed with options and crunched for time.",
          "They don't know where to go to find the products they need.",
@@ -25,13 +26,13 @@
          "/static/images/solutions/all solutions.mov",
          "Desktop mockup of the All Small Business Solutions page"
          ) }}
-      
+   
       {{ component.columns_with_eyebrow(
          "role & process",
          "Embedded in a cross-functional squad of twenty people, I represented UX alongside two designers. We facilitated a week long workshop, then generated and tested three initial concepts in a two week discovery sprint.",
          "Over the next four months we iterated, diverged, and refined based on existing research, user testing, and various engineering and content constraints. We presented bi-weekly to the larger team, leveraging our findings to influence experiment scope and project strategy."
       ) }}
-      
+   
       <div class="grid md:grid-cols-2 gap-4">
          {{ component.portrait_video(
             "bg-[#F16851]",
@@ -44,7 +45,7 @@
             "Moderated studies during the experiment revealed customers perceived the tiles as links to blog posts, making them less effective than predicted."
          ) }}
       </div>
-      
+   
       <div class="flex flex-col flex-col-reverse md:grid grid-cols-2 gap-4">
          {{ component.three_paragraphs_vertical(
             "A key finding from our design sprint was that user needs varied across business maturity.",
@@ -57,7 +58,7 @@
             "Mobile mockup of the rock any event solution detail page"
          ) }}
       </div>
-      
+   
       <div class="grid md:grid-cols-2 gap-4">
          {{ component.portrait_video(
             "bg-[#F16851]",
@@ -83,6 +84,5 @@
          "multi-product purchase rate"
          ) }}
    </div>
-
 </div>
 {% endblock content %}
