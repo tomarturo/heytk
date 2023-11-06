@@ -28,7 +28,7 @@
 {% endmacro %}
 
 {% macro icebreaker_tile(icebreaker) %}
-<button class="icebreaker-tile flex items-center max-w-sm p-6 h-full w-full bg-stone-900 border border-stone-800 rounded-lg hover:border hover:border-stone-700 group">
+<button class="icebreaker-tile flex items-center max-w-sm p-6 h-full w-full bg-stone-900 border border-stone-800 rounded-md hover:border hover:border-stone-700 group">
    <div class="grow tile-text text-sm text-stone-200 group-hover:text-stone-100">{{icebreaker}}</div>
 </button>
 {% endmacro %}
@@ -40,11 +40,11 @@
 {% endmacro %}
 
 {% macro case_study_hero(path, alt) %}
-<img src="{{path}}" alt="{{alt}}">
+<img src="{{path}}" alt="{{alt}}" class="rounded-md">
 {% endmacro %}
 
 {% macro display_text_with_columns(text1, text2, text3) %}
-<div class="px-8 py-12 md:px-12 md:py-16 lg:px-8 py-12 xl:p-20 flex flex-col justify-between bg-stone-900 gap-16 xl:gap-24">
+<div class="px-8 py-12 md:px-12 md:py-16 lg:px-8 py-12 xl:p-20 flex flex-col justify-between bg-stone-900 gap-16 xl:gap-24 rounded-md">
    <h3 class="text-2xl md:text-3xl lg:text-4xl text-stone-100 font-bold">{{text1}}</h3>
    <div class="flex flex-row gap-16">
       <p class="text-base text-stone-300 lg:text-lg">{{text2}}</p>
@@ -54,14 +54,14 @@
 {% endmacro %}
 
 {% macro paragraph_with_eyebrow(text1, text2) %}
-<div class="px-8 py-12 md:px-12 md:py-16 lg:px-8 py-12 xl:p-20 flex flex-col gap-12 bg-stone-900">
+<div class="px-8 py-12 md:px-12 md:py-16 lg:px-8 py-12 xl:p-20 flex flex-col gap-12 bg-stone-900 rounded-md">
    <p class="text-xs lg:text-sm font-bold text-stone-500 uppercase">{{text1}}</p>
    <p class="text-base text-stone-300 lg:text-lg">{{text2}}</p>
 </div>
 {% endmacro %}
 
 {% macro columns_with_eyebrow(text1, text2, text3) %}
-<div class="px-8 py-12 md:px-12 md:py-16 lg:px-8 py-12 xl:p-20 flex flex-col gap-12 bg-stone-900">
+<div class="px-8 py-12 md:px-12 md:py-16 lg:px-8 py-12 xl:p-20 flex flex-col gap-12 bg-stone-900 rounded-md">
    <p class="text-xs lg:text-sm font-bold text-stone-500 uppercase">{{text1}}</p>
    <div class="flex flex-row gap-16">
       <p class="text-base lg:text-lg text-stone-300">{{text2}}</p>
@@ -71,7 +71,7 @@
 {% endmacro %}
 
 {% macro three_paragraphs_vertical(text1, text2, text3) %}
-<div class="px-8 py-12 md:px-12 md:py-16 lg:px-8 py-12 xl:p-20 flex flex-col bg-stone-900 justify-between gap-12">
+<div class="px-8 py-12 md:px-12 md:py-16 lg:px-8 py-12 xl:p-20 flex flex-col bg-stone-900 justify-between gap-12 rounded-md">
    <p class="text-base lg:text-lg text-stone-300">{{text1}}</p>
    <p class="text-base lg:text-lg text-stone-300">{{text2}}</p>
    <p class="text-base lg:text-lg text-stone-300">{{text3}}</p>
@@ -79,14 +79,14 @@
 {% endmacro %}
 
 {% macro landscape_video(path, alt) %}
-<video class="w-full" controls muted>
+<video class="w-full rounded-md" controls muted>
    <source src="{{path}}" type="video/mp4" alt="{{alt}}">
    Your browser does not support the video tag.
 </video>
 {% endmacro %}
 
 {% macro portrait_video(background_color, path, alt) %}
-<div class="{{background_color}} p-8 flex justify-center">
+<div class="{{background_color}} p-8 flex justify-center rounded-md">
    <video class="max-w-[55%]" autoplay loop muted>
       <source src="{{path}}" type="video/mp4" alt="{{alt}}">
       Your browser does not support the video tag.
@@ -95,16 +95,16 @@
 {% endmacro %}
 
 {% macro three_data_points(point1, text1, point2, text2, point3, text3) %}
-<div class="grid grid-cols-3 gap-4 mb-4">
-   <div class="w-full text-center py-12 px-4 items-center justify-center bg-stone-900 flex flex-col items-center gap-2">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+   <div class="w-full text-center py-12 px-4 items-center justify-center bg-stone-900 flex flex-col items-center gap-2 rounded-md">
       <p class="text-2xl lg:text-3xl font-bold text-stone-300">{{point1}}</p>
       <p class="text-xs lg:text-sm font-bold text-stone-500 uppercase">{{text1}}</p>
    </div>   
-   <div class="w-full text-center py-12 px-4 items-center justify-center bg-stone-900 flex flex-col items-center gap-2">
+   <div class="w-full text-center py-12 px-4 items-center justify-center bg-stone-900 flex flex-col items-center gap-2 rounded-md">
       <p class="text-2xl lg:text-3xl font-bold text-stone-300">{{point2}}</p>
       <p class="text-xs lg:text-sm font-bold text-stone-500 uppercase">{{text2}}</p>
    </div>   
-   <div class="w-full text-center py-12 px-4 items-center justify-center bg-stone-900 flex flex-col items-center gap-2">
+   <div class="w-full text-center py-12 px-4 items-center justify-center bg-stone-900 flex flex-col items-center gap-2 rounded-md">
       <p class="text-2xl lg:text-3xl font-bold text-stone-300">{{point3}}</p>
       <p class="text-xs lg:text-sm font-bold text-stone-500 uppercase">{{text3}}</p>
    </div>   

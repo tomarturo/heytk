@@ -5,14 +5,13 @@
 {{ component.case_study_title(
    "Products & advice for small business owners"
 ) }}
-
-<div class="relative px-4 lg:px-4 xl:px-20 lg:ml-64 flex flex-col items-center">
-   {% include "_password-scrim.html" %} 
+<div class="px-4 lg:px-4 xl:px-20 lg:ml-64 flex flex-col items-center overflow-clip">
    {{ component.case_study_hero(
       "/static/images/solutions/solutions grid.png",
       "A grid of various brands and product tiles"
-   ) }}
-   <div id="password-wrapper" class="hidden flex flex-col gap-4 xl:max-w-6xl pt-4">
+      ) }}
+   {% include "_password-scrim.html" %} 
+      <div id="password-wrapper" class="hidden flex flex-col gap-4 xl:max-w-6xl pt-4">
       {{ component.display_text_with_columns(
          "Small business owners are overwhelmed with options and crunched for time.",
          "They don't know where to go to find the products they need.",
