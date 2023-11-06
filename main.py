@@ -65,10 +65,10 @@ miscnav = [
       "path": "overview",
       "icon": "home.svg",
       "color": "bg-fuchsia-500"},
-	 {"name": "About",
- 	"path": "about",
-	"icon": "book-open.svg",
-    "color": "bg-green-500"},
+	#  {"name": "About",
+ 	# "path": "about",
+	# "icon": "book-open.svg",
+    # "color": "bg-green-500"},
 ]
 
 contactnav = [
@@ -162,12 +162,6 @@ def overview():
     selected_project = projectheader.get("overview")
     context["selected_project"] = selected_project
     return render_template("overview.html", **context)
-
-@app.route("/about")
-def about():
-	selected_project = projectheader.get("about")
-	context["selected_project"] = selected_project
-	return render_template("about.html", **context)
 
 @app.route("/solutions")
 def solutions():
