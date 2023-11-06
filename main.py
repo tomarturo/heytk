@@ -157,7 +157,7 @@ def home():
     context["blog"] = blog
     selected_project = projectheader.get("home")
     context["selected_project"] = selected_project
-    return render_template("overview.html", **context)
+    return render_template("home.html", **context)
 
 @app.route("/solutions")
 def solutions():

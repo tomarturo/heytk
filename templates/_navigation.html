@@ -16,13 +16,13 @@
          <h2 class="text-sm text-stone-100 font-medium">{{selected_project.title}}</h2>
          <div class="flex flex-column gap-1">
             {% for tag in selected_project.tag %}
-            <span class="bg-stone-800 text-stone-200 text-xs font-medium px-2.5 py-0.5 rounded   dark:text-gray-300">{{ tag }}</span>
+            <span class="bg-stone-800 text-stone-200 text-xs font-medium px-2.5 py-0.5 rounded">{{ tag }}</span>
             {% endfor %}
          </div>
       </div>
       <div class="flex">
-         <h2 class="text-sm text-stone-100 font-medium">{{selected_project.year}}&nbsp;</h2>
-         <a href="{{selected_project.companyURL}}" class="text-sm text-stone-100 font-medium">{{selected_project.company}}</a>
+         <h2 class="text-sm text-stone-300 font-medium">{{selected_project.year}}&nbsp;</h2>
+         <a href="https://{{selected_project.companyURL}}" target="_blank" rel="noopener noreferrer" class="text-sm text-stone-300 font-medium hover:text-stone-100 hover:underline">{{selected_project.company}}</a>
       </div>
    </div>
 </nav> 

@@ -33,10 +33,10 @@ function showWelcomeMessage() {
     });
 }
 
-// Check if a cookie with a specific name exists
-function checkCookie(name) {
-    return document.cookie.split(';').some((item) => item.trim().startsWith(name + '='));
-}
+// Exploring page load aniamtion once with cookies ... Check if a cookie with a specific name exists
+// function checkCookie(name) {
+//     return document.cookie.split(';').some((item) => item.trim().startsWith(name + '='));
+// }
 
 // $(document).ready(function() {
 //     if (!checkCookie("pageLoadedOnce")) {
@@ -87,109 +87,6 @@ document.getElementById("open-prompt").addEventListener("click", function () {
     }
 });
 
-
-// Project cards & case study 
-$(document).ready(function() {
-    var projectCards = $(".project-card-wrapper");
-    var caseStudies = $(".case-study");
-    var isOpen = [false, false, false, false];
-    var colors = ["#151515", "#151515", "#151515", "#151515"];
-
-    function playHoverAnimation(index) {
-        // Play the hover animation if the card is not open
-        if (!isOpen[index]) {
-            var card_hover = gsap.timeline({ paused: true });
-
-            // Apply the staggered rotation animation
-            card_hover.to(projectCards.eq(index).find(".front-card, .accordion-1, .accordion-2, .accordion-3"), {
-                stagger: {
-                    each: 0.02,
-                    from: "start",
-                    ease: "back.out",
-                },
-                duration: 0.3,
-                ease: "back.out",
-                rotateX: function (i) {
-                    return -45 + i * 10;
-                },
-                scaleY: 1.05,
-            });
-
-            card_hover.play();
-        }
-    }
-
-    function reverseHoverAnimation(index) {
-        // Reverse the hover animation if the card is not open
-        if (!isOpen[index]) {
-            var card_hover = gsap.timeline({ paused: true });
-
-            // Apply the staggered rotation animation in reverse
-            card_hover.to(projectCards.eq(index).find(".front-card, .accordion-1, .accordion-2, .accordion-3"), {
-                stagger: {
-                    each: 0.02,
-                    from: "end",
-                    ease: "circ.out",
-                },
-                duration: 0.3,
-                ease: "circ.out",
-                rotateX: 0,
-                scaleY: 1,
-            });
-
-            card_hover.play();
-        }
-    }
-
-    projectCards.each(function(index) {
-        $(this).hover(
-            function() {
-                playHoverAnimation(index);
-            },
-            function() {
-                reverseHoverAnimation(index);
-            }
-        );
-
-        $(this).click(function() {
-            var caseStudy = caseStudies.eq(index);
-            var frontCard = projectCards.eq(index).find(".front-card");
-            var projectDescription = projectCards.eq(index).find(".project-description");
-
-            if (isOpen[index]) {
-                // Collapse the project description
-                projectDescription.slideUp(300, function() {
-                    frontCard.css({height: "fit-content", "background-color": "rgb(23,23,24)"}); // Reset front-card height
-                });
-            } else {
-                // Reverse the hover animation if the card is not open and is clicked
-                reverseHoverAnimation(index);
-                // Expand the project description
-                frontCard.css({"height": "fit-content", "background-color": colors[index]}); // Set front-card height to auto & set background color based on the index
-                projectDescription.slideDown(300, function() {
-                });
-            }
-            if (isOpen[index]) {
-                caseStudy.slideUp(300, function() {
-                caseStudy.css({ overflow: "hidden", height: "0", display: "none" }); // Change overflow to hidden after slideUp
-                frontCard.css("background-color", "#151515"); //reset the background color
-            });
-            } else {
-            // Reverse the hover animation if the card is not open and is clicked
-            reverseHoverAnimation(index);
-            caseStudy.slideDown(300, function() {
-                caseStudy.css({ overflow: "auto", height: "auto", display: "flex" }); // Change overflow to auto after slideDown
-            });
-            }
-
-            isOpen[index] = !isOpen[index];
-        });
-    });
-});
-
-
-
-
 // Check if the screen size is less than or equal to 767.98px (mobile devices)
 $(document).ready(function() {
     var projectsWrapper = $(".projects-wrapper");
@@ -236,41 +133,4 @@ $(document).ready(function() {
         // Animate active link to highlight chat-link
         activeLink.css("transform", "translate(calc(101%))");
     });
-});
-
-// show icebreakers wrapper on menu-button click
-$(document).ready(function() {
-    $(".icebreaker-menu-button").click(function() {
-        // Show the icebreaker menu
-        $(".icebreakers-wrapper").css("display", "grid");
-        
-        // Animate the slide up effect
-        $(".icebreakers-wrapper").animate({ bottom: "0" }, 500);
-    });
-});
-
-// hide icebreakers wrapper on close-button click
-$(document).ready(function() {
-    $(".close-icebreaker-button").click(function() {
-
-        // Animate the slide down effect to hide the menu
-        $(".icebreakers-wrapper").animate({ bottom: "-100%" }, 500, function() {
-            // Once the animation is complete, hide the menu
-            $(".icebreakers-wrapper").css("display", "none");
-        });
-    });
-});
-
-// hide icebreakers wrapper on icebreaker-tile click
-$(document).ready(function() {
-    // Check if the screen width is 991.98px or larger
-    if ($(window).width() <= 991.98) {
-        $(".icebreaker-tile").click(function() {
-            // Animate the slide down effect to hide the menu
-            $(".icebreakers-wrapper").animate({ bottom: "-100%" }, 500, function() {
-                // Once the animation is complete, hide the menu
-                $(".icebreakers-wrapper").css("display", "none");
-            });
-        });
-    }
 });
