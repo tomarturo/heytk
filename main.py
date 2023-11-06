@@ -62,7 +62,7 @@ personalnav = [
 
 miscnav = [
      {"name": "Home",
-      "path": "overview",
+      "path": "home",
       "icon": "home.svg",
       "color": "bg-fuchsia-500"},
 	#  {"name": "About",
@@ -150,16 +150,12 @@ context = {
 }
 
 # all routes
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route("/overview")
-def overview():
+@app.route("/")
+def home():
     blog = [p for p in flatpages if p.path.startswith(POST_DIR)]
     blog.sort(key=lambda item:item['date'], reverse=True)
     context["blog"] = blog
-    selected_project = projectheader.get("overview")
+    selected_project = projectheader.get("home")
     context["selected_project"] = selected_project
     return render_template("overview.html", **context)
 

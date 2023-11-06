@@ -33,6 +33,33 @@ function showWelcomeMessage() {
     });
 }
 
+// Check if a cookie with a specific name exists
+function checkCookie(name) {
+    return document.cookie.split(';').some((item) => item.trim().startsWith(name + '='));
+}
+
+// $(document).ready(function() {
+//     if (!checkCookie("pageLoadedOnce")) {
+//         // This code will only run if the "pageLoadedOnce" cookie doesn't exist
+
+//         $("#loading-wrapper > div").addClass("animate");
+//         var cursor = $("#cursor"); // Assuming you have an element with ID "cursor"
+//         cursor.show();
+
+//         setTimeout(function() {
+//             $("#loading-wrapper").hide();
+//             $("body").css("overflow", "auto");
+//         }, 2000);
+
+//         setTimeout(function() {
+//             showWelcomeMessage();
+//         }, 4000);
+
+//         // Set a cookie to indicate that the function has run once
+//         document.cookie = "pageLoadedOnce=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+//     }
+// });
+
 $(window).on("load", function() {
     $("#loading-wrapper > div").addClass("animate");
     var cursor = $("#cursor"); // Assuming you have an element with ID "cursor"
