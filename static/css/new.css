@@ -1,0 +1,121 @@
+/* Define the blinking cursor animation */
+@keyframes blink {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+  
+  #cursor {
+    display: none;
+    width: 0.5em;
+    height: 1.5em;
+    animation: blink 1s infinite;
+    order: 1;
+  }
+
+  #chat-display * {
+    overflow-anchor: none; 
+  }
+  
+  #chat-display-anchor {
+    overflow-anchor: auto;
+    min-height: 24px;
+    order: 3;
+  }
+
+  #overview_tile {
+    --gradient-color-1: #E879F9;
+    --gradient-color-3: #22C55E;
+    --gradient-color-2: #FB923C;
+    --gradient-color-4: #FDE047;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .bot-message {
+    color: #D6D1D3;
+  }
+
+
+/* page load */
+#loading-wrapper {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  pointer-events: none;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-top {
+  background-color: black;
+  height: 50%;
+  width: 100%;
+  transform-origin: top;
+}
+
+.loading-top.animate {
+  animation: scaleLoading 800ms ease-in-out 1300ms 1 forwards;
+}
+
+.loading-bottom {
+  background-color: black;
+  height: 50%;
+  width: 100%;
+  transform-origin: bottom;
+}
+
+.loading-bottom.animate {
+  animation: scaleLoading 800ms ease-in-out 1300ms 1 forwards;
+}
+
+.loading-ruler {
+  background-color: #e9e2e2;
+  width: 100%;
+  height: 1px;
+  transform-origin: center center;
+  opacity: 0;
+  z-index: 1;
+  position: absolute;
+}
+
+.loading-ruler.animate {
+  animation: scaleRuler 1300ms ease-in-out;
+}
+
+@keyframes scaleRuler {
+  0% {
+      opacity: 1;
+      transform: scaleX(0);
+    }
+
+  85% {
+      opacity: .5;
+  }
+
+  95% {
+      opacity: 0;
+  }
+  
+  100% {
+      transform: scaleX(1);
+      opacity: 0;
+    }
+}
+
+@keyframes scaleLoading {
+  0% {
+      transform: scaleY(1);
+  }
+  
+  100% {
+      transform: scaleY(0);
+  }
+}

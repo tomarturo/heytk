@@ -1,69 +1,119 @@
-<nav class="fixed z-50 w-full p-3 md:grid grid-cols-[16rem_auto] items-center bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+<nav class="fixed z-50 w-full p-3 lg:grid grid-cols-[16rem_auto] items-center bg-stone-950 border-b border-stone-800">
    <div class="flex flex-column items-center justify-between">
-      <a href="http://127.0.0.1:5000">
-         <h1 class="text-base font-semibold">heytk |&nbsp;<span class="text-xs font-normal align-middle">web mien of tom kurzeka</span></h1>
+      <a href="http://127.0.0.1:5000" class="flex flex-row">
+         <h1 class="text-base text-stone-100 font-semibold">heytk |&nbsp;</h1>
+         <span class="text-xs text-stone-100 font-normal pt-1">web mien of tom kurzeka</span>
       </a>
-      <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+      <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 text-sm text-stone-700 rounded-md lg:hidden hover:bg-stone-900 focus:outline-none focus:ring-1 focus:ring-stone-600">
          <span class="sr-only">Open sidebar</span>
-         <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+         <svg class="w-4 h-4 fill-stone-100" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
          </svg>
       </button>
    </div>
-   <div class="hidden md:flex px-2 justify-between">
+   <div class="hidden lg:flex px-2 justify-between">
       <div class="flex flex-column gap-2">
-         <h2 class="text-sm font-medium">{{selected_project.title}}</h2>
+         <h2 class="text-sm text-stone-100 font-medium">{{selected_project.title}}</h2>
          <div class="flex flex-column gap-1">
             {% for tag in selected_project.tag %}
-            <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300">{{ tag }}</span>
+            <span class="bg-stone-800 text-stone-200 text-xs font-medium px-2.5 py-0.5 rounded">{{ tag }}</span>
             {% endfor %}
          </div>
       </div>
       <div class="flex">
-         <h2 class="text-sm font-medium">{{selected_project.year}} •&nbsp;</h2>
-         <a href="{{selected_project.companyURL}}" class="text-sm font-medium">{{selected_project.company}}</a>
+         <h2 class="text-sm text-stone-300 font-medium">{{selected_project.year}}&nbsp;</h2>
+         <a href="https://{{selected_project.companyURL}}" target="_blank" rel="noopener noreferrer" class="text-sm text-stone-300 font-medium hover:text-stone-100 hover:underline">{{selected_project.company}}</a>
       </div>
    </div>
 </nav> 
 
-<aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
-   <div class="h-full px-3 pb-12 overflow-y-auto bg-white dark:bg-gray-800">
-      <h2 class="text-xs mb-2 font-bold uppercase">Professional Work</h2>
-      <ul class="space-y-2 font-medium">
-         {% for link in worknav %}
-         <li>
-            <a href="{{link.path}}" class="flex items-center p-2 text-gray-900 rounded-sm dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-               <span class="w-10 h-10 text-gray-500 bg-blue-300 rounded-sm flex items-center justify-center transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                  <p class="text-xs">{{link.icon}}</p>
-               </span>
-               <span class="text-sm ml-3">{{link.name}}</span>
-            </a>
-         </li>
-         {% endfor %}
-      <h2 class="pt-8 text-xs font-bold uppercase">Personal Projects</h2>
-      <ul class="space-y-2 font-medium">
-         {% for link in personalnav %}
-         <li>
-            <a href="{{link.path}}" class="flex items-center p-2 text-gray-900 rounded-sm dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-               <span class="w-10 h-10 text-gray-500 bg-green-200 rounded-sm flex items-center justify-center transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                  <p class="text-xs">{{link.icon}}</p>
-               </span>
-               <span class="text-sm ml-3">{{link.name}}</span>
-            </a>
-         </li>
-         {% endfor %}
-      <h2 class="pt-8 text-xs font-bold uppercase">Miscellany</h2>
-      <ul class="space-y-2 font-medium">
+<aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-8 transition-transform -translate-x-full bg-stone-950 border-r border-stone-800 lg:translate-x-0" aria-label="Sidebar">
+   <div class="h-full px-3 pt-8 pb-12 overflow-y-auto bg-stone-950">
+      <div class="bg-green-500"></div>
+      <ul class="space-y-2 font-medium mb-6">
          {% for link in miscnav %}
+         {% set current_endpoint = request.endpoint %}
+         {{ component.nav_item(
+            link.path,
+            link.color,
+            link.icon,
+            link.name,
+            current_endpoint
+            ) }}
+         {% endfor %}
+      </ul>
+      <h2 class="text-xs mb-1.5 text-stone-500 font-medium uppercase mb-2">Professional Work</h2>
+      <ul class="space-y-2 font-medium mb-6">
+         {% for link in worknav %}
+         {% set current_endpoint = request.endpoint %}
+         {{ component.nav_item(
+            link.path,
+            link.color,
+            link.icon,
+            link.name,
+            current_endpoint
+            ) }}
+         {% endfor %}
+      </ul>
+      <h2 class="mb-1.5 text-xs text-stone-500 font-medium uppercase mb-2">Personal Projects</h2>
+      <ul class="space-y-2 font-medium mb-6">
+         {% set current_endpoint = request.endpoint %}
+         {% for link in personalnav %}
+         {{ component.nav_item(
+            link.path,
+            link.color,
+            link.icon,
+            link.name,
+            current_endpoint
+            ) }}
+         {% endfor %}
+         <!-- <p>Current Endpoint: {{ request.endpoint }}</p> -->
+      </ul>
+      <h2 class="mb-1.5 text-xs text-stone-500 font-medium uppercase mb-2">Contact</h2>
+      <ul class="space-y-2 font-medium mb-6">
          <li>
-            <a href="{{link.path}}" class="flex items-center p-2 text-gray-900 rounded-sm dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-               <span class="w-10 h-10 text-gray-500 bg-yellow-200 rounded-sm flex items-center justify-center transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                  <p class="text-xs">{{link.icon}}</p>
+            <a href="https://www.linkedin.com/in/tomkurzeka" target="_blank" rel="noopener noreferrer" class="flex items-center p-2 text-stone-300 rounded-sm hover:bg-stone-900 hover:ring-stone-700 hover:ring-inset hover:ring-1 transition-all duration-100 group"> 
+               <span class="w-8 h-8 text-stone-100 bg-stone-900 rounded-sm flex items-center justify-center transition duration-75 group-hover:text-gray-900" aria-hidden="true">
+                  <svg class="fill-stone-100" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M22.2234 0H1.77187C0.792187 0 0 0.773438 0 1.72969V22.2656C0 23.2219 0.792187 24 1.77187 24H22.2234C23.2031 24 24 23.2219 24 22.2703V1.72969C24 0.773438 23.2031 0 22.2234 0ZM7.12031 20.4516H3.55781V8.99531H7.12031V20.4516ZM5.33906 7.43438C4.19531 7.43438 3.27188 6.51094 3.27188 5.37187C3.27188 4.23281 4.19531 3.30937 5.33906 3.30937C6.47813 3.30937 7.40156 4.23281 7.40156 5.37187C7.40156 6.50625 6.47813 7.43438 5.33906 7.43438ZM20.4516 20.4516H16.8937V14.8828C16.8937 13.5563 16.8703 11.8453 15.0422 11.8453C13.1906 11.8453 12.9094 13.2938 12.9094 14.7891V20.4516H9.35625V8.99531H12.7687V10.5609H12.8156C13.2891 9.66094 14.4516 8.70938 16.1813 8.70938C19.7859 8.70938 20.4516 11.0813 20.4516 14.1656V20.4516V20.4516Z"/>
+                     </svg>
                </span>
-               <span class="text-sm ml-3">{{link.name}}</span>
+               <span class="text-sm ml-3">LinkedIn</span>
             </a>
          </li>
-         {% endfor %}
+         <li>
+            <a href="mailto:tomkurzeka@gmail.com" target="_blank" rel="noopener noreferrer" class="flex items-center p-2 text-stone-300 rounded-sm hover:bg-stone-900 hover:ring-stone-700 hover:ring-inset hover:ring-1 transition-all duration-100 group"> 
+               <span class="w-8 h-8 text-stone-100 bg-stone-900 rounded-sm flex items-center justify-center transition-all duration-100" aria-hidden="true">
+                  <svg class="fill-stone-100" width="20" height="16" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M0.00333343 1.88355L7.99995 5.88186L15.9967 1.8835C15.9363 0.833152 15.0655 0 14 0H2C0.934518 0 0.0636347 0.833179 0.00333343 1.88355Z"/>
+                     <path d="M16 4.1179L7.99995 8.11793L0 4.11796V10C0 11.1046 0.895431 12 2 12H14C15.1046 12 16 11.1046 16 10V4.1179Z"/>
+                     </svg>
+               </span>
+               <span class="text-sm ml-3">Email</span>
+            </a>
+         </li>
+         <li>
+            <a href="https://www.github.com/tomarturo" target="_blank" rel="noopener noreferrer" class="flex items-center p-2 text-stone-300 rounded-sm hover:bg-stone-900 hover:ring-stone-700 hover:ring-inset hover:ring-1 transition-all duration-100 group"> 
+               <span class="w-8 h-8 text-stone-100 bg-stone-900 rounded-sm flex items-center justify-center transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true">
+                  <img class="w-[20px] h-[20px]" src="/static/icons/github-mark-white.svg">
+               </span>
+               <span class="text-sm ml-3">Github</span>
+            </a>
+         </li>
       </ul>
    </div>
 </aside>
+
+<!-- istantiate tailwind colors stored in main.py -->
+<div class="hidden">
+   <div class="bg-orange-400"></div>
+   <div class="bg-green-300"></div>
+   <div class="bg-blue-400"></div>
+   <div class="bg-pink-400"></div>
+   <div class="bg-lime-400"></div>
+   <div class="bg-purple-400"></div>
+   <div class="bg-orange-600"></div>
+   <div class="bg-yellow-300"></div>
+   <div class="bg-fuchsia-500"></div>
+   <div class="bg-green-500"></div>
+</div>

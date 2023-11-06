@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{{ component.case_study_title(
+   "A design system uniting brand identity & usability"
+) }}
+
+<div class="relative px-4 lg:px-4 xl:px-20 lg:ml-64 flex flex-col items-center gap-4 mb-4">
+   {{ component.case_study_hero(
+      "/static/images/smores/smores grid.png",
+      "A decorative grid showing a selection of design system components"
+      ) }}
+
+   {{ component.display_text_with_columns(
+      "A cross-platform visual language rooted in our brand identity.",
+      "In 2019, a rebrand led by our Design Director brought a modern look and feel to our latest MVP - The  Dyrt PRO.",
+      "In 2020, our rebrand's contribution to a successful subscription service got us buy-in to dedicate time to establishing a design system."
+      ) }}
+
+   <div class="grid md:grid-cols-2 gap-4 p-4 bg-stone-900 rounded-md">
+      <img class="rounded-md" src="/static/images/smores/smores type.png" alt="A series of headers representing the design system type scale">
+      <img class="rounded-md" src="/static/images/smores/smores colors.png" alt="Circular swatches representing the design system colors">
+   </div>
+   
+   <img class="p-10 bg-stone-100 rounded-md" src="/static/images/smores/spacing cta.png" alt="">
+   
+   {{ component.columns_with_eyebrow(
+      "role & process 1.1",
+      "The 2019 rebrand introduced much needed modern styles to our UI. In 2020, we replatformed from Ember to Next.js. It was an opportunity to redesign a core page of the experience - the campground details page.",
+      "This page was the first step in componentizing patterns on The Dyrt. I designed each pattern with the design system in mind, leveraging our new brand and thinking atomically and responsively."
+   ) }}
+   
+   {{ component.landscape_video(
+      "/static/images/smores/campground details.mov",
+      "Desktop mockup of the redesigned campground details page featuring new brand styles"
+      ) }}
+   
+   <div class="grid md:grid-cols-3 gap-4 p-4 bg-stone-900 rounded-md">
+      <img class="rounded-md" src="/static/images/smores/review organism.png" alt="A mockup of the redesigned user review component">
+      <img class="rounded-md" src="/static/images/smores/review molecules.png" alt="A mockup showing the design system molecules that make up the review component">
+      <img class="rounded-md" src="/static/images/smores/review atoms.png" alt="A mockup showing the design system atoms that make up the preceding molecules">
+   </div>
+   
+   {{ component.columns_with_eyebrow(
+      "role & process 1.2",
+      "In 2021, a second product designer joined the team. We dove into a pattern audit. We identified one-off instances, variations to consolidate, and interactions that needed clarifying.",
+      "Working closely with engineering, we generated a set recommendations based on engineering lift and usability impact."
+   ) }}
+   
+   <div class="flex flex-col flex-col-reverse md:grid grid-cols-2 gap-4">
+      {{ component.portrait_video(
+         "bg-[#841E65]",
+         "/static/images/smores/trip planner.mov",
+         "Mobile mockup of the brand kit completed state and edit interactions"
+      ) }}
+      {{ component.three_paragraphs_vertical(
+         "The S'mores Design System makes configuring and editing a days-long road trip easy in our Trip Planner feature.",
+         "We used large tap targets for radios buttons and checkboxes, which were helpful for our older audience.",
+         "Our custom iconography and bright active state styling sustain our brand voice throughout the flow."
+      ) }}
+   </div>
+   
+   <div class="grid md:grid-cols-3 gap-4 p-4 bg-stone-900 rounded-md">
+      <img class="rounded-md" src="/static/images/smores/bottom sheet organism.png" alt="A mockup of a bottom sheet organism from the Trip Planner experience">
+      <img class="rounded-md" src="/static/images/smores/bottom sheet molecules.png" alt="A mockup showing the design system molecules that make up the bottom sheet organism">
+      <img class="rounded-md" src="/static/images/smores/bottom sheet atoms.png" alt="A mockup showing the design system atoms that make up the preceding molecules">
+   </div>
+
+   {{ component.paragraph_with_eyebrow(
+      "s'mores as collaborative space",
+      "A design system is a bridge between design and development. Part and parcel of establishing a design system is refining lines of communication between these teams. This communication was critical to The Dyrt's broader success. As the design team grew, S'mores became a meeting place for Brand, Product, and Marketing designers to explore, borrow, and learn from neighboring disciplines."
+      ) }}
+</div>
+{% endblock content %}
