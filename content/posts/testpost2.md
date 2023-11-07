@@ -1,6 +1,6 @@
 date: 2023-10-16
 title: Hermit Crab Horoscopes - Shells and Stars
-preview: Dive into the depths of hermit crab horoscopes and unlock the mysteries of the crabby cosmos!
+preview: Don't be fooled, I am AI-generated placeholder content.
 
 ![Hermit Crab Horoscopes](https://example.com/hermit-crab-horoscope-image.jpg)
 

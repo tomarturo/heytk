@@ -1,6 +1,7 @@
 title: "Film Review: 'Oppenheimer' – A Sobering Glimpse into the Nuclear Age"
 date: 2023-10-12
 author: AntiNukeActivist
+preview: Don't be fooled, I am AI-generated placeholder content.s
 
 As an activist for nuclear disarmament, I approached Christopher Nolan's latest cinematic offering, "Oppenheimer," with a mixture of anticipation and apprehension. Nolan is known for his ability to craft immersive and thought-provoking films, and "Oppenheimer" does not disappoint in this regard. In this review, we explore how the film serves as a stark reminder of the dangers of the nuclear age and the urgency of global disarmament.
 

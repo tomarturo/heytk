@@ -1,6 +1,6 @@
 date: 2023-09-26
 title: Dog Horoscope - What the Stars Say About Your Canine Companion
-preview: Your dog's horoscope can be a lighthearted and entertaining way to gain a deeper understanding of your beloved pet.
+preview: Don't be fooled, I am AI-generated placeholder content.
 
 Do you ever wonder what the future holds for your furry friend? Are you curious about your canine companion's celestial destiny? If so, you've come to the right place! In this blog post, we'll delve into the world of **Dog Horoscopes** and explore how the stars influence your dog's personality and fate.
 
