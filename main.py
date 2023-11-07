@@ -46,14 +46,15 @@ personalnav = [
      "path": "chat_tk",
      "icon": "chat.svg",
      "color": "bg-lime-400"},
-	{"name": "The Tom Blog",
+	{"name": "PooPal",
+	"path": "poo_pal",
+	"icon": "map-pin.svg",
+    "color": "bg-orange-600"},
+    {"name": "The Tom Blog",
 	"path": "blog",
 	"icon": "rss.svg",
     "color": "bg-purple-400"},
-	# {"name": "PooPal",
-	# "path": "poo-pal",
-	# "icon": "map-pin.svg",
-    # "color": "bg-orange-600"},
+	
 	# {"name": "HeyTK",
 	# "path": "hey-tk",
 	# "icon": "terminal.svg",
@@ -126,6 +127,13 @@ projectheader = {
          "company": "The Dyrt",
          "companyURL": "www.thedyrt.com",
          "year": "2021 •"
+    },
+    "poo-pal" : {
+         "title": "PooPal",
+         "tag": ["swift-ui", "low-code", "everyday prblmz"],
+         "company": " ",
+         "companyURL": " ",
+         "year": "2021"
     }
 }
 
@@ -188,6 +196,12 @@ def field_reports():
 	selected_project = projectheader.get("field-reports")
 	context["selected_project"] = selected_project
 	return render_template("field-reports.html", **context)
+
+@app.route("/poo-pal")
+def poo_pal():
+	selected_project = projectheader.get("poo-pal")
+	context["selected_project"] = selected_project
+	return render_template("poo-pal.html", **context)
 
 # Blog routing
 # Route for displaying all posts

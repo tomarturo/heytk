@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %} PooPal {% endblock %}
+{% block content %} 
+
+{{ component.case_study_title(
+   "Solving an everyday problem with a low-code solution"
+) }}
+
+<div class="px-4 lg:px-4 xl:px-20 lg:ml-64 pt-4 flex flex-col items-center mb-12">
+   <div class="flex flex-col p-4 max-w-sm sm:max-w-xl md:max-w-3xl">
+      <img class="self-center max-w-xs sm:max-w-md md:max-w-xl" src="/static/images/poopal/poopal concept.png" alt="">
+      <div class="border-r-2 border-zinc-800 border-dotted h-32 self-center my-4"></div>   
+      <div class="bg-zinc-900 rounded-[20px] p-6 flex flex-col gap-6">
+         <div class="flex items-center gap-2">
+            <img class="w-8 h-8" src="/static/icons/location_icon.svg" alt="">
+            <p class="text-sm sm:text-lg uppercase text-zinc-300">Location</p>
+         </div>
+         <p class="sm:text-2xl text-zinc-200">Get current location</p>
+      </div>
+      <div class="border-r-2 border-zinc-800 h-16 self-center"></div>   
+      <div class="bg-zinc-900 rounded-[20px] p-6 flex flex-col gap-6">
+         <div class="flex items-center gap-2">
+            <img class="w-8 h-8" src="/static/images/poopal/reminders app icon.png" alt="">
+            <p class="text-sm sm:text-lg uppercase text-zinc-300">Reminders</p>
+         </div>
+         <div class="flex flex-col gap-2">
+            <div class="flex gap-2 items-center flex-wrap">
+               <p class="sm:text-2xl text-zinc-200">Add</p>
+               <p class="sm:text-2xl font-medium text-blue-800 bg-blue-300 rounded-md px-2">Get Poop</p>
+               <p class="sm:text-2xl text-zinc-200">to</p>
+               <p class="sm:text-2xl font-medium text-blue-800 bg-blue-300 rounded-md px-2">PooPal Reminders</p>
+               <p class="sm:text-2xl text-zinc-200">with</p>
+               <p class="sm:text-2xl font-medium text-blue-800 bg-blue-300 rounded-md px-2">Alert</p>
+               <p class="sm:text-2xl font-medium text-blue-800 bg-blue-300 rounded-md px-2">When I Arrive</p>
+               <p class="sm:text-2xl text-zinc-200">at</p>
+               <div class="flex gap-2 items-center bg-blue-300 rounded-md px-1 sm:px-2">
+                  <img class="w-6 h-6" src="/static/icons/location_icon.svg" alt="">
+                  <p class="sm:text-2xl font-medium text-blue-800">Current Location</p>
+               </div>
+            </div>
+            <div class="flex gap-2">
+            </div>
+            <hr class="h-px my-4 bg-zinc-700 border-0">
+            <p class="sm:text-lg font-normal text-zinc-400">Don't forget to pick up the dog poop!</p>
+         </div>
+      </div>
+      <div class="border-r-2 border-zinc-800 border-dotted h-16 self-center my-4"></div>   
+      <div class="grid grid-cols-2 gap-4 w-[320px] h-[150px] sm:w-[450px] sm:h-[200px] mx-8 self-center">
+         <div class="bg-orange-300 flex flex-col justify-between p-4 sm:p-6 rounded-[20px]">   
+            <img class="w-[32px] h-[32px] sm:w-[48px] sm:h-[48px]" src="/static/images/poopal/poop.svg" alt="">
+            <p class="sm:text-xl font-semibold">Create Reminder</p>
+         </div>
+         <div class="bg-violet-700 flex flex-col justify-between p-4 sm:p-6 rounded-[20px]">
+            <div class="flex w-full justify-between">
+               <img class="w-[32px] h-[32px] sm:w-[48px] sm:h-[48px]" src="/static/images/poopal/reminders app icon.png" alt="">
+               <p class="text-xl sm:text-3xl text-zinc-100 rounded-full p-1">1</p>
+            </div>
+            <p class="sm:text-xl font-medium text-zinc-100">PooPal Reminders</p>
+         </div>
+      </div>
+      <div class="border-r-2 border-zinc-800 border-dotted h-16 self-center my-4"></div>   
+      <div class="relative flex self-center rounded-lg">
+         <img class="h-56 sm:h-72 rounded-[20px]" src="/static/images/poopal/map bg.png" alt="">
+         <img class="w-[100px] h-[100px] absolute top-20 left-40" src="/static/images/poopal/geofence gps.svg" alt="">
+      </div>
+      <div class="border-r-2 border-zinc-800 border-dotted h-24 self-center my-4"></div>   
+      <div class="bg-zinc-900 rounded-[20px] p-6 flex flex-col">
+         <div class="flex justify-between items-center mb-6">
+            <div class="flex items-center gap-2">
+            <img class="w-8 h-8" src="/static/images/poopal/reminders app icon.png" alt="">
+               <p class="text-sm uppercase text-zinc-200">Reminders</p>
+            </div>
+            <p class="text-xs sm:text-sm text-zinc-200">now</p>
+         </div>
+         <p class="sm:text-lg text-zinc-300">Don't forget to pick up the dog poop!</p>
+      </div>
+   </div>
+   <div class="border-r-2 border-zinc-800 border-dotted h-24 self-center my-4"></div>   
+   <h2 class="text-zinc-100 text-xl font-medium mb-8">More coming soon!</h2>
+   <a href="https://tomdesigns.notion.site/tomdesigns/Learn-About-the-PooPal-Widget-87e2b50fec114d11a831cd91b2b9ac31" target="_blank" rel="noopener noreferrer" class="font-medium underline text-blue-600">PooPal Widget Archive</a>
+</div>
+
+{% endblock content %}
