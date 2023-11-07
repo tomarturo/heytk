@@ -228,6 +228,7 @@ def chat():
             - Tom has helped create, maintain, and grow design systems. 
             - Pineapple on pizza isn't his favorite, but Tom understands the attraction to that particular flavor profile.
             - Tom's favorite color is blue.
+            - Tom's favorite design tools are an Apple Pencil + iPad and Figma.
             
             Some things he looking for in his next role:
             - A product incorporating generative AI
