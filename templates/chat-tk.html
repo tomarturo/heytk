@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-
+{% block title %} ChatTK {% endblock %}
 {% block content %}
-<main class="bg-zinc-900/40 lg:ml-64 pt-24 lg:px-4 flex flex-col items-center h-screen justify-between">
+<main class="bg-zinc-900/40 lg:ml-64 pb-16 pt-24 lg:px-4 flex flex-col items-center h-screen justify-between">
     <h1 class="text-zinc-100 text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-6 md:mb-8 lg:mb-10">ChatTK</h1>
     <section class="grow w-full px-4 pb-8 flex flex-col gap-4 text-zinc-100">
         <!-- chat container holds display and input form?-->
@@ -29,31 +29,32 @@
             </form>
         </div>
     </section>
-    <!-- icebreakers -->
-    <section class="w-full lg:px-4 flex flex-col items-center mb-8">
+    <!-- icebreakers carousel start-->
+    
+    <!-- <section class="w-full lg:px-4 xl:hidden flex flex-col items-center">
         <div id="controls-carousel" class="relative px-16" data-carousel="static">
-            <!-- Carousel wrapper -->
-            <div class="relative h-28 w-[70vw] lg:w-[50vw] px-12 overflow-hidden">
-                <!-- Item 1 -->
-                <div class="hidden duration-700 ease-in-out bg-zinc-[#12100E] flex items-center" data-carousel-item>
-                    <div class="h-full grid grid-cols-1 sm:hidden gap-4 p-2 items-center justify-center grow">
+            
+            <div class="relative h-32 w-[70vw] lg:w-[50vw] px-12 overflow-hidden">
+            
+                <div class="hidden duration-700 ease-in-out bg-zinc-[#12100E] flex items-stretch" data-carousel-item="active">
+                    <div class="grid grid-cols-1 sm:hidden gap-4 p-2 items-stretch justify-center">
                         {% for icebreaker in icebreakers[0:1] %}
                         {{component.icebreaker_tile(icebreaker)}}
                         {% endfor %}
                     </div>
-                    <div class="hidden h-full sm:grid grid-cols-2 md:hidden gap-4 p-2 items-center justify-center grow">
+                    <div class="hidden h-full sm:grid grid-cols-2 md:hidden gap-4 items-center justify-center grow">
                         {% for icebreaker in icebreakers[0:2] %}
                         {{component.icebreaker_tile(icebreaker)}}
                         {% endfor %}
                     </div>
-                    <div class="hidden h-full md:grid grid-cols-3 gap-4 p-2 items-center justify-center grow">
+                    <div class="hidden h-full md:grid grid-cols-3 gap-4">
                         {% for icebreaker in icebreakers[0:3] %}
                         {{component.icebreaker_tile(icebreaker)}}
                         {% endfor %}
                     </div>
                 </div>
-                <!-- Item 2 -->
-                <div class="hidden duration-700 ease-in-out bg-zinc-[#12100E] flex items-center grow" data-carousel-item="active">
+            
+                <div class="hidden duration-700 ease-in-out bg-zinc-[#12100E] flex items-stretch" data-carousel-item>
                     <div class="h-full grid grid-cols-1 sm:hidden gap-4 p-2 items-center justify-center grow">
                         {% for icebreaker in icebreakers[3:4] %}
                         {{component.icebreaker_tile(icebreaker)}}
@@ -64,32 +65,32 @@
                         {{component.icebreaker_tile(icebreaker)}}
                         {% endfor %}
                     </div>
-                    <div class="hidden h-full md:grid grid-cols-3 gap-4 p-2 items-center justify-center grow">
+                    <div class="hidden h-full md:grid grid-cols-3 gap-4">
                         {% for icebreaker in icebreakers[3:6] %}
                         {{component.icebreaker_tile(icebreaker)}}
                         {% endfor %}
                     </div>
                 </div>
-                <!-- Item 3 -->
-                <div class="hidden duration-700 ease-in-out bg-zinc-[#12100E] flex items-center grow" data-carousel-item>
-                    <div class="h-full grid grid-cols-1 sm:hidden gap-4 p-2 items-center justify-center grow">
+            
+                <div class="hidden duration-700 ease-in-out bg-zinc-[#12100E] flex items-stretch" data-carousel-item>
+                    <div class="grid grid-cols-1 sm:hidden gap-4 p-2 items-center justify-center grow">
                         {% for icebreaker in icebreakers[6:7] %}
                         {{component.icebreaker_tile(icebreaker)}}
                         {% endfor %}
                     </div>
-                    <div class="hidden h-full sm:grid grid-cols-2 md:hidden gap-4 p-2 items-center justify-center grow">
+                    <div class="hidden sm:grid grid-cols-2 md:hidden gap-4 p-2 items-center justify-center grow">
                         {% for icebreaker in icebreakers[6:8] %}
                         {{component.icebreaker_tile(icebreaker)}}
                         {% endfor %}
                     </div>
-                    <div class="hidden h-full md:grid grid-cols-3 gap-4 p-2 items-center justify-center grow">
+                    <div class="hidden h-full md:grid grid-cols-3 gap-4">
                         {% for icebreaker in icebreakers[6:] %}
                         {{component.icebreaker_tile(icebreaker)}}
                         {% endfor %}
                     </div>
                 </div>
             </div>
-            <!-- Slider controls -->
+            
             <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
                 <span class="inline-flex items-center justify-center w-10 h-10 rounded-full group-hover:ring group-hover:ring-zinc-700 group-hover:ring-1 group-hover:bg-zinc-800 group-focus:ring-1 group-focus:ring-white group-focus:outline-none">
                     <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
@@ -107,7 +108,7 @@
                 </span>
             </button>
         </div>    
-    </section>
+    </section> -->
 </main>
 
 {% endblock content %}
