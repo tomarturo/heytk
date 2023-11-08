@@ -119,3 +119,8 @@
       transform: scaleY(0);
   }
 }
+
+.prose video {
+  margin-bottom: .75rem;
+  border-radius: 8px;
+}

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %} Blog {% endblock %}
 {% block content %} 
-<div class="bg-zinc-900/30 lg:ml-64 py-24 lg:px-4 flex flex-col items-center">
+<div class="bg-zinc-900/30 lg:ml-64 py-24 lg:px-4 flex flex-col items-center h-screen">
     <div class="pb-8 px-12">
         <h1 class="text-zinc-100 text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-4">The Tom Blog</h1>
         <p class="text-zinc-400 text-center">Thoughts on creativity, design, and technology. Occasional life excerpts.</p>
@@ -10,11 +10,15 @@
         <section class="max-w-3xl flex flex-col gap-16">
             <article class="grid grid-cols-1 gap-2 px-8 md:grid-cols-2 md:grid-cols-[20%_auto] md:gap-6">
                 {% for post in blog %}
-                <p class="text-sm text-zinc-400 pt-4"> {{ post.date.strftime("%B %d, %Y") }}</p>
-                <a class="flex flex-col gap-1 md:p-3 rounded" href="{{ url_for('post', name=post.path.replace('posts/', '')) }}">
-                    <h2 class="text-lg text-zinc-100">{{ post.title }}</h2>
-                    <!-- <p class="text-zinc-300">{{ post.preview }}</p> -->
-                    <p class="font-medium text-zinc-300">Read more</p>
+                <p class="text-sm text-zinc-500 pt-4"> {{ post.date.strftime("%B %d, %Y") }}</p>
+                <a class="flex flex-col gap-1 md:p-3 group" href="{{ url_for('post', name=post.path.replace('posts/', '')) }}">
+                    <h2 class="text-lg text-zinc-200">{{ post.title }}</h2>
+                    <p class="text-zinc-400">{{ post.preview }}</p>
+                    <div class="inline-flex items-center font-medium text-zinc-300 group-hover:text-zinc-50 transition-all duration-100">Read more
+                        <svg class="w-4 h-4 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                     </div>
                 </a>
                 {% endfor %}
             </article>
