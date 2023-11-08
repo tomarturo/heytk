@@ -12,7 +12,7 @@ I was laid off in June. I took a couple months to recalibrate. Then, in the heat
 My plan was to add a couple case studies to my existing portfolio and start applying in earnest. How long could that take? I figured I would be submitting applications before the end of the month.
 
 <figure>
-    <video autoplay loop muted><source src="https://drive.google.com/file/d/1Sxt2QD97vUa1JxFWytBSAkiJ4yMGDr5K/view?usp=drive_link" type="video/mp4" alt="scrolling through a previous version of my portfolio">Your browser does not support the video tag.</video>
+    <video autoplay loop muted><source src="/static/images/blog/2023-11-07/2022 folio.mp4" type="video/mp4" alt="scrolling through a previous version of my portfolio">Your browser does not support the video tag.</video>
     <figcaption>My 2021-2022 portfolio. Lots of scrolling required</figcaption>
 </figure>
 
@@ -107,7 +107,7 @@ I found an awesome animation for an accordion style component on an agency websi
 
 Then I mocked up a few variations for display text and copy within color panels in the right hand column. After a few more explorations in Figma, I committed to a layout and built out the interface for the chatbot, the accordions, and four case studies. 
 
-<video autoplay loop muted><source src="/static/images/blog/2023-11-07/mvp scroll through.mov" type="video/mp4" alt="scrolling through the mvp of my portfolio">Your browser does not support the video tag.</video>
+<video autoplay loop muted><source src="/static/images/blog/2023-11-07/mvp scroll through.mp4" type="video/mp4" alt="scrolling through the mvp of my portfolio">Your browser does not support the video tag.</video>
 <figcaption>The MVP in action. Note the fun accordion animations</figcaption>
 
 Fixing the position of the chat column was a decision I made to emphasize my interest in that kind of product and/or interface in the roles I was looking for next. This may not have been the best design decision, as fixing that column presented some responsive challenges and constrained the width of the main content area. 
@@ -138,7 +138,7 @@ And I realized I didn’t have any links.
 
 I hadn’t actually created any routes. All of the information in HeyTK was in a single index.html file and I was using javascript to show and hide different content. 
 
-<video autoplay loop muted><source src="/static/images/blog/2023-11-07/big index file.mov" type="video/mp4" alt="scrolling through a long index file">Your browser does not support the video tag.</video>
+<video autoplay loop muted><source src="/static/images/blog/2023-11-07/big index file.mp4" type="video/mp4" alt="scrolling through a long index file">Your browser does not support the video tag.</video>
 <figcaption>The index.html file of the MVP site. Each highlighted line is the begining of a section containing a case study.</figcaption>
 
 Even if I had a specific case study relevant to that recruiter’s post, I wouldn’t have been able to send a link to it.
@@ -180,7 +180,7 @@ This endeavor started from a shift in my perspective about how we find things on
 
 It was a bonus to create something cool and discover my affinity for frontend work. It would be a double bonus for all of this exploration to resonate with a hiring manager at a company developing products in this space (*wink wink nudge nudge*).
 
-<video autoplay loop muted><source src="/static/images/blog/2023-11-07/mvp to v2.mov" type="video/mp4" alt="showing mvp and v2 side by side">Your browser does not support the video tag.</video>
+<video autoplay loop muted><source src="/static/images/blog/2023-11-07/mvp to v2.mp4" type="video/mp4" alt="showing mvp and v2 side by side">Your browser does not support the video tag.</video>
 <figcaption>Reloading my portfolio after launching the new build</figcaption>
 
 I didn’t expect to find myself recreating my whole portfolio to try and accommodate a chatbot, only to rebuild it a second time doing just the opposite - nesting ChatTK in it’s own route like all of the other projects. 
