@@ -1,24 +1,24 @@
 {% extends "base.html" %}
-
+{% block title %} ChatTK {% endblock %}
 {% block content %}
-<main class="bg-stone-900/40 lg:ml-64 pt-24 lg:px-4 flex flex-col items-center h-screen justify-between">
-    <h1 class="text-stone-100 text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-6 md:mb-8 lg:mb-10">ChatTK</h1>
-    <section class="grow w-full px-4 pb-8 flex flex-col gap-4 text-stone-100">
+<main class="bg-zinc-900/40 lg:ml-64 pb-16 pt-24 lg:px-4 flex flex-col items-center h-screen justify-between">
+    <h1 class="text-zinc-100 text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-6 md:mb-8 lg:mb-10">ChatTK</h1>
+    <section class="grow w-full px-4 pb-8 flex flex-col gap-4 text-zinc-100">
         <!-- chat container holds display and input form?-->
         <div class="grow flex flex-col min-h-[50vh] md:h-[50vh] items-center justify-between'">
             <!-- chat messages display -->
             <!-- welcome message with blinking cursor, animates on load -->
             <div id="chat-display" class="w-[90vw] sm:w-[448px] px-2 pb-8 overflow-y-auto flex flex-col gap-4 h-full">
-                <div class="bot-message text-lg text-stone-300" id="welcome-message"></div>
+                <div class="bot-message text-lg text-zinc-300" id="welcome-message"></div>
                 <div id="cursor">▒</div>
                 <div id="chat-display-anchor"></div>
             </div>
             <!-- chat input form -->
             <form id="chat-form" class="w-[98vw] sm:w-[80vw] lg:w-[50vw]" autocomplete="off">
                 <div class="relative flex items-center px-3 py-2 rounded-full">
-                    <input id="user-input" data-chat-url="{{url_for('chat')}}" class="block bg-stone-900 mx-4 p-3 w-full text-sm text-stone-200 placeholder-stone-400 rounded-full border border-stone-700 focus:ring-blue-500 focus:border-blue-500" placeholder="Ask a question or select a suggestion..." onblur="this.placeholder='Ask a question or select a suggestion'">
+                    <input id="user-input" data-chat-url="{{url_for('chat')}}" class="block bg-zinc-900 mx-4 p-3 w-full text-sm text-zinc-200 placeholder-zinc-400 rounded-full border border-zinc-700 focus:ring-blue-500 focus:border-blue-500" placeholder="Ask a question or select a suggestion..." onblur="this.placeholder='Ask a question or select a suggestion'">
                     <div class="absolute top-3 right-8">
-                        <button type="submit" class="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-stone-800 group">
+                        <button type="submit" class="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-zinc-800 group">
                         <svg class="w-5 h-5 rotate-90 fill-white aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
                             <path d="m17.914 18.594-8-18a1 1 0 0 0-1.828 0l-8 18a1 1 0 0 0 1.157 1.376L8 18.281V9a1 1 0 0 1 2 0v9.281l6.758 1.689a1 1 0 0 0 1.156-1.376Z"/>
                         </svg>
@@ -29,31 +29,32 @@
             </form>
         </div>
     </section>
-    <!-- icebreakers -->
-    <section class="w-full lg:px-4 flex flex-col items-center mb-8">
+    <!-- icebreakers carousel start-->
+    
+    <!-- <section class="w-full lg:px-4 xl:hidden flex flex-col items-center">
         <div id="controls-carousel" class="relative px-16" data-carousel="static">
-            <!-- Carousel wrapper -->
-            <div class="relative h-28 w-[70vw] lg:w-[50vw] px-12 overflow-hidden">
-                <!-- Item 1 -->
-                <div class="hidden duration-700 ease-in-out bg-stone-[#12100E] flex items-center" data-carousel-item>
-                    <div class="h-full grid grid-cols-1 sm:hidden gap-4 p-2 items-center justify-center grow">
+            
+            <div class="relative h-32 w-[70vw] lg:w-[50vw] px-12 overflow-hidden">
+            
+                <div class="hidden duration-700 ease-in-out bg-zinc-[#12100E] flex items-stretch" data-carousel-item="active">
+                    <div class="grid grid-cols-1 sm:hidden gap-4 p-2 items-stretch justify-center">
                         {% for icebreaker in icebreakers[0:1] %}
                         {{component.icebreaker_tile(icebreaker)}}
                         {% endfor %}
                     </div>
-                    <div class="hidden h-full sm:grid grid-cols-2 md:hidden gap-4 p-2 items-center justify-center grow">
+                    <div class="hidden h-full sm:grid grid-cols-2 md:hidden gap-4 items-center justify-center grow">
                         {% for icebreaker in icebreakers[0:2] %}
                         {{component.icebreaker_tile(icebreaker)}}
                         {% endfor %}
                     </div>
-                    <div class="hidden h-full md:grid grid-cols-3 gap-4 p-2 items-center justify-center grow">
+                    <div class="hidden h-full md:grid grid-cols-3 gap-4">
                         {% for icebreaker in icebreakers[0:3] %}
                         {{component.icebreaker_tile(icebreaker)}}
                         {% endfor %}
                     </div>
                 </div>
-                <!-- Item 2 -->
-                <div class="hidden duration-700 ease-in-out bg-stone-[#12100E] flex items-center grow" data-carousel-item="active">
+            
+                <div class="hidden duration-700 ease-in-out bg-zinc-[#12100E] flex items-stretch" data-carousel-item>
                     <div class="h-full grid grid-cols-1 sm:hidden gap-4 p-2 items-center justify-center grow">
                         {% for icebreaker in icebreakers[3:4] %}
                         {{component.icebreaker_tile(icebreaker)}}
@@ -64,34 +65,34 @@
                         {{component.icebreaker_tile(icebreaker)}}
                         {% endfor %}
                     </div>
-                    <div class="hidden h-full md:grid grid-cols-3 gap-4 p-2 items-center justify-center grow">
+                    <div class="hidden h-full md:grid grid-cols-3 gap-4">
                         {% for icebreaker in icebreakers[3:6] %}
                         {{component.icebreaker_tile(icebreaker)}}
                         {% endfor %}
                     </div>
                 </div>
-                <!-- Item 3 -->
-                <div class="hidden duration-700 ease-in-out bg-stone-[#12100E] flex items-center grow" data-carousel-item>
-                    <div class="h-full grid grid-cols-1 sm:hidden gap-4 p-2 items-center justify-center grow">
+            
+                <div class="hidden duration-700 ease-in-out bg-zinc-[#12100E] flex items-stretch" data-carousel-item>
+                    <div class="grid grid-cols-1 sm:hidden gap-4 p-2 items-center justify-center grow">
                         {% for icebreaker in icebreakers[6:7] %}
                         {{component.icebreaker_tile(icebreaker)}}
                         {% endfor %}
                     </div>
-                    <div class="hidden h-full sm:grid grid-cols-2 md:hidden gap-4 p-2 items-center justify-center grow">
+                    <div class="hidden sm:grid grid-cols-2 md:hidden gap-4 p-2 items-center justify-center grow">
                         {% for icebreaker in icebreakers[6:8] %}
                         {{component.icebreaker_tile(icebreaker)}}
                         {% endfor %}
                     </div>
-                    <div class="hidden h-full md:grid grid-cols-3 gap-4 p-2 items-center justify-center grow">
+                    <div class="hidden h-full md:grid grid-cols-3 gap-4">
                         {% for icebreaker in icebreakers[6:] %}
                         {{component.icebreaker_tile(icebreaker)}}
                         {% endfor %}
                     </div>
                 </div>
             </div>
-            <!-- Slider controls -->
+            
             <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full group-hover:ring group-hover:ring-stone-700 group-hover:ring-1 group-hover:bg-stone-800 group-focus:ring-1 group-focus:ring-white group-focus:outline-none">
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full group-hover:ring group-hover:ring-zinc-700 group-hover:ring-1 group-hover:bg-zinc-800 group-focus:ring-1 group-focus:ring-white group-focus:outline-none">
                     <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
                     </svg>
@@ -99,7 +100,7 @@
                 </span>
             </button>
             <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full group-hover:ring group-hover:ring-stone-700 group-hover:ring-1 group-hover:bg-stone-800 group-focus:ring-1 group-focus:ring-white group-focus:outline-none">
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full group-hover:ring group-hover:ring-zinc-700 group-hover:ring-1 group-hover:bg-zinc-800 group-focus:ring-1 group-focus:ring-white group-focus:outline-none">
                     <svg class="w-4 h-4 text-white dark:" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
                     </svg>
@@ -107,7 +108,7 @@
                 </span>
             </button>
         </div>    
-    </section>
+    </section> -->
 </main>
 
 {% endblock content %}

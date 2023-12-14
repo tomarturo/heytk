@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% block title %} Brand Kit {% endblock %}
 {% block content %}
 
 {{ component.case_study_title(
@@ -7,11 +7,13 @@
 ) }}
 
 <div class="px-4 lg:px-4 xl:px-20 lg:ml-64 flex flex-col items-center overflow-hidden">
-   {{ component.case_study_hero(
-      "/static/images/brand/brand grid.png",
-      "Decorative grid of ui elements from brand kit feature"
-      ) }}
-   {% include "_password-scrim.html" %} 
+   <div class="flex flex-col gap-4 xl:max-w-6xl pt-4">
+      {{ component.case_study_hero(
+         "/static/images/brand/brand grid.png",
+         "Decorative grid of ui elements from brand kit feature"
+         ) }}
+      {% include "_password-scrim.html" %} 
+   </div>
    <div id="password-wrapper" class="hidden flex flex-col gap-4 xl:max-w-6xl pt-4">
       {{ component.display_text_with_columns(
          "Managing brand identity is labor intensive and time consuming.",

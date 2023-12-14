@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% block title %} Digital Designer {% endblock %}
 {% block content %}
 <!-- <div id="loading-wrapper">
    <div class="loading-top"></div>
@@ -10,20 +10,20 @@
     <div class="p-2 mt-12">
        <div class="relative grid grid-cols-1 sm:grid sm:grid-cols-2 mb-4 xl:h-[360px]">
           <canvas class="rounded-md" id="overview_tile"></canvas>
-          <div class="flex flex-col p-6 gap-20 justify-between bg-transparent border-b-[4px] border-stone-950 sm:border-0">
-             <p class="text-6xl md:text-7xl font-extrabold text-stone-900">Tom Kurzeka</p>
-             <p class="md:text-lg lg:text-xl text-stone-800">Digital Product Designer</p>
+          <div class="flex flex-col p-6 gap-20 justify-between bg-transparent border-b-[4px] border-zinc-950 sm:border-0">
+             <p class="text-6xl md:text-7xl font-extrabold text-zinc-900">Tom Kurzeka</p>
+             <p class="md:text-lg lg:text-xl text-zinc-800">Digital Product Designer</p>
           </div>
           <div class="grid grid-cols-2">
-             <div class="flex flex-col bg-transparent sm:border-l-[4px] border-b-[4px] border-stone-950 p-6 sm:p-4">
-                <p class="text-2xl md:text-3xl xl:text-4xl sm:text-right font-bold text-stone-900">Portland</p>
-                <p class="xl:text-xl sm:text-right uppercase font-semibold text-stone-700">Oregon</p>
+             <div class="flex flex-col bg-transparent sm:border-l-[4px] border-b-[4px] border-zinc-950 p-6 sm:p-4">
+                <p class="text-2xl md:text-3xl xl:text-4xl sm:text-right font-bold text-zinc-900">Portland</p>
+                <p class="xl:text-xl sm:text-right uppercase font-semibold text-zinc-700">Oregon</p>
              </div>
-             <div class="flex flex-col bg-transparent border-b-[4px] border-l-[4px] border-stone-950 p-6 sm:p-4">
-                <p class="sm:text-right text-2xl md:text-3xl xl:text-4xl font-bold text-stone-900" id="current-time">000</p>
-                <p class="sm:text-right xl:text-xl font-semibold text-stone-700">PST</p>
+             <div class="flex flex-col bg-transparent border-b-[4px] border-l-[4px] border-zinc-950 p-6 sm:p-4">
+                <p class="sm:text-right text-2xl md:text-3xl xl:text-4xl font-bold text-zinc-900" id="current-time">000</p>
+                <p class="sm:text-right xl:text-xl font-semibold text-zinc-700">PST</p>
              </div>
-             <p class="row-span-2 col-span-2 flex flex-col items-center justify-center px-6 py-10 sm:p-10 md:text-lg xl:text-xl text-stone-900 bg-transparent sm:border-l-[4px] border-stone-950">0-to-1 product designer. Passionate about visual craft & interaction design. Currently prototyping with LLM's, tinkering with frontend tools, and looking for my next role.</p>
+             <p class="row-span-2 col-span-2 flex flex-col items-center justify-center px-6 py-10 sm:p-10 md:text-lg xl:text-xl text-zinc-900 bg-transparent sm:border-l-[4px] border-zinc-950">0-to-1 product designer. Passionate about visual craft & interaction design. Currently prototyping with LLM's, tinkering with frontend tools, and looking for my next role.</p>
           </div>
        </div>
        <div class="grid grid-cols-1 sm:grid-cols-2 md:hidden gap-4 mb-4">
@@ -62,14 +62,14 @@
          </div>
          <div class="flex flex-col md:grid md:grid-cols-3 gap-4 mb-4">
             {% for post in blog[0:1] %}
-            <a class="group col-span-2 gap-4 bg-stone-900 p-4 md:p-10 border border-stone-800 rounded-md hover:border-stone-700" href="{{ url_for('post', name=post.path.replace('posts/', '')) }}">
-               <p class="text-sm text-stone-500 mb-2"> {{ post.date.strftime("%B %d, %Y") }} </p>
+            <a class="group col-span-2 gap-4 bg-zinc-900 p-4 md:p-10 border border-zinc-800 rounded-md hover:border-zinc-700" href="{{ url_for('post', name=post.path.replace('posts/', '')) }}">
+               <p class="text-sm text-zinc-500 mb-2"> {{ post.date.strftime("%B %d, %Y") }} </p>
                 <div class="flex flex-col gap-4 md:gap-12">
                   <div class="flex flex-col gap-2">
-                     <h2 class="text-xl text-stone-100">{{ post.title }}</h2>
-                     <p class="text-base text-stone-200">{{ post.preview }}</p>
+                     <h2 class="text-xl text-zinc-100">{{ post.title }}</h2>
+                     <p class="text-base text-zinc-200">{{ post.preview }}</p>
                   </div>
-                  <div class="inline-flex items-center font-medium text-stone-300 group-hover:text-stone-100 transition-all duration-100">
+                  <div class="inline-flex items-center font-medium text-zinc-300 group-hover:text-zinc-100 transition-all duration-100">
                      Read more
                      <svg class="w-4 h-4 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
@@ -78,9 +78,9 @@
                 </div>
             </a>
             {% endfor %}
-            <a href="{{url_for('blog')}}" class="group h-full w-full flex flex-col justify-between bg-stone-900 p-4 gap-4 md:p-10 border border-stone-800 rounded-md hover:border-stone-700 transition-all duration-100">
-               <h3 class="text-xl md:text-2xl text-stone-100 font-medium uppercase">The Tom Blog<span class="font-normal text-orange-400"> / Thoughts on Design / Creativity / Technology</span></h3>
-               <div class="inline-flex items-center font-medium text-stone-300 group-hover:text-stone-100 transition-all duration-100">View posts
+            <a href="{{url_for('blog')}}" class="group h-full w-full flex flex-col justify-between bg-zinc-900 p-4 gap-4 md:p-10 border border-zinc-800 rounded-md hover:border-zinc-700 transition-all duration-100">
+               <h3 class="text-xl md:text-2xl text-zinc-100 font-medium uppercase">The Tom Blog<span class="font-normal text-orange-400"> / Thoughts on Design / Creativity / Technology</span></h3>
+               <div class="inline-flex items-center font-medium text-zinc-300 group-hover:text-zinc-100 transition-all duration-100">View posts
                   <svg class="w-4 h-4 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                   </svg>
@@ -88,39 +88,42 @@
             </a>
          </div>
          <div class="flex flex-col md:grid md:grid-cols-3 gap-4 mb-4">
-            <div class="flex flex-col justify-center gap-2 bg-stone-900 p-10 md:p-8 xl:p-10 border border-stone-800 rounded-md group">
-               <p class="text-stone-100 text-lg font-medium">You are visitor</p>
+            <div class="relative flex flex-col justify-center gap-2 bg-zinc-900 p-10 md:p-8 xl:p-10 border border-zinc-800 rounded-md group">
+               <div class="absolute top-0 left-0 w-full h-full bg-zinc-950/90 flex flex-col items-center justify-center">
+                  <h3 class="text-zinc-300 font-semibold">Coming Soon!</h3>
+               </div>
+               <p class="text-zinc-100 text-lg font-medium">You are visitor</p>
                <p class="text-8xl font-extrabold text-pink-700 group-hover:text-emerald-700 transition-all duration-700">235</p>
             </div>
-            <div class="relative col-span-2 gap-4 bg-stone-900 p-4 lg:p-10 border border-stone-800 rounded-md">
-               <div class="absolute top-0 left-0 w-full h-full bg-stone-900/80 flex flex-col items-center justify-center">
-                  <h3 class="text-stone-300 drop-shadow-xl">Coming Soon!</h3>
+            <div class="relative col-span-2 gap-4 bg-zinc-900 p-4 lg:p-10 border border-zinc-800 rounded-md">
+               <div class="absolute top-0 left-0 w-full h-full bg-zinc-950/90 flex flex-col items-center justify-center">
+                  <h3 class="text-zinc-300 font-bold">Coming Soon!</h3>
                </div>
-               <h3 class="mb-2 text-lg font-semibold text-stone-100 dark:text-white">Tell me about yourself</h3>
-               <p class="mb-4 text-stone-100">Select the option that best describes your role</p>
-                  <ul class="items-center w-full text-base font-medium text-stone-100 bg-stone-800 border border-stone-700 rounded-md block lg:flex mb-4">
-                     <li class="w-full border-b border-stone-600 sm:border-b-0 sm:border-r dark:border-gray-600">
+               <h3 class="mb-2 text-lg font-semibold text-zinc-100 dark:text-white">Tell me about yourself</h3>
+               <p class="mb-4 text-zinc-100">Select the option that best describes your role</p>
+                  <ul class="items-center w-full text-base font-medium text-zinc-100 bg-zinc-800 border border-zinc-700 rounded-md block lg:flex mb-4">
+                     <li class="w-full border-b border-zinc-600 sm:border-b-0 sm:border-r dark:border-gray-600">
                         <div class="flex items-center pl-3">
-                              <input id="horizontal-list-radio-license" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-stone-900 border-gray-300 focus:ring-blue-500 focus:ring-2">
-                              <label for="horizontal-list-radio-license" class="w-full py-3 ml-2 text-sm font-medium text-stone-200">Recruiter</label>
+                              <input id="horizontal-list-radio-license" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-zinc-900 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                              <label for="horizontal-list-radio-license" class="w-full py-3 ml-2 text-sm font-medium text-zinc-200">Recruiter</label>
                         </div>
                      </li>
-                     <li class="w-full border-b-1 border-stone-600 sm:border-b-0 sm:border-r">
+                     <li class="w-full border-b-1 border-zinc-600 sm:border-b-0 sm:border-r">
                         <div class="flex items-center pl-3">
-                              <input id="horizontal-list-radio-id" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-stone-900 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                              <label for="horizontal-list-radio-id" class="w-full py-3 ml-2 text-sm font-medium text-stone-200  ">Hiring Manager</label>
+                              <input id="horizontal-list-radio-id" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600  border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                              <label for="horizontal-list-radio-id" class="w-full py-3 ml-2 text-sm font-medium text-zinc-200  ">Hiring Manager</label>
                         </div>
                      </li>
-                     <li class="w-full border-b border-stone-600 sm:border-b-0 sm:border-r">
+                     <li class="w-full border-b border-zinc-600 sm:border-b-0 sm:border-r">
                         <div class="flex items-center pl-3">
-                              <input id="horizontal-list-radio-millitary" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-stone-900 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                              <label for="horizontal-list-radio-millitary" class="w-full py-3 ml-2 text-sm font-medium text-stone-200">Design Manager</label>
+                              <input id="horizontal-list-radio-millitary" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-zinc-900 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                              <label for="horizontal-list-radio-millitary" class="w-full py-3 ml-2 text-sm font-medium text-zinc-200">Design Manager</label>
                         </div>
                      </li>
                      <li class="w-full">
                         <div class="flex items-center pl-3">
-                              <input id="horizontal-list-radio-passport" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-stone-900 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                              <label for="horizontal-list-radio-passport" class="w-full py-3 ml-2 text-sm font-medium text-stone-200">Designer (IC)</label>
+                              <input id="horizontal-list-radio-passport" type="radio" value="" name="list-radio" class="w-4 h-4 text-blue-600 bg-zinc-900 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                              <label for="horizontal-list-radio-passport" class="w-full py-3 ml-2 text-sm font-medium text-zinc-200">Designer (IC)</label>
                         </div>
                      </li>
                   </ul>

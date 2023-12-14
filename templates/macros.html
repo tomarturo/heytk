@@ -1,9 +1,9 @@
 {% macro project_tile(image, desc, cta, path) %}
-<a href="{{url_for(path)}}" class="flex flex-col group bg-stone-900 border border-stone-800 rounded-md hover:border-stone-700 transition duration-100">
+<a href="{{url_for(path)}}" class="flex flex-col group bg-zinc-900 border border-zinc-800 rounded-md hover:border-zinc-700 transition duration-100">
    <img class="rounded-t-md" src="/static/images/{{image}}"/>
    <div class="px-4 py-6 flex flex-col justify-between gap-4 grow">
-      <p class="grow font-normal text-stone-100">{{desc}}</p>
-      <div class="inline-flex items-center font-medium text-stone-300 group-hover:text-stone-100 transition-all duration-100">{{cta}}
+      <p class="grow font-normal text-zinc-100">{{desc}}</p>
+      <div class="inline-flex items-center font-medium text-zinc-300 group-hover:text-zinc-100 transition-all duration-100">{{cta}}
          <svg class="w-4 h-4 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
          </svg>
@@ -15,11 +15,11 @@
 {% macro nav_item(path, color, icon, name, current_endpoint) %}
 <li>
    {% if current_endpoint == path %}
-   <a href="{{url_for(path)}}" class="flex items-center p-2 bg-stone-900 ring ring-1 ring-stone-800 ring-inset text-stone-100 rounded-sm hover:bg-stone-900 hover:ring-stone-700 transition-all duration-100 group">   
+   <a href="{{url_for(path)}}" class="flex items-center p-2 bg-zinc-900 ring ring-1 ring-zinc-800 ring-inset text-zinc-100 rounded-sm hover:bg-zinc-900 hover:ring-zinc-700 transition-all duration-100 group">   
    {% else %}   
-   <a href="{{url_for(path)}}" class="flex items-center p-2 text-stone-300 rounded-sm hover:bg-stone-900 hover:ring-stone-700 hover:ring-inset hover:ring-1 transition-all duration-100 group"> 
+   <a href="{{url_for(path)}}" class="flex items-center p-2 text-zinc-300 rounded-sm hover:bg-zinc-900 hover:ring-zinc-700 hover:ring-inset hover:ring-1 transition-all duration-100 group"> 
    {% endif %}
-      <span class="w-8 h-8 text-stone-100 {{color}} rounded-sm flex items-center justify-center transition duration-75 group-hover:text-gray-900" aria-hidden="true">
+      <span class="w-8 h-8 text-zinc-100 {{color}} rounded-sm flex items-center justify-center transition duration-75 group-hover:text-gray-900" aria-hidden="true">
       <img src="/static/icons/{{icon}}" alt="">
       </span>
       <span class="text-sm ml-3">{{name}}</span>
@@ -28,14 +28,14 @@
 {% endmacro %}
 
 {% macro icebreaker_tile(icebreaker) %}
-<button class="icebreaker-tile flex items-center max-w-sm p-6 h-full w-full bg-stone-900 border border-stone-800 rounded-md hover:border hover:border-stone-700 group">
-   <div class="grow tile-text text-sm text-stone-300 group-hover:text-stone-100">{{icebreaker}}</div>
+<button class="icebreaker-tile flex items-center max-w-sm p-2 bg-zinc-900 border border-zinc-800 rounded-md hover:border hover:border-zinc-700 group">
+   <div class="tile-text text-sm text-zinc-300 group-hover:text-zinc-100 p-4">{{icebreaker}}</div>
 </button>
 {% endmacro %}
 
 {% macro case_study_title(text1) %}
-<div class="px-2 pt-24 pb-8 lg:ml-64 xl:px-12">
-   <h1 class="text-stone-50 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-center">{{text1}}</h1>
+<div class="px-2 pt-24 pb-16 lg:ml-64 xl:px-12">
+   <h1 class="text-zinc-50 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-center">{{text1}}</h1>
 </div>
 {% endmacro %}
 
@@ -44,37 +44,37 @@
 {% endmacro %}
 
 {% macro display_text_with_columns(text1, text2, text3) %}
-<div class="px-8 py-12 md:px-12 md:py-16 lg:px-8 py-12 xl:p-20 flex flex-col justify-between bg-stone-900 gap-16 xl:gap-24 rounded-md">
-   <h3 class="text-2xl md:text-3xl lg:text-4xl text-stone-100 font-bold">{{text1}}</h3>
-   <div class="flex flex-row gap-16">
-      <p class="text-base text-stone-300 lg:text-lg">{{text2}}</p>
-      <p class="text-base text-stone-300 lg:text-lg">{{text3}}</p>
+<div class="px-8 py-12 md:px-12 md:py-16 lg:px-8 py-12 xl:p-20 flex flex-col justify-between bg-zinc-900 gap-16 xl:gap-24 rounded-md">
+   <h3 class="text-2xl md:text-3xl lg:text-4xl text-zinc-100 font-bold">{{text1}}</h3>
+   <div class="flex flex-col gap-4 md:flex-row md:gap-16">
+      <p class="text-base text-zinc-300 lg:text-lg">{{text2}}</p>
+      <p class="text-base text-zinc-300 lg:text-lg">{{text3}}</p>
    </div>
 </div>
 {% endmacro %}
 
 {% macro paragraph_with_eyebrow(text1, text2) %}
-<div class="px-8 py-12 md:px-12 md:py-16 lg:px-8 py-12 xl:p-20 flex flex-col gap-12 bg-stone-900 rounded-md">
-   <p class="text-xs lg:text-sm font-bold text-stone-500 uppercase">{{text1}}</p>
-   <p class="text-base text-stone-300 lg:text-lg">{{text2}}</p>
+<div class="px-8 py-12 md:px-12 md:py-16 lg:px-8 py-12 xl:p-20 flex flex-col gap-12 bg-zinc-900 rounded-md">
+   <p class="text-xs lg:text-sm font-bold text-zinc-500 uppercase">{{text1}}</p>
+   <p class="text-base text-zinc-300 lg:text-lg">{{text2}}</p>
 </div>
 {% endmacro %}
 
 {% macro columns_with_eyebrow(text1, text2, text3) %}
-<div class="px-8 py-12 md:px-12 md:py-16 lg:px-8 py-12 xl:p-20 flex flex-col gap-12 bg-stone-900 rounded-md">
-   <p class="text-xs lg:text-sm font-bold text-stone-500 uppercase">{{text1}}</p>
-   <div class="flex flex-row gap-16">
-      <p class="text-base lg:text-lg text-stone-300">{{text2}}</p>
-      <p class="text-base lg:text-lg text-stone-300">{{text3}}</p>
+<div class="px-8 py-12 md:px-12 md:py-16 lg:px-8 py-12 xl:p-20 flex flex-col gap-12 bg-zinc-900 rounded-md">
+   <p class="text-xs lg:text-sm font-bold text-zinc-500 uppercase">{{text1}}</p>
+   <div class="flex flex-col gap-4 md:flex-row md:gap-16">
+      <p class="text-base lg:text-lg text-zinc-300">{{text2}}</p>
+      <p class="text-base lg:text-lg text-zinc-300">{{text3}}</p>
    </div>
 </div>
 {% endmacro %}
 
 {% macro three_paragraphs_vertical(text1, text2, text3) %}
-<div class="px-8 py-12 md:px-12 md:py-16 lg:px-8 py-12 xl:p-20 flex flex-col bg-stone-900 justify-between gap-12 rounded-md">
-   <p class="text-base lg:text-lg text-stone-300">{{text1}}</p>
-   <p class="text-base lg:text-lg text-stone-300">{{text2}}</p>
-   <p class="text-base lg:text-lg text-stone-300">{{text3}}</p>
+<div class="px-8 py-12 md:px-12 md:py-16 lg:px-8 py-12 xl:p-20 flex flex-col bg-zinc-900 justify-between gap-12 rounded-md">
+   <p class="text-base lg:text-lg text-zinc-300">{{text1}}</p>
+   <p class="text-base lg:text-lg text-zinc-300">{{text2}}</p>
+   <p class="text-base lg:text-lg text-zinc-300">{{text3}}</p>
 </div>
 {% endmacro %}
 
@@ -96,17 +96,17 @@
 
 {% macro three_data_points(point1, text1, point2, text2, point3, text3) %}
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-   <div class="w-full text-center py-12 px-4 items-center justify-center bg-stone-900 flex flex-col items-center gap-2 rounded-md">
-      <p class="text-2xl lg:text-3xl font-bold text-stone-300">{{point1}}</p>
-      <p class="text-xs lg:text-sm font-bold text-stone-500 uppercase">{{text1}}</p>
+   <div class="w-full text-center py-12 px-4 items-center justify-center bg-zinc-900 flex flex-col items-center gap-2 rounded-md">
+      <p class="text-2xl lg:text-3xl font-bold text-zinc-300">{{point1}}</p>
+      <p class="text-xs lg:text-sm font-bold text-zinc-500 uppercase">{{text1}}</p>
    </div>   
-   <div class="w-full text-center py-12 px-4 items-center justify-center bg-stone-900 flex flex-col items-center gap-2 rounded-md">
-      <p class="text-2xl lg:text-3xl font-bold text-stone-300">{{point2}}</p>
-      <p class="text-xs lg:text-sm font-bold text-stone-500 uppercase">{{text2}}</p>
+   <div class="w-full text-center py-12 px-4 items-center justify-center bg-zinc-900 flex flex-col items-center gap-2 rounded-md">
+      <p class="text-2xl lg:text-3xl font-bold text-zinc-300">{{point2}}</p>
+      <p class="text-xs lg:text-sm font-bold text-zinc-500 uppercase">{{text2}}</p>
    </div>   
-   <div class="w-full text-center py-12 px-4 items-center justify-center bg-stone-900 flex flex-col items-center gap-2 rounded-md">
-      <p class="text-2xl lg:text-3xl font-bold text-stone-300">{{point3}}</p>
-      <p class="text-xs lg:text-sm font-bold text-stone-500 uppercase">{{text3}}</p>
+   <div class="w-full text-center py-12 px-4 items-center justify-center bg-zinc-900 flex flex-col items-center gap-2 rounded-md">
+      <p class="text-2xl lg:text-3xl font-bold text-zinc-300">{{point3}}</p>
+      <p class="text-xs lg:text-sm font-bold text-zinc-500 uppercase">{{text3}}</p>
    </div>   
 </div>
 {% endmacro %}
