@@ -4,6 +4,8 @@ import openai
 from flask import Flask, request, jsonify, render_template
 from flask_flatpages import FlatPages, pygments_style_defs
 from flask_frozen import Freezer
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 DEBUG = True
 FLATPAGES_AUTO_RELOAD = DEBUG
@@ -21,72 +23,149 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # data
 worknav = [
-	{"name": "Overview",
-	"path": "/", 
-	"icon": "OV"},
 	{"name": "Solutions Marketing", 
 	"path": "solutions",
-	"icon": "SM"},
+	"icon": "puzzle.svg",
+    "color": "bg-orange-400"},
 	{"name": "Brand Kit",
-	"path": "brand-kit",
-	"icon": "BK"},
+	"path": "brand_kit",
+	"icon": "color-swatch.svg",
+    "color": "bg-green-300"},
 	{"name": "S'mores", 
-	"path": "s'mores", 
-	"icon": "DS"},
+	"path": "smores", 
+	"icon": "template.svg",
+    "color": "bg-blue-400"},
 	{"name": "Field Reports", 
-	"path": "field-reports", 
-	"icon": "FR"},
+	"path": "field_reports", 
+	"icon": "map.svg",
+    "color": "bg-pink-400"},
 ]
 
 personalnav = [
-	{"name": "The Tom Blog",
-	"path": "tom-blog",
-	"icon": "TTB"},
+     {"name": "ChatTK",
+     "path": "chat_tk",
+     "icon": "chat.svg",
+     "color": "bg-lime-400"},
 	{"name": "PooPal",
-	"path": "poo-pal",
-	"icon": "PP"},
-	{"name": "HeyTK",
-	"path": "hey-tk",
-	"icon": "HTK"},
-	{"name": "Next Steps",
-	"path": "next-steps",
-	"icon": "NS"},
+	"path": "poo_pal",
+	"icon": "map-pin.svg",
+    "color": "bg-orange-600"},
+    {"name": "The Tom Blog",
+	"path": "blog",
+	"icon": "rss.svg",
+    "color": "bg-purple-400"},
+	
+	# {"name": "HeyTK",
+	# "path": "hey-tk",
+	# "icon": "terminal.svg",
+    # "color": "bg-yellow-300"},
 ]
 
 miscnav = [
-	{"name": "About",
-	"path": "about",
-	"icon": "AB"},
-	{"name": "Contact",
-	"path": "contact",
-	"icon": "CT"}
+     {"name": "Home",
+      "path": "home",
+      "icon": "home.svg",
+      "color": "bg-fuchsia-500"},
+	#  {"name": "About",
+ 	# "path": "about",
+	# "icon": "book-open.svg",
+    # "color": "bg-green-500"},
+]
+
+contactnav = [
+    {"name": "Email me",
+    # "path": "mailto:tom.kurzeka@gmail.com",
+    "icon": "email.svg",},
+    {"name": "@tomarturo",
+    "path": "www.github.com/tomarturo",
+    "icon": "github-mark.svg"},
+    {"name": "Friend me",
+    "path": "www.linkedin.com/in/tomkurzeka",
+    "icon": "linked-in.svg"}
 ]
 
 projectheader = {
-    " ": {
-        "title": "Welcome, Earthling",
-        "company": "Tom Kurzeka",
-		"year": "2023"
+    "overview": {
+        "title": " ",
+        "company": "Welcome",
+		"year": " "
     },
     "solutions": {
         "title": "Solutions Marketing",
         "tag": ["b2b", "a/b testing", "strategy"],
         "company": "VistaPrint",
         "companyURL": "www.vistaprint.com",
-		"year": "2023"
+		"year": "2023 • "
     },
+    "blog": {
+        "title": "The Tom Blog",
+        "tag": ["creative", "quirky", "fascinating"],
+		"year": "Since 2018"
+    },
+    "chat-tk": {
+        "title": "ChatTK",
+        "tag": ["generative ai", "llm's", "curiosity"],
+        "year": "2023"
+    },
+    "brand-kit" : {
+         "title": "Brand Kit",
+         "tag": ["personalization", "interaction", "mvp"],
+         "company": "VistaPrint",
+         "companyURL": "www.vistaprint.com",
+         "year": "2023 •"
+    },
+    "smores" : {
+         "title": "S'mores Design System",
+         "tag": ["systems", "visual design", "ixd"],
+         "company": "The Dyrt",
+         "companyURL": "www.thedyrt.com",
+         "year": "2021 •"
+    },
+    "field-reports" : {
+         "title": "Field Reports",
+         "tag": ["iOS", "android", "data gathering"],
+         "company": "The Dyrt",
+         "companyURL": "www.thedyrt.com",
+         "year": "2021 •"
+    },
+    "poo-pal" : {
+         "title": "PooPal",
+         "tag": ["swift-ui", "low-code", "everyday prblmz"],
+         "company": " ",
+         "companyURL": " ",
+         "year": "2021"
+    }
 }
+
+icebreakers = [
+     "Tell me about Tom's professional experience.",
+     "Does Tom have experience with user research?",
+     "What is Tom looking for in his next role?",
+     "What is Tom's design perpsective?",
+     "What is Tom's favorite design tool?",
+     "What is Tom's perspective on pineapple on pizza?",
+     "What is Tom's design superpower?",
+     "Tell me about Tom's hobbies.",
+     "What is Tom's favorite color?",
+]
 
 context = {
 	"worknav": worknav,
 	"personalnav": personalnav,
 	"miscnav": miscnav,
+    "contactnav": contactnav,
+    "icebreakers": icebreakers,
 }
 
 # all routes
-@app.route('/')
-def index():
-    return render_template('index.html')
+@app.route("/")
+def home():
+    blog = [p for p in flatpages if p.path.startswith(POST_DIR)]
+    blog.sort(key=lambda item:item['date'], reverse=True)
+    context["blog"] = blog
+    selected_project = projectheader.get("home")
+    context["selected_project"] = selected_project
+    return render_template("home.html", **context)
 
 @app.route("/solutions")
 def solutions():
@@ -94,22 +173,58 @@ def solutions():
 	context["selected_project"] = selected_project
 	return render_template("solutions.html", **context)
 
+@app.route("/chat-tk")
+def chat_tk():
+	selected_project = projectheader.get("chat-tk")
+	context["selected_project"] = selected_project
+	return render_template("chat-tk.html", **context)
+
+@app.route("/brand-kit")
+def brand_kit():
+	selected_project = projectheader.get("brand-kit")
+	context["selected_project"] = selected_project
+	return render_template("brand-kit.html", **context)
+
+@app.route("/smores")
+def smores():
+	selected_project = projectheader.get("smores")
+	context["selected_project"] = selected_project
+	return render_template("smores.html", **context)
+
+@app.route("/field-reports")
+def field_reports():
+	selected_project = projectheader.get("field-reports")
+	context["selected_project"] = selected_project
+	return render_template("field-reports.html", **context)
+
+@app.route("/poo-pal")
+def poo_pal():
+	selected_project = projectheader.get("poo-pal")
+	context["selected_project"] = selected_project
+	return render_template("poo-pal.html", **context)
+
 # Blog routing
 # Route for displaying all posts
-@app.route("/posts/")
-def posts():
-    posts = [p for p in flatpages if p.path.startswith(POST_DIR)]
-    posts.sort(key=lambda item:item['date'], reverse=False)
-    return render_template('posts.html', posts=posts)
+@app.route("/blog")
+def blog():
+    selected_project = projectheader.get("blog")
+    blog = [p for p in flatpages if p.path.startswith(POST_DIR)]
+    blog.sort(key=lambda item:item['date'], reverse=True)
+    context["blog"] = blog
+    context["selected_project"] = selected_project
+    return render_template('blog.html', **context)
 
 # Creates a route for each individual post
-@app.route('/posts/<name>/')
+@app.route('/blog/<name>/')
 def post(name):
     path = '{}/{}'.format(POST_DIR, name)
     post = flatpages.get_or_404(path)
-    return render_template('post.html', post=post)
+    selected_project = projectheader.get("blog")
+    context["selected_project"] = selected_project
+    context["post"] = post
+    return render_template('post.html', **context)
 
-
+# Creates route for chat API call
 @app.route('/chat', methods=["POST", "GET"])
 def chat():
     if request.method == "POST":
@@ -127,6 +242,7 @@ def chat():
             - Tom has helped create, maintain, and grow design systems. 
             - Pineapple on pizza isn't his favorite, but Tom understands the attraction to that particular flavor profile.
             - Tom's favorite color is blue.
+            - Tom's favorite design tools are an Apple Pencil + iPad and Figma.
             
             Some things he looking for in his next role:
             - A product incorporating generative AI
@@ -201,9 +317,4 @@ def chat():
 
 # run app
 if __name__ == "__main__":
-    # app.run(debug=True, host='0.0.0.0')
-    if len(sys.argv) > 1 and sys.argv[1] == "build":
-        freezer.freeze()
-    else:
-        app.run(host='0.0.0.0', debug=True)
-
+    app.run()
