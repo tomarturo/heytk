@@ -3,4 +3,5 @@ venv
 .DS_Store
 conversation.py
 node_modules
+**/.DS_Store
 
