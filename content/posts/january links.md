@@ -8,7 +8,7 @@ What most excites me about this next step in my design journey is the opportunit
 
 I am right at the edge of my comfort zone, invigorated by the open space I have to explore, and diving whole-heartedly into what I hope will be a transformative experience for the product, the design team, and myself. Naturally, I've dug into conversations past and present on how to approach this kind of work. 
 
-Thusly, the first couple hot links of 2024 are some inspiring design vision talks. You'll find an enticing DIY touchID project and a wild Fender Guitars Custom shop build. 
+Thusly, the first couple hot links of 2024 are some inspiring design vision talks. You will also find an enticing DIY touchID project and a wild Fender Guitars Custom shop build. 
 
 ## 🌶️ &nbsp; Design is Vision
 This talk, moderated by Google Design, showcases three different perspectives on crafting a design vision. It is a great combination of practical, narrative, artistic, and daring approaches to developing and driving vision work. 

@@ -1,5 +1,5 @@
 date: 2023-12-15
-title: Melodicus - another YouTube looper
+title: Melodicus, another YouTube looper
 preview: Designing and building a better way to learn songs by ear
 
 A quick search for “YouTube looper” will yield a number sites named in the spirit of wordplay. LoopTube, Looper.tube, RepeatTube, YouTube. You get the point. 
