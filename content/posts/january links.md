@@ -2,7 +2,7 @@ date: 2024-01-26
 title:  Hot Links, January 2024
 preview: Design visions, DIY touch ID, and a wild Fender build 
 
-The new year is off to a solid start. I broke my unemployment streak and started a new role right before the holidays. My first day was back in December. I got acquainted with the organization over a couple weeks, took a wonderful holiday break, and it has been full steam ahead the calendar turned over to 2024. 
+The new year is off to a solid start. I broke my unemployment streak and started a new role right before the holidays. My first day was back in December. I got acquainted with the organization over a couple weeks, took a wonderful holiday break, and it has been full steam ahead since the calendar turned over to 2024. 
 
 What most excites me about this next step in my design journey is the opportunity to work on design vision initiatives. In my last role I witnessed ambitious vision efforts happening adjacent my UX pod. This year I've joined a smaller company - a startup hungry to envision its future. I am regularly encouraged by design leadership to have two workstreams: everyday experimentation + optimizations **and** a design vision track.
 
