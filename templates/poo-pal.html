@@ -3,7 +3,7 @@
 {% block content %} 
 
 {{ component.case_study_title(
-   "Solving an everyday problem with low-code tools"
+   "PooPal"
 ) }}
 
 <div class="px-4 lg:px-4 xl:px-20 lg:ml-64 pt-4 flex flex-col items-center mb-12">
@@ -76,8 +76,11 @@
       </div>
    </div>
    <div class="border-r-2 border-zinc-800 border-dotted h-24 self-center my-4"></div>   
-   <h2 class="text-zinc-100 text-xl font-medium mb-8">More coming soon!</h2>
-   <a href="https://tomdesigns.notion.site/tomdesigns/Learn-About-the-PooPal-Widget-87e2b50fec114d11a831cd91b2b9ac31" target="_blank" rel="noopener noreferrer"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none">View PooPal Widget Archive</button></a>
+   {{ component.display_text_with_columns(
+      "You don't always have to carry that dog poop around.",
+      "PooPal makes it easy to enjoy a walk without carrying dog poop with you the entire time. And it gives you the peace of mind that you won't forget to pick it back up on the way home.",
+      "I came up with the idea while hiking with my dog, Bird, a few summers ago. I was able to build a working prototype of the concept with iOS shortcuts in a matter of hours."
+   ) }},
+   <a href="https://tomdesigns.notion.site/tomdesigns/Learn-About-the-PooPal-Widget-87e2b50fec114d11a831cd91b2b9ac31" target="_blank" rel="noopener noreferrer"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none">Learn More About PooPal</button></a>
 </div>
-
 {% endblock content %}

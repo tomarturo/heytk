@@ -6,7 +6,7 @@
   "dependencies": {
     "flowbite": "^2.0.0"
   },
- "engines": {
+  "engines": {
     "node": "20.5.1"
   }
 }

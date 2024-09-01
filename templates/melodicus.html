@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %} Melodicus {% endblock %}
+{% block content %} 
+
+<div class="px-2 pt-24 pb-16 lg:ml-64 xl:px-12 flex flex-col gap-4">
+    {{ component.case_study_hero(
+     "/static/images/melodicus/melodicus sandu.png",
+       "Screenshot of the melodicus interface"
+       ) }}
+</div> 
+<div class="px-4 lg:px-4 xl:px-20 lg:ml-64 pt-4 flex flex-col items-center mb-12">   
+        {{ component.display_text_with_columns(
+            "Learn the songs and licks you love.",
+            "Melodicus is a no-frills platform that focuses on what matters most for developing your musical ear—the song. I built this out of a need for a simple tool to loop, slow down, and focus on challenging jazz guitar solos. ",
+            "It was also my first foray in to React and working with APIs. It has been an incredibly rewarding experience as a designer, developer, and musician. I use this tool everyday to practice, study, and learn new tunes."
+            ) }},
+            <a href="melodicus.vercel.app" target="_blank" rel="noopener noreferrer"><button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none">Explore Live Site</button></a>
+</div>
+
+{% endblock content %}

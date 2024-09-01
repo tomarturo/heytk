@@ -46,19 +46,18 @@ personalnav = [
      "path": "chat_tk",
      "icon": "chat.svg",
      "color": "bg-lime-400"},
-	{"name": "PooPal",
-	"path": "poo_pal",
-	"icon": "map-pin.svg",
-    "color": "bg-orange-600"},
+	{"name": "Melodicus",
+	"path": "melodicus",
+	"icon": "music-note.svg",
+    "color": "bg-teal-400"},
     {"name": "The Tom Blog",
 	"path": "blog",
 	"icon": "rss.svg",
     "color": "bg-purple-400"},
-	
-	# {"name": "HeyTK",
-	# "path": "hey-tk",
-	# "icon": "terminal.svg",
-    # "color": "bg-yellow-300"},
+	{"name": "PooPal",
+	"path": "poo_pal",
+	"icon": "map-pin.svg",
+    "color": "bg-orange-600"},
 ]
 
 miscnav = [
@@ -134,6 +133,14 @@ projectheader = {
          "company": " ",
          "companyURL": " ",
          "year": "2021"
+    },
+    
+    "melodicus" : {
+         "title": "Melodicus",
+         "tag": ["react", "api", "interaction"],
+         "company": " ",
+         "companyURL": " ",
+         "year": "2024"
     }
 }
 
@@ -202,6 +209,12 @@ def poo_pal():
 	selected_project = projectheader.get("poo-pal")
 	context["selected_project"] = selected_project
 	return render_template("poo-pal.html", **context)
+
+@app.route("/melodicus")
+def melodicus():
+	selected_project = projectheader.get("melodicus")
+	context["selected_project"] = selected_project
+	return render_template("melodicus.html", **context)
 
 # Blog routing
 # Route for displaying all posts
