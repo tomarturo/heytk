@@ -1,6 +1,6 @@
 {% macro project_tile(image, desc, cta, path) %}
 <a href="{{url_for(path)}}" class="flex flex-col group bg-zinc-900 border border-zinc-800 rounded-md hover:border-zinc-700 transition duration-100">
-   <img class="rounded-t-md" src="/static/images/{{image}}"/>
+   <img class="rounded-t-md" src="https://heytk.s3.us-west-2.amazonaws.com/images/{{image}}"/>
    <div class="px-4 py-6 flex flex-col justify-between gap-4 grow">
       <p class="grow font-normal text-zinc-100">{{desc}}</p>
       <div class="inline-flex items-center font-medium text-zinc-300 group-hover:text-zinc-100 transition-all duration-100">{{cta}}

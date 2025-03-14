@@ -12,7 +12,7 @@ I was laid off in June. I took a couple months to recalibrate. Then, in the heat
 My plan was to add a couple case studies to my existing portfolio and start applying in earnest. How long could that take? I figured I would be submitting applications before the end of the month.
 
 <figure>
-    <video autoplay loop muted><source src="/static/images/blog/2023-11-07/2022 folio.mp4" type="video/mp4" alt="scrolling through a previous version of my portfolio">Your browser does not support the video tag.</video>
+    <video autoplay loop muted><source src="https://heytk.s3.us-west-2.amazonaws.com/images/blog/2023-11-07/2022 folio.mp4" type="video/mp4" alt="scrolling through a previous version of my portfolio">Your browser does not support the video tag.</video>
     <figcaption>My 2021-2022 portfolio. Lots of scrolling required</figcaption>
 </figure>
 
@@ -28,7 +28,7 @@ Up until this point, I had been skeptical of the proliferation of chatbots and c
 
 The phrase that caught my ear was “a weird lexicon we’ve co-developed with Google.” I stopped at the top of Mt. Tabor. Bird sniffed at a tuft of grass while I rewound the conversation to hear the phrase again in context. 
 
-![no priors episode cover](/static/images/blog/2023-11-07/no%20priors.avif)
+![no priors episode cover](https://heytk.s3.us-west-2.amazonaws.com/images/blog/2023-11-07/no%20priors.avif)
 <figcaption>The podcast <a href="https://www.youtube.com/watch?v=g4VszCFonPk&ab_channel=NoPriors%3AAI%2CMachineLearning%2CTech%2C%26Startups" target="_blank">episode</a> that shifted my perspective</figcaption>
 
 I was taken by the idea that Google wasn't just determining the content we saw, but shaping our very behavior and use of language in seeking out information. And since our experience of the internet as a whole relies so heavily on search, our understanding of the internet as a technology is really eclipsed by Google's SEO model. 
@@ -49,7 +49,7 @@ After a couple days, I had a Streamlit app with a simple chat interface that cou
 In another flurry of searches, I discovered Langchain, a framework built to sit on top of an LLM, enabling developers to create “Retrieval Augmented Generative” chatbot. If you’ve heard of products that allow to “Chat with your .pdf’s” or “Chat with a knowledge base,” they are probably using some form of RAG.
 
 
-![langchain embeddings graphic](/static/images/blog/2023-11-07/langchain%20streamlit.jpeg) 
+![langchain embeddings graphic](https://heytk.s3.us-west-2.amazonaws.com/images/blog/2023-11-07/langchain%20streamlit.jpeg) 
 <figcaption>Illustration of the Langchain, LLM, Streamlit workflow from a <a href="https://blog.streamlit.io/langchain-tutorial-4-build-an-ask-the-doc-app/" target="_blank">Streamlit tutorial</a></figcaption>
 
 I created a corpus of information from my existing portfolio site. It included the short bio from my About page, the excerpts of work history from my Home page, and each of my case studies. I also added the monolithic case study I’d recently finished. And, pushing my Python and Google-fu skills to the limit, I managed to get LangChain, a vector database (ChromaDB), and OpenAI embeddings to work together. 
@@ -63,7 +63,7 @@ I was already using ChatGPT to troubleshoot various development quagmires. I loo
 
 This minimalist approach was short lived. I would still need to display visual design work if this chatbot was to play a role in my portfolio. A short search about multi-modal chat responses helped me realize returning images along with text was beyond my humble Pythonic means (for the moment). 
 
-![chat interface sketches](/static/images/blog/2023-11-07/chat%20sketches%20lg.png)
+![chat interface sketches](https://heytk.s3.us-west-2.amazonaws.com/images/blog/2023-11-07/chat%20sketches%20lg.png)
 
 I explored a number of different ways to merge the chat interface on top of, beside, or within a mix of visual artifacts.   
 
@@ -76,7 +76,7 @@ The Streamlit interface is embedded as an iframe on the left and a grid of visua
 
 Selecting an image opens Lightbox view. Clicking on a question tile copies the question to the clipboard. 
 
-![webflow prototype](/static/images/blog/2023-11-07/webflow%20proto.png)
+![webflow prototype](https://heytk.s3.us-west-2.amazonaws.com/images/blog/2023-11-07/webflow%20proto.png)
 <figcaption>Embedding a Streamlit app as an iframe in my existing Webflow project</figcaption>
 
 This first pass got me hyped, but my enthusiasm waned as I encountered the limitations of styling the Streamlit interface as an iframe.
@@ -90,15 +90,15 @@ My initials were never my nickname, but my younger sister has called me TK on oc
 
 Hey Siri. Okay Google. Hey TK. It has a nice rhythm to it. I was also deligthed to have an excuse to purchase another domain name :)
 
-![HeyTK logotype](/static/images/blog/2023-11-07/heytk%20logotype.png)
+![HeyTK logotype](https://heytk.s3.us-west-2.amazonaws.com/images/blog/2023-11-07/heytk%20logotype.png)
 <figcaption>Exploratory logotype made with <a href="https://ideogram.ai" target="_blank">Ideogram.ai</a></figcaption>
 
 I moved forward with the two column layout. My vision for the container of mockups and suggested questions evolved. I accepted I would probably need to provide some project context and outcomes alongside my mockups of finished work.
 
-![Concept exploration](/static/images/blog/2023-11-07/mvp%20layout%20exploration.png)
+![Concept exploration](https://heytk.s3.us-west-2.amazonaws.com/images/blog/2023-11-07/mvp%20layout%20exploration.png)
 <figcaption>A moderate compromise between the display grid and providing some context</figcaption>
 
-![Concept exploration 2](/static/images/blog/2023-11-07/layout%20exploration%202.png)
+![Concept exploration 2](https://heytk.s3.us-west-2.amazonaws.com/images/blog/2023-11-07/layout%20exploration%202.png)
 <figcaption>Moving towards a layout with a vertically scrolling case study column</figcaption>
 
 Part of my vision was keeping all of the case study content immediately accessible to the viewer. I wanted to keep it as simple as possible for recruiters and hiring managers to jump in and out of the breadth of my work all the while able to ask the chatbot quesitons about me. 
@@ -107,7 +107,7 @@ I found an awesome animation for an accordion style component on an agency websi
 
 Then I mocked up a few variations for display text and copy within color panels in the right hand column. After a few more explorations in Figma, I committed to a layout and built out the interface for the chatbot, the accordions, and four case studies. 
 
-<video autoplay loop muted><source src="/static/images/blog/2023-11-07/mvp scroll through.mp4" type="video/mp4" alt="scrolling through the mvp of my portfolio">Your browser does not support the video tag.</video>
+<video autoplay loop muted><source src="https://heytk.s3.us-west-2.amazonaws.com/images/blog/2023-11-07/mvp scroll through.mp4" type="video/mp4" alt="scrolling through the mvp of my portfolio">Your browser does not support the video tag.</video>
 <figcaption>The MVP in action. Note the fun accordion animations</figcaption>
 
 Fixing the position of the chat column was a decision I made to emphasize my interest in that kind of product and/or interface in the roles I was looking for next. This may not have been the best design decision, as fixing that column presented some responsive challenges and constrained the width of the main content area. 
@@ -138,7 +138,7 @@ And I realized I didn’t have any links.
 
 I hadn’t actually created any routes. All of the information in HeyTK was in a single index.html file and I was using javascript to show and hide different content. 
 
-<video autoplay loop muted><source src="/static/images/blog/2023-11-07/big index file.mp4" type="video/mp4" alt="scrolling through a long index file">Your browser does not support the video tag.</video>
+<video autoplay loop muted><source src="https://heytk.s3.us-west-2.amazonaws.com/images/blog/2023-11-07/big index file.mp4" type="video/mp4" alt="scrolling through a long index file">Your browser does not support the video tag.</video>
 <figcaption>The index.html file of the MVP site. Each highlighted line is the begining of a section containing a case study.</figcaption>
 
 Even if I had a specific case study relevant to that recruiter’s post, I wouldn’t have been able to send a link to it.
@@ -156,14 +156,14 @@ In the code challenge I was asked to add a Flowbite tabs component, wire it to s
 
 One element of the original design I wanted to keep intact in my rebuild was the ability for a user to easily access all of the case studies from any page. I watned to the scope of my work to be immediately apparent and the depth of it easily accessible. 
 
-![Flowbite sidebar component](/static/images/blog/2023-11-07/flowbite%20sidebar.png)
+![Flowbite sidebar component](https://heytk.s3.us-west-2.amazonaws.com/images/blog/2023-11-07/flowbite%20sidebar.png)
 <figcaption>Flowbite's sidebar <a href="https://flowbite.com/docs/components/sidebar/" target="_blank">component</a></figcaption>
 
 I thought a sidebar would be an improved and organized way of achieving the same effect provided by the multiple accordions on a single page in my MVP. It would also allow me to share links of specific case studies, which could be helpful in tailoring my application to different roles. 
 
 The Flowbite sidebar with all of the show/hide functionality out of the box saved me a good deal of time. Additionally, it was a great organizing principle for the rebuild.
 
-![Layout frame](/static/images/blog/2023-11-07/_layout.png)
+![Layout frame](https://heytk.s3.us-west-2.amazonaws.com/images/blog/2023-11-07/_layout.png)
 <figcaption>Framing the content area with the Flowbite sidebar</figcaption>
 
 ## Flask and Jinja
@@ -180,7 +180,7 @@ This endeavor started from a shift in my perspective about how we find things on
 
 It was a bonus to create something cool and discover my affinity for frontend work. It would be a double bonus for all of this exploration to resonate with a hiring manager at a company developing products in this space (*wink wink nudge nudge*).
 
-<video autoplay loop muted><source src="/static/images/blog/2023-11-07/mvp to v2.mp4" type="video/mp4" alt="showing mvp and v2 side by side">Your browser does not support the video tag.</video>
+<video autoplay loop muted><source src="https://heytk.s3.us-west-2.amazonaws.com/images/blog/2023-11-07/mvp to v2.mp4" type="video/mp4" alt="showing mvp and v2 side by side">Your browser does not support the video tag.</video>
 <figcaption>Reloading my portfolio after launching the new build</figcaption>
 
 I didn’t expect to find myself recreating my whole portfolio to try and accommodate a chatbot, only to rebuild it a second time doing just the opposite - nesting ChatTK in it’s own route like all of the other projects. 

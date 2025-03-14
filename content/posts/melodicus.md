@@ -12,7 +12,7 @@ My primary motivation in designing and building my YouTube looper — Melodicus 
 
 Moreover, I wanted an application that would be especially useable on my iPad, which I typically have resting on a music stand in the corner of my apartment dedicated to a couple guitars, amps, pedals, and too many music books. 
 
-![melodicus video page](/static/images/blog/2023-12-15/melodicus%20video.png)
+![melodicus video page](https://heytk.s3.us-west-2.amazonaws.com/images/blog/2023-12-15/melodicus%20video.png)
 
 Adjacent motivations for this project include teaching myself React, using a new UI library (Chakra UI), and thinking about a common utility from a product lens.
 

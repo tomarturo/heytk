@@ -5,7 +5,7 @@ preview: Exploring natural language queries, bottom sheet patterns, and autocomp
 This all started with checking out a library for a React bottom sheet component...and before I knew it I was tinkering with loading animations, creating a shader background, and making calls to multiple LLM providers.
 
 <figure>
-    <video autoplay loop muted><source src="/static/images/blog/2024-11-01/PQDemo.mp4" type="video/mp4" alt="demo of the multi-model web app, PrettyQuery">Your browser does not support the video tag.</video>
+    <video autoplay loop muted><source src="https://heytk.s3.us-west-2.amazonaws.com/images/blog/2024-11-01/PQDemo.mp4" type="video/mp4" alt="demo of the multi-model web app, PrettyQuery">Your browser does not support the video tag.</video>
     <figcaption>A short demo of PrettyQuery</figcaption>
 </figure>
 
