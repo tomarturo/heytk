@@ -1,11 +1,14 @@
 import sys
 import os
 import openai
+import boto3
+import json
 from flask import Flask, request, jsonify, render_template
 from flask_flatpages import FlatPages, pygments_style_defs
 from flask_frozen import Freezer
 from datetime import datetime
 from zoneinfo import ZoneInfo
+from botocore.exceptions import ClientError
 
 DEBUG = True
 FLATPAGES_AUTO_RELOAD = DEBUG
@@ -17,6 +20,13 @@ app = Flask(__name__)
 flatpages = FlatPages(app)
 freezer = Freezer(app)
 app.config.from_object(__name__)
+
+# AWS S3 configuration
+S3_BUCKET = os.getenv('S3_BUCKET', 'heytk')
+COUNTER_FILE = 'visitor_counter.json' 
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+AWS_REGION = os.getenv('AWS_REGION', 'us-west-2')
 
 # Set your OpenAI API key here
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -328,6 +338,55 @@ def chat():
 
     return jsonify({"error": "Invalid request"})
 
+#Visitor counter via S3 
+#initialize S3 client
+s3_client = boto3.client('s3')
+
+def get_visitor_count():
+      """Get the current visitor count from S3"""
+      try: 
+            #attempt to get the count file from S3
+            response = s3_client.get_object(Bucket=S3_BUCKET, Key=COUNTER_FILE)
+            data = json.loads(response['Body'].read().decode('utf-8'))
+            return data.get('count', 0)
+      except ClientError as e: 
+            if e.response['Error']['Code'] == 'NoSuchKey':
+                # File does not exist yet, initialize count
+                init_counter()
+                return 0
+            else: 
+                  print(f"error getting counter from S3: {e}")
+                  return 0
+            
+def increment_visitor_count():
+     """Get the current count and increment it"""
+     current_count = get_visitor_count()
+     new_count = current_count + 1
+
+     try: 
+          s3_client.put_object(
+               Bucket=S3_BUCKET,
+               Key=COUNTER_FILE,
+               Body=json.dumps({'count': new_count}),
+               ContentType='application/json'
+          )
+          return new_count
+     except Exception as e:
+          print(f"Error updating count in S3: {3}")
+          return current_count
+
+@app.route('/api/visitor-count', methods=['GET'])
+def get_current_count():
+     """API endpoint to get current visitor count without incrementing"""
+     count = get_visitor_count()
+     return jsonify({"visitorCount": count})
+
+@app.route('/api/visitor-number', methods=['POST'])
+def get_visitor_number():
+     """API endpoint to get and increment visitor number"""
+     count = increment_visitor_count()
+     return jsonify({"visitorNumber": count})
+     
 # run app
 if __name__ == "__main__":
     app.run()

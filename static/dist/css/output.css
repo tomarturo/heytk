@@ -1661,10 +1661,6 @@ input:checked + .toggle-bg {
   position: relative;
 }
 
-.sticky {
-  position: sticky;
-}
-
 .inset-0 {
   inset: 0px;
 }
@@ -1743,11 +1739,6 @@ input:checked + .toggle-bg {
   margin-right: 2rem;
 }
 
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -1799,6 +1790,26 @@ input:checked + .toggle-bg {
 
 .mt-2 {
   margin-top: 0.5rem;
+}
+
+.-mt-10 {
+  margin-top: -2.5rem;
+}
+
+.-mt-16 {
+  margin-top: -4rem;
+}
+
+.-mt-20 {
+  margin-top: -5rem;
+}
+
+.-mt-12 {
+  margin-top: -3rem;
+}
+
+.-mt-24 {
+  margin-top: -6rem;
 }
 
 .block {
@@ -1889,6 +1900,10 @@ input:checked + .toggle-bg {
   height: 32px;
 }
 
+.h-auto {
+  height: auto;
+}
+
 .h-full {
   height: 100%;
 }
@@ -1969,20 +1984,12 @@ input:checked + .toggle-bg {
   width: 100%;
 }
 
-.w-auto {
-  width: auto;
-}
-
 .max-w-3xl {
   max-width: 48rem;
 }
 
 .max-w-6xl {
   max-width: 72rem;
-}
-
-.max-w-\[1280px\] {
-  max-width: 1280px;
 }
 
 .max-w-\[55\%\] {
@@ -2708,6 +2715,18 @@ input:checked + .toggle-bg {
   padding-top: 2rem;
 }
 
+.pl-4 {
+  padding-left: 1rem;
+}
+
+.pr-4 {
+  padding-right: 1rem;
+}
+
+.pb-0 {
+  padding-bottom: 0px;
+}
+
 .text-center {
   text-align: center;
 }
@@ -2755,6 +2774,11 @@ input:checked + .toggle-bg {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-9xl {
+  font-size: 8rem;
+  line-height: 1;
 }
 
 .font-bold {
@@ -2964,6 +2988,12 @@ input:checked + .toggle-bg {
   transition-duration: 150ms;
 }
 
+.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .duration-100 {
   transition-duration: 100ms;
 }
@@ -2974,6 +3004,10 @@ input:checked + .toggle-bg {
 
 .duration-75 {
   transition-duration: 75ms;
+}
+
+.duration-1000 {
+  transition-duration: 1000ms;
 }
 
 .ease-in-out {
@@ -3123,6 +3157,14 @@ input:checked + .toggle-bg {
 .group:hover .group-hover\:bg-zinc-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(39 39 42 / var(--tw-bg-opacity));
+}
+
+.group:hover .group-hover\:fill-\[url\(\#hoverGradient\)\] {
+  fill: url(#hoverGradient);
+}
+
+.group:hover .group-hover\:stroke-emerald-700 {
+  stroke: #047857;
 }
 
 .group:hover .group-hover\:text-emerald-700 {
@@ -3518,6 +3560,30 @@ input:checked + .toggle-bg {
     padding-bottom: 4rem;
   }
 
+  .md\:pb-2 {
+    padding-bottom: 0.5rem;
+  }
+
+  .md\:pl-8 {
+    padding-left: 2rem;
+  }
+
+  .md\:pr-8 {
+    padding-right: 2rem;
+  }
+
+  .md\:pt-8 {
+    padding-top: 2rem;
+  }
+
+  .md\:pb-0 {
+    padding-bottom: 0px;
+  }
+
+  .md\:pb-1 {
+    padding-bottom: 0.25rem;
+  }
+
   .md\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -3541,6 +3607,11 @@ input:checked + .toggle-bg {
   .md\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
+  }
+
+  .md\:text-8xl {
+    font-size: 6rem;
+    line-height: 1;
   }
 }
 
@@ -3661,6 +3732,10 @@ input:checked + .toggle-bg {
     padding: 5rem;
   }
 
+  .xl\:p-2 {
+    padding: 0.5rem;
+  }
+
   .xl\:px-12 {
     padding-left: 3rem;
     padding-right: 3rem;
@@ -3673,6 +3748,30 @@ input:checked + .toggle-bg {
 
   .xl\:pb-64 {
     padding-bottom: 16rem;
+  }
+
+  .xl\:pb-2 {
+    padding-bottom: 0.5rem;
+  }
+
+  .xl\:pl-10 {
+    padding-left: 2.5rem;
+  }
+
+  .xl\:pr-10 {
+    padding-right: 2.5rem;
+  }
+
+  .xl\:pt-10 {
+    padding-top: 2.5rem;
+  }
+
+  .xl\:pb-1 {
+    padding-bottom: 0.25rem;
+  }
+
+  .xl\:pb-0 {
+    padding-bottom: 0px;
   }
 
   .xl\:text-4xl {
