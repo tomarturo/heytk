@@ -3,6 +3,7 @@ import os
 import openai
 import boto3
 import json
+import re
 from flask import Flask, request, jsonify, render_template
 from flask_flatpages import FlatPages, pygments_style_defs
 from flask_frozen import Freezer
@@ -31,49 +32,62 @@ AWS_REGION = os.getenv('AWS_REGION', 'us-west-2')
 # Set your OpenAI API key here
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+def read_svg(filename, color=None):
+    with open(f"static/icons/{filename}", 'r') as file:
+        svg_content = file.read()
+        
+        # If a color is provided, replace the fill attribute in path tags
+        if color:
+            # Replace fill attribute values in path tags
+            svg_content = re.sub(r'(<path\b[^>]*?)fill="[^"]*"([^>]*?>)', 
+                                r'\1fill="' + color + r'"\2', 
+                                svg_content)
+            
+        return svg_content
+
 # data
 worknav = [
 	{"name": "Solutions Marketing", 
 	"path": "solutions",
-	"icon": "puzzle.svg",
+	"icon": read_svg("puzzle.svg", "#FB923C"),
     "color": "bg-orange-400"},
 	{"name": "Brand Kit",
 	"path": "brand_kit",
-	"icon": "color-swatch.svg",
+	"icon": read_svg("color-swatch.svg", "#86EFAC"),
     "color": "bg-green-300"},
 	{"name": "S'mores", 
 	"path": "smores", 
-	"icon": "template.svg",
+	"icon": read_svg("template.svg", "#60A5FA"),
     "color": "bg-blue-400"},
 	{"name": "Field Reports", 
 	"path": "field_reports", 
-	"icon": "map.svg",
+	"icon": read_svg("map.svg", "#F472B6"),
     "color": "bg-pink-400"},
 ]
 
 personalnav = [
      {"name": "ChatTK",
      "path": "chat_tk",
-     "icon": "chat.svg",
+     "icon": read_svg("chat.svg", "#A3E635"),
      "color": "bg-lime-400"},
 	{"name": "Melodicus",
 	"path": "melodicus",
-	"icon": "music-note.svg",
+	"icon": read_svg("music-note.svg", "#2DD4BF"),
     "color": "bg-teal-400"},
     {"name": "The Tom Blog",
 	"path": "blog",
-	"icon": "rss.svg",
+	"icon": read_svg("rss.svg", "#C084FC"),
     "color": "bg-purple-400"},
 	{"name": "PooPal",
 	"path": "poo_pal",
-	"icon": "map-pin.svg",
+	"icon": read_svg("map-pin.svg","#EA580C"),
     "color": "bg-orange-600"},
 ]
 
 miscnav = [
      {"name": "Home",
       "path": "home",
-      "icon": "home.svg",
+      "icon": read_svg("home.svg", "#D946EF"),
       "color": "bg-fuchsia-500"},
 	#  {"name": "About",
  	# "path": "about",
