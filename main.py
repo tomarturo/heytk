@@ -352,7 +352,7 @@ def get_visitor_count():
       except ClientError as e: 
             if e.response['Error']['Code'] == 'NoSuchKey':
                 # File does not exist yet, initialize count
-                init_counter()
+                print(f"Counter file does not exist in S3 bucket: {S3_BUCKET}")
                 return 0
             else: 
                   print(f"error getting counter from S3: {e}")
